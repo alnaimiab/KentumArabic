@@ -1,0 +1,31 @@
+# Build output
+bin/
+obj/
+dist/
+*.user
+*.suo
+
+# Extractor output — contains Tlön Industries' copyrighted source text.
+# NEVER commit this. See THIRD-PARTY-NOTICES.md.
+_dump/
+**/_dump/
+
+# Unity
+unity/FontBuilder/Library/
+unity/FontBuilder/Temp/
+unity/FontBuilder/Logs/
+unity/FontBuilder/UserSettings/
+unity/FontBuilder/obj/
+unity/FontBuilder/Build/
+unity/FontBuilder/*.csproj
+unity/FontBuilder/*.sln
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local dev config
+.env
+local.props

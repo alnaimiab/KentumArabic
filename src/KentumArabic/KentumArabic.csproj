@@ -1,0 +1,86 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>KentumArabic</AssemblyName>
+    <RootNamespace>KentumArabic</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <Product>Kentum Arabic Translation</Product>
+    <Company>KentumArabic contributors</Company>
+
+    <!-- Unity/BepInEx plugins must not carry a deps.json or ref assemblies. -->
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>portable</DebugType>
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+
+    <!-- Unity's Mono has no nullable reference type metadata; keep it quiet. -->
+    <Nullable>disable</Nullable>
+    <NoWarn>$(NoWarn);CS0649;CS0169;NU1701</NoWarn>
+    <!--
+      Unity's Mono ships its own System.Net.Http, which the netstandard2.1 reference pack also
+      provides. We never touch it (network calls go through UnityWebRequest), and at runtime the
+      game's copy is the only one loaded, so the version conflict is not meaningful here.
+    -->
+    <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);MSB3277</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+
+  <!--
+    Game and loader assemblies are resolved from the local install.
+    Set KENTUM_DIR to your Kentum install root, e.g.
+      setx KENTUM_DIR "C:\Program Files (x86)\Steam\steamapps\common\Kentum"
+    or create local.props next to this file with <KentumDir>...</KentumDir>.
+    We never redistribute these DLLs — see THIRD-PARTY-NOTICES.md.
+  -->
+  <Import Project="local.props" Condition="Exists('local.props')" />
+
+  <PropertyGroup>
+    <KentumDir Condition="'$(KentumDir)' == ''">$(KENTUM_DIR)</KentumDir>
+    <KentumDir Condition="'$(KentumDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Kentum</KentumDir>
+    <KentumManaged>$(KentumDir)\Kentum_Data\Managed</KentumManaged>
+    <BepInExCore>$(KentumDir)\BepInEx\core</BepInExCore>
+  </PropertyGroup>
+
+  <Target Name="VerifyKentumDir" BeforeTargets="BeforeBuild">
+    <Error Condition="!Exists('$(KentumManaged)')"
+           Text="Kentum managed assemblies not found at '$(KentumManaged)'. Set the KENTUM_DIR environment variable to your Kentum install root, or create src/KentumArabic/local.props with &lt;PropertyGroup&gt;&lt;KentumDir&gt;...&lt;/KentumDir&gt;&lt;/PropertyGroup&gt;." />
+    <Error Condition="!Exists('$(BepInExCore)')"
+           Text="BepInEx core not found at '$(BepInExCore)'. Run scripts/setup-dev.ps1 to install BepInEx 5 into the game folder first." />
+  </Target>
+
+  <ItemGroup>
+    <!-- Loader -->
+    <Reference Include="BepInEx"><HintPath>$(BepInExCore)\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCore)\0Harmony.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Unity engine -->
+    <Reference Include="UnityEngine"><HintPath>$(KentumManaged)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(KentumManaged)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(KentumManaged)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UIModule"><HintPath>$(KentumManaged)\UnityEngine.UIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(KentumManaged)\UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(KentumManaged)\UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextCoreFontEngineModule"><HintPath>$(KentumManaged)\UnityEngine.TextCoreFontEngineModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AssetBundleModule"><HintPath>$(KentumManaged)\UnityEngine.AssetBundleModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(KentumManaged)\UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule"><HintPath>$(KentumManaged)\UnityEngine.ScreenCaptureModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule"><HintPath>$(KentumManaged)\UnityEngine.UnityWebRequestModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.InputSystem"><HintPath>$(KentumManaged)\Unity.InputSystem.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Text -->
+    <Reference Include="Unity.TextMeshPro"><HintPath>$(KentumManaged)\Unity.TextMeshPro.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Localization backend -->
+    <Reference Include="PixelCrushers"><HintPath>$(KentumManaged)\PixelCrushers.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="DialogueSystem"><HintPath>$(KentumManaged)\DialogueSystem.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Game code -->
+    <Reference Include="Tlon.Kentum.GeneralAssembly"><HintPath>$(KentumManaged)\Tlon.Kentum.GeneralAssembly.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Tlon.UIAssembly"><HintPath>$(KentumManaged)\Tlon.UIAssembly.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+# تعريب Kentum — نصوص الواجهة
+#
+# هذا ملف بذرة صغير للتحقق من عمل النظام (المرحلة M1).
+# استبدله بالمخرجات الكاملة من أداة الاستخراج: شغّل اللعبة واضغط Ctrl+F12،
+# ثم انسخ ملفات _dump/ui_*.tsv إلى هنا وترجم عمود ar.
+#
+# القواعد:
+#   - الأعمدة مفصولة بمسافة جدولة (TAB)، والترميز UTF-8.
+#   - اكتب العربية عادية منطقية — لا تشكّل الحروف ولا تعكسها يدويًا، الإضافة تتولى ذلك.
+#   - السطر الجديد يُكتب \n حرفيًا (نفس اصطلاح اللعبة نفسها).
+#   - خلية ar فارغة = غير مترجم بعد، وستظهر بالإنجليزية. هذا آمن تمامًا.
+#   - حافظ على العناصر النائبة مثل {0} و{1} كما هي، وعلى وسوم مثل <color=...> سليمة.
+#
+key	ar	en	es	flags
+UI_Options_Language	اللغة	Language
+UI_Options_VOLanguage	لغة الأداء الصوتي	Voice Language
+UI_Options_VOLanguage_SameAsLanguage	نفس لغة اللعبة	Same as language
+UI_General_Select	اختيار	Select
+UI_BaseExpansion_Title	توسعة القاعدة	Base Expansion
+UI_BaseExpansion_SettingsButton	الإعدادات	Settings
+UI_BaseExpansion_Subcategory_Crafting	التصنيع	Crafting
+UI_BaseExpansion_Subcategory_Storage	التخزين	Storage

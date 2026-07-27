@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Console harness for the Arabic shaping pipeline.
+
+    Shaping is pure string -> string, so it can be exercised without launching the game. That
+    turns a 90-second launch-and-screenshot cycle into a sub-second one, and doubles as a
+    regression test for the rich-text and bidi edge cases that are easy to break.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>ShaperTest</AssemblyName>
+    <RootNamespace>ShaperTest</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\KentumArabic\Shaping\RTLTMPro\**\*.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+</Project>

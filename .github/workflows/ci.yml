@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # Translation files are edited by translators, not programmers, so the checks that matter
+  # most run first and need no game install: a lost {0} placeholder or an unbalanced <color>
+  # tag breaks the game at runtime and is invisible in a spreadsheet.
+  validate-translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install tooling
+        run: python -m pip install --quiet fonttools
+
+      - name: Validate TSV translation files
+        run: python tools/validate_tsv.py content/strings
+
+      - name: Verify fonts can render shaped Arabic
+        run: |
+          python tools/check_font_coverage.py "content/fonts/*.ttf" \
+            --text "content/strings/*.tsv"
+
+      - name: Ensure no game content is committed
+        run: |
+          # _dump/ holds Tlön Industries' original English and Spanish text. It must never
+          # be published; the repo carries keys and the Arabic column only.
+          if git ls-files | grep -E '(^|/)_dump/' ; then
+            echo "::error::_dump/ is committed. It contains the developer's copyrighted source text."
+            exit 1
+          fi
+          if git ls-files | grep -iE '\.(unity3d|assets|resource)$|Tlon\..*\.dll|PixelCrushers\.dll' ; then
+            echo "::error::Game assets or assemblies are committed. These must never be redistributed."
+            exit 1
+          fi
+          echo "No game content committed."
+
+  # The shaping pipeline is pure string -> string, so it is fully testable without Unity or
+  # the game. This is what catches rich-text and bidi regressions.
+  shaping-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Run shaping regression suite
+        run: dotnet run --project tools/ShaperTest -c Release
+
+  # The plugin itself only builds against a real Kentum install (its assemblies are referenced,
+  # never redistributed), so this job checks what it can without one.
+  build-plugin:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Confirm the build fails cleanly without the game
+        shell: pwsh
+        run: |
+          $out = dotnet build src/KentumArabic -c Release 2>&1 | Out-String
+          if ($out -match 'Kentum managed assemblies not found') {
+            Write-Host "Build guard works: a missing game install produces an actionable error."
+            exit 0
+          }
+          Write-Host $out
+          Write-Host "::error::Expected the KENTUM_DIR guard to fire on a runner with no game install."
+          exit 1
