@@ -1,0 +1,32 @@
+# تعريب Kentum — النوافذ التعليمية
+key	ar
+
+Popup_AbilityBinding_Title	تبديل المهارة الثانوية
+Popup_AbilityBinding_Description	يمكنك التبديل بين القدرات باستخدام <input=Mock/AbilityMenu> والاختيار من القدرات المتاحة بـ<input=UI/Abilities_Navigation>
+Popup_AbilityBinding_Stick_Title	تغيير المهارة الثانوية
+Popup_AbilityBinding_Stick_Description	يمكنك تغيير القدرة الثانوية باستخدام <input=Mock/AbilityMenu_Mock>.
+Popup_AutomationPanel_Name	لوحة الأتمتة
+Popup_AutomationPanel_Description	يمكنك نقل العناصر المتوفرة في القاعدة إلى خانة <color=#008aff><b>الإدخال</b></color> في الآلة.
+Popup_Automation_Title	الأتمتة: «المخالب والأحزمة الناقلة»
+Popup_Automation_Description	تُستخدم المخالب لجمع العناصر من مدخلها ونقلها إلى مخرجها. بعض المخالب تنقل العناصر جانبيًا، وبعضها ينزلها إلى الأرض. ويمكن إقرانها بأحزمة ناقلة تنقل العناصر أفقيًا في اتجاه محدد.
+Popup_Automation_Belts_Title	الأتمتة: الأحزمة
+Popup_Automation_Belts_Description	تنقل الأحزمة الناقلة العناصر عبر القاعدة في اتجاه أفقي واحد محدد.
+Popup_Automation_Claws_Title	الأتمتة: المخالب
+Popup_Automation_Claws_Description	تستطيع مخالب العمل التقاط العناصر من الأرض أو من الآلات، ووضعها في آلات أخرى تحتاجها أو في المخزن.
+Popup_Automation_Drones_Name	الأتمتة: المسيّرات
+Popup_Automation_Drones_Description	تنطلق المسيّرات في الهواء فتخطف العناصر من مناطق الإدخال الصفراء وتوصلها مباشرة إلى مناطق الإخراج الخضراء. بلا حاجة إلى أحزمة ناقلة!
+Popup_Automation_Filters_Name	المرشّحات
+Popup_Automation_Filters_Description	اضغط <input=UI/BaseExpansion_Options> لتطبيق مرشّحات على آلة أو مخزن. الحاوية المرشَّحة لن تقبل سوى العناصر المحددة عند الأتمتة. ويمكن إضافة عدة عناصر كمرشّحات، أما ما عداها فيجب وضعه يدويًا.
+Popup_Automation_Settings_Name	الإعدادات
+Popup_Automation_Settings_Description	اضغط <input=UI/BaseExpansion_Options> لفتح لوحة إعدادات الآلة. ومن هنا يمكنك ضبط تهيئتها وتخصيص طريقة عملها.
+Popup_Automation_StoringItems_Name	التصنيع الآلي
+Popup_Automation_StoringItems_Description	اضغط <input=UI/Crafting_ChangeAutomatedRecipe> لتعيين عنصر للأتمتة.\n\nستوصّل مخالب العمل الموارد أو تزيلها حسب الحاجة. وبعد الأتمتة ستصنع الآلة العنصر المحدد كلما توفرت المواد اللازمة أو زُوّدت بها.
+Popup_Automation_Tier2_Title	الأتمتة
+Popup_Automation_Tier2_Description	تتيح هذه التقنية استخدام الآلات <b>لأتمتة</b> إنتاج القاعدة.\n\nتستطيع هذه الآلات نقل المواد عبر القاعدة، ووضعها في آلات للتصنيع أو في المخزن.
+Popup_Automation_Tier3_Title	الأتمتة المتقدّمة
+Popup_Automation_Tier3_Description	يفتح هذا مسيّرات العمل التي تنقل الموارد عبر القاعدة بكفاءة أعلى. كما يتيح نقل المواد أفقيًا. وتتوفر الآن أيضًا أنواع جديدة من مخالب العمل أسرع من سابقاتها.
+Popup_BaseExpansion_GenericFlip	يمكنك قلبه بـ<input=UI/BaseExpansion_Build_Flip>
+Popup_ControllerDisconnected_Name	انقطع اتصال وحدة التحكم
+Popup_ControllerDisconnected_Description	تحذير، انقطع اتصال أداة التحكم الحالية فجأة.
+Popup_Drill_Name	آلة المثاقب المحمولة
+Popup_Drill_Description	يمكنك وضع المثاقب المحمولة المصنوعة في هذه الآلة فوق عروق الموارد في البرية. ستولّد الآلة موارد جديدة، وعليك استرجاعها بين الحين والآخر. وهناك حد أقصى لكمية الموارد التي تسعها الآلة، فتذكّر زيارتها بانتظام. كما أن العروق قد تنضب.

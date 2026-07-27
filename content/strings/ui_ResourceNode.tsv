@@ -1,0 +1,31 @@
+# تعريب Kentum — عُقد الموارد والعروق
+key	ar
+
+ResourceNode_StoneNode_Name	عقدة حجرية
+ResourceNode_StoneNode_Description	العقدة الحجرية ترسّب معدني متين يوفّر الحجر الأساسي وكمية صغيرة من الدورانيوم، وهو معدن نادر. مورد متعدد الاستخدامات مثالي للبناء الأساسي والتصنيع المتقدّم معًا، ما يجعله ثروة لأي بنّاء.
+ResourceNode_DirtNode_Name	عقدة الحجر الجيري
+ResourceNode_DirtNode_Description	تكوين من الحجر الجيري يوجد في مناطق كثيرة. اضربه بقوة لحصاده.
+ResourceNode_ClayNode_Name	عقدة الطين
+ResourceNode_ClayNode_Description	تكوين طبيعي من الطين الجاهز للاستخدام. حصاده ينبغي أن يكون سهلًا.
+ResourceNode_CopperNode_Name	عقدة النحاس
+ResourceNode_CopperNode_Description	ترسّب معدني يوفّر خام النحاس الأساسي.
+ResourceNode_GoldNode_Name	عقدة الذهب
+ResourceNode_GoldNode_Description	ترسّب معدني يوفّر خام الذهب الأساسي.
+ResourceNode_PlatinumNode_Name	عقدة البلاتين
+ResourceNode_PlatinumNode_Description	عقدة البلاتين ترسّب معدني متين يوفّر خام البلاتين الأساسي، المستخدم في صنع خيوط عالية التوصيل للدارات المتقدّمة.
+ResourceNode_DuraniumScrap_Name	حطام دورانيوم
+ResourceNode_DuraniumScrap_Description	كتلة كبيرة من خردة الدورانيوم يمكن إنقاذها. ممتازة للتصنيع.
+ResourceNode_SpaceJunkNode_Name	عقدة حطام فضائي
+ResourceNode_SpaceJunkNode_Description	عقدة من خردة فضائية سقطت من المدار. مادة خردة ممتازة للتصنيع.
+ResourceNode_Megavein_Clay_Name	عرق الطين
+ResourceNode_Megavein_Clay_Description	ترسّب جوفي ضخم من الطين. يمكن حصاده بمثقاب الاستخراج.
+ResourceNode_Megavein_Duranium_Name	عرق الدورانيوم
+ResourceNode_Megavein_Duranium_Description	ترسّب جوفي ضخم من الدورانيوم. يمكن حصاده بمثقاب الاستخراج.
+ResourceNode_Megavein_Plastic_Name	عرق البلاستيك
+ResourceNode_Megavein_Plastic_Description	ترسّب جوفي ضخم من البلاستيك الدقيق. يمكن حصاده بمثقاب الاستخراج.
+ResourceNode_Megavein_Silica_Name	عرق السيليكا
+ResourceNode_Megavein_Silica_Description	عرق يحتوي على كمية هائلة من خام السيليكا.
+ResourceNode_Megavein_Trashium_Name	عرق التراشيوم
+ResourceNode_Megavein_Trashium_Description	عرق يحتوي على كمية هائلة من خام التراشيوم.
+ResourceNode_Megavein_BloodCrystal_Name	عرق كريستال الدم
+ResourceNode_Megavein_BloodCrystal_Description	ترسّب معدني نادر يتلألأ بدرجات قرمزية عميقة. تبدو البلورات وكأنها تنبض بخفوت، كأنها حيّة، وتعطي شظايا تُستخدم في نواقل الطاقة الجبّارة والطقوس الخيميائية.

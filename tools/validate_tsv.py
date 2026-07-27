@@ -25,6 +25,11 @@ import sys
 from collections import defaultdict
 
 PLACEHOLDER = re.compile(r"\{(\d+)(?::[^}]*)?\}")
+# Quest text also uses named placeholders — {itemDef:Coal}, {tech:...},
+# {baseExpansion:...} — which the game replaces with the localized name of that
+# thing. Losing or altering one leaves a quest objective referring to nothing, so
+# they are checked for exact preservation, case included.
+NAMED_PLACEHOLDER = re.compile(r"\{[A-Za-z][A-Za-z0-9_]*:[^}]+\}")
 TAG = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)(?:=[^>]*)?(/?)>")
 ARABIC_INDIC = re.compile(r"[٠-٩۰-۹]")
 
@@ -69,6 +74,19 @@ def check_placeholders(report, path, lineno, key, source, target):
         report.error(path, lineno,
                      f"[{key}] translation has placeholder(s) not in the source: "
                      + ", ".join("{" + p + "}" for p in extra))
+
+    src_named = sorted(set(NAMED_PLACEHOLDER.findall(source)))
+    dst_named = sorted(set(NAMED_PLACEHOLDER.findall(target)))
+    if src_named != dst_named:
+        lost = [p for p in src_named if p not in dst_named]
+        added = [p for p in dst_named if p not in src_named]
+        if lost:
+            report.error(path, lineno,
+                         f"[{key}] translation is missing named placeholder(s): " + ", ".join(lost))
+        if added:
+            report.error(path, lineno,
+                         f"[{key}] translation has named placeholder(s) not in the source: "
+                         + ", ".join(added))
 
 
 def check_tags(report, path, lineno, key, target):

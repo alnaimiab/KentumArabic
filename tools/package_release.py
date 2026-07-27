@@ -67,6 +67,11 @@ def plugin_files(zf):
     add_file(zf, os.path.join(REPO, "content", "manifest.json"), f"{PLUGIN_SUBDIR}/manifest.json")
 
 
+# steam_appid.txt is deliberately NOT packaged. It is a local development file that
+# lets the executable initialise Steamworks when launched directly instead of through
+# the client; shipping it would change how players' games talk to Steam.
+
+
 def docs(zf, prefix=""):
     for name, arc in [("README.md", "README.md"),
                       ("LICENSE", "LICENSE.txt"),

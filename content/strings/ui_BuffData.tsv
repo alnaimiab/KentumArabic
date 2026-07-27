@@ -1,0 +1,35 @@
+# تعريب Kentum — التعزيزات والحالات السلبية
+key	ar
+
+BuffData_AttackSpeed1_Name	هجوم سريع
+BuffData_AttackSpeed1_Description	تزداد سرعة الهجوم.
+BuffData_Damage1_Name	اندفاع القوة
+BuffData_Damage1_Description	تزداد قوة الهجوم.
+BuffData_Damage2_Name	اندفاع القوة +
+BuffData_Damage2_Description	تزداد قوة الهجوم زيادة كبيرة.
+BuffData_DamageResistance1_Name	المقاومة
+BuffData_DamageResistance1_Description	ينخفض الضرر الذي تتلقاه.
+BuffData_MovementSpeed_Name	سرعة الحركة
+BuffData_MovementSpeed_Description	تزداد سرعة الحركة.
+BuffData_Shield1_Name	درع مؤقت
+BuffData_Shield1_Description	يمنح 20 نقطة صحة مؤقتة.
+BuffData_Shield2_Name	درع مؤقت +
+BuffData_Shield2_Description	يمنح 40 نقطة صحة مؤقتة.
+BuffData_Shield3_Name	درع مؤقت ++
+BuffData_Shield3_Description	يمنح 80 نقطة صحة مؤقتة.
+BuffData_SmallPotionRegeneration_Name	تجدد صغير
+BuffData_SmallPotionRegeneration_Description	يجدد 20 نقطة صحة تدريجيًا.
+BuffData_PotionRegeneration_Name	تجدد
+BuffData_PotionRegeneration_Description	يجدد 40 نقطة صحة تدريجيًا.
+BuffData_SuperPotionRegeneration_Name	تجدد فائق
+BuffData_SuperPotionRegeneration_Description	يجدد 80 نقطة صحة تدريجيًا.
+BuffData_Equipment_Hood_Regeneration_Name	تجدد المعدّات
+BuffData_Equipment_Hood_Regeneration_Description	يمنح تجددًا صحيًا بسيطًا.
+BuffData_ExtraLoot_Name	غنائم المعدّات
+BuffData_ExtraLoot_Description	احصل على غنائم أكثر عند جمع الأشياء.
+BuffData_ExtraLoot1_Name	غنائم متزايدة
+BuffData_ExtraLoot1_Description	احصل على غنائم أكثر عند قتل الحيوانات.
+BuffData_ExtraLoot2_Name	غنائم متزايدة +
+BuffData_ExtraLoot2_Description	اجمع غنائم أكثر بعد عند قتل الحيوانات.
+BuffData_StopHunger_Name	شبعان
+BuffData_StopHunger_Description	لن ينقص الجوع لفترة بعد امتلاء معدتك.

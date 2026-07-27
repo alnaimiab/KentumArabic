@@ -284,6 +284,17 @@ namespace KentumArabic.Injection
 
                 Log.Info($"Restoring saved language '{saved}' (was '{UserSettings.currentLanguage}').");
                 Localization.ChangeLanguage(saved);
+
+                // Kentum keeps two independent records of the chosen language: this name, and an
+                // index that drives the options dropdown. If only the name is restored they
+                // disagree, and the dropdown reads "English" while the game is plainly in Arabic.
+                // Writing the index back keeps both in step from here on.
+                int savedIndex = languages.IndexOf(saved);
+                if (savedIndex >= 0 && PlayerPrefs.GetInt(KentumLanguagePrefKey, -1) != savedIndex)
+                {
+                    PlayerPrefs.SetInt(KentumLanguagePrefKey, savedIndex);
+                    Log.Verbose($"Synced {KentumLanguagePrefKey} to index {savedIndex} ('{saved}').");
+                }
             }
             catch (Exception e)
             {

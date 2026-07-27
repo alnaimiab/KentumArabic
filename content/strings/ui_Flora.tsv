@@ -1,0 +1,51 @@
+# تعريب Kentum — النباتات
+key	ar
+
+Flora_Barley_Name	نبتة الشعير
+Flora_Barley_Description	الشعير حبّة صلبة تشكّل عماد كثير من الأطعمة والمشروبات.
+Flora_BiotechVine_Name	كرمة حيوية تقنية
+Flora_BiotechVine_Description	كرمة تبدو اصطناعية تنبت ألياف موصِّلة، فتجسر بين النبات والآلة.
+Flora_Blob_Small_Name	كتلة هلامية صغيرة
+Flora_Blob_Small_Description	لعقود، بل قرون، حاول العلماء تحديد ما إذا كانت الكتل الهلامية نباتًا أم حيوانًا. احتدم الجدل ولم يُحسم بدليل قاطع، فتُرك تصنيفها لحظ رمية عملة. وفاز النبات.
+Flora_Blob_Medium_Name	كتلة هلامية متوسطة
+Flora_Blob_Medium_Description	تراكم من عدة كتل هلامية صغيرة. من المدهش أنها تستطيع تكوين منشور بهذا الكمال.
+Flora_Blob_Big_Name	كتلة هلامية كبيرة
+Flora_Blob_Big_Description	تراكم من عدة كتل هلامية صغيرة يشكّل عملاقًا هلاميًا شاهقًا. ملامسة هذه المناشير الرخوة تغطيك بالوحل فتبطئ حركتك. وتتصلب الكتل الكبيرة عند تعرّضها لدفقات طاقة البلازما.
+Flora_Cocoon_Name	شرنقة حرير العنكبوت
+Flora_Cocoon_Description	نسيج كثيف من خيوط الحرير يحتضن مغذيات وألياف قوية صالحة للتصنيع.
+Flora_DurianiumHook_Name	بلورانيوم
+Flora_DurianiumHook_Description	قشرة زرقاء صلبة بداخلها فاكهة حلوة. اقذفها على سطح لتتشقق.
+Flora_Frostpetal_Name	وردة الصقيع
+Flora_Frostpetal_Description	نبتة تبقى متجمدة دائمًا مهما كان الطقس. احذر أن يلتصق لسانك بها.
+Flora_FruitTree_Name	شجرة الطماطفاح
+Flora_FruitTree_Description	شجرة كبيرة متينة. تحمل ثمرة الطماطفاح.
+Flora_FungalNode_Name	عقدة فطرية
+Flora_FungalNode_Description	عنقود من كرات فطرية خضراء ينشر الأبواغ والأنسجة الغنية بالمغذيات.
+Flora_Hydropod_Name	هيدروبود
+Flora_Hydropod_Description	نبتة تعيش في بيئات عالية الشحنات الكهربائية. تنتج بصيلات سائلة لتوجّه التيارات الكهربائية في الهواء بشكل أفضل وتستخدمها غذاءً.
+Flora_Lightbulb_Name	بصيلة اللومن
+Flora_Lightbulb_Description	بصيلة وردية لامعة تصدر توهجًا ثابتًا يجذب المخلوقات والمستكشفين معًا.
+Flora_Munchroom_Name	الفطر النحاسي
+Flora_Munchroom_Description	فطر برتقالي ينمو داخل الكهوف الرطبة. وخلافًا لنظيره الكهربائي يمكن أكله نيئًا، وإن كنت أنصح بطهيه أولًا.
+Flora_Mushroom_Name	الفطر الكهربائي
+Flora_Mushroom_Description	نوع من الفطر الكهربائي. إن شعر بالتهديد أطلق شحنة كهربائية. عدا ذلك فجمعه وطهيه سهلان.
+Flora_NectarPlant_Name	روزاوروم
+Flora_NectarPlant_Description	زهرة ذهبية تنمو في سقوف الكهوف. تنتج مادة مُرّة سامة تشبه العسل، ويمكن تكريرها إلى شيء لن يقتلك إن أكلته.
+Flora_Oilpod_Name	جراب الزيت
+Flora_Oilpod_Description	بصيلة منتفخة مليئة بزيت كثيف غني بالمغذيات يُستخدم في التصنيع والتخليق.\n
+Flora_Sapling_Name	شتلة
+Flora_Sapling_Description	شجرة صغيرة بلا أوراق مثالية لجمع الأغصان. ولخشبها استخدامات كثيرة.
+Flora_SaplingCoffee_Name	شتلة البن
+Flora_SaplingCoffee_Description	شتلة هُجّنت لتنبت حبوب بن متوترة بسرعة غير طبيعية.
+Flora_SmallFruitPalm_Name	النخلة القزمة
+Flora_SmallFruitPalm_Description	نوع من النخيل الصغير. تحمل ثمرة الفانانا.
+Flora_SmallFruitPalmToxic_Name	النخلة القزمة السامة
+Flora_SmallFruitPalmToxic_Description	في ظروف معينة قد تكتسب النخلة القزمة خصائص سامة. والثمرة التي تحملها تحتفظ بتلك الخصائص أيضًا.
+Flora_SpudCrop_Name	درنة
+Flora_SpudCrop_Description	هذا الصنف من نبات البطاطس له طعم ترابي لذيذ عند طهيه.
+Flora_TendrilRoot_Name	جذر محلاقي
+Flora_TendrilRoot_Description	منظومة جذرية من ألياف مشدودة تشبه الأوتار، مرنة لكنها عضوية على نحو مقلق.
+Flora_Thunderbloom_Name	زهرة الرعد
+Flora_Thunderbloom_Description	نبتة تولّد الكهرباء. مصنوعة بالكامل من ألياف موصِّلة.
+Flora_WildRice_Name	الأرز البري
+Flora_WildRice_Description	نبتة بصلية تشبه الأونيغيري، تخزّن نشويات كثيفة مفيدة للتغذية.
