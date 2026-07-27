@@ -169,7 +169,10 @@ namespace KentumArabic.Injection
 
                 if (store.Ui.TryGetValue(field.fieldName, out var arabic))
                 {
-                    field.texts[LanguageId] = Shaping.ArabicShaper.Shape(arabic);
+                    // Resolve the literal "\n" escape before shaping. The table normally does this
+                    // on read, but by then the reorder would have turned "\n" into "n\" and the
+                    // line break would be lost — so it has to happen first.
+                    field.texts[LanguageId] = Shaping.ArabicShaper.Shape(arabic.Replace("\\n", "\n"));
                     matched.Add(field.fieldName);
                     applied++;
                 }

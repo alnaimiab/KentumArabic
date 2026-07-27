@@ -20,7 +20,7 @@ namespace KentumArabic.Fonts
     /// </summary>
     public static class ArabicFont
     {
-        public const string DefaultFontFile = "fonts/NotoNaskhArabic-Regular.ttf";
+        public const string DefaultFontFile = "fonts/IBMPlexSansArabic-Regular.ttf";
         public const string DefaultBundleName = "arabicfont";
 
         private static AssetBundle _bundle;
@@ -260,6 +260,11 @@ namespace KentumArabic.Fonts
         /// classic failure — a font without the Arabic Presentation Forms-B block (U+FE70–FEFF) —
         /// in seconds, instead of during play-testing.
         /// </summary>
+        private static bool IsArabicScript(char c) =>
+            (c >= 0x0600 && c <= 0x06FF) || (c >= 0x0750 && c <= 0x077F) ||
+            (c >= 0x08A0 && c <= 0x08FF) || (c >= 0xFB50 && c <= 0xFDFF) ||
+            (c >= 0xFE70 && c <= 0xFEFF);
+
         public static void AuditCoverage(IEnumerable<string> texts)
         {
             if (_font == null) return;
@@ -273,7 +278,10 @@ namespace KentumArabic.Fonts
                 scanned++;
                 foreach (var ch in s)
                 {
-                    if (ch < 0x20) continue;
+                    // Only Arabic-script characters are this font's responsibility. It is
+                    // registered as a fallback, so Latin, digits and punctuation come from the
+                    // game's own font and are legitimately absent here.
+                    if (!IsArabicScript(ch)) continue;
                     // tryAddCharacter matters for a dynamic atlas: a glyph the face can render
                     // is simply not rasterized yet, and would otherwise be reported missing.
                     if (_font.HasCharacter(ch, searchFallbacks: false, tryAddCharacter: true)) continue;

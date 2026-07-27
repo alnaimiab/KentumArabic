@@ -149,8 +149,27 @@ namespace KentumArabic.Shaping
             return result;
         }
 
+        /// <summary>
+        /// Shapes each line independently.
+        ///
+        /// The RtlLayout pass reverses the whole string, which for multi-line text would also
+        /// reverse the order of the lines themselves — a two-line message would read bottom-line
+        /// first. Splitting first keeps lines in order while still reversing within each one.
+        /// </summary>
         private static string ShapeUncached(string input)
         {
+            if (input.IndexOf('\n') < 0) return ShapeSingleLine(input);
+
+            var lines = input.Split('\n');
+            for (int i = 0; i < lines.Length; i++)
+                lines[i] = ShapeSingleLine(lines[i]);
+            return string.Join("\n", lines);
+        }
+
+        private static string ShapeSingleLine(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+
             var buf = _buffer ??= new FastStringBuilder(InitialBufferSize);
             buf.Clear();
 
