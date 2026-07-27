@@ -155,8 +155,10 @@ namespace KentumArabic
 
             if (ArabicLanguage.EnsureInjected(Translations))
             {
-                // Re-evaluate now that the language exists — the player may already have Arabic
-                // saved as their preference from a previous session.
+                // The options panel may already have read the saved language index while Arabic
+                // was still missing from the list, in which case it silently fell back to English.
+                // Re-applying here makes the saved choice stick regardless of initialisation order.
+                ArabicLanguage.RestoreSavedLanguage();
                 RefreshArabicActive();
             }
         }

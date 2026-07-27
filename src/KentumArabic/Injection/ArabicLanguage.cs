@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
+using UnityEngine;
 using PixelCrushers;
 using Tlon.Localization;
 using KentumArabic.Util;
@@ -218,6 +219,63 @@ namespace KentumArabic.Injection
             else
                 Log.Verbose($"Language list now: {string.Join(", ", rebuilt.ToArray())}");
         }
+
+        /// <summary>
+        /// Re-applies the player's saved language once Arabic exists.
+        ///
+        /// This is not a convenience. <c>OptionsPanel.AddDropdownOptionItem</c> reads
+        /// <c>KENTUM_PREFS_LANGUAGE</c> — an *index* into the language list — and range-checks it:
+        ///
+        ///     int num = GetPlayerPrefsInt("KENTUM_PREFS_" + prefKey, defaultValue);
+        ///     if (num &lt; 0 || num >= optionNames.Length) num = defaultValue;
+        ///     onChangeCallback(num);
+        ///
+        /// If the options panel builds its list before this plugin has injected, Arabic's index
+        /// is out of range and the saved choice is silently discarded — a player who selected
+        /// العربية would find the game back in English after restarting. Re-applying after
+        /// injection closes that window regardless of initialisation order.
+        ///
+        /// The language *name* is preferred over the index. PixelCrushers persists it separately
+        /// as a string, and a name cannot be invalidated by the list changing shape.
+        /// </summary>
+        public static void RestoreSavedLanguage()
+        {
+            try
+            {
+                var languages = Localization.GetAllLanguagesNames();
+                if (languages == null || languages.Count == 0) return;
+
+                string saved = null;
+
+                // Preferred: the name PixelCrushers persisted.
+                var byName = PlayerPrefs.GetString(PixelCrushersLanguageKey, string.Empty);
+                if (!string.IsNullOrEmpty(byName) && languages.Contains(byName))
+                    saved = byName;
+
+                // Fallback: Kentum's own index, now that the list is complete.
+                if (saved == null)
+                {
+                    int index = PlayerPrefs.GetInt(KentumLanguagePrefKey, -1);
+                    if (index >= 0 && index < languages.Count) saved = languages[index];
+                }
+
+                if (string.IsNullOrEmpty(saved)) return;
+                if (string.Equals(saved, UserSettings.currentLanguage, StringComparison.Ordinal)) return;
+
+                Log.Info($"Restoring saved language '{saved}' (was '{UserSettings.currentLanguage}').");
+                Localization.ChangeLanguage(saved);
+            }
+            catch (Exception e)
+            {
+                Log.Warn($"Could not restore the saved language: {e.Message}");
+            }
+        }
+
+        /// <summary>Kentum's own preference: an index into the language list.</summary>
+        private const string KentumLanguagePrefKey = "KENTUM_PREFS_LANGUAGE";
+
+        /// <summary>PixelCrushers' preference: the language name.</summary>
+        private const string PixelCrushersLanguageKey = "Language";
 
         /// <summary>Re-reads translation files into the live table without a game restart.</summary>
         public static int Reapply(TranslationStore store)

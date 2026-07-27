@@ -1,22 +1,30 @@
 # تعريب Kentum — نصوص الواجهة
 #
-# هذا ملف بذرة صغير للتحقق من عمل النظام (المرحلة M1).
-# استبدله بالمخرجات الكاملة من أداة الاستخراج: شغّل اللعبة واضغط Ctrl+F12،
-# ثم انسخ ملفات _dump/ui_*.tsv إلى هنا وترجم عمود ar.
+# ملف بذرة صغير لإثبات عمل النظام من طرف إلى طرف.
+# للحصول على المجموعة الكاملة (٢٥٩٧ مفتاحًا): شغّل اللعبة، اضغط Ctrl+F12،
+# ثم ترجم في _dump وشغّل: python tools/sync_translations.py publish
 #
-# القواعد:
-#   - الأعمدة مفصولة بمسافة جدولة (TAB)، والترميز UTF-8.
-#   - اكتب العربية عادية منطقية — لا تشكّل الحروف ولا تعكسها يدويًا، الإضافة تتولى ذلك.
-#   - السطر الجديد يُكتب \n حرفيًا (نفس اصطلاح اللعبة نفسها).
-#   - خلية ar فارغة = غير مترجم بعد، وستظهر بالإنجليزية. هذا آمن تمامًا.
-#   - حافظ على العناصر النائبة مثل {0} و{1} كما هي، وعلى وسوم مثل <color=...> سليمة.
+# اكتب العربية عادية منطقية — لا تشكّل الحروف ولا تعكسها، الإضافة تتولى ذلك.
+# السطر الجديد يُكتب \n حرفيًا. حافظ على {0} والوسوم <...> كما هي بالضبط.
+# خلية فارغة = غير مترجم، ويظهر بالإنجليزية. هذا آمن تمامًا.
 #
-key	ar	en	es	flags
-UI_Options_Language	اللغة	Language
-UI_Options_VOLanguage	لغة الأداء الصوتي	Voice Language
-UI_Options_VOLanguage_SameAsLanguage	نفس لغة اللعبة	Same as language
-UI_General_Select	اختيار	Select
-UI_BaseExpansion_Title	توسعة القاعدة	Base Expansion
-UI_BaseExpansion_SettingsButton	الإعدادات	Settings
-UI_BaseExpansion_Subcategory_Crafting	التصنيع	Crafting
-UI_BaseExpansion_Subcategory_Storage	التخزين	Storage
+key	ar
+UI_MainMenu_NewGame	لعبة جديدة
+UI_MainMenu_Continue	متابعة
+UI_MainMenu_Load	تحميل
+UI_MainMenu_Quit	خروج
+UI_MainMenu_Credits	فريق العمل
+UI_MainMenu_JoinDiscord	انضم إلى ديسكورد
+UI_MainMenu_Connecting	جارٍ الاتصال...
+UI_General_Options	الخيارات
+UI_General_Continue	متابعة
+UI_General_Select	اختيار
+UI_Options_Language	اللغة
+UI_Options_VOLanguage	لغة الأداء الصوتي
+UI_Options_VOLanguage_SameAsLanguage	نفس لغة اللعبة
+UI_BaseExpansion_Title	توسعة القاعدة
+UI_BaseExpansion_SettingsButton	الإعدادات
+UI_BaseExpansion_Subcategory_Crafting	التصنيع
+UI_BaseExpansion_Subcategory_Storage	التخزين
+UI_MainMenu_NoSaveSlot_Title	لا توجد خانة حفظ متاحة
+UI_MainMenu_NoSaveSlot_Description	الحد الأقصى لخانات الحفظ هو {0}. عليك حذف خانة موجودة لبدء لعبة جديدة.

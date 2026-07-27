@@ -27,13 +27,17 @@ namespace KentumArabic
         }
 
         /// <summary>
-        /// Brings up the test battery and saves a screenshot, so Arabic rendering can be verified
-        /// without navigating the menus by hand. This is how the shaping mode decision gets made:
-        /// the result has to be looked at, not reasoned about.
+        /// Brings up the test battery, dumps the translation workbook and saves a screenshot, so
+        /// Arabic rendering can be verified without navigating the menus by hand. This is how the
+        /// shaping mode decision gets made: the result has to be looked at, not reasoned about.
         /// </summary>
         private IEnumerator SelfTest()
         {
             yield return new WaitForSecondsRealtime(12f);
+
+            Log.Info("Self-test: dumping the translation workbook.");
+            Dump.StringDumper.DumpAll(System.IO.Path.Combine(Plugin.PluginDir, "_dump"));
+            yield return null;
 
             Log.Info("Self-test: showing the shaping test battery.");
             if (_overlay == null) _overlay = gameObject.AddComponent<ShapingTestOverlay>();

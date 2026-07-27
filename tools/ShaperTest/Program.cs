@@ -28,6 +28,8 @@ namespace ShaperTest
             ("format",       string.Format("تم تحديث الإنجاز: {0} ({1}/{2})", "صائد النيازك", 3, 5)),
             ("tag only",     "<color=#00ff00>مرحبا</color>"),
             ("gt in prose",  "الطاقة > 100 وحدة"),
+            ("tanween+space","جارٍ الاتصال..."),
+            ("tanween2",     "جدًا كبير"),
         };
 
         private static int Main(string[] args)

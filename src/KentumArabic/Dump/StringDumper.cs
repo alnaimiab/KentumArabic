@@ -29,6 +29,11 @@ namespace KentumArabic.Dump
         private static readonly Regex PlaceholderRx = new Regex(@"\{\d+(?::[^}]*)?\}", RegexOptions.Compiled);
         private static readonly Regex RichTextRx = new Regex(@"<[^>]+>", RegexOptions.Compiled);
 
+        // Kentum's own markup: replaced with a control-scheme icon by
+        // InputManager.ReplaceInputControlStringsWithIcons before the text is displayed.
+        // Translators must carry these through untouched, so they get their own flag.
+        private static readonly Regex InputTagRx = new Regex(@"<input=[^>]+>", RegexOptions.Compiled);
+
         public static void DumpAll(string outDir)
         {
             Log.Try("Dumping translation workbook", () =>
@@ -64,6 +69,25 @@ namespace KentumArabic.Dump
 
             // Group by key prefix so translators get reviewable files instead of one huge sheet,
             // and so several people can work without merge conflicts.
+            //
+            // Buckets are derived from the keys themselves rather than a hardcoded list: the
+            // game has ~30 distinct prefixes and adds more over time, and a stale whitelist would
+            // quietly dump most of the corpus into one enormous "misc" file.
+            var names = new List<string>();
+            foreach (var kv in tt.fields)
+            {
+                var f = kv.Value;
+                if (f != null && !string.IsNullOrEmpty(f.fieldName)) names.Add(f.fieldName);
+            }
+
+            var prefixCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+            foreach (var name in names)
+            {
+                var p = PrefixOf(name);
+                prefixCounts.TryGetValue(p, out var n);
+                prefixCounts[p] = n + 1;
+            }
+
             var buckets = new Dictionary<string, List<string>>(StringComparer.Ordinal);
             int total = 0;
 
@@ -77,11 +101,13 @@ namespace KentumArabic.Dump
                 var es = refId > 0 ? (field.GetTextForLanguage(refId) ?? "") : "";
                 var ar = Plugin.Translations != null && Plugin.Translations.Ui.TryGetValue(name, out var existing) ? existing : "";
 
-                var bucket = BucketFor(name);
+                // Prefixes with only a handful of keys are not worth their own file.
+                var prefix = PrefixOf(name);
+                var bucket = prefixCounts[prefix] >= MinBucketSize ? prefix : "misc";
+
                 if (!buckets.TryGetValue(bucket, out var rows))
                 {
-                    rows = new List<string>();
-                    rows.Add("key\tar\ten\tes\tflags");
+                    rows = new List<string> { "key\tar\ten\tes\tflags" };
                     buckets[bucket] = rows;
                 }
 
@@ -99,28 +125,12 @@ namespace KentumArabic.Dump
             return total;
         }
 
-        private static string BucketFor(string key)
+        private const int MinBucketSize = 20;
+
+        private static string PrefixOf(string key)
         {
             int i = key.IndexOf('_');
-            if (i <= 0) return "misc";
-            var prefix = key.Substring(0, i);
-            switch (prefix)
-            {
-                case "UI":
-                case "Item":
-                case "Tech":
-                case "World":
-                case "Char":
-                case "Enemy":
-                case "Player":
-                case "Base":
-                case "Buff":
-                case "Quest":
-                case "Tag":
-                    return prefix;
-                default:
-                    return "misc";
-            }
+            return i <= 0 ? "misc" : key.Substring(0, i);
         }
 
         // ---------------------------------------------------------------------------------
@@ -257,9 +267,11 @@ namespace KentumArabic.Dump
         private static string Flags(string en)
         {
             if (string.IsNullOrEmpty(en)) return "";
-            var f = new List<string>(2);
+            var f = new List<string>(3);
             if (PlaceholderRx.IsMatch(en)) f.Add("format");
-            if (RichTextRx.IsMatch(en)) f.Add("richtext");
+            if (InputTagRx.IsMatch(en)) f.Add("input");
+            // "richtext" means TMP markup specifically, so ignore the input tags counted above.
+            if (RichTextRx.IsMatch(InputTagRx.Replace(en, ""))) f.Add("richtext");
             return string.Join(",", f.ToArray());
         }
 
