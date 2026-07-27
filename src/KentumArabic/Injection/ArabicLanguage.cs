@@ -133,23 +133,16 @@ namespace KentumArabic.Injection
         }
 
         /// <summary>
-        /// Writes the Arabic column into the live text table, already shaped for display.
+        /// Writes the Arabic column into the live text table as plain logical Arabic.
         ///
-        /// Shaping is applied here, at load time, rather than by intercepting text as it flows to
-        /// TextMeshPro. Hooking proved unworkable on this build: Harmony reports patches on
-        /// <c>TMP_Text.set_text</c>, <c>Localization.Localize</c> and
-        /// <c>TextTable.GetFieldTextForLanguage</c> as applied, and every one of them recorded
-        /// zero invocations at runtime — including against a component this plugin created
-        /// itself. Baking the shaped form into the table removes Harmony from the path entirely,
-        /// so the text is correct no matter which of the game's several localization routes reads
-        /// it.
+        /// Deliberately *not* shaped here. Shaping happens at display time via
+        /// <see cref="Shaping.ArabicTextPreprocessor"/>, because only then is the string complete:
+        /// a template like "اليوم {0}" shaped at this point would be reversed while the number
+        /// substituted into it later would not, rendering day 18 as "81".
         ///
-        /// The translation files stay plain logical Arabic; shaping happens on the way in, so
-        /// they remain reviewable, diffable and re-shapeable whenever the shaper improves.
-        ///
-        /// Known limitation: strings containing <c>{0}</c> placeholders are shaped before their
-        /// runtime values are substituted, so a number injected into an Arabic sentence can land
-        /// at the wrong end. Those keys carry the "format" flag in the translation workbook.
+        /// Keeping the table in logical order also means the data stays identical to the
+        /// translation files — reviewable, diffable, and re-shapeable for free whenever the
+        /// shaper improves.
         ///
         /// Goes through the fields dictionary directly rather than the string-keyed
         /// SetFieldTextForLanguage overloads: those call GetFieldID, which linear-scans all
@@ -169,10 +162,9 @@ namespace KentumArabic.Injection
 
                 if (store.Ui.TryGetValue(field.fieldName, out var arabic))
                 {
-                    // Resolve the literal "\n" escape before shaping. The table normally does this
-                    // on read, but by then the reorder would have turned "\n" into "n\" and the
-                    // line break would be lost — so it has to happen first.
-                    field.texts[LanguageId] = Shaping.ArabicShaper.Shape(arabic.Replace("\\n", "\n"));
+                    // The table expands "\n" on read anyway; doing it here keeps the stored value
+                    // and the rendered value the same shape.
+                    field.texts[LanguageId] = arabic.Replace("\\n", "\n");
                     matched.Add(field.fieldName);
                     applied++;
                 }
@@ -209,7 +201,7 @@ namespace KentumArabic.Injection
                 return;
             }
 
-            var label = Shaping.ArabicShaper.Shape(LanguageEndonym);
+            var label = LanguageEndonym;
             foreach (var lang in tt.languages)
                 field.texts[lang.Value] = label;
         }

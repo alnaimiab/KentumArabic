@@ -22,6 +22,7 @@ namespace KentumArabic.Shaping
         {
             public TextAlignmentOptions Alignment;
             public bool IsRightToLeft;
+            public ITextPreprocessor Preprocessor;
             public bool Captured;
         }
 
@@ -58,6 +59,14 @@ namespace KentumArabic.Shaping
 
             Capture(t);
 
+            // Shaping runs through TMP's own preprocessing hook, which sees the composed string
+            // after any runtime values have been substituted.
+            if (!(t.textPreprocessor is ArabicTextPreprocessor))
+            {
+                t.textPreprocessor = ArabicTextPreprocessor.Instance;
+                t.SetAllDirty();
+            }
+
             if (ArabicShaper.WantsRtlLayout && !t.isRightToLeftText)
                 t.isRightToLeftText = true;
 
@@ -73,6 +82,7 @@ namespace KentumArabic.Shaping
             {
                 Alignment = t.alignment,
                 IsRightToLeft = t.isRightToLeftText,
+                Preprocessor = t.textPreprocessor,
                 Captured = true,
             };
 
@@ -98,6 +108,8 @@ namespace KentumArabic.Shaping
                 {
                     target.isRightToLeftText = state.IsRightToLeft;
                     target.alignment = state.Alignment;
+                    // Detach our preprocessor, restoring whatever the game had (usually none).
+                    target.textPreprocessor = state.Preprocessor;
                     target.SetAllDirty();
                     restored++;
                 }

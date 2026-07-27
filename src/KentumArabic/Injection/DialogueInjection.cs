@@ -23,8 +23,8 @@ namespace KentumArabic.Injection
     /// "Dialogue Text Arabic" is written too — a few hundred extra fields costs nothing and
     /// covers the alternate lookup path.
     ///
-    /// As with the text table, Arabic is shaped on the way in. Nothing in this build reliably
-    /// intercepts text on its way to TextMeshPro, so the data itself carries the display form.
+    /// As with the text table, the database stores plain logical Arabic; shaping happens at
+    /// display time through TMP's own text preprocessor.
     /// </summary>
     public static class DialogueInjection
     {
@@ -87,7 +87,7 @@ namespace KentumArabic.Injection
 
                     if (store.Actors.TryGetValue(english, out var arabic))
                     {
-                        SetField(actor.fields, ActorField, ArabicShaper.Shape(arabic.Replace("\\n", "\n")));
+                        SetField(actor.fields, ActorField, arabic.Replace("\\n", "\n"));
                         actors++;
                     }
                 }
@@ -106,16 +106,16 @@ namespace KentumArabic.Injection
             }
         }
 
-        private static bool TryGet(TranslationStore store, int convId, int entryId, string field, out string shaped)
+        private static bool TryGet(TranslationStore store, int convId, int entryId, string field, out string value)
         {
-            shaped = null;
+            value = null;
             var key = $"{convId}:{entryId}:{field}";
             if (!store.Dialogue.TryGetValue(key, out var arabic) || string.IsNullOrWhiteSpace(arabic))
                 return false;
 
-            // Same as the text table: resolve the literal "\n" before shaping, or the reorder
-            // turns it into "n\" and the line break is lost.
-            shaped = ArabicShaper.Shape(arabic.Replace("\\n", "\n"));
+            // Stored as plain logical Arabic. ArabicTextPreprocessor shapes it at display time,
+            // once the dialogue system has finished composing the line.
+            value = arabic.Replace("\\n", "\n");
             return true;
         }
 

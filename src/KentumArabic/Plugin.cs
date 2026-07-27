@@ -84,10 +84,6 @@ namespace KentumArabic
                 _harmony = new Harmony(PluginGuid);
                 _harmony.PatchAll(Assembly.GetExecutingAssembly());
 
-                // Kept as a safety net for text composed at runtime. Shaping itself happens at
-                // injection time (see ArabicLanguage.ApplyTranslations) because no interception
-                // point in this build reliably fires.
-                TextTablePatches.ApplyTo(_harmony);
 
                 var patched = new List<string>();
                 foreach (var m in _harmony.GetPatchedMethods())
@@ -220,9 +216,28 @@ namespace KentumArabic
             {
                 Log.Info("Arabic activated.");
                 ArabicFont.RegisterFallback();
+                PrewarmGlyphs();
                 if (!ArabicFont.IsLoaded)
                     Log.Warn("Arabic is active but no Arabic font is loaded — text will render as empty boxes.");
             }
+        }
+
+        /// <summary>
+        /// Rasterizes every glyph the translation will ever need, before any of it is drawn.
+        /// Runs once, on the switch into Arabic.
+        /// </summary>
+        private static bool _prewarmed;
+
+        private static void PrewarmGlyphs()
+        {
+            if (_prewarmed || Translations == null || !ArabicFont.IsLoaded) return;
+            _prewarmed = true;
+
+            var shaped = new List<string>(Translations.TotalEntries);
+            foreach (var s in Translations.Ui.Values) shaped.Add(ArabicShaper.Shape(s));
+            foreach (var s in Translations.Dialogue.Values) shaped.Add(ArabicShaper.Shape(s));
+            foreach (var s in Translations.Actors.Values) shaped.Add(ArabicShaper.Shape(s));
+            ArabicFont.Prewarm(shaped);
         }
 
         /// <summary>Called after the language change has propagated.</summary>

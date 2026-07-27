@@ -260,6 +260,47 @@ namespace KentumArabic.Fonts
         /// classic failure — a font without the Arabic Presentation Forms-B block (U+FE70–FEFF) —
         /// in seconds, instead of during play-testing.
         /// </summary>
+        /// <summary>
+        /// Rasterizes every glyph the translation needs, up front.
+        ///
+        /// The atlas is populated on demand, and a glyph requested during layout is not always
+        /// ready in time — the character is dropped from that mesh and the mesh is never
+        /// regenerated, so it stays missing. In practice that meant the first Arabic string drawn
+        /// each session lost a letter: "مرحبا" rendered as "م حبا".
+        ///
+        /// Pre-warming with the exact shaped character set removes the race entirely, and costs
+        /// one pass at startup.
+        /// </summary>
+        public static void Prewarm(IEnumerable<string> shapedTexts)
+        {
+            if (_font == null) return;
+
+            Log.Try("Pre-warming the Arabic glyph atlas", () =>
+            {
+                var chars = new SortedSet<char>();
+                foreach (var s in shapedTexts)
+                {
+                    if (string.IsNullOrEmpty(s)) continue;
+                    foreach (var c in s)
+                        if (IsArabicScript(c)) chars.Add(c);
+                }
+
+                if (chars.Count == 0) return;
+
+                var sb = new System.Text.StringBuilder(chars.Count);
+                foreach (var c in chars) sb.Append(c);
+
+                bool ok = _font.TryAddCharacters(sb.ToString(), out string missing);
+                int atlases = _font.atlasTextures?.Length ?? 0;
+
+                if (ok && string.IsNullOrEmpty(missing))
+                    Log.Info($"Glyph atlas pre-warmed: {chars.Count} character(s) across {atlases} atlas page(s).");
+                else
+                    Log.Warn($"Glyph atlas pre-warm incomplete: {missing?.Length ?? 0} character(s) could not be added " +
+                             $"({chars.Count} requested, {atlases} atlas page(s)). Those will render as gaps.");
+            });
+        }
+
         private static bool IsArabicScript(char c) =>
             (c >= 0x0600 && c <= 0x06FF) || (c >= 0x0750 && c <= 0x077F) ||
             (c >= 0x08A0 && c <= 0x08FF) || (c >= 0xFB50 && c <= 0xFDFF) ||

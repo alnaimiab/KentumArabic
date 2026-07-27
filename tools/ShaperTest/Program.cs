@@ -32,6 +32,12 @@ namespace ShaperTest
             ("tag only",     "<color=#00ff00>مرحبا</color>"),
             ("gt in prose",  "الطاقة > 100 وحدة"),
             ("tanween",      "جارٍ الاتصال..."),
+            ("save slot info","نسخة {0} - {1}"),
+            ("composed day", "اليوم 18"),
+            ("composed clone","نسخة 17 - عادي"),
+            ("map word",     "الخريطة"),
+            ("save day",     "اليوم {0}"),
+            ("invalid save", "إصدار غير صالح ({0}.{1})"),
             ("multiline",    "هل تريد الخروج فعلًا؟\nسيُحفظ تقدّمك حتى هذه النقطة."),
             ("long para",    "هذه فقرة طويلة بما يكفي لتلتف على عدة أسطر داخل الصندوق، والغرض منها " +
                              "التحقق من أن ترتيب الأسطر يُقرأ من الأعلى إلى الأسفل بشكل صحيح."),
@@ -74,6 +80,25 @@ namespace ShaperTest
                         Console.WriteLine($"   FAIL: rich text tag lost: {tag}");
                         failed = true;
                     }
+                }
+
+                // Format placeholders must survive byte-for-byte. A reversed "{0}" makes
+                // string.Format throw, and Kentum formats save-slot labels while building the
+                // panel — so the whole Load screen dies. This suite checked rich text tags but
+                // not placeholders, which is exactly why that shipped.
+                foreach (var ph in ExtractPlaceholders(text))
+                {
+                    if (!shaped.Contains(ph))
+                    {
+                        Console.WriteLine($"   FAIL: format placeholder lost or reversed: {ph}");
+                        failed = true;
+                    }
+                }
+
+                if (!BracesBalanced(shaped))
+                {
+                    Console.WriteLine("   FAIL: unbalanced braces in output — string.Format would throw");
+                    failed = true;
                 }
 
                 Console.WriteLine();
@@ -120,6 +145,34 @@ namespace ShaperTest
             foreach (var c in s)
                 if ((c >= 0xFE70 && c <= 0xFEFF) || (c >= 0xFB50 && c <= 0xFDFF)) return true;
             return false;
+        }
+
+        /// <summary>Both numbered ({0}) and named ({itemDef:Coal}) placeholders.</summary>
+        private static IEnumerable<string> ExtractPlaceholders(string s)
+        {
+            foreach (System.Text.RegularExpressions.Match m in
+                     System.Text.RegularExpressions.Regex.Matches(s, @"\{[^{}]*\}"))
+                yield return m.Value;
+        }
+
+        /// <summary>
+        /// Mirrors what string.Format requires: every '{' closed by a later '}'. Reversal
+        /// produces "}0{", which is balanced by count but not by order — so order is what
+        /// gets checked.
+        /// </summary>
+        private static bool BracesBalanced(string s)
+        {
+            int depth = 0;
+            foreach (var c in s)
+            {
+                if (c == '{') depth++;
+                else if (c == '}')
+                {
+                    depth--;
+                    if (depth < 0) return false;
+                }
+            }
+            return depth == 0;
         }
 
         private static IEnumerable<string> ExtractTags(string s)

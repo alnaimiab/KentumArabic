@@ -186,39 +186,54 @@ namespace KentumArabic.Shaping
             // so TMP's reversal renders them the right way round.
             buf.Reverse();
 
-            // The whole-string reverse also flipped every tag into ">roloc<" form.
-            if (FixTextTags) UnreverseTags(buf);
+            // The whole-string reverse also flipped every tag into ">roloc<" form and every
+            // format placeholder into "}0{".
+            RestoreDelimitedRuns(buf);
 
             return buf.ToString();
         }
 
         /// <summary>
-        /// Mirror of RichTextFixer.Fix for a reversed buffer: finds tags that now read '>' first
-        /// and flips each back. RichTextFixer itself cannot be reused here because it scans for
-        /// '&lt;' as the tag opener and would pair delimiters across adjacent tags.
+        /// Repairs runs that must survive the reorder byte-for-byte: rich text tags and
+        /// <c>string.Format</c> placeholders. The global reverse leaves them closing-delimiter
+        /// first — <c>&gt;roloc&lt;</c> and <c>}0{</c> — so each run is flipped back.
+        ///
+        /// Placeholders are not cosmetic. A reversed <c>{0}</c> makes string.Format throw
+        /// FormatException, and because Kentum formats save-slot labels during UI construction,
+        /// that exception aborts the panel and leaves the Load button doing nothing at all.
+        ///
+        /// RichTextFixer cannot be reused here: it scans for '&lt;' as the opener and would pair
+        /// delimiters across two adjacent tags.
         /// </summary>
-        private static void UnreverseTags(FastStringBuilder text)
+        private static void RestoreDelimitedRuns(FastStringBuilder text)
         {
-            // TMP's own parser gives up well before this; the bound stops a stray '>' in prose
-            // from scanning the entire string.
-            const int MaxTagLength = 128;
+            // Bounds a stray '>' or '}' in prose so it cannot scan the whole string. TMP's own
+            // parser gives up well before this too.
+            const int MaxRunLength = 128;
 
             for (int i = 0; i < text.Length; i++)
             {
-                if (text.Get(i) != '>') continue;
+                int c = text.Get(i);
+
+                int opener, closer;
+                bool isTag;
+                if (c == '>') { opener = '>'; closer = '<'; isTag = true; }
+                else if (c == '}') { opener = '}'; closer = '{'; isTag = false; }
+                else continue;
+
+                if (isTag && !FixTextTags) continue;
 
                 int end = -1;
-                int limit = Math.Min(text.Length, i + MaxTagLength);
+                int limit = Math.Min(text.Length, i + MaxRunLength);
                 for (int j = i + 1; j < limit; j++)
                 {
-                    int c = text.Get(j);
-                    // A second '>' before any '<' means this was not a tag.
-                    if (c == '>') break;
-                    if (c == '<')
+                    int d = text.Get(j);
+                    // Hitting the same closing delimiter again means this was not a run.
+                    if (d == opener) break;
+                    if (d == closer)
                     {
-                        // Tags never open with a space; in reversed form that space sits just
-                        // before the closing '<'.
-                        if (j - 1 > i && text.Get(j - 1) == ' ') break;
+                        // Tags never open with a space; reversed, that space sits just inside.
+                        if (isTag && j - 1 > i && text.Get(j - 1) == ' ') break;
                         end = j;
                         break;
                     }

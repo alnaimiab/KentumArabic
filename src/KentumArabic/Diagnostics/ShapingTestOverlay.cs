@@ -91,6 +91,19 @@ namespace KentumArabic.Diagnostics
                      "in a correct mode the lines read top-to-bottom.");
         }
 
+        private static void LogCodepoints(string label, string shaped)
+        {
+            var sb = new System.Text.StringBuilder();
+            sb.Append($"Codepoints for '{label}':\n  ");
+            foreach (var ch in shaped)
+            {
+                bool has = ArabicFont.IsLoaded &&
+                           ArabicFont.Font.HasCharacter(ch, searchFallbacks: false, tryAddCharacter: true);
+                sb.Append($"U+{(int)ch:X4}{(has ? "" : "!MISSING")} ");
+            }
+            Log.Info(sb.ToString());
+        }
+
         private void AddBackdrop()
         {
             var go = new GameObject("Backdrop", typeof(RectTransform), typeof(Image));
@@ -140,6 +153,12 @@ namespace KentumArabic.Diagnostics
                 MakeText($"Label_{mode}_{c.Label}", c.Label, y, 15, 220,
                          TextAlignmentOptions.TopLeft, new Color(0.6f, 0.6f, 0.6f),
                          rtl: false, shaped: false, out _, x: 20f);
+
+                // Rendering problems in Arabic are easy to misread from a screenshot — a reh
+                // legitimately leaves a gap because it does not join forward. Logging the exact
+                // codepoints and whether the font can render each one removes the guesswork.
+                if (mode == ShapingMode.RtlLayout && (c.Label == "basic" || c.Label == "rich text"))
+                    LogCodepoints(c.Label, shaped);
 
                 MakeText($"Case_{mode}_{c.Label}", shaped, y, 24, 1580,
                          TextAlignmentOptions.TopRight, Color.white,

@@ -44,19 +44,13 @@ namespace KentumArabic.Injection
             }
 
             /// <summary>
-            /// Shapes the localized string, and acts as a safety net for keys the text table
-            /// could not cover.
+            /// Safety net for keys the text table could not cover. It deliberately fires only on
+            /// a genuine miss (result == key), which preserves the LocalizationDebugMode coverage
+            /// report while still catching stragglers.
             ///
-            /// This is where shaping happens because it is the one hook that demonstrably fires
-            /// in this game — Harmony reports TMP_Text.set_text as patched, but the detour never
-            /// actually runs, verified with a probe that sets text on a component we create
-            /// ourselves. Every piece of Kentum UI text flows through Localize, so this covers
-            /// the same ground.
-            ///
-            /// Shaping here does not disturb the LocalizationDebugMode coverage report: that mode
-            /// returns its green/red marker from inside Localize, before this postfix sees it, and
-            /// those markers contain no Arabic so shaping leaves them untouched. The missing-key
-            /// substitution below is likewise gated on a genuine miss (result == key).
+            /// Shaping deliberately does NOT happen here. Localize returns the format *template*,
+            /// before string.Format substitutes anything, so shaping it would reverse the template
+            /// around values that are not yet present.
             /// </summary>
             /// <summary>Diagnostics: how often this postfix runs and what it does.</summary>
             public static long Calls, WhileActive, Shaped;
@@ -79,9 +73,7 @@ namespace KentumArabic.Injection
                         __result = arabic;
                 }
 
-                var shaped = Shaping.ArabicShaper.Shape(__result);
-                if (!ReferenceEquals(shaped, __result)) Shaped++;
-                return shaped;
+                return __result;
             }
         }
 

@@ -147,7 +147,7 @@ namespace KentumArabic
                     $"{LocalizationPatches.Localize_Patch.WhileActive} while Arabic active, " +
                     $"{LocalizationPatches.Localize_Patch.Shaped} shaped; " +
                     $"directed={LocalizedTextPatches.DirectedCount}\n" +
-                    $"  TextTable postfix: {TextTablePatches.Calls} call(s), {TextTablePatches.Shaped} shaped\n" +
+                    $"  preprocessor: {Shaping.ArabicTextPreprocessor.Processed} call(s), {Shaping.ArabicTextPreprocessor.Shaped} shaped\n" +
                     $"  sanity: Shape(\"مرحبا\") -> \"{ArabicShaper.Shape("مرحبا")}\"\n" +
                     (samples.Count > 0 ? string.Join("\n", samples.ToArray()) : "    (no samples)"));
             });
@@ -286,7 +286,7 @@ namespace KentumArabic
                 $"  shaping mode  : {ArabicShaper.Mode} (cache {ArabicShaper.CacheCount})\n" +
                 $"  font loaded   : {ArabicFont.IsLoaded}{(ArabicFont.IsLoaded ? $" ({ArabicFont.Font.name})" : "")}\n" +
                 $"  translations  : {Plugin.Translations?.TotalEntries ?? 0} entries, {ArabicLanguage.AppliedCount} applied, {ArabicLanguage.OrphanKeyCount} unknown\n" +
-                $"  shaping       : {TextTablePatches.Calls} table lookup(s), {TextTablePatches.Shaped} shaped at runtime\n" +
+                $"  shaping       : {Shaping.ArabicTextPreprocessor.Processed} preprocessed, {Shaping.ArabicTextPreprocessor.Shaped} shaped\n" +
                 $"  diagnostics   : {(TextDiagnostics.Enabled ? $"{TextDiagnostics.MissingKeyCount} missing keys, {TextDiagnostics.BypassCount} bypasses" : "disabled")}");
         }
     }
