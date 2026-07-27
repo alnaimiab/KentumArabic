@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using BepInEx;
@@ -45,6 +46,7 @@ namespace KentumArabic
         public static ConfigEntry<bool> CfgVerboseLogging;
         public static ConfigEntry<bool> CfgDiagnostics;
         public static ConfigEntry<bool> CfgSelfTest;
+        public static ConfigEntry<bool> CfgSelfTestOverlay;
         public static ConfigEntry<bool> CfgCheckForUpdates;
         public static ConfigEntry<string> CfgFontFile;
         public static ConfigEntry<string> CfgFontBundle;
@@ -81,7 +83,20 @@ namespace KentumArabic
             {
                 _harmony = new Harmony(PluginGuid);
                 _harmony.PatchAll(Assembly.GetExecutingAssembly());
-                Log.Info($"Patched {_harmony.GetPatchedMethods().CountEnumerable()} method(s).");
+
+                // Shaping hangs off the text table, the one point both localization routes share.
+                TextTablePatches.ApplyTo(_harmony);
+
+                // The TextMeshPro hooks are applied explicitly, so a failure to resolve one is
+                // reported rather than silently leaving Arabic unshaped. They are a secondary net:
+                // on this build the detour installs but never fires, which is why the table hook
+                // above is the primary mechanism.
+                TmpPatches.ApplyTo(_harmony);
+
+                var patched = new List<string>();
+                foreach (var m in _harmony.GetPatchedMethods())
+                    patched.Add($"{m.DeclaringType?.Name}.{m.Name}");
+                Log.Info($"Patched {patched.Count} method(s): {string.Join(", ", patched.ToArray())}");
             });
 
             // Hosts hotkeys, per-scene fallback re-registration and the shaping test overlay.
@@ -131,8 +146,13 @@ namespace KentumArabic
                 "Press Ctrl+Alt+D while playing to write the reports.");
 
             CfgSelfTest = Config.Bind("Diagnostics", "SelfTestOnStartup", false,
-                "Show the shaping test battery shortly after startup and save a screenshot to\n" +
+                "Shortly after startup, dump the translation workbook and save a screenshot to\n" +
                 "_dump/. Used to verify Arabic rendering without navigating the menus by hand.");
+
+            CfgSelfTestOverlay = Config.Bind("Diagnostics", "SelfTestShowOverlay", true,
+                "Whether the self-test also shows the shaping test battery. Turn this off to\n" +
+                "screenshot the game's own UI instead, which is what you want when checking real\n" +
+                "screens for layout problems.");
 
             CfgCheckForUpdates = Config.Bind("Updates", "CheckOnStartup", true,
                 "Check GitHub once at startup for a newer translation and show an in-game notice.\n" +
@@ -159,45 +179,83 @@ namespace KentumArabic
                 // was still missing from the list, in which case it silently fell back to English.
                 // Re-applying here makes the saved choice stick regardless of initialisation order.
                 ArabicLanguage.RestoreSavedLanguage();
-                RefreshArabicActive();
+
+                // If Arabic ended up active, the menus were already built in English before the
+                // shaping hook could do anything, so they have to be localized again from scratch.
+                if (!ArabicActive && ArabicLanguage.IsArabicActive())
+                    BeginLanguageChange(ArabicLanguage.LanguageName);
+                if (ArabicActive)
+                    ForceRelocalize();
             }
         }
 
+        /// <summary>Re-syncs the active flag with whatever language is currently selected.</summary>
         public static void RefreshArabicActive()
         {
-            bool wasActive = ArabicActive;
-            ArabicActive = ArabicLanguage.IsArabicActive();
-            if (wasActive != ArabicActive) ApplyActiveState();
+            BeginLanguageChange(Localization.CurrentLanguage);
         }
 
-        public static void OnLanguageChanged(string languageId)
+        /// <summary>
+        /// Called *before* Localization.ChangeLanguage runs.
+        ///
+        /// This has to happen in a prefix, not a postfix. ChangeLanguage assigns
+        /// <c>UILocalizationManager.instance.currentLanguage</c>, whose setter fires the
+        /// <c>languageChanged</c> event — so every LocalizedStaticText in the scene re-localizes
+        /// and assigns its new Arabic string *while ChangeLanguage is still executing*. If the
+        /// active flag were only set afterwards, all of that text would pass through the shaping
+        /// hook while it was still disabled and render as disconnected isolated letters.
+        /// </summary>
+        public static void BeginLanguageChange(string languageId)
         {
-            bool wasActive = ArabicActive;
-            ArabicActive = string.Equals(languageId, ArabicLanguage.LanguageName, StringComparison.Ordinal);
+            bool willBeArabic = string.Equals(languageId, ArabicLanguage.LanguageName, StringComparison.Ordinal);
+            if (willBeArabic == ArabicActive) return;
 
-            if (wasActive != ArabicActive) ApplyActiveState();
+            if (ArabicActive && !willBeArabic)
+            {
+                // Put direction and alignment back before the English text arrives.
+                Log.Info("Arabic deactivated; restoring original text direction and alignment.");
+                TextDirector.RestoreAll();
+            }
 
-            // Text already on screen must be re-evaluated either way: entering Arabic needs
-            // shaping applied, leaving it needs the original strings back.
-            ArabicFont.RefreshAllText();
-        }
+            ArabicActive = willBeArabic;
+            TextDirector.Enabled = willBeArabic;
 
-        private static void ApplyActiveState()
-        {
-            TextDirector.Enabled = ArabicActive;
-
-            if (ArabicActive)
+            if (willBeArabic)
             {
                 Log.Info("Arabic activated.");
                 ArabicFont.RegisterFallback();
                 if (!ArabicFont.IsLoaded)
                     Log.Warn("Arabic is active but no Arabic font is loaded — text will render as empty boxes.");
             }
-            else
+        }
+
+        /// <summary>Called after the language change has propagated.</summary>
+        public static void EndLanguageChange(string languageId)
+        {
+            LocalizedTextPatches.DirectAllOnScreen();
+            ArabicFont.RefreshAllText();
+        }
+
+        /// <summary>
+        /// Re-runs localization on every UI element that is already on screen.
+        ///
+        /// Needed when Arabic becomes active outside a ChangeLanguage call — for instance when
+        /// injection completes after the menus have already built themselves in English. Setting
+        /// the flag alone is not enough: the strings were assigned before the hook could act, and
+        /// TMP will not re-evaluate them on its own.
+        /// </summary>
+        public static void ForceRelocalize()
+        {
+            Log.Try("Forcing re-localization", () =>
             {
-                Log.Info("Arabic deactivated; restoring original text direction and alignment.");
-                TextDirector.RestoreAll();
-            }
+                var uilm = UILocalizationManager.instance;
+                if (uilm != null) uilm.UpdateUIs(Localization.CurrentLanguage);
+
+                // Anything already holding Arabic still needs its direction set.
+                int directed = LocalizedTextPatches.DirectAllOnScreen();
+                ArabicFont.RefreshAllText();
+                Log.Verbose($"Set right-to-left layout on {directed} component(s).");
+            });
         }
 
         /// <summary>Re-reads the TSV files and re-applies them without restarting the game.</summary>

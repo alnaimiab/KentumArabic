@@ -44,19 +44,44 @@ namespace KentumArabic.Injection
             }
 
             /// <summary>
-            /// Safety net for keys the text table could not cover. It deliberately fires only
-            /// when the lookup genuinely missed (result == key), which preserves the debug-mode
-            /// semantics described above while still catching stragglers.
+            /// Shapes the localized string, and acts as a safety net for keys the text table
+            /// could not cover.
+            ///
+            /// This is where shaping happens because it is the one hook that demonstrably fires
+            /// in this game — Harmony reports TMP_Text.set_text as patched, but the detour never
+            /// actually runs, verified with a probe that sets text on a component we create
+            /// ourselves. Every piece of Kentum UI text flows through Localize, so this covers
+            /// the same ground.
+            ///
+            /// Shaping here does not disturb the LocalizationDebugMode coverage report: that mode
+            /// returns its green/red marker from inside Localize, before this postfix sees it, and
+            /// those markers contain no Arabic so shaping leaves them untouched. The missing-key
+            /// substitution below is likewise gated on a genuine miss (result == key).
             /// </summary>
-            public static void Postfix(string key, ref string __result)
+            /// <summary>Diagnostics: how often this postfix runs and what it does.</summary>
+            public static long Calls, WhileActive, Shaped;
+
+            /// <summary>
+            /// Pass-through postfix — returns the replacement rather than taking
+            /// <c>ref string __result</c>, which this HarmonyX build accepts at patch time and
+            /// then never invokes.
+            /// </summary>
+            public static string Postfix(string __result, string key)
             {
-                if (!Plugin.ArabicActive) return;
-                if (__result != key) return;
+                Calls++;
+                if (!Plugin.ArabicActive) return __result;
+                WhileActive++;
 
-                Diagnostics.TextDiagnostics.NoteMissingKey(key);
+                if (__result == key)
+                {
+                    Diagnostics.TextDiagnostics.NoteMissingKey(key);
+                    if (Plugin.Translations != null && Plugin.Translations.Ui.TryGetValue(key, out var arabic))
+                        __result = arabic;
+                }
 
-                if (Plugin.Translations != null && Plugin.Translations.Ui.TryGetValue(key, out var arabic))
-                    __result = arabic;
+                var shaped = Shaping.ArabicShaper.Shape(__result);
+                if (!ReferenceEquals(shaped, __result)) Shaped++;
+                return shaped;
             }
         }
 
@@ -66,15 +91,22 @@ namespace KentumArabic.Injection
         [HarmonyPatch(typeof(Localization), nameof(Localization.ChangeLanguage))]
         public static class ChangeLanguage_Patch
         {
+            /// <summary>
+            /// The shaping flag must be set here, before ChangeLanguage runs. Assigning
+            /// UILocalizationManager.currentLanguage inside it fires languageChanged, which
+            /// re-localizes every visible text component — so the flag has to already be true or
+            /// that entire first wave of Arabic text renders unshaped.
+            /// </summary>
             public static void Prefix(string languageId)
             {
                 Plugin.TryEnsureInjected();
                 Log.Verbose($"ChangeLanguage -> {languageId}");
+                Plugin.BeginLanguageChange(languageId);
             }
 
             public static void Postfix(string languageId)
             {
-                Plugin.OnLanguageChanged(languageId);
+                Plugin.EndLanguageChange(languageId);
             }
         }
     }

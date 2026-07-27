@@ -2,9 +2,10 @@
   <!--
     Console harness for the Arabic shaping pipeline.
 
-    Shaping is pure string -> string, so it can be exercised without launching the game. That
-    turns a 90-second launch-and-screenshot cycle into a sub-second one, and doubles as a
-    regression test for the rich-text and bidi edge cases that are easy to break.
+    It compiles the *real* ArabicShaper.cs, not a copy of its logic. An earlier version of this
+    harness reimplemented the RtlLayout path, which meant it could pass while the shipped code
+    failed. Shaping is pure string -> string, so the only thing needed to build it standalone is
+    a stub for the BepInEx logger.
   -->
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -18,6 +19,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\..\src\KentumArabic\Shaping\RTLTMPro\**\*.cs" />
+    <Compile Include="..\..\src\KentumArabic\Shaping\ArabicShaper.cs" />
+    <Compile Include="LogStub.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
 </Project>

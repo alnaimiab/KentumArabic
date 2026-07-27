@@ -19,6 +19,7 @@ namespace KentumArabic
     {
         private ShapingTestOverlay _overlay;
         private float _nextEnsureCheck;
+        private float _nextDirectionSweep;
 
         private void Start()
         {
@@ -39,9 +40,14 @@ namespace KentumArabic
             Dump.StringDumper.DumpAll(System.IO.Path.Combine(Plugin.PluginDir, "_dump"));
             yield return null;
 
-            Log.Info("Self-test: showing the shaping test battery.");
-            if (_overlay == null) _overlay = gameObject.AddComponent<ShapingTestOverlay>();
-            _overlay.Toggle();
+            // The overlay is for choosing the shaping mode. Skipping it captures the game's own
+            // UI instead, which is what you want when checking real screens for layout problems.
+            if (Plugin.CfgSelfTestOverlay.Value)
+            {
+                Log.Info("Self-test: showing the shaping test battery.");
+                if (_overlay == null) _overlay = gameObject.AddComponent<ShapingTestOverlay>();
+                _overlay.Toggle();
+            }
 
             // Give the dynamic atlas a few frames to rasterize every glyph it just met.
             yield return new WaitForSecondsRealtime(3f);
@@ -62,7 +68,95 @@ namespace KentumArabic
             foreach (var s in all) shaped.Add(ArabicShaper.Shape(s));
             ArabicFont.AuditCoverage(shaped);
 
+            ReportLiveText();
+
             Log.Info("Self-test complete.");
+        }
+
+        /// <summary>
+        /// Reports what Arabic-bearing text components actually hold right now.
+        ///
+        /// Distinguishes the two ways Arabic can look wrong on screen: text that never reached
+        /// the shaping hook (still base letters, renders disconnected) versus text that was
+        /// shaped but is being drawn without right-to-left layout.
+        /// </summary>
+        /// <summary>
+        /// Sets text on a throwaway TMP component to prove whether the detour actually fires.
+        /// Separates "Harmony patched a method the game never calls" from "the patch did not
+        /// install" — two failures that look identical from the outside.
+        /// </summary>
+        private void ProbeHook()
+        {
+            Log.Try("Probing the text hook", () =>
+            {
+                long before = TmpPatches.RawCallCount;
+
+                var go = new GameObject("KentumArabic.HookProbe");
+                go.hideFlags = HideFlags.HideAndDontSave;
+                try
+                {
+                    var tmp = go.AddComponent<TMPro.TextMeshProUGUI>();
+                    tmp.text = "مرحبا";
+                    long afterSetter = TmpPatches.RawCallCount;
+
+                    tmp.SetText("مرحبا");
+                    long afterSetText = TmpPatches.RawCallCount;
+
+                    Log.Info($"Hook probe: property setter fired={afterSetter > before}, " +
+                             $"SetText fired={afterSetText > afterSetter}, " +
+                             $"resulting text shaped={ArabicShaper.IsAlreadyShaped(tmp.text)}\n" +
+                             $"  TMP_Text type: {typeof(TMPro.TMP_Text).AssemblyQualifiedName}\n" +
+                             $"  component type: {tmp.GetType().FullName}\n" +
+                             $"  declaring type of the setter actually invoked: " +
+                             $"{tmp.GetType().GetProperty("text")?.GetSetMethod()?.DeclaringType?.FullName}");
+                }
+                finally
+                {
+                    Destroy(go);
+                }
+            });
+        }
+
+        private void ReportLiveText()
+        {
+            ProbeHook();
+
+            Log.Try("Reporting live text state", () =>
+            {
+                int arabic = 0, shapedOk = 0, unshaped = 0, rtlSet = 0;
+                var samples = new List<string>();
+
+                foreach (var t in Resources.FindObjectsOfTypeAll<TMPro.TMP_Text>())
+                {
+                    if (t == null) continue;
+                    var s = t.text;
+                    if (string.IsNullOrEmpty(s) || !ArabicShaper.ContainsArabic(s)) continue;
+
+                    arabic++;
+                    bool isShaped = ArabicShaper.IsAlreadyShaped(s);
+                    if (isShaped) shapedOk++; else unshaped++;
+                    if (t.isRightToLeftText) rtlSet++;
+
+                    if (samples.Count < 6)
+                        samples.Add($"    {(isShaped ? "shaped  " : "UNSHAPED")} rtl={t.isRightToLeftText,-5} " +
+                                    $"align={t.alignment,-14} \"{s}\"  [{t.name}]");
+                }
+
+                Log.Info(
+                    $"Live text state: {arabic} component(s) contain Arabic — " +
+                    $"{shapedOk} shaped, {unshaped} UNSHAPED, {rtlSet} with RTL layout.\n" +
+                    $"  text hook: {TmpPatches.RawCallCount} call(s), {TmpPatches.InactiveCount} while inactive, " +
+                    $"{TmpPatches.ShapedCount} shaped, {TmpPatches.PassthroughCount} passed through\n" +
+                    $"  ArabicActive={Plugin.ArabicActive} language={Tlon.Localization.Localization.CurrentLanguage} " +
+                    $"mode={ArabicShaper.Mode} hooks={TmpPatches.PatchedCount}\n" +
+                    $"  Localize postfix: {LocalizationPatches.Localize_Patch.Calls} call(s), " +
+                    $"{LocalizationPatches.Localize_Patch.WhileActive} while Arabic active, " +
+                    $"{LocalizationPatches.Localize_Patch.Shaped} shaped; " +
+                    $"directed={LocalizedTextPatches.DirectedCount}\n" +
+                    $"  TextTable postfix: {TextTablePatches.Calls} call(s), {TextTablePatches.Shaped} shaped\n" +
+                    $"  sanity: Shape(\"مرحبا\") -> \"{ArabicShaper.Shape("مرحبا")}\"\n" +
+                    (samples.Count > 0 ? string.Join("\n", samples.ToArray()) : "    (no samples)"));
+            });
         }
 
         private void OnEnable()
@@ -92,6 +186,17 @@ namespace KentumArabic
             {
                 _nextEnsureCheck = Time.unscaledTime + 1f;
                 Plugin.TryEnsureInjected();
+            }
+
+            // Text direction cannot be set where the text is produced — the table hook shapes
+            // strings but has no idea which component will display them. A periodic sweep gives
+            // right-to-left layout to anything holding Arabic, including UI that appears later.
+            // TextDirector records each component's original state, so this is idempotent and
+            // fully reversible when the player switches back.
+            if (Plugin.ArabicActive && Time.unscaledTime >= _nextDirectionSweep)
+            {
+                _nextDirectionSweep = Time.unscaledTime + 0.5f;
+                LocalizedTextPatches.DirectAllOnScreen();
             }
 
             HandleHotkeys();

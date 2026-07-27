@@ -133,11 +133,27 @@ namespace KentumArabic.Injection
         }
 
         /// <summary>
-        /// Writes the Arabic column into the live text table.
+        /// Writes the Arabic column into the live text table, already shaped for display.
+        ///
+        /// Shaping is applied here, at load time, rather than by intercepting text as it flows to
+        /// TextMeshPro. Hooking proved unworkable on this build: Harmony reports patches on
+        /// <c>TMP_Text.set_text</c>, <c>Localization.Localize</c> and
+        /// <c>TextTable.GetFieldTextForLanguage</c> as applied, and every one of them recorded
+        /// zero invocations at runtime — including against a component this plugin created
+        /// itself. Baking the shaped form into the table removes Harmony from the path entirely,
+        /// so the text is correct no matter which of the game's several localization routes reads
+        /// it.
+        ///
+        /// The translation files stay plain logical Arabic; shaping happens on the way in, so
+        /// they remain reviewable, diffable and re-shapeable whenever the shaper improves.
+        ///
+        /// Known limitation: strings containing <c>{0}</c> placeholders are shaped before their
+        /// runtime values are substituted, so a number injected into an Arabic sentence can land
+        /// at the wrong end. Those keys carry the "format" flag in the translation workbook.
         ///
         /// Goes through the fields dictionary directly rather than the string-keyed
         /// SetFieldTextForLanguage overloads: those call GetFieldID, which linear-scans all
-        /// ~2,400 fields on every single call.
+        /// ~2,600 fields on every single call.
         /// </summary>
         public static int ApplyTranslations(TextTable tt, TranslationStore store)
         {
@@ -153,7 +169,7 @@ namespace KentumArabic.Injection
 
                 if (store.Ui.TryGetValue(field.fieldName, out var arabic))
                 {
-                    field.texts[LanguageId] = arabic;
+                    field.texts[LanguageId] = Shaping.ArabicShaper.Shape(arabic);
                     matched.Add(field.fieldName);
                     applied++;
                 }
@@ -190,8 +206,9 @@ namespace KentumArabic.Injection
                 return;
             }
 
+            var label = Shaping.ArabicShaper.Shape(LanguageEndonym);
             foreach (var lang in tt.languages)
-                field.texts[lang.Value] = LanguageEndonym;
+                field.texts[lang.Value] = label;
         }
 
         /// <summary>

@@ -1,14 +1,16 @@
 # تعريب Kentum — نصوص الواجهة
 #
-# ملف بذرة صغير لإثبات عمل النظام من طرف إلى طرف.
-# للحصول على المجموعة الكاملة (٢٥٩٧ مفتاحًا): شغّل اللعبة، اضغط Ctrl+F12،
-# ثم ترجم في _dump وشغّل: python tools/sync_translations.py publish
+# ترجمة أولية للواجهة الأكثر ظهورًا (القوائم، الإعدادات، الحفظ، الخريطة، المخزون).
+# المجموعة الكاملة ٢٥٩٧ مفتاحًا: شغّل اللعبة واضغط Ctrl+F12، ثم ترجم في _dump
+# وشغّل: python tools/sync_translations.py publish
 #
 # اكتب العربية عادية منطقية — لا تشكّل الحروف ولا تعكسها، الإضافة تتولى ذلك.
 # السطر الجديد يُكتب \n حرفيًا. حافظ على {0} والوسوم <...> كما هي بالضبط.
 # خلية فارغة = غير مترجم، ويظهر بالإنجليزية. هذا آمن تمامًا.
 #
 key	ar
+
+# ── القائمة الرئيسية ──
 UI_MainMenu_NewGame	لعبة جديدة
 UI_MainMenu_Continue	متابعة
 UI_MainMenu_Load	تحميل
@@ -16,15 +18,140 @@ UI_MainMenu_Quit	خروج
 UI_MainMenu_Credits	فريق العمل
 UI_MainMenu_JoinDiscord	انضم إلى ديسكورد
 UI_MainMenu_Connecting	جارٍ الاتصال...
+UI_MainMenu_NoSaveSlot_Title	لا توجد خانة حفظ متاحة
+UI_MainMenu_NoSaveSlot_Description	الحد الأقصى لخانات الحفظ هو {0}. عليك حذف خانة موجودة لبدء لعبة جديدة.
+
+# ── عام ──
 UI_General_Options	الخيارات
 UI_General_Continue	متابعة
 UI_General_Select	اختيار
+UI_General_Cancel	إلغاء
+UI_General_Close	إغلاق
+UI_General_Confirm	تأكيد
+UI_General_ControlsTitle	التحكم
+UI_General_Coop	لعب تعاوني
+UI_General_Enabled	مُفعَّل
+UI_General_Disabled	مُعطَّل
+UI_General_No	لا
+UI_General_GoMainMenu	الخروج إلى القائمة الرئيسية
+UI_General_OpenKB	الموسوعة
+UI_General_Pin	تثبيت
+UI_General_Unpin	إلغاء التثبيت
+UI_General_QuickSave	حفظ سريع
+UI_General_Resume	استئناف
+UI_General_SaveQuit	حفظ وخروج
+UI_General_TimePlayed	وقت اللعب: {0}
+UI_General_Unlock	فتح
+UI_General_Year	السنة
+
+# ── الإعدادات ──
+UI_Options_General	عام
+UI_Options_Graphics	الرسوميات
+UI_Options_Audio	الصوت
+UI_Options_Controls	التحكم
+UI_Options_Save	حفظ
 UI_Options_Language	اللغة
 UI_Options_VOLanguage	لغة الأداء الصوتي
-UI_Options_VOLanguage_SameAsLanguage	نفس لغة اللعبة
+UI_Options_VOLanguage_SameAsLanguage	الافتراضية
+UI_Options_Resolution	دقة الشاشة
+UI_Options_Quality	جودة الرسوميات
+UI_Options_FullScreenMode	وضع ملء الشاشة
+UI_Options_FullScreenMode_ExclusiveFullScreen	ملء الشاشة الحصري
+UI_Options_FullScreenMode_FullScreenWindow	نافذة بلا حدود
+UI_Options_FullScreenMode_MaximizedWindow	نافذة مكبَّرة
+UI_Options_FullScreenMode_Windowed	وضع النافذة
+UI_Options_Audio_Master	الصوت العام
+UI_Options_Audio_Music	الموسيقى
+UI_Options_Audio_SFX	المؤثرات الصوتية
+UI_Options_Audio_Voices	الأصوات
+UI_Options_Audio_Alerts	التنبيهات
+UI_Options_AutoSave	الحفظ التلقائي
+UI_Options_Autopickup	الالتقاط التلقائي
+UI_Options_AutoUnpin	إلغاء التثبيت تلقائيًا عند التصنيع
+UI_Options_Rumble	الاهتزاز
+UI_Options_Rumble_PS	الاهتزاز
+UI_Options_HDRumble	اهتزاز عالي الدقة
+
+# ── الإيقاف المؤقت ──
+UI_Pause_GoDesktop	الخروج إلى سطح المكتب
+UI_Pause_ConfirmExit	هل تريد الخروج فعلًا؟\nسيُحفظ تقدّمك حتى هذه النقطة.
+UI_Pause_ConfirmMenu	هل تريد العودة إلى القائمة فعلًا؟
+UI_Pause_ConfirmDesktop	هل تريد إغلاق اللعبة فعلًا؟
+UI_Pause_ProgressSaved	سيُحفظ تقدّمك تلقائيًا.
+
+# ── الحفظ ──
+UI_Saves_Title	ملفات الحفظ
+UI_Saves_Delete	حذف
+UI_Saves_Day	اليوم {0}
+UI_Saves_Corrupted	تالف
+UI_Saves_DeletePopupTitle	حذف ملف الحفظ؟
+UI_Saves_DeletePopupDescription	لا يمكن التراجع عن هذا الإجراء.
+UI_Saves_GeneralInfo	نسخة {0} - {1}
+UI_Saves_InvalidSave	إصدار غير صالح ({0}.{1})
+UI_SavePopup_NoSpace_Title	فشل الحفظ
+UI_SavePopup_NoSpace_Description	حاولت اللعبة الحفظ لكن المساحة غير كافية. أفرغ بعض المساحة ثم أعد المحاولة.
+UI_SavePopup_NoSpace_Retry	إعادة المحاولة
+
+# ── المخزون والتصنيع ──
+UI_Inventory_Title	المخزون
+UI_Inventory_Consume	استهلاك
+UI_Inventory_Drop	إسقاط
+UI_Inventory_Place	وضع
+UI_Inventory_QuickUse	تعيين للاستخدام السريع
+UI_Crafting_ChangeRecipe	تغيير الوصفة
+UI_Crafting_ClearQueue	إفراغ الطابور
+UI_Crafting_ClearQueue_Hold	إفراغ الطابور (استمر بالضغط)
+UI_Crafting_CraftNConsume	تصنيع واستهلاك
+UI_Crafting_Pickup	التقاط
+
+# ── الخريطة ──
+UI_Map_Title	الخريطة
+UI_Map_CenterButton	توسيط
+UI_Map_PanButton	تحريك
+UI_Map_ZoomInButton	تكبير
+UI_Map_ZoomOutButton	تصغير
+UI_Map_ActiveEvents_Title	الأحداث النشطة
+
+# ── توسعة القاعدة ──
 UI_BaseExpansion_Title	توسعة القاعدة
 UI_BaseExpansion_SettingsButton	الإعدادات
 UI_BaseExpansion_Subcategory_Crafting	التصنيع
 UI_BaseExpansion_Subcategory_Storage	التخزين
-UI_MainMenu_NoSaveSlot_Title	لا توجد خانة حفظ متاحة
-UI_MainMenu_NoSaveSlot_Description	الحد الأقصى لخانات الحفظ هو {0}. عليك حذف خانة موجودة لبدء لعبة جديدة.
+
+# ── التحميل ──
+UI_Loading_Loading	جارٍ التحميل...
+UI_Loading_Tip	لا تنسَ أنه يمكنك تثبيت الوصفات على شريط الحالة!
+UI_Loading_Tip_2	عند دخولك منطقة جديدة، تذكّر أن تمسح كل شيء بالماسح!
+UI_Loading_Tip_3	الفصول مهمة، فالنباتات والحيوانات تتغير بتغيّرها.
+UI_Loading_Tip_4	استخدم الخريطة لمعرفة المناطق التي تظهر فيها النباتات والحيوانات.
+UI_Loading_Tip_5	الأطباق والجرعات المختلفة تمنحك مزايا مهمة.
+UI_Loading_Tip_6	O.R.B. رفيقك الدائم.
+UI_Loading_Tip_7	جرّب المخالب والأحزمة الناقلة لأتمتة إنتاج العناصر.
+UI_Loading_Tip_8	احذر من الأحداث المناخية.
+UI_Loading_Tip_9	راجع الموسوعة لتكتشف أين تجد العناصر التي تحتاجها.
+
+# ── مفاتيح التحكم ──
+UI_Keybind_Move	الحركة
+UI_Keybind_Move_up	التحرك للأعلى
+UI_Keybind_Move_down	التحرك للأسفل
+UI_Keybind_Move_left	التحرك لليسار
+UI_Keybind_Move_right	التحرك لليمين
+UI_Keybind_Jump	القفز
+UI_Keybind_Interact	التفاعل
+UI_Keybind_Inventory	المخزون
+UI_Keybind_Inventory_Drop	إسقاط
+UI_Keybind_Map	الخريطة
+UI_Keybind_Pause	إيقاف مؤقت
+UI_Keybind_OpenKB	الموسوعة
+UI_Keybind_Ability_Dash	الاندفاع
+UI_Keybind_Ability_Melee	المهارة الأساسية
+UI_Keybind_Ability_1	المهارة الثانوية
+UI_Keybind_AbilityMenu	قائمة المهارات الثانوية
+UI_Keybind_AbilityMenu_SwitchAbility1	تعيين المهارة ١
+UI_Keybind_AbilityMenu_SwitchAbility2	تعيين المهارة ٢
+UI_Keybind_AbilityMenu_SwitchAbility3	تعيين المهارة ٣
+UI_Keybind_AbilityMenu_SwitchAbility4	تعيين المهارة ٤
+UI_Keybind_Ability_Scanner	الماسح
+UI_Keybind_Ability_Light	المشعل الكهربائي
+UI_Keybind_Ability_DroneMode	وضع الطائرة المسيّرة
+UI_Keybind_Ability_CaptureBall	فخ الأقراص
