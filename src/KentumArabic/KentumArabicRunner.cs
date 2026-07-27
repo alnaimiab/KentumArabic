@@ -20,6 +20,7 @@ namespace KentumArabic
         private ShapingTestOverlay _overlay;
         private float _nextEnsureCheck;
         private float _nextDirectionSweep;
+        private float _nextDialogueCheck;
 
         private void Start()
         {
@@ -71,6 +72,40 @@ namespace KentumArabic
             ReportLiveText();
 
             Log.Info("Self-test complete.");
+
+            // The dialogue database only exists once a game is loaded, so keep watching for it
+            // and re-dump when it turns up. That way the workbook can be completed by simply
+            // loading a save, without having to remember a hotkey at the right moment.
+            yield return WatchForDialogueDatabase();
+        }
+
+        private IEnumerator WatchForDialogueDatabase()
+        {
+            const float TimeoutSeconds = 300f;
+            float deadline = Time.unscaledTime + TimeoutSeconds;
+            bool announced = false;
+
+            while (Time.unscaledTime < deadline)
+            {
+                var db = Dump.StringDumper.FindDialogueDatabase();
+                if (db != null && db.conversations != null && db.conversations.Count > 0)
+                {
+                    Log.Info($"Dialogue database appeared ({db.conversations.Count} conversations) — dumping.");
+                    // Let the database finish populating before reading it.
+                    yield return new WaitForSecondsRealtime(2f);
+                    Dump.StringDumper.DumpAll(System.IO.Path.Combine(Plugin.PluginDir, "_dump"));
+                    yield break;
+                }
+
+                if (!announced)
+                {
+                    announced = true;
+                    Log.Info("Waiting for a game to load so the dialogue can be dumped...");
+                }
+                yield return new WaitForSecondsRealtime(2f);
+            }
+
+            Log.Info("Stopped waiting for the dialogue database.");
         }
 
         /// <summary>
@@ -145,6 +180,14 @@ namespace KentumArabic
             {
                 _nextEnsureCheck = Time.unscaledTime + 1f;
                 Plugin.TryEnsureInjected();
+            }
+
+            // The dialogue database only exists once a game is loaded, and can be reset out from
+            // under us on a new game or save load, so it is re-checked on the same slow cadence.
+            if (Plugin.ArabicActive && Time.unscaledTime >= _nextDialogueCheck)
+            {
+                _nextDialogueCheck = Time.unscaledTime + 3f;
+                DialogueInjection.Apply(Plugin.Translations);
             }
 
             // Text direction cannot be set where the text is produced — the table hook shapes

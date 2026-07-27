@@ -136,14 +136,46 @@ namespace KentumArabic.Dump
         // ---------------------------------------------------------------------------------
         // Dialogue database
         // ---------------------------------------------------------------------------------
+        /// <summary>
+        /// Locates the dialogue database.
+        ///
+        /// <c>DialogueManager.masterDatabase</c> is only populated once the DialogueSystemController
+        /// awakes, which does not happen in the main menu. The database is a ScriptableObject
+        /// though, so if it has been loaded into memory at all it can be found directly — which
+        /// usually means the workbook can be dumped without starting a game first.
+        /// </summary>
+        public static DialogueDatabase FindDialogueDatabase()
+        {
+            var db = DialogueManager.masterDatabase;
+            if (db != null) return db;
+
+            var all = UnityEngine.Resources.FindObjectsOfTypeAll<DialogueDatabase>();
+            if (all == null || all.Length == 0) return null;
+
+            // More than one can exist (add-on databases); the master is the one with the most
+            // conversations.
+            DialogueDatabase best = null;
+            foreach (var candidate in all)
+            {
+                if (candidate == null || candidate.conversations == null) continue;
+                if (best == null || candidate.conversations.Count > best.conversations.Count)
+                    best = candidate;
+            }
+
+            if (best != null)
+                Log.Info($"Dialogue database found in memory: '{best.name}' " +
+                         $"({best.conversations.Count} conversations, {best.actors?.Count ?? 0} actors).");
+            return best;
+        }
+
         private static int DumpDialogue(string outDir, out int actorCount)
         {
             actorCount = 0;
 
-            var db = DialogueManager.masterDatabase;
+            var db = FindDialogueDatabase();
             if (db == null)
             {
-                Log.Warn("Dialogue database not loaded yet — start or load a game, then dump again.");
+                Log.Warn("Dialogue database not found — start or load a game, then dump again.");
                 return 0;
             }
 
