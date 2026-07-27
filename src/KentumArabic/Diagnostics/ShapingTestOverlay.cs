@@ -173,19 +173,11 @@ namespace KentumArabic.Diagnostics
             tmp.overflowMode = TextOverflowModes.Overflow;
             tmp.raycastTarget = false;
 
-            // Write past our own hook: the string is already shaped for this row's mode, and the
-            // direction flag is set explicitly below.
-            TmpPatches.Suppress = true;
-            try
-            {
-                tmp.isRightToLeftText = rtl;
-                tmp.text = text;
-                tmp.ForceMeshUpdate();
-            }
-            finally
-            {
-                TmpPatches.Suppress = false;
-            }
+            // The string is already shaped for this row's specific mode, and the direction flag
+            // is set explicitly, so each mode can be compared side by side on one screen.
+            tmp.isRightToLeftText = rtl;
+            tmp.text = text;
+            tmp.ForceMeshUpdate();
 
             height = tmp.preferredHeight;
             rt.sizeDelta = new Vector2(width, height);

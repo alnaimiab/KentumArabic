@@ -84,14 +84,10 @@ namespace KentumArabic
                 _harmony = new Harmony(PluginGuid);
                 _harmony.PatchAll(Assembly.GetExecutingAssembly());
 
-                // Shaping hangs off the text table, the one point both localization routes share.
+                // Kept as a safety net for text composed at runtime. Shaping itself happens at
+                // injection time (see ArabicLanguage.ApplyTranslations) because no interception
+                // point in this build reliably fires.
                 TextTablePatches.ApplyTo(_harmony);
-
-                // The TextMeshPro hooks are applied explicitly, so a failure to resolve one is
-                // reported rather than silently leaving Arabic unshaped. They are a secondary net:
-                // on this build the detour installs but never fires, which is why the table hook
-                // above is the primary mechanism.
-                TmpPatches.ApplyTo(_harmony);
 
                 var patched = new List<string>();
                 foreach (var m in _harmony.GetPatchedMethods())

@@ -29,8 +29,11 @@ TAG = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)(?:=[^>]*)?(/?)>")
 ARABIC_INDIC = re.compile(r"[٠-٩۰-۹]")
 
 # Tags TextMeshPro treats as self-contained; they never need a closing partner.
+# "input" is Kentum's own markup, not TextMeshPro's: InputManager replaces
+# <input=Player/Jump> with the icon for whatever the player has that action bound to.
+# It must survive translation verbatim, but it is never paired.
 SELF_CONTAINED = {"br", "sprite", "space", "nbsp", "page", "align", "indent", "line",
-                  "pos", "size", "voffset", "cspace", "mspace", "style"}
+                  "pos", "size", "voffset", "cspace", "mspace", "style", "input"}
 # Of those, the ones that are also commonly used as a matched pair.
 PAIRABLE = {"size", "align", "indent", "cspace", "mspace", "voffset", "style"}
 

@@ -80,47 +80,8 @@ namespace KentumArabic
         /// the shaping hook (still base letters, renders disconnected) versus text that was
         /// shaped but is being drawn without right-to-left layout.
         /// </summary>
-        /// <summary>
-        /// Sets text on a throwaway TMP component to prove whether the detour actually fires.
-        /// Separates "Harmony patched a method the game never calls" from "the patch did not
-        /// install" — two failures that look identical from the outside.
-        /// </summary>
-        private void ProbeHook()
-        {
-            Log.Try("Probing the text hook", () =>
-            {
-                long before = TmpPatches.RawCallCount;
-
-                var go = new GameObject("KentumArabic.HookProbe");
-                go.hideFlags = HideFlags.HideAndDontSave;
-                try
-                {
-                    var tmp = go.AddComponent<TMPro.TextMeshProUGUI>();
-                    tmp.text = "مرحبا";
-                    long afterSetter = TmpPatches.RawCallCount;
-
-                    tmp.SetText("مرحبا");
-                    long afterSetText = TmpPatches.RawCallCount;
-
-                    Log.Info($"Hook probe: property setter fired={afterSetter > before}, " +
-                             $"SetText fired={afterSetText > afterSetter}, " +
-                             $"resulting text shaped={ArabicShaper.IsAlreadyShaped(tmp.text)}\n" +
-                             $"  TMP_Text type: {typeof(TMPro.TMP_Text).AssemblyQualifiedName}\n" +
-                             $"  component type: {tmp.GetType().FullName}\n" +
-                             $"  declaring type of the setter actually invoked: " +
-                             $"{tmp.GetType().GetProperty("text")?.GetSetMethod()?.DeclaringType?.FullName}");
-                }
-                finally
-                {
-                    Destroy(go);
-                }
-            });
-        }
-
         private void ReportLiveText()
         {
-            ProbeHook();
-
             Log.Try("Reporting live text state", () =>
             {
                 int arabic = 0, shapedOk = 0, unshaped = 0, rtlSet = 0;
@@ -145,10 +106,8 @@ namespace KentumArabic
                 Log.Info(
                     $"Live text state: {arabic} component(s) contain Arabic — " +
                     $"{shapedOk} shaped, {unshaped} UNSHAPED, {rtlSet} with RTL layout.\n" +
-                    $"  text hook: {TmpPatches.RawCallCount} call(s), {TmpPatches.InactiveCount} while inactive, " +
-                    $"{TmpPatches.ShapedCount} shaped, {TmpPatches.PassthroughCount} passed through\n" +
                     $"  ArabicActive={Plugin.ArabicActive} language={Tlon.Localization.Localization.CurrentLanguage} " +
-                    $"mode={ArabicShaper.Mode} hooks={TmpPatches.PatchedCount}\n" +
+                    $"mode={ArabicShaper.Mode}\n" +
                     $"  Localize postfix: {LocalizationPatches.Localize_Patch.Calls} call(s), " +
                     $"{LocalizationPatches.Localize_Patch.WhileActive} while Arabic active, " +
                     $"{LocalizationPatches.Localize_Patch.Shaped} shaped; " +
@@ -284,7 +243,7 @@ namespace KentumArabic
                 $"  shaping mode  : {ArabicShaper.Mode} (cache {ArabicShaper.CacheCount})\n" +
                 $"  font loaded   : {ArabicFont.IsLoaded}{(ArabicFont.IsLoaded ? $" ({ArabicFont.Font.name})" : "")}\n" +
                 $"  translations  : {Plugin.Translations?.TotalEntries ?? 0} entries, {ArabicLanguage.AppliedCount} applied, {ArabicLanguage.OrphanKeyCount} unknown\n" +
-                $"  text hook     : {TmpPatches.ShapedCount} shaped, {TmpPatches.PassthroughCount} passed through\n" +
+                $"  shaping       : {TextTablePatches.Calls} table lookup(s), {TextTablePatches.Shaped} shaped at runtime\n" +
                 $"  diagnostics   : {(TextDiagnostics.Enabled ? $"{TextDiagnostics.MissingKeyCount} missing keys, {TextDiagnostics.BypassCount} bypasses" : "disabled")}");
         }
     }
