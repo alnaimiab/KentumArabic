@@ -12,7 +12,7 @@ Zone_Z0_G_Name	كهوف الفولت
 Zone_Z2_A_Name	مدخل الأدغال
 Zone_Z2_B_Name	كهف النحاس
 Zone_Z2_C_Name	خليج التنين
-Zone_Z2_D_Name	الكهف النطّاط
+Zone_Z2_D_Name	الكهف النطاط
 Zone_Z2_E_Name	كهف النفايات
 Zone_Z2_F_Name	متاهة الجبل
 Zone_Z2_G_Name	كهف الضوء — الطابق العلوي
@@ -26,8 +26,8 @@ Zone_Z3_M_A_Name	العش
 Zone_Z3_W_A_Name	كهف الدرع
 Zone_Z3_W_B_Name	حظيرة الدم
 Zone_Z3_W_C_Name	حلبة العناكب
-Zone_Z3_W_D_Name	أعشاش الحريريّات
-Zone_Monolith_Int_Name	المسلّة
+Zone_Z3_W_D_Name	أعشاش الحريريات
+Zone_Monolith_Int_Name	المسلة
 
 Zone_FastTravel_Base	القاعدة
 Zone_FastTravel_Hive	الخلية

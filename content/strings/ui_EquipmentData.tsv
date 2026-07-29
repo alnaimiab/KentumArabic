@@ -7,21 +7,21 @@ EquipmentData_Head_ConstructionWorker_Description	خوذة عامل بناء.
 EquipmentData_Head_SpaceExplorer_Name	خوذة مستكشف الفضاء
 EquipmentData_Head_SpaceExplorer_Description	خوذة مستكشف فضاء
 EquipmentData_Head_Warhelmet_Name	خوذة الحرب
-EquipmentData_Head_Warhelmet_Description	صُنعت للقتال والنجاة، تستعيد هذه الخوذة الصحة ببطء لتبقيك جاهزًا للمعركة التالية.
+EquipmentData_Head_Warhelmet_Description	صنعت للقتال والنجاة، تستعيد هذه الخوذة الصحة ببطء لتبقيك جاهزا للمعركة التالية.
 EquipmentData_Head_HeavyUVProtector_Name	واقي الأشعة الثقيل
-EquipmentData_Head_HeavyUVProtector_Description	خوذة متينة مقوّاة بُنيت للمواقف الصعبة، تمنح حماية قوية من الشمس بمظهر جادّ لا يمزح.
+EquipmentData_Head_HeavyUVProtector_Description	خوذة متينة مقواة بنيت للمواقف الصعبة، تمنح حماية قوية من الشمس بمظهر جاد لا يمزح.
 EquipmentData_Head_Goggles_Name	نظارة الغنائم
 EquipmentData_Head_Goggles_Description	تزيد فرصك في العثور على غنائم إضافية.
 EquipmentData_Head_Tinfoil_Name	قبعة القصدير
 EquipmentData_Head_Tinfoil_Description	تحفظ أفكارك من التحكم الذهني ومن قارئي الأفكار ومن المنطق السليم.
 EquipmentData_Head_BDayHat_Name	قبعة عيد الميلاد
-EquipmentData_Head_BDayHat_Description	قبعة مخروطية ملونة تصرخ احتفالًا. مضمونة لتجعلك روح الحفلة.
-EquipmentData_Head_ClownWig_Name	شعر المهرّج السخيف
+EquipmentData_Head_BDayHat_Description	قبعة مخروطية ملونة تصرخ احتفالا. مضمونة لتجعلك روح الحفلة.
+EquipmentData_Head_ClownWig_Name	شعر المهرج السخيف
 EquipmentData_Head_ClownWig_Description	كتلة جامحة من التجعيدات بألوان قوس قزح، فوضوية ومبهجة بالقدر نفسه. مثالية لمقالب السيرك.
 EquipmentData_Head_MalevolentlyFunnyHat_Name	قبعة المرح الخبيث
-EquipmentData_Head_MalevolentlyFunnyHat_Description	قبعة مهرّج بلمسة مظلمة، مثالية للمشاغبين ذوي الحس الفكاهي الشرير.
+EquipmentData_Head_MalevolentlyFunnyHat_Description	قبعة مهرج بلمسة مظلمة، مثالية للمشاغبين ذوي الحس الفكاهي الشرير.
 EquipmentData_Head_MateLoverBeret_Name	بيريه عاشق المتة
-EquipmentData_Head_MateLoverBeret_Description	قبعة بيريه مائلة أنيقة تفيض سحرًا ورقيًا، مثالية لاحتساء الشاي مع خير رفيق، أو المتة مع خير شاي.
+EquipmentData_Head_MateLoverBeret_Description	قبعة بيريه مائلة أنيقة تفيض سحرا ورقيا، مثالية لاحتساء الشاي مع خير رفيق، أو المتة مع خير شاي.
 EquipmentData_Head_PointyEndHat_Name	القبعة المدببة
 EquipmentData_Head_PointyEndHat_Description	قبعة مخروطية أنيقة بحافة حادة، تمنحك هالة ساحر غامض أو مجرد كمال مدبب.
 EquipmentData_Head_WildEastHat_Name	قبعة الشرق المتوحش
@@ -39,15 +39,15 @@ EquipmentData_Accesory_HiTechPatch_Description	رقعة عالية التقني�
 EquipmentData_Accesory_N909Mask_Name	قناع N909
 EquipmentData_Accesory_N909Mask_Description	قناع N909
 EquipmentData_Accesory_CarnivalMask_Name	قناع الكرنفال
-EquipmentData_Accesory_CarnivalMask_Description	قناع ريشي زاهي يحوّلك إلى نجم أي حفل تنكري.
-EquipmentData_Accesory_ClownNose_Name	أنف المهرّج السخيف
-EquipmentData_Accesory_ClownNose_Description	أنف أحمر زاهٍ يصدر صوتًا عند ضغطه، ذروة إكسسوارات المهرّجين. تحذير: قد يجذب البالونات.
+EquipmentData_Accesory_CarnivalMask_Description	قناع ريشي زاهي يحولك إلى نجم أي حفل تنكري.
+EquipmentData_Accesory_ClownNose_Name	أنف المهرج السخيف
+EquipmentData_Accesory_ClownNose_Description	أنف أحمر زاه يصدر صوتا عند ضغطه، ذروة إكسسوارات المهرجين. تحذير: قد يجذب البالونات.
 EquipmentData_Accesory_CrazyEyesGlasses_Name	نظارة العيون المجنونة
-EquipmentData_Accesory_CrazyEyesGlasses_Description	نظارة هزلية ضخمة بعدسات حلزونية تجعلك تبدو مختلًا على نحو بهيج.
+EquipmentData_Accesory_CrazyEyesGlasses_Description	نظارة هزلية ضخمة بعدسات حلزونية تجعلك تبدو مختلا على نحو بهيج.
 EquipmentData_Accesory_CyranoMask_Name	قناع سيرانو
-EquipmentData_Accesory_CyranoMask_Description	قناع درامي طويل الأنف للأرواح الشاعرية أو لمن يريد دخولًا مدويًا فحسب.
+EquipmentData_Accesory_CyranoMask_Description	قناع درامي طويل الأنف للأرواح الشاعرية أو لمن يريد دخولا مدويا فحسب.
 EquipmentData_Accesory_FreshMindGelatto_Name	جيلاتو العقل المنعش
-EquipmentData_Accesory_FreshMindGelatto_Description	غطاء رأس بارد كريمي على هيئة مغرفة جيلاتو، يُبقي أفكارك باردة وحلوة.
+EquipmentData_Accesory_FreshMindGelatto_Description	غطاء رأس بارد كريمي على هيئة مغرفة جيلاتو، يبقي أفكارك باردة وحلوة.
 EquipmentData_Accesory_PopBeastGlasses_Name	نظارة وحش البوب
 EquipmentData_Accesory_PopBeastGlasses_Description	نظارة براقة تصرخ بأناقة الثقافة الشعبية، مثالية للتميز وسط أي حشد.
 EquipmentData_Accesory_RBSunglasses_Name	نظارة شمسية أنيقة
@@ -59,10 +59,10 @@ EquipmentData_Torso_SpaceExplorer_Description	بذلة مستكشف فضاء
 EquipmentData_Torso_ConstructionWorker_Name	سترة عامل بناء
 EquipmentData_Torso_ConstructionWorker_Description	سترة عامل بناء.
 EquipmentData_Torso_BoringShirt_Name	قميص ممل
-EquipmentData_Torso_BoringShirt_Description	عادي وغير لافت، يذوب هذا القميص في أي حشد. ليس أن هناك حشودًا باقية.
+EquipmentData_Torso_BoringShirt_Description	عادي وغير لافت، يذوب هذا القميص في أي حشد. ليس أن هناك حشودا باقية.
 EquipmentData_Torso_HyperUnnoticeableTshirt_Name	قميص فائق الخفاء
 EquipmentData_Torso_HyperUnnoticeableTshirt_Description	قميص فائق الخفاء.
-EquipmentData_Torso_Bathrobe_Name	روب الحمّام
+EquipmentData_Torso_Bathrobe_Name	روب الحمام
 EquipmentData_Torso_Bathrobe_Description	مثالي للتأمل العميق، أو لصباحات الكسل، أو للتظاهر بأنك ساحر متقاعد.
 EquipmentData_Torso_AtlanticCoastShirt_Name	قميص ساحل الأطلسي
 EquipmentData_Torso_AtlanticCoastShirt_Description	قميص خفيف منعش مستوحى من أمواج المحيط، مثالي للتنزه على الشاطئ.
@@ -71,17 +71,17 @@ EquipmentData_Torso_CasualEntrepreneur00_Description	ياقة عالية لرج�
 EquipmentData_Torso_CasualEntrepreneur01_Name	ياقة رجل الأعمال — نسخة أخرى
 EquipmentData_Torso_CasualEntrepreneur01_Description	نسخة أخرى من ياقة رجل الأعمال.
 EquipmentData_Torso_Spring_Name	أناقة رائد الفضاء الربيعية
-EquipmentData_Torso_Spring_Description	الإطلالة اليومية لجوّاب الفضاء. أنيقة، حتى في انعدام الجاذبية.
+EquipmentData_Torso_Spring_Description	الإطلالة اليومية لجواب الفضاء. أنيقة، حتى في انعدام الجاذبية.
 EquipmentData_Torso_Summer_Name	إطلالة الصيف المعقودة
-EquipmentData_Torso_Summer_Description	قميص أبيض بسيط مع سترة معقودة حول الخصر بلا تكلّف، لأجواء مشمسة مسترخية.
+EquipmentData_Torso_Summer_Description	قميص أبيض بسيط مع سترة معقودة حول الخصر بلا تكلف، لأجواء مشمسة مسترخية.
 EquipmentData_Torso_Autumn_Name	سترة نسيم الخريف
-EquipmentData_Torso_Autumn_Description	سترة دافئة مع وشاح صغير أنيق — تمامًا كما تليق بأيام الخريف المنعشة.
+EquipmentData_Torso_Autumn_Description	سترة دافئة مع وشاح صغير أنيق — تماما كما تليق بأيام الخريف المنعشة.
 EquipmentData_Torso_Winter_Name	معطف حصن الشتاء
-EquipmentData_Torso_Winter_Description	معطف سميك معزول يكمّله وشاح كبير دافئ لمواجهة البرد براحة.
+EquipmentData_Torso_Winter_Description	معطف سميك معزول يكمله وشاح كبير دافئ لمواجهة البرد براحة.
 EquipmentData_Torso_Skeleton_Name	هيكل عظمي
 EquipmentData_Torso_Skeleton_Description	هيكل عظمي
 EquipmentData_Torso_Intro_Name	المقدمة
-EquipmentData_Torso_Intro_Description	معدّات المقدمة، لا ينبغي أن تظهر داخل اللعبة
+EquipmentData_Torso_Intro_Description	معدات المقدمة، لا ينبغي أن تظهر داخل اللعبة
 
 # ── الساقان ──
 EquipmentData_Legs_SpaceExplorer_Name	سروال مستكشف الفضاء
@@ -102,6 +102,6 @@ EquipmentData_Legs_AtlanticCoastShorts_02_Description	شورت سباحة مري
 EquipmentData_Legs_PlasticSwimShort_Name	شورت سباحة شفاف
 EquipmentData_Legs_PlasticSwimShort_Description	شورت سباحة مريح وخفيف... وربما خفيف أكثر من اللازم.
 EquipmentData_Legs_Slippers_Name	خف وثير
-EquipmentData_Legs_Slippers_Description	ليس أحمر ياقوتيًا، فلا تتوقع أن يعيدك إلى الديار أسرع. لكنه مريح على أي حال.
+EquipmentData_Legs_Slippers_Description	ليس أحمر ياقوتيا، فلا تتوقع أن يعيدك إلى الديار أسرع. لكنه مريح على أي حال.
 EquipmentData_Legs_Skeleton_Name	ساقا هيكل عظمي
 EquipmentData_Legs_Skeleton_Description	ساقان

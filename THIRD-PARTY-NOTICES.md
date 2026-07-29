@@ -58,19 +58,32 @@ positions, and `RichTextFixer` then reverses each tag range a second time, which
 `>roloc<` and makes TextMeshPro print them as literal text. Tag handling is done in
 `ArabicShaper` instead. No RTLTMPro source file has been modified.
 
-### Noto Naskh Arabic — SIL Open Font License 1.1
-The Arabic typeface. Shipped as unmodified `.ttf` files in `fonts/`, with `OFL.txt` alongside as
-the license requires.
+### Arabic typefaces — SIL Open Font License 1.1
+Five faces ship in `fonts/`, each with its OFL text alongside as the license requires. The player
+cycles them in game with `Ctrl+Alt+N` and pins one with `FontFile` in the config.
 
-- Source: https://github.com/notofonts/arabic
-- License: SIL OFL 1.1 — full text at `content/fonts/OFL.txt`
-- Copyright: The Noto Project Authors
+| Font | Source | License text | Copyright |
+|---|---|---|---|
+| Vazirmatn *(default)* | https://github.com/rastikerdar/vazirmatn | `OFL-Vazirmatn.txt` | Saber Rastikerdar |
+| Noto Kufi Arabic | https://github.com/notofonts/arabic | `OFL-NotoKufiArabic.txt` | The Noto Project Authors |
+| Noto Sans Arabic | https://github.com/notofonts/arabic | `OFL-NotoSansArabic.txt` | The Noto Project Authors |
+| Noto Naskh Arabic | https://github.com/notofonts/arabic | `OFL.txt` | The Noto Project Authors |
+| IBM Plex Sans Arabic | https://github.com/IBM/plex | `IBMPlexSansArabic-OFL.txt` | IBM Corp. |
 
-Chosen because it carries the complete Arabic Presentation Forms-B block (verified: 141/141
-codepoints). Fonts lacking that block render shaped Arabic as empty boxes regardless of anything
-else, which is why `tools/check_font_coverage.py` exists.
+**Selection criterion.** A face is only usable here if it covers the exact presentation forms this
+translation produces. TextMeshPro performs no OpenType shaping, so the shaper emits Presentation
+Forms directly and a font missing them draws empty boxes. That filter is far stricter than it
+sounds: Cairo, Tajawal, Almarai, Alexandria, El Messiri, Changa and Markazi Text — the popular
+modern Arabic faces — all omit the 36 **isolated** forms, and Readex Pro, Rubik, Reem Kufi and
+Scheherazade New omit 125. `tools/ShaperTest --glyphs` writes the required set and
+`tools/check_font_coverage.py` checks a font against it.
 
-The font is **not** renamed or modified, so the OFL Reserved Font Name clause is not engaged.
+**Modification.** Vazirmatn, Noto Kufi Arabic and Noto Sans Arabic upstream are variable fonts.
+The files here are static instances (`wght` 400 and 600, `wdth` 100 where present) produced with
+`fontTools.varLib.instancer`, so TextMeshPro's FreeType build never has to resolve an axis. This is
+a permitted modification under OFL 1.1 section 1. **The names are unchanged**, so the Reserved Font
+Name clause matters: anyone redistributing further-modified copies must rename them. The other two
+faces ship unmodified.
 
 ---
 

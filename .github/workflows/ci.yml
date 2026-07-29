@@ -23,6 +23,11 @@ jobs:
       - name: Validate TSV translation files
         run: python tools/validate_tsv.py content/strings
 
+      # TextMeshPro has no mark-to-base positioning, so a diacritic is drawn at the pen position
+      # instead of on its letter. It looks like the text will not sit still, and no font fixes it.
+      - name: Reject diacritics TextMeshPro cannot position
+        run: python tools/strip_tashkeel.py content/strings --check
+
       - name: Verify fonts can render shaped Arabic
         run: |
           python tools/check_font_coverage.py "content/fonts/*.ttf" \

@@ -10,35 +10,35 @@ CharacterData_Type_Fauna	الحيوانات
 CharacterData_Type_Flora	النباتات
 CharacterData_Type_ResourceNode	عقدة موارد
 CharacterData_Type_World	العالم
-Character_ORB	O.R.B
+Character_ORB	O.R.B.
 Map_Zone_Unknown	مجهولة
 
 # ── الحالات السلبية ──
 DebuffData_BlobSlow_Name	ملتصق
 DebuffData_BlobSlow_Description	قطع الهلام تبطئ حركتك.
-DebuffData_GelExplosionSlow_Name	مهلّم
+DebuffData_GelExplosionSlow_Name	مهلم
 DebuffData_GelExplosionSlow_Description	الهلام المتفجر يبطئ حركتك لفترة.
-DebuffData_Wet_Name	مبلّل
-DebuffData_Wet_Description	أنت أكثر عرضة للضرر الكهربائي. ولنزلة برد أيضًا.
+DebuffData_Wet_Name	مبلل
+DebuffData_Wet_Description	أنت أكثر عرضة للضرر الكهربائي. ولنزلة برد أيضا!
 
 # ── عملات المسلّة ──
 MonolithItem_Agriculture_Name	نقاط البذور
-MonolithItem_Agriculture_Description	إحدى عملات تلون الكثيرة. أودع البذور للحصول عليها.
+MonolithItem_Agriculture_Description	إحدى عملات Tlön الكثيرة. أودع المحاصيل والبذور للحصول عليها.
 MonolithItem_BioGen_Name	نقاط الحيوية الوراثية
-MonolithItem_BioGen_Description	إحدى عملات تلون الكثيرة. أودع البذور للحصول عليها.
+MonolithItem_BioGen_Description	إحدى عملات Tlön الكثيرة. أودع العينات والأحياء للحصول عليها.
 MonolithItem_Infra_Name	نقاط البنية التحتية
-MonolithItem_Infra_Description	إحدى عملات تلون الكثيرة. أودع البذور للحصول عليها.
+MonolithItem_Infra_Description	إحدى عملات Tlön الكثيرة. أودع مكونات البناء للبنية التحتية للحصول عليها.
 MonolithItem_Tech_Name	نقاط التقنية
-MonolithItem_Tech_Description	إحدى عملات تلون الكثيرة. أودع البذور للحصول عليها.
+MonolithItem_Tech_Description	إحدى عملات Tlön الكثيرة. أودع القطع والمعدات التقنية للحصول عليها.
 Monolith_Storage_Agriculture	المخزون الزراعي
 Monolith_Storage_Biology	المخزون الحيوي
 Monolith_Storage_Infrastructure	مخزون البنية التحتية
 Monolith_Storage_Technology	مخزون التقنية
-Monolith_Storage_Interaction	قاعدة بيانات مخزون المسلّة
+Monolith_Storage_Interaction	قاعدة بيانات مخزون المسلة
 
 # ── الانتقال المحمول ──
 Portable_Teleport_Item_Name	جهاز الانتقال المحمول
-Portable_Teleport_Item_Description	جهاز انتقال محمول يعيدك إلى القاعدة. تضعه على الأرض ويُستخدم مرة واحدة فقط. ولا يمكنك وضع أكثر من واحد في الوقت نفسه.
+Portable_Teleport_Item_Description	جهاز انتقال محمول يعيدك إلى القاعدة. تضعه على الأرض ويستخدم مرة واحدة فقط. ولا يمكنك وضع أكثر من واحد في الوقت نفسه.
 
 # ── الوقت والفصول ──
 Time_Spring	الربيع

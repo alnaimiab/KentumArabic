@@ -13,37 +13,37 @@ key	ar
 Item_Stone_Name	حجر
 Item_Stone_Description	حجر.
 Item_StoneBlock_Name	حجر منحوت
-Item_StoneBlock_Description	قطعة صخر نُحتت آليًا.
+Item_StoneBlock_Description	قطعة صخر نحتت آليا.
 Item_Dirt_Name	حجر جيري
 Item_Dirt_Description	صخر رسوبي يمكن استخدامه لصنع الطين.
 Item_LimestoneDust_Name	حجر جيري مسحوق
-Item_LimestoneDust_Description	حجر جيري مكرَّر إلى حبيبات.
+Item_LimestoneDust_Description	حجر جيري مكرر إلى حبيبات.
 Item_Clay_Name	طين
-Item_Clay_Description	مادة ترابية طبيعية توجد في العُقد ويمكن تصنيعها أيضًا.
+Item_Clay_Description	مادة ترابية طبيعية توجد في العقد ويمكن تصنيعها أيضا.
 Item_CeramicIngot_Name	خزف
 Item_CeramicIngot_Description	قطعة خزفية مصنوعة من الطين.
 Item_Cement_Name	إسمنت
-Item_Cement_Description	مادة رابطة تُستخدم في الخرسانة وكتل البناء.
+Item_Cement_Description	مادة رابطة تستخدم في الخرسانة وكتل البناء.
 Item_Coal_Name	فحم
 Item_Coal_Description	كتلة من الفحم.
 Item_CharcoalDust_Name	فحم مسحوق
-Item_CharcoalDust_Description	فحم مكرَّر إلى حبيبات.
+Item_CharcoalDust_Description	فحم مكرر إلى حبيبات.
 Item_Twig_Name	غصين
 Item_Twig_Description	قطعة خشب صغيرة.
 Item_Glass_Name	زجاج
-Item_Glass_Description	مادة شفافة تنجح بطريقة ما في أن تكون هشّة وضرورية في آن واحد.
+Item_Glass_Description	مادة شفافة تنجح بطريقة ما في أن تكون هشة وضرورية في آن واحد.
 Item_GlassSheet_Name	صفيحة زجاج
 Item_GlassSheet_Description	صفيحة رقيقة من الزجاج.
 Item_Cloth_Name	قماش
 Item_Cloth_Description	قطعة قماش منسوجة.
 Item_BareBond_Name	غراء
-Item_BareBond_Description	مادة لزجة تُستخدم لربط المواد ببعضها.
+Item_BareBond_Description	مادة لزجة تستخدم لربط المواد ببعضها.
 Item_SpaceJunk_Name	حطام كوني
 Item_SpaceJunk_Description	كتلة خردة سقطت من المدار. تحتوي على قطع من البلاستيك والنحاس والأسلاك واللوحات الإلكترونية.
 
 # ── المعادن والخامات ──
 Item_CopperOre_Name	خام النحاس
-Item_CopperOre_Description	مادة موصِّلة ومتعددة الاستخدامات.
+Item_CopperOre_Description	مادة موصلة ومتعددة الاستخدامات.
 Item_CopperIngot_Name	سبيكة نحاس
 Item_CopperIngot_Description	سبيكة مصنوعة من النحاس.
 Item_CopperThread_Name	خيط نحاسي
@@ -53,37 +53,37 @@ Item_GoldOre_Description	قطعة معدنية من الذهب الخالص.
 Item_GoldIngot_Name	سبيكة ذهب
 Item_GoldIngot_Description	سبيكة مصنوعة من الذهب.
 Item_GoldThread_Name	خيط ذهبي
-Item_GoldThread_Description	خيط موصِّل لازم للدارات والأجهزة الإلكترونية.
+Item_GoldThread_Description	خيط موصل لازم للدارات والأجهزة الإلكترونية.
 Item_PlatinumOre_Name	خام البلاتين
-Item_PlatinumOre_Description	معدن بلاتين مكرَّر.
+Item_PlatinumOre_Description	معدن بلاتين مكرر.
 Item_PlatinumIngot_Name	سبيكة بلاتين
 Item_PlatinumIngot_Description	سبيكة مصنوعة من البلاتين.
 Item_PlatinumThread_Name	خيط بلاتيني
-Item_PlatinumThread_Description	خيط موصِّل مصنوع من البلاتين.
+Item_PlatinumThread_Description	خيط موصل مصنوع من البلاتين.
 Item_SilicaOre_Name	خام السيليكا
-Item_SilicaOre_Description	معدن يُستخدم في تصنيع المكوّنات الإلكترونية.
+Item_SilicaOre_Description	معدن يستخدم في تصنيع المكونات الإلكترونية.
 Item_SiliconIngot_Name	سبيكة سيليكون
-Item_SiliconIngot_Description	قالب مكرَّر من السيليكون.
+Item_SiliconIngot_Description	قالب مكرر من السيليكون.
 Item_SiliconSheet_Name	صفيحة سيليكون
 Item_SiliconSheet_Description	صفيحة مصنوعة من السيليكون.
 Item_Duranium_Name	خام الدورانيوم
-Item_Duranium_Description	معدن صلب معمِّر لا يتأثر بالتآكل أو التحلل.
+Item_Duranium_Description	معدن صلب معمر لا يتأثر بالتآكل أو التحلل.
 Item_DuraniumIngot_Name	سبيكة دورانيوم
-Item_DuraniumIngot_Description	قالب صلب من معدن متين معمِّر، مثالي لبناء منشآت طويلة العمر مقاوِمة للتآكل.
+Item_DuraniumIngot_Description	قالب صلب من معدن متين معمر، مثالي لبناء منشآت طويلة العمر مقاومة للتآكل.
 Item_DuraniumSheet_Name	صفيحة دورانيوم
 Item_DuraniumSheet_Description	صفيحة مصنوعة من الدورانيوم.
 Item_DuraniumCore_Name	نواة دورانيوم
-Item_DuraniumCore_Description	مادة كثيفة مصنوعة من دورانيوم مركَّز.
+Item_DuraniumCore_Description	مادة كثيفة مصنوعة من دورانيوم مركز.
 Item_DuraniumHyperCore_Name	نواة دورانيوم فائقة
-Item_DuraniumHyperCore_Description	مصدر طاقة متقدّم مصنوع من الدورانيوم.
+Item_DuraniumHyperCore_Description	مصدر طاقة متقدم مصنوع من الدورانيوم.
 Item_TrashiumOre_Name	خام التراشيوم
 Item_TrashiumOre_Description	معدن كثيف مغناطيسي يشبه السبج.
 Item_TrashiumIngot_Name	سبيكة تراشيوم
 Item_TrashiumIngot_Description	سبيكة مصنوعة من خام التراشيوم.
 Item_PlasmiumIngot_Name	سبيكة بلازميوم
-Item_PlasmiumIngot_Description	سبيكة متقدّمة تُصنع بدمج البلاستيك والدورانيوم.
+Item_PlasmiumIngot_Description	سبيكة متقدمة تصنع بدمج البلاستيك والدورانيوم.
 Item_Diamond_Name	ألماس
-Item_Diamond_Description	من أصلب المواد الموجودة، يتكوّن من الكربون في صورة متبلورة.
+Item_Diamond_Description	من أصلب المواد الموجودة، يتكون من الكربون في صورة متبلورة.
 Item_DiamoniteIngot_Name	سبيكة ديامونايت
 Item_DiamoniteIngot_Description	سبيكة بلورية مصنوعة من الديامونايت.
 Item_DiamoniteCore_Name	نواة ديامونايت
@@ -93,21 +93,21 @@ Item_BloodCrystalOre_Description	بلورة قرمزية مفعمة بخصائص
 Item_BloodCrystalIngot_Name	سبيكة كريستال الدم
 Item_BloodCrystalIngot_Description	سبيكة مصنوعة من كريستال الدم.
 Item_BloodCrystalDust_Name	مسحوق كريستال الدم
-Item_BloodCrystalDust_Description	كريستال دم مكرَّر إلى حبيبات.
+Item_BloodCrystalDust_Description	كريستال دم مكرر إلى حبيبات.
 Item_BloodCrystalCore_Name	نواة كريستال الدم
 Item_BloodCrystalCore_Description	نواة مصنوعة من كريستال الدم.
 Item_GraphiteIngot_Name	سبيكة غرافيت
 Item_GraphiteIngot_Description	قالب مصنوع من الغرافيت.
 Item_GraphineSheet_Name	صفيحة غرافين
-Item_GraphineSheet_Description	صفيحة قوية موصِّلة مصنوعة من الغرافين.
+Item_GraphineSheet_Description	صفيحة قوية موصلة مصنوعة من الغرافين.
 Item_CarbonNanotubes_Name	أنابيب كربون نانوية
-Item_CarbonNanotubes_Description	مادة أنبوبية مجوّفة مصنوعة من الكربون.
+Item_CarbonNanotubes_Description	مادة أنبوبية مجوفة مصنوعة من الكربون.
 Item_EnergyCrystal_Name	بلورة طاقة
 Item_EnergyCrystal_Description	بلورة متوهجة تختزن الطاقة.
 
 # ── البلاستيك ──
 Item_Microplastics_Name	كتلة بلاستيك دقيق
-Item_Microplastics_Description	كتلة من قطع بلاستيكية صغيرة متجمّعة.
+Item_Microplastics_Description	كتلة من قطع بلاستيكية صغيرة متجمعة.
 Item_PlasticBrick_Name	قالب بلاستيك
 Item_PlasticBrick_Description	قالب بلاستيكي خفيف ومتين، مصنوع من بلاستيك عالي الكثافة.
 Item_PlasticSheet_Name	صفيحة بلاستيك
@@ -115,37 +115,37 @@ Item_PlasticSheet_Description	صفيحة بلاستيكية خفيفة ومرن�
 
 # ── الإلكترونيات ──
 Item_CircuitBoard_Name	لوحة دارات
-Item_CircuitBoard_Description	مكوّن أساسي لبناء الآلات والإلكترونيات وأنظمة الأتمتة.
+Item_CircuitBoard_Description	مكون أساسي لبناء الآلات والإلكترونيات وأنظمة الأتمتة.
 Item_ComputerChipGen1_Name	شريحة حاسوب من الجيل الأول
 Item_ComputerChipGen1_Description	شريحة حاسوب بسيطة.
 Item_ComputerChipGen2_Name	شريحة حاسوب من الجيل الثاني
-Item_ComputerChipGen2_Description	شريحة حاسوب متقدّمة.
+Item_ComputerChipGen2_Description	شريحة حاسوب متقدمة.
 Item_ComputerChipGen3_Name	شريحة حاسوب من الجيل الثالث
-Item_ComputerChipGen3_Description	شريحة حاسوب متقدّمة جدًا جدًا.
+Item_ComputerChipGen3_Description	شريحة حاسوب متقدمة جدا جدا.
 Item_Motherboard_Name	اللوحة الأم
 Item_Motherboard_Description	لوحة دارات بسيطة مصنوعة بشرائح الجيل الأول.
 Item_Fatherboard_Name	اللوحة الأب
-Item_Fatherboard_Description	لوحة دارات متقدّمة مصنوعة بشرائح الجيل الثاني.
+Item_Fatherboard_Description	لوحة دارات متقدمة مصنوعة بشرائح الجيل الثاني.
 Item_Motherbrain_Name	الدماغ الأم
-Item_Motherbrain_Description	لوحة دارات متقدّمة جدًا جدًا مصنوعة بشرائح الجيل الثالث.
+Item_Motherbrain_Description	لوحة دارات متقدمة جدا جدا مصنوعة بشرائح الجيل الثالث.
 Item_NeuroplasticMatrix_Name	مصفوفة عصبية بلاستيكية
-Item_NeuroplasticMatrix_Description	خلايا عصبية اصطناعية تُستخدم في بنى الذكاء الاصطناعي.
-Item_MonolithMind_Name	عقل المسلّة
+Item_NeuroplasticMatrix_Description	خلايا عصبية اصطناعية تستخدم في بنى الذكاء الاصطناعي.
+Item_MonolithMind_Name	عقل المسلة
 Item_MonolithMind_Description	الإنجاز الأسمى للعلم الحديث.
 
 # ── الألياف والأنسجة ──
 Item_PlantFiber_Name	ألياف نباتية
 Item_PlantFiber_Description	مادة ليفية خيطية توجد داخل بعض النباتات.
 Item_BiotechFiber_Name	ألياف حيوية تقنية
-Item_BiotechFiber_Description	خيط مرن مهندَس حيويًا يُستخدم في الأقمشة والزرعات المتقدّمة.
-Item_ConductiveFiber_Name	ألياف موصِّلة
+Item_BiotechFiber_Description	خيط مرن مهندس حيويا يستخدم في الأقمشة والزرعات المتقدمة.
+Item_ConductiveFiber_Name	ألياف موصلة
 Item_ConductiveFiber_Description	ألياف عضوية ذات خصائص كهربائية.
-Item_ConductiveMesh_Name	شبكة موصِّلة
-Item_ConductiveMesh_Description	شبكة من الألياف الموصِّلة.
-Item_LivingFiber_Name	ألياف حيّة
+Item_ConductiveMesh_Name	شبكة موصلة
+Item_ConductiveMesh_Description	شبكة من الألياف الموصلة.
+Item_LivingFiber_Name	ألياف حية
 Item_LivingFiber_Description	خيط مصنوع من مادة عضوية شبيهة بالعضلات.
-Item_LivingMesh_Name	شبكة حيّة
-Item_LivingMesh_Description	شبكة من الألياف الحيّة.
+Item_LivingMesh_Name	شبكة حية
+Item_LivingMesh_Description	شبكة من الألياف الحية.
 Item_SilkFiber_Name	ألياف حرير
 Item_SilkFiber_Description	ألياف مصنوعة من الحرير العضوي.
 Item_SilkMesh_Name	شبكة حرير
@@ -166,7 +166,7 @@ Item_SmallAnimalMeat_Name	لحم حيوان
 Item_SmallAnimalMeat_Description	لحم مأخوذ من حيوان بري.
 Item_BirdMeat_Name	لحم طير
 Item_BirdMeat_Description	لحم نيء من طير.
-Item_BirdEgg_Name	كبسولة طير لم يُولد
+Item_BirdEgg_Name	كبسولة طير لم يولد
 Item_BirdEgg_Description	بيض من طير.
 Item_Feather_Name	ريشة صغيرة
 Item_Feather_Description	ريشة من طير عادي.
@@ -174,8 +174,8 @@ Item_BigFeather_Name	باقة ريش
 Item_BigFeather_Description	مجموعة ريش مأخوذة من طير كبير.
 Item_BoneSplinter_Name	عظام صغيرة
 Item_BoneSplinter_Description	مجموعة صغيرة من قطع العظام.
-Item_SharpBone_Name	مكعّب عظمي
-Item_SharpBone_Description	مكعّب مركَّز مصنوع من عظام مجموعة.
+Item_SharpBone_Name	مكعب عظمي
+Item_SharpBone_Description	مكعب مركز مصنوع من عظام مجموعة.
 Item_CrustaceanShell_Name	صدفة قشريات
 Item_CrustaceanShell_Description	صدفة من مخلوق قشري.
 Item_CrustaceanShellShard_Name	شظية صدفة قشريات
@@ -183,56 +183,56 @@ Item_CrustaceanShellShard_Description	قطعة من صدفة قشريات.
 Item_Coral_Name	مرجان
 Item_Coral_Description	قطعة بسيطة من المرجان.
 Item_SpiderEye_Name	عين عنكبوت
-Item_SpiderEye_Description	عين مرعبة المنظر تحدّق في روحك كلما أطلت النظر إليها.
+Item_SpiderEye_Description	عين مرعبة المنظر تحدق في روحك كلما أطلت النظر إليها.
 Item_IridescentSpiderEye_Name	عين عنكبوت قزحية
-Item_IridescentSpiderEye_Description	عين لامعة مرعبة المنظر تحدّق في روحك كلما أطلت النظر إليها.
+Item_IridescentSpiderEye_Description	عين لامعة مرعبة المنظر تحدق في روحك كلما أطلت النظر إليها.
 Item_SpiderFang_Big_Name	ناب عنكبوت كبير
 Item_SpiderFang_Big_Description	ناب ضخم لعنكبوت.
 Item_WingDust_Name	أجنحة حشرات
 Item_WingDust_Description	بعض أجنحة الحشرات الضخمة.
 Item_CrystalEgg_Name	بيض كريستاليد
-Item_CrystalEgg_Description	بيض حشرات صغير يوجد في تجمّعات.
-Item_PurpleFleshCube_Name	مكعّب لحم أرجواني
-Item_PurpleFleshCube_Description	قطعة لحم أرجوانية نتنة على هيئة مكعّب.
-Item_CaffeinatedLiver_Description	كبد مخلوق صغير ينتج الكافيين طبيعيًا.
-Item_SmallElectrifiedCell_Name	غدة مولِّدة للكهرباء
+Item_CrystalEgg_Description	بيض حشرات صغير يوجد في تجمعات.
+Item_PurpleFleshCube_Name	مكعب لحم أرجواني
+Item_PurpleFleshCube_Description	قطعة لحم أرجوانية نتنة على هيئة مكعب.
+Item_CaffeinatedLiver_Description	كبد مخلوق صغير ينتج الكافيين طبيعيا.
+Item_SmallElectrifiedCell_Name	غدة مولدة للكهرباء
 Item_SmallElectrifiedCell_Description	عضو صغير يوجد داخل الحيوانات الكهربائية.
 Item_VenomousGland_Name	كيس سام
-Item_VenomousGland_Description	يفرز هذا الكيس سائلًا سامًا ويخزنه، ما يمكّن حامله من توليده والتحكم به للدفاع. غير صالح للأكل وقد يسبب آثارًا ضارة عند ابتلاعه.
+Item_VenomousGland_Description	يفرز هذا الكيس سائلا ساما ويخزنه، ما يمكن حامله من توليده والتحكم به للدفاع. غير صالح للأكل وقد يسبب آثارا ضارة عند ابتلاعه.
 Item_GasPouch_Name	كيس غازي
-Item_GasPouch_Description	يعمل هذا الكيس كحجرة غاز متطايرة تخزّن غازات قابلة للاشتعال. وعند إشعاله يُطلق انفجارًا قويًا. يُنصح بشدة بعدم ابتلاعه لما قد يسببه من آثار خطيرة.
+Item_GasPouch_Description	يعمل هذا الكيس كحجرة غاز متطايرة تخزن غازات قابلة للاشتعال. وعند إشعاله يطلق انفجارا قويا. ينصح بشدة بعدم ابتلاعه لما قد يسببه من آثار خطيرة.
 Item_PlasmaDroplet_Name	قطرة بلازما
 Item_PlasmaDroplet_Description	حين تلامس البلازما الموجودة داخل بعض الحشرات الكهربائية الأكسجين، تتحول إلى مادة شبه صلبة يمكن جمعها.
 Item_Gel_Name	هلام
-Item_Gel_Description	قطعة كبيرة مشتقة من كتلة هلامية ضخمة. قد تحتفظ ببعض الوعي، واحتمال الاندماج ليس صفرًا إن حملتها.
+Item_Gel_Description	قطعة كبيرة مشتقة من كتلة هلامية ضخمة. قد تحتفظ ببعض الوعي، واحتمال الاندماج ليس صفرا إن حملتها.
 Item_SmallGel_Name	هلام صغير
 Item_SmallGel_Description	قطعة صغيرة مشتقة من نبات هلامي.
 
 # ── نوى الزعماء ──
 Item_BossCore0_Name	نواة طاقة التيرادوزا العملاقة
-Item_BossCore0_Description	مصدر طاقة من مخلوق جبّار في الكهوف.
+Item_BossCore0_Description	مصدر طاقة من مخلوق جبار في الكهوف.
 Item_BossCore1_Name	نواة طاقة الدبور العملاق
-Item_BossCore1_Description	مصدر طاقة من مخلوق جبّار في الخلية.
+Item_BossCore1_Description	مصدر طاقة من مخلوق جبار في الخلية.
 Item_BossCore2_Name	نواة طاقة النيستر العملاق
-Item_BossCore2_Description	مصدر طاقة من مخلوق جبّار في الكهوف.
+Item_BossCore2_Description	مصدر طاقة من مخلوق جبار في الكهوف.
 Item_BossCore3_Name	نواة طاقة العنكبوت العملاق
-Item_BossCore3_Description	مصدر طاقة من مخلوق جبّار في الكهوف.
-Item_BossSuperCore_Name	قفاز مرصّع
-Item_BossSuperCore_Description	قفاز مرصّع بالجواهر... أقوى من أن يحمله بشر عاديون.
+Item_BossCore3_Description	مصدر طاقة من مخلوق جبار في الكهوف.
+Item_BossSuperCore_Name	قفاز مرصع
+Item_BossSuperCore_Description	قفاز مرصع بالجواهر... أقوى من أن يحمله بشر عاديون.
 
 # ── النباتات والثمار ──
 Item_Vanana_Name	فانانا
 Item_Vanana_Description	فاكهة تشبه ثمرة أساسية من القرن الحادي والعشرين.
 Item_ToxicVanana_Name	فانانا سامة
-Item_ToxicVanana_Description	هذا النوع من الفانانا يحوي سُمًّا خفيفًا، لكن الطهي يزيله فتصبح آمنة للأكل.
+Item_ToxicVanana_Description	هذا النوع من الفانانا يحوي سما خفيفا، لكن الطهي يزيله فتصبح آمنة للأكل.
 Item_Tomapple_Name	طماطفاح
 Item_Tomapple_Description	هجين طبيعي بين التفاح والطماطم. حلو ولاذع.
 Item_Spud_Name	بطاطس
 Item_Spud_Description	بطاطس بسيطة ونبيلة.
 Item_Barley_Name	شعير
-Item_Barley_Description	حبّة متواضعة مليئة بالإمكانات. قد تصير فطورًا أو جعة أو وقودًا حيويًا — حسب مزاجك.
-Item_MaltedBarley_Name	شعير مُنبَت
-Item_MaltedBarley_Description	محمّص إلى حد الكمال. رائحته كالخبز، وأحلامه كالجعة.
+Item_Barley_Description	حبة متواضعة مليئة بالإمكانات. قد تصير فطورا أو جعة أو وقودا حيويا — حسب مزاجك.
+Item_MaltedBarley_Name	شعير منبت
+Item_MaltedBarley_Description	محمص إلى حد الكمال. رائحته كالخبز، وأحلامه كالجعة.
 Item_CoffeeBeans_Name	حبوب البن
 Item_CoffeeBeans_Description	ثمرة شجرة البن
 Item_CoffeeCherry_Name	كرزة البن
@@ -242,151 +242,151 @@ Item_GrindedCoffeeBeans_Description	حبوب بن مطحونة إلى مسحوق
 Item_RiceBulb_Name	بصيلة أرز
 Item_RiceBulb_Description	ثمرة شائكة بداخلها حبوب أرز.
 Item_RicePowder_Name	مسحوق أرز
-Item_RicePowder_Description	أرز مكرَّر إلى مسحوق.
+Item_RicePowder_Description	أرز مكرر إلى مسحوق.
 Item_Mushroom_Name	القبعة الكهربائية
 Item_Mushroom_Description	نوع من الفطر الكهربائي. إن شعر بالتهديد أطلق شحنة كهربائية. عدا ذلك فجمعه وطهيه سهلان.
 Item_Munchroom_Name	قبعة الخزامى
-Item_Munchroom_Description	فطر أرجواني ينمو داخل الكهوف الرطبة. وخلافًا لنظيره الكهربائي يمكن أكله نيئًا دون متاعب في المعدة.
+Item_Munchroom_Description	فطر أرجواني ينمو داخل الكهوف الرطبة. وخلافا لنظيره الكهربائي يمكن أكله نيئا دون متاعب في المعدة.
 Item_Fungus_Name	نبات فطري
 Item_Fungus_Description	تركيبة غريبة: نصفه نبات ونصفه فطر.
 Item_FrostPetal_Name	بتلة الصقيع
-Item_FrostPetal_Description	وردة ذات بنية بلورية من الجليد، تحافظ على تجمّدها حتى في الطقس الحارق.
+Item_FrostPetal_Description	وردة ذات بنية بلورية من الجليد، تحافظ على تجمدها حتى في الطقس الحارق.
 Item_LiquidBulb_Name	بصيلة سائلة
-Item_LiquidBulb_Description	ثمرة تخزّن سائلًا بداخلها ولا تتأثر بالتحلل.
+Item_LiquidBulb_Description	ثمرة تخزن سائلا بداخلها ولا تتأثر بالتحلل.
 Item_OilBulb_Name	بصيلة زيتية
 Item_OilBulb_Description	ثمرة تحتوي على زيت كثيف.
 Item_NectarBulb_Name	بصيلة متلألئة
-Item_NectarBulb_Description	بصيلة ذهبية بديعة تحتضن رحيقًا كثيفًا.
+Item_NectarBulb_Description	بصيلة ذهبية بديعة تحتضن رحيقا كثيفا.
 Item_GlowingBulb_Name	بصيلة متوهجة
-Item_GlowingBulb_Description	عقدة نباتية خافتة التوهج تُستخدم في التقنيات الحيوية المضيئة ووصفات الزينة.
+Item_GlowingBulb_Description	عقدة نباتية خافتة التوهج تستخدم في التقنيات الحيوية المضيئة ووصفات الزينة.
 Item_ElixirootBulb_Name	بصيلة جذر الإكسير
-Item_ElixirootBulb_Description	أعجوبة هندسة وراثية، فجذر الإكسير نبات هجين ينتج سائلًا شبيهًا بالجرعات.
+Item_ElixirootBulb_Description	أعجوبة هندسة وراثية، فجذر الإكسير نبات هجين ينتج سائلا شبيها بالجرعات.
 Item_Powercell_Name	الفاكهة المشحونة
 Item_Powercell_Description	نتاج تهجين نبات عضوي مع بطارية كهربائية.
 Item_DurianiumFruit_Name	فاكهة البلورانيوم
-Item_DurianiumFruit_Description	ثمرة طرية حلوة تنكشف بعد تشقّق القشرة. طازجة على نحو مدهش رغم كل ذلك الارتطام.
-Item_ToxicNectar_Name	صمغ مُرّ
-Item_ToxicNectar_Description	مادة لزجة تشبه العسل. مرارتها ناتجة عن تركيز عالٍ من السموم. لا تستهلكه نيئًا.
+Item_DurianiumFruit_Description	ثمرة طرية حلوة تنكشف بعد تشقق القشرة. طازجة على نحو مدهش رغم كل ذلك الارتطام.
+Item_ToxicNectar_Name	صمغ مر
+Item_ToxicNectar_Description	مادة لزجة تشبه العسل. مرارتها ناتجة عن تركيز عال من السموم. لا تستهلكه نيئا.
 Item_GoldenNectar_Name	صمغ متبلور
-Item_GoldenNectar_Description	صمغ مُرّ عولج وتصلّب حتى صار بلورة.
+Item_GoldenNectar_Description	صمغ مر عولج وتصلب حتى صار بلورة.
 Item_Yeast_Name	خميرة
-Item_Yeast_Description	كتلة حيّة من أبواغ الفطر والفانانا المخمَّرة. رائحتها حيّة على نحو مريب. لا غنى عنها للفوران والتخمير ولجعل الأشياء غريبة بالطريقة الصحيحة.
+Item_Yeast_Description	كتلة حية من أبواغ الفطر والفانانا المخمرة. رائحتها حية على نحو مريب. لا غنى عنها للفوران والتخمير ولجعل الأشياء غريبة بالطريقة الصحيحة.
 
 # ── البذور ──
 Item_Seed_Barley_Name	بذرة شعير
-Item_Seed_Barley_Description	النواة الصغيرة التي تبدأ منها الحكاية — ازرع واحدة، وستحصل قريبًا على شعير يكفي للتخمير والخبز والتباهي.
+Item_Seed_Barley_Description	النواة الصغيرة التي تبدأ منها الحكاية — ازرع واحدة، وستحصل قريبا على شعير يكفي للتخمير والخبز والتباهي.
 Item_Seed_Coffee_Name	بذرة بن
-Item_Seed_Coffee_Description	بذرة تُنبت شجرة بن.
+Item_Seed_Coffee_Description	بذرة تنبت شجرة بن.
 Item_Seed_Mushroom_Name	بذرة فطر
-Item_Seed_Mushroom_Description	بذرة تُنبت فطرًا
+Item_Seed_Mushroom_Description	بذرة تنبت فطرا
 Item_Seed_Sapling_Name	بذرة شتلة
-Item_Seed_Sapling_Description	بذرة تُنبت شتلة
+Item_Seed_Sapling_Description	بذرة تنبت شتلة
 Item_Seed_Spud_Name	بذرة بطاطس
-Item_Seed_Spud_Description	بذرة تُنبت بطاطس.
+Item_Seed_Spud_Description	بذرة تنبت بطاطس.
 Item_Seed_Vanana_Name	بذرة نخلة قزمة
-Item_Seed_Vanana_Description	بذرة تُنبت فانانا.
+Item_Seed_Vanana_Description	بذرة تنبت فانانا.
 Item_Seed_Hydropod_Name	بذرة هيدروبود
-Item_Seed_Hydropod_Description	بذرة تُنبت نبات هيدروبود.
+Item_Seed_Hydropod_Description	بذرة تنبت نبات هيدروبود.
 Item_Seed_Thunderbloom_Name	بذرة زهرة الرعد
-Item_Seed_Thunderbloom_Description	بذرة تُنبت زهرة الرعد.
+Item_Seed_Thunderbloom_Description	بذرة تنبت زهرة الرعد.
 Item_Seed_Voltaicbloom_Name	بذرة زهرة الفولت
-Item_Seed_Voltaicbloom_Description	بذرة هجينة تُنبت الفاكهة المشحونة.
+Item_Seed_Voltaicbloom_Description	بذرة هجينة تنبت الفاكهة المشحونة.
 Item_Seed_ToxicNectarPlant_Name	بذرة روزاوروم
-Item_Seed_ToxicNectarPlant_Description	بذرة تُنبت روزاوروم.
+Item_Seed_ToxicNectarPlant_Description	بذرة تنبت روزاوروم.
 Item_Seed_Nectarbulb_Name	بذرة دروسيروم
-Item_Seed_Nectarbulb_Description	بذرة هجينة تُنبت بصيلة متلألئة.
+Item_Seed_Nectarbulb_Description	بذرة هجينة تنبت بصيلة متلألئة.
 Item_Seed_Elixiroot_Name	بذرة جذر الإكسير
-Item_Seed_Elixiroot_Description	بذرة هجينة تُنبت بصيلة جذر الإكسير.
+Item_Seed_Elixiroot_Description	بذرة هجينة تنبت بصيلة جذر الإكسير.
 Item_Seed_DuraniumSapling_Name	بذرة شتلة الدورانيوم
 Item_Seed_DuraniumSapling_Description	بذرة هجينة مصنوعة من الدورانيوم وبذرة شتلة.
 Item_Seed_PlasticSapling_Name	بذرة شتلة البلاستيك
-Item_Seed_PlasticSapling_Description	بذرة هجينة تُنبت كتلة بلاستيك دقيق.
+Item_Seed_PlasticSapling_Description	بذرة هجينة تنبت كتلة بلاستيك دقيق.
 Item_Seed_Deco_Bonsai_Name	بذرة بونساي
 Item_Seed_Deco_Bonsai_Description	بذرة بونساي للزينة فقط.
 
 # ── السوائل المعرفية والجرعات ──
 Item_CognitiveFluid_A_Name	سائل معرفي من النوع A
-Item_CognitiveFluid_A_Description	سائل يحوّل التخمّر إلى مصفوفة حيوية من الفطريات المعرفية القادرة على تحفيز عمليات التفكير.
+Item_CognitiveFluid_A_Description	سائل يحول التخمر إلى مصفوفة حيوية من الفطريات المعرفية القادرة على تحفيز عمليات التفكير.
 Item_CognitiveFluid_B_Name	سائل معرفي من النوع B
-Item_CognitiveFluid_B_Description	للوهلة الأولى يبدو هذا السائل المعرفي مطابقًا للنوع A، لأنهما يُحضَّران بالعناصر نفسها، لكن الحقيقة أبعد ما تكون عن ذلك. فهذا يحمل حرف B في اسمه. ولونه مختلف.
+Item_CognitiveFluid_B_Description	للوهلة الأولى يبدو هذا السائل المعرفي مطابقا للنوع A، لأنهما يحضران بالعناصر نفسها، لكن الحقيقة أبعد ما تكون عن ذلك. فهذا يحمل حرف B في اسمه. ولونه مختلف.
 Item_CognitiveFluid_C_Name	سائل معرفي من النوع C
 Item_CognitiveFluid_C_Description	سائل يتلألأ بتوازن مصقول، هادئ في طبعه لكنه قوي في إيقاظ تيارات البصيرة.
 Item_CognitiveFluid_D_Name	سائل معرفي من النوع D
-Item_CognitiveFluid_D_Description	سائل يشعّ حيوية عميقة، غني ومركّب، يثير فكرًا عميقًا في أعماقه القرمزية.
-Item_LucidFluid_Name	سائل صافٍ
+Item_CognitiveFluid_D_Description	سائل يشع حيوية عميقة، غني ومركب، يثير فكرا عميقا في أعماقه القرمزية.
+Item_LucidFluid_Name	سائل صاف
 Item_LucidFluid_Description	سائل شفاف مصنوع من الأرز
 Item_HemoFluid_Name	سائل دموي
 Item_HemoFluid_Description	خليط أحمر كثيف مشبع بطاقة الحياة.
 Item_PotionMix_A_Name	نقيع أخضر
-Item_PotionMix_A_Description	خليط واعد وُلد من كيمياء مشكوك فيها. مادة أساسية لا غنى عنها لتصنيع الجرعات المتقدّمة.
+Item_PotionMix_A_Description	خليط واعد ولد من كيمياء مشكوك فيها. مادة أساسية لا غنى عنها لتصنيع الجرعات المتقدمة.
 Item_PotionMix_B_Name	نقيع أزرق
-Item_PotionMix_B_Description	خليط واعد وُلد من كيمياء مشكوك فيها. مادة أساسية لا غنى عنها لتصنيع الجرعات المتقدّمة.
+Item_PotionMix_B_Description	خليط واعد ولد من كيمياء مشكوك فيها. مادة أساسية لا غنى عنها لتصنيع الجرعات المتقدمة.
 Item_PotionMix_C_Name	نقيع أحمر
-Item_PotionMix_C_Description	خليط واعد وُلد من كيمياء مشكوك فيها. مادة أساسية لا غنى عنها لتصنيع الجرعات المتقدّمة.
+Item_PotionMix_C_Description	خليط واعد ولد من كيمياء مشكوك فيها. مادة أساسية لا غنى عنها لتصنيع الجرعات المتقدمة.
 Item_OrganicBattery_Name	مصباح حيوي
-Item_OrganicBattery_Description	بطارية مصنوعة من مكوّنات عضوية تُستخدم لتشغيل <color=#008aff><b>الإضاءة</b></color>.
+Item_OrganicBattery_Description	بطارية مصنوعة من مكونات عضوية تستخدم لتشغيل <color=#008aff><b>الإضاءة</b></color>.
 Item_Compost_Name	سماد
-Item_Compost_Description	السماد العضوي ناتج التحلل الطبيعي. ويمكن استخدامه <color=#008aff><b>وقودًا</b></color>.
+Item_Compost_Description	السماد العضوي ناتج التحلل الطبيعي. ويمكن استخدامه <color=#008aff><b>وقودا</b></color>.
 
 # ── الأطباق ──
 Item_Dish_RoastedMeat_Name	لحم مشوي على السيخ
-Item_Dish_RoastedMeat_Description	لحم متبّل يُشوى على سيخ فوق نار مكشوفة.
+Item_Dish_RoastedMeat_Description	لحم متبل يشوى على سيخ فوق نار مكشوفة.
 Item_Dish_RoastedBirdMeat_Name	طير مشوي على السيخ
-Item_Dish_RoastedBirdMeat_Description	طير متبّل على سيخ، يُشوى ببطء على نار الحطب.
+Item_Dish_RoastedBirdMeat_Description	طير متبل على سيخ، يشوى ببطء على نار الحطب.
 Item_Dish_RoastedEggs_Name	بيض مشوي على السيخ
-Item_Dish_RoastedEggs_Description	بيض مسلوق جيدًا على النار. تُشقَّق قشرته في الدقائق الأخيرة من الطهي لتمنحه نقشه المميز.
+Item_Dish_RoastedEggs_Description	بيض مسلوق جيدا على النار. تشقق قشرته في الدقائق الأخيرة من الطهي لتمنحه نقشه المميز.
 Item_Dish_RoastedMushrooms_Name	أسياخ فطر
 Item_Dish_RoastedMushrooms_Description	فطر غني بنكهة ترابية، مشوي على النار إلى حد الكمال.
 Item_Dish_RoastedPotatoes_Name	أسياخ بطاطس
-Item_Dish_RoastedPotatoes_Description	مكعّبات بطاطس مشوية على النار. مقرمشة من الخارج، طرية ناعمة من الداخل.
-Item_Dish_RoastedTomapple_Name	طماطفاح ملهّب
+Item_Dish_RoastedPotatoes_Description	مكعبات بطاطس مشوية على النار. مقرمشة من الخارج، طرية ناعمة من الداخل.
+Item_Dish_RoastedTomapple_Name	طماطفاح ملهب
 Item_Dish_RoastedTomapple_Description	طماطفاح مشوي على النار، مكرمل إلى حد الكمال.
-Item_Dish_RoastedVanana_Name	فانانا ملهّبة
+Item_Dish_RoastedVanana_Name	فانانا ملهبة
 Item_Dish_RoastedVanana_Description	فانانا مشوية على نار هادئة بقشرها للحفاظ على النكهة والقوام.
-Item_Dish_RoastedVananaToxic_Name	فانانا سامة ملهّبة
-Item_Dish_RoastedVananaToxic_Description	فانانا سامة طُهيت جيدًا حتى تبخّرت كل سمومها. طعم يحتاج إلى اعتياد.
+Item_Dish_RoastedVananaToxic_Name	فانانا سامة ملهبة
+Item_Dish_RoastedVananaToxic_Description	فانانا سامة طهيت جيدا حتى تبخرت كل سمومها. طعم يحتاج إلى اعتياد.
 Item_Dish_RoastedFrostpetal_Name	صقيع وشواء
-Item_Dish_RoastedFrostpetal_Description	تُطهى بتلات الصقيع بعناية على النار لتبخير الجليد مع الحفاظ على القرمشة والنكهة الطازجة.
-Item_Dish_FruitMix_Name	خليط فواكه ملهّب
+Item_Dish_RoastedFrostpetal_Description	تطهى بتلات الصقيع بعناية على النار لتبخير الجليد مع الحفاظ على القرمشة والنكهة الطازجة.
+Item_Dish_FruitMix_Name	خليط فواكه ملهب
 Item_Dish_FruitMix_Description	خليط من الفانانا والطماطفاح، مشوي ببطء على نار هادئة.
 Item_Dish_FruitshroomMix_Name	أسياخ الفاكهة والفطر
-Item_Dish_FruitshroomMix_Description	حلو ومالح وترابي وغني. المزيج المثالي من الفاكهة والفطر مشويًا على سيخ.
+Item_Dish_FruitshroomMix_Description	حلو ومالح وترابي وغني. المزيج المثالي من الفاكهة والفطر مشويا على سيخ.
 Item_Dish_Damage1_Name	طير ونخاع
-Item_Dish_Damage1_Description	صدور طير مشوية مع صلصة بوردليز من نخاع العظم تُقدَّم داخل العظمة.
+Item_Dish_Damage1_Description	صدور طير مشوية مع صلصة بوردليز من نخاع العظم تقدم داخل العظمة.
 Item_Dish_Damage1-B_Name	لحم ومهروس ألياف
-Item_Dish_Damage1-B_Description	شرائح لحم مشوية مع مهروس ألياف، مزيّنة بأوراق مقلية.
+Item_Dish_Damage1-B_Description	شرائح لحم مشوية مع مهروس ألياف، مزينة بأوراق مقلية.
 Item_Dish_Damage2_Name	أغواتشيلي اللحم والطير
-Item_Dish_Damage2_Description	شرائح لحم مشوية وقطع طير تُقدَّم فوق أغواتشيلي كهربائي، مزيّنة بألياف نباتية مقلية.
-Item_Dish_Defense1_Name	مكعّبات لحم ومهروس
-Item_Dish_Defense1_Description	مكعّبات لحم طرية بصلصة الديميغلاس مع بطاطس مهروسة بالزبدة.
+Item_Dish_Damage2_Description	شرائح لحم مشوية وقطع طير تقدم فوق أغواتشيلي كهربائي، مزينة بألياف نباتية مقلية.
+Item_Dish_Defense1_Name	مكعبات لحم ومهروس
+Item_Dish_Defense1_Description	مكعبات لحم طرية بصلصة الديميغلاس مع بطاطس مهروسة بالزبدة.
 Item_Dish_Shield1_Name	لحم مشوي مع فطر
-Item_Dish_Shield1_Description	شرائح لحم مشوية تُقدَّم مع فطر مقلي في المقلاة.
+Item_Dish_Shield1_Description	شرائح لحم مشوية تقدم مع فطر مقلي في المقلاة.
 Item_Dish_Shield2_Name	شرائح لحم بالصلصة
-Item_Dish_Shield2_Description	شرائح رقيقة من اللحم المطهو بالتفريغ تُقدَّم مع صلصة زبدة الصمغ.
+Item_Dish_Shield2_Description	شرائح رقيقة من اللحم المطهو بالتفريغ تقدم مع صلصة زبدة الصمغ.
 Item_Dish_Shield3_Name	جبل اللحم
-Item_Dish_Shield3_Description	قرصا طير تعلوهما شريحة لحم مقلية، تُقدَّم مع تكثيفة صمغ وبيض مسلوق طريًا.
+Item_Dish_Shield3_Description	قرصا طير تعلوهما شريحة لحم مقلية، تقدم مع تكثيفة صمغ وبيض مسلوق طريا.
 Item_Dish_SlowRoastedMeat_Name	لحم على لحم
-Item_Dish_SlowRoastedMeat_Description	ريب آي بالعظم يُقدَّم مع شريحتي لحم مشويتين متبّلتين. طبق سوان رونسون الخاص.
+Item_Dish_SlowRoastedMeat_Description	ريب آي بالعظم يقدم مع شريحتي لحم مشويتين متبلتين. طبق سوان رونسون الخاص.
 Item_Dish_Loot1_Name	طير مشوي مع فطر
-Item_Dish_Loot1_Description	طير مشوي متبّل، يُقدَّم مع كارباتشيو فطر.
+Item_Dish_Loot1_Description	طير مشوي متبل، يقدم مع كارباتشيو فطر.
 Item_Dish_Loot2_Name	أومورايس الطير
-Item_Dish_Loot2_Description	طير سوتيه داخل عجّة هشّة وطرية تُقدَّم مع صلصة هولنديز.
+Item_Dish_Loot2_Description	طير سوتيه داخل عجة هشة وطرية تقدم مع صلصة هولنديز.
 Item_Dish_ImprovisedPotion_Name	جرعة مرتجلة صغيرة
-Item_Dish_ImprovisedPotion_Description	خليط بسيط بطعم مقزز. يستعيد قليلًا من الحيوية مع الوقت مقابل اضطراب في المعدة.
+Item_Dish_ImprovisedPotion_Description	خليط بسيط بطعم مقزز. يستعيد قليلا من الحيوية مع الوقت مقابل اضطراب في المعدة.
 Item_Dish_SmallPotion_Name	جرعة صغيرة
-Item_Dish_SmallPotion_Description	إكسير صغير يجدد الصحة تدريجيًا.
+Item_Dish_SmallPotion_Description	إكسير صغير يجدد الصحة تدريجيا.
 Item_Dish_Potion_Name	جرعة
-Item_Dish_Potion_Description	إكسير أكثر توازنًا يستعيد الصحة دون تهييج القولون. ولا يزال طعمه كالوحل المُجترّ.
+Item_Dish_Potion_Description	إكسير أكثر توازنا يستعيد الصحة دون تهييج القولون. ولا يزال طعمه كالوحل المجتر.
 Item_Dish_SuperPotion_Name	جرعة فائقة
 Item_Dish_SuperPotion_Description	خليط قوي يمنح الحيوية لفترة ممتدة.
 Item_Dish_InstantPotion_Name	جرعة العافية
-Item_Dish_InstantPotion_Description	إكسير مركّب يمنح الصحة فورًا.
+Item_Dish_InstantPotion_Description	إكسير مركب يمنح الصحة فورا.
 Item_Dish_AttackSPD1_Name	جرعة السرعة
 Item_Dish_AttackSPD1_Description	شراب كثيف يزيد سرعة هجومك زيادة كبيرة.
 Item_Dish_MovementSpeedElixir_Name	جرعة البرق
 Item_Dish_MovementSpeedElixir_Description	خليط يزيد سرعة الحركة لفترة من الوقت.
 Item_InitialRations_Name	لحم رائد فضاء
-Item_InitialRations_Description	مصنوع من روّاد فضاء حقيقيين!
+Item_InitialRations_Description	مصنوع من رواد فضاء حقيقيين!
 
 # ── العناصر الفاسدة ──
 Item_SpoiledFood_Name	طعام فاسد
@@ -409,12 +409,12 @@ Item_DecomposedToxicNectar_Name	صمغ فاسد
 Item_DecayedCognitiveFluid_Name	سائل معرفي متحلل
 Item_DecayedCognitiveFluid_Description	فقد هذا السائل كل خصائصه الفكرية.
 Item_PutridCoffee_Name	سائل معرفي فاسد
-Item_RottenElectrifiedCell_Name	غدة مولِّدة للكهرباء فاسدة
-Item_DischargedOrganicBattery_Name	مصباح حيوي مُفرَّغ
+Item_RottenElectrifiedCell_Name	غدة مولدة للكهرباء فاسدة
+Item_DischargedOrganicBattery_Name	مصباح حيوي مفرغ
 Item_DischargedOrganicBattery_Description	بطارية عضوية فقدت شحنتها بالكامل.
-Item_RottenGasPouch_Name	كيس غازي متعفّن
+Item_RottenGasPouch_Name	كيس غازي متعفن
 Item_RottenGasPouch_Description	قليل التغذية وخطر على معدتك. يمكن استخدامه لصنع <color=#008aff><b>وقود لبعض المركبات</b></color>، باستغلال الطاقة المختزنة في كتلته الحيوية المتحللة.
-Item_RottenVenomousGland_Name	كيس سام متعفّن
+Item_RottenVenomousGland_Name	كيس سام متعفن
 Item_RottenVenomousGland_Description	قليل التغذية وخطر على معدتك. يمكن استخدامه لصنع <color=#008aff><b>وقود لبعض المركبات</b></color>، باستغلال الطاقة المختزنة في كتلته الحيوية المتحللة.
 
 # ── أدوات محمولة ──
@@ -423,23 +423,23 @@ Item_Portable_Bonfire_Item_Description	نار صغيرة مثالية للطهي
 Item_Portable_Drill_Item_Name	مثقاب استخراج
 Item_Portable_Drill_Item_Description	مثقاب قوي يستخرج المعادن من <color=#008aff><b>العروق</b></color>.
 Item_ScannerBall_Name	فخ طوري
-Item_ScannerBall_Description	فخ يأسر الحيوانات حيّة.
+Item_ScannerBall_Description	فخ يأسر الحيوانات حية.
 
 # ── عيّنات المخلوقات ──
-Item_Zoo_AlbinoSalamander_Name	عيّنة سمندل مهق
-Item_Zoo_AlbinoSalamander_Description	سمندل مهق حي. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_ElectricSalamander_Name	عيّنة سمندل فولتي الظهر
-Item_Zoo_ElectricSalamander_Description	سمندل فولتي الظهر حي. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_MediumLogidium_Name	عيّنة ويسكاتشا
-Item_Zoo_MediumLogidium_Description	ويسكاتشا حيّة. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_Mole_Name	عيّنة H.P. مولكرافت
-Item_Zoo_Mole_Description	H.P. مولكرافت حي. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_Nisaetus_Name	عيّنة نسر مرقّط
-Item_Zoo_Nisaetus_Description	نسر مرقّط حي. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_Nisaetus_Charger_Name	عيّنة نسر مرقّط ذهبي
-Item_Zoo_Nisaetus_Charger_Description	نسر مرقّط ذهبي حي. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_Parvus_Name	عيّنة كوريفيديلي
-Item_Zoo_Parvus_Description	كوريفيديلي حي. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_Parvus_Kuchau_Name	عيّنة كوريفيديلي مهق
-Item_Zoo_Parvus_Kuchau_Description	كوريفيديلي مهق حي. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
-Item_Zoo_Spitter_Description	حرباء قاذفة حيّة. لمزيد من المعلومات عن العيّنة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_AlbinoSalamander_Name	عينة سمندل مهق
+Item_Zoo_AlbinoSalamander_Description	سمندل مهق حي. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_ElectricSalamander_Name	عينة سمندل فولتي الظهر
+Item_Zoo_ElectricSalamander_Description	سمندل فولتي الظهر حي. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_MediumLogidium_Name	عينة ويسكاتشا
+Item_Zoo_MediumLogidium_Description	ويسكاتشا حية. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_Mole_Name	عينة H.P. مولكرافت
+Item_Zoo_Mole_Description	H.P. مولكرافت حي. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_Nisaetus_Name	عينة نسر مرقط
+Item_Zoo_Nisaetus_Description	نسر مرقط حي. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_Nisaetus_Charger_Name	عينة نسر مرقط ذهبي
+Item_Zoo_Nisaetus_Charger_Description	نسر مرقط ذهبي حي. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_Parvus_Name	عينة كوريفيديلي
+Item_Zoo_Parvus_Description	كوريفيديلي حي. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_Parvus_Kuchau_Name	عينة كوريفيديلي مهق
+Item_Zoo_Parvus_Kuchau_Description	كوريفيديلي مهق حي. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.
+Item_Zoo_Spitter_Description	حرباء قاذفة حية. لمزيد من المعلومات عن العينة، راجع <color=#008aff><b>موسوعة الحيوانات</b></color>.

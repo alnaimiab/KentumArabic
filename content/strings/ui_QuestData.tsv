@@ -11,18 +11,18 @@ key	ar
 
 # ── المهام الرئيسية ──
 QuestData_Main_1_Name	إشارة؟
-QuestData_Main_1_Task0_Name	حدّد مصدر الإشارة الغريبة
+QuestData_Main_1_Task0_Name	حدد مصدر الإشارة الغريبة
 QuestData_Main_2_Name	بناء؟
-QuestData_Main_2_Task0_Name	استقصِ أمر المسلّة الغريبة
-QuestData_Main_2B_Name	شيء ما يتخمّر
-QuestData_Main_2B_Task0_Name	ابنِ {baseExpansion:base_Grinder}
+QuestData_Main_2_Task0_Name	استقص أمر المسلة الغريبة
+QuestData_Main_2B_Name	شيء ما يتخمر
+QuestData_Main_2B_Task0_Name	ابن {baseExpansion:base_Grinder}
 QuestData_Main_2C_Name	عصير العبقرية
 QuestData_Main_2C_Task0_Name	اخلط {itemDef:GrindedCoffeeBeans} واصنع {itemDef:CognitiveFluid_A} ({0}/{1})
 QuestData_MQ_Tutorial_2_5_Name	اضغط الزر
 QuestData_MQ_Tutorial_2_5_Task0_Name	ما أسوأ ما قد يحدث؟
 QuestData_MQ_Tutorial_3_Name	قوة الدماغ!
-QuestData_MQ_Tutorial_3_Task0_Name	ابنِ دماغ بحث
-QuestData_MQ_Tutorial_5_Task1_Name	ابنِ {baseExpansion:base_CognitiveFluidMachine}
+QuestData_MQ_Tutorial_3_Task0_Name	ابن دماغ بحث
+QuestData_MQ_Tutorial_5_Task1_Name	ابن {baseExpansion:base_CognitiveFluidMachine}
 QuestData_MQ_Tutorial_7_0_Name	عصا نافعة
 QuestData_MQ_Tutorial_7_0_Task0_Name	ابحث تقنية {tech:Tech_Base_StaffTech_Staff}
 QuestData_MQ_PreSabotage_Name	انفجار؟
@@ -34,29 +34,29 @@ QuestData_MQ_PostSabotage_Description	واصل مشروع «شروق الصبا�
 QuestData_MQ_CloneControl_1_Name	التحكم بالنسخ
 QuestData_MQ_CloneControl_1_Task0_Name	ادخل غرفة قاعدة البيانات المخفية وتجاوز إعدادات TLON
 QuestData_MQ_FumigateMonolith_Name	بروتوكولات الإبادة
-QuestData_MQ_FumigateMonolith_Task	ابنِ {baseExpansion:base_Detonator}
+QuestData_MQ_FumigateMonolith_Task	ابن {baseExpansion:base_Detonator}
 QuestData_MQ_KickstartCivilization_Name	انطلق بالبشرية!
-QuestData_MQ_KickstartCivilization_Task0_Name	اضغط الزر الأخير في المسلّة
-QuestData_MQ_Credits_Name	وهذا كل شيء يا كِنت
-QuestData_MQ_Credits_Description	اذهب وشاهد المسلّة
-QuestData_MQ_Watch_Name	دلّل نفسك
+QuestData_MQ_KickstartCivilization_Task0_Name	اضغط الزر الأخير في المسلة
+QuestData_MQ_Credits_Name	وهذا كل شيء يا كينت
+QuestData_MQ_Credits_Description	اذهب وشاهد المسلة
+QuestData_MQ_Watch_Name	دلل نفسك
 QuestData_MQ_Watch_Description	اذهب واحصد جائزتك التي تستحقها في وحدة الفضاء.
 
 # ── الإصلاح والنجاة ──
 QuestData_SQ_BaseRepair_0_Name	بيتي المائل الحبيب
 QuestData_SQ_BaseRepair_0_Task0_Name	أصلح هيكل وحدة الفضاء
 QuestData_BuildBaseExpansion_Name	توسيع القاعدة
-QuestData_BuildBaseExpansion_Task0_Name	ابنِ {tech:expansionModule}
+QuestData_BuildBaseExpansion_Task0_Name	ابن {tech:expansionModule}
 QuestData_Survival_Name	أساسيات النجاة
-QuestData_Survival_Task0_Name	ابنِ {baseExpansion:base_cookingZone}
-QuestData_Survival_Task1_Name	اطبخ طبقًا
-QuestData_Survival_Task2_Name	اسدّ جوعك
+QuestData_Survival_Task0_Name	ابن {baseExpansion:base_cookingZone}
+QuestData_Survival_Task1_Name	اطبخ طبقا
+QuestData_Survival_Task2_Name	اسد جوعك
 QuestData_SQ_Survival_3_Name	نوم الشفاء
 QuestData_SQ_Survival_3_Task0_Name	أصلح وحدة السبات
 QuestData_SQ_Survival_4_Name	تعزيزات النسخ
 QuestData_SQ_Survival_4_Task0_Name	أصلح وحدة التعزيز الاستنساخي
 QuestData_SQ_Survival_5_Name	مدينة الهضم الفاضلة
-QuestData_SQ_Survival_5_Task0_Name	افتح تعزيز البروبيوتيك المحسّن
+QuestData_SQ_Survival_5_Task0_Name	افتح تعزيز البروبيوتيك المحسن
 QuestData_EnvironmentAnalysis_Name	عاشق الهواء الطلق
 QuestData_EnvironmentAnalysis_Task0_Name	امسح الحيوانات ({0}/{1})
 QuestData_EnvironmentAnalysis_Task1_Name	امسح النباتات ({0}/{1})
@@ -65,27 +65,27 @@ QuestData_EnvironmentAnalysis_Task1_Name	امسح النباتات ({0}/{1})
 QuestData_MQ_Production_1_Name	التصنيع
 QuestData_MQ_Production_1_Task0_Name	ابحث {tech:tech_CharcoalKiln}
 QuestData_MQ_Production_2_Name	باحث عن الفحم
-QuestData_MQ_Production_2_Task0_Name	ابنِ {baseExpansion:base_charcoalKiln}
+QuestData_MQ_Production_2_Task0_Name	ابن {baseExpansion:base_charcoalKiln}
 QuestData_MQ_Production_3_Name	بارون الفحم
 QuestData_MQ_Production_3_Task0_Name	اصنع {itemDef:Coal} ({0}/{1})
 QuestData_MQ_Production_3_5_Name	إمبراطورية الفحم
 QuestData_MQ_Production_3_5_Task0_Name	ابحث {tech:tech_Foundry} في الدماغ
 QuestData_MQ_Production_4_Name	عصر المعادن
-QuestData_MQ_Production_4_Task0_Name	ابنِ {baseExpansion:base_foundry}
-QuestData_MQ_Production_5_Name	سيّد السبائك
+QuestData_MQ_Production_4_Task0_Name	ابن {baseExpansion:base_foundry}
+QuestData_MQ_Production_5_Name	سيد السبائك
 QuestData_MQ_Production_5_Task0_Name	اصنع ({0}/{1}) {itemDef:DuraniumIngot}
 
 # ── السوائل المعرفية ──
 QuestData_MQ_CognitiveFluid_B_1_Name	مزيد من عصير الدماغ
-QuestData_MQ_CognitiveFluid_B_1_Task0_Name	حدّد موقع {ItemDef:Barley} في الشرق وامسحه
-QuestData_MQ_CognitiveFluid_B_2_Name	حمّصه
+QuestData_MQ_CognitiveFluid_B_1_Task0_Name	حدد موقع {ItemDef:Barley} في الشرق وامسحه
+QuestData_MQ_CognitiveFluid_B_2_Name	حمصه
 QuestData_MQ_CognitiveFluid_B_2_Task0_Name	اصنع ({0}/{1}) {ItemDef:MaltedBarley}
 QuestData_MQ_CognitiveFluid_B_3_Name	جوهر كل المشاكل
 QuestData_MQ_CognitiveFluid_B_3_Task0_Name	اصنع ({0}/{1}) {itemdef:yeast}
-QuestData_MQ_CognitiveFluid_B_4_Name	خمّره
+QuestData_MQ_CognitiveFluid_B_4_Name	خمره
 QuestData_MQ_CognitiveFluid_B_4_Task0_Name	اصنع ({0}/{1}) {itemDef:CognitiveFluid_B}
 QuestData_MQ_CognitiveFluid_C_1_Name	عفن؟
-QuestData_MQ_CognitiveFluid_C_1_Task0_Name	حدّد موقع {ItemDef:RiceBulb} في الغرب وامسحه
+QuestData_MQ_CognitiveFluid_C_1_Task0_Name	حدد موقع {ItemDef:RiceBulb} في الغرب وامسحه
 QuestData_MQ_CognitiveFluid_C_2_Name	أرز؟
 QuestData_MQ_CognitiveFluid_C_2_Task0_Name	اجمع ({0}/{1}) {ItemDef:RiceBulb}
 QuestData_MQ_CognitiveFluid_C_3_Name	سائل قوي
@@ -102,21 +102,21 @@ QuestData_MQ_FixEnergyCore_TechComplete_Task0_Name	استبدل القطع ال�
 
 # ── الأتمتة ──
 QuestData_MQ_Automation_1_Name	مخالب ومزارع
-QuestData_MQ_Automation_1_Task0_Name	ابنِ ({0}/{1}) {baseExpansion:BaseExpansion_WorkerClaw}
-QuestData_MQ_Automation_2_Task0_Name	اصنع ({0}/{1}) حوضًا
+QuestData_MQ_Automation_1_Task0_Name	ابن ({0}/{1}) {baseExpansion:BaseExpansion_WorkerClaw}
+QuestData_MQ_Automation_2_Task0_Name	اصنع ({0}/{1}) حوضا
 QuestData_SQ_Automation_Claws_0_Name	أتمتة المخالب
 QuestData_SQ_Automation_Claws_0_Task0_Name	ابحث تقنية {tech:Tech_Base_Automation_Claw}
 QuestData_SQ_Automation_Claws_1	المخلب والقانون
-QuestData_SQ_Automation_Claws_1_Task0_Name	انقل ({0}/{1}) عنصرًا بـ{baseExpansion:BaseExpansion_WorkerClaw}
-QuestData_Automation_Drill_Name	أسرع يا كِنت! احفر! احفر!
+QuestData_SQ_Automation_Claws_1_Task0_Name	انقل ({0}/{1}) عنصرا بـ{baseExpansion:BaseExpansion_WorkerClaw}
+QuestData_Automation_Drill_Name	أسرع يا كينت! احفر! احفر!
 QuestData_Automation_Drill_Task0_Name	اصنع {itemDef:base_portableDrill}
 
 # ── الزراعة ──
 QuestData_SQ_Farming_1_Name	تقنية النبات
 QuestData_SQ_Farming_1_Task0_Name	افتح تقنية صناعة البذور في الدماغ
 QuestData_SQ_Farming_2_Name	صانع البذور
-QuestData_SQ_Farming_2_Task0_Name	ابنِ {baseExpansion:base_seedMakerBasic}
-QuestData_SQ_Farming_3_Task1_Name	ابنِ {baseExpansion:base_farmBasic}
+QuestData_SQ_Farming_2_Task0_Name	ابن {baseExpansion:base_seedMakerBasic}
+QuestData_SQ_Farming_3_Task1_Name	ابن {baseExpansion:base_farmBasic}
 QuestData_SQ_Farming_4_Name	أساسيات الزراعة
 QuestData_SQ_Farming_4_Task0_Name	ازرع {itemDef:seed_Coffee} في {baseExpansion:base_farmBasic} ({0}/{1})
 
@@ -125,42 +125,42 @@ QuestData_SQ_Dash_Name	لا بد أن أنطلق
 QuestData_SQ_Dash_Task0_Name	اصنع مهارة الاندفاع في {tech:staffAbiilities}
 QuestData_SQ_Glide_Name	سقوط بأناقة
 QuestData_SQ_Glide_Task0_Name	اصنع مهارة {tech:glideTech} في القاعدة
-QuestData_SQ_Hook_Name	متعلّق بشعور
+QuestData_SQ_Hook_Name	متعلق بشعور
 QuestData_SQ_Hook_Task0_Name	اصنع {tech:hookTech} في القاعدة
-QuestData_SQ_PhaseDash_Name	يرونني وأنا أطوّر
+QuestData_SQ_PhaseDash_Name	يرونني وأنا أطور
 QuestData_SQ_PhaseDash_Task0_Name	اصنع تعزيز مهارة {tech:phaseDashTech}
 QuestData_SQ_Shrink_Name	تصغير
 QuestData_SQ_Shrink_Task0_Name	اصنع مهارة {tech:shrinkTech} في القاعدة
 QuestData_CraftAbility_ChargeAttack_Name	لا شيء في طريقي
 QuestData_CraftAbility_ChargeAttack_Task0_Name	اصنع {tech:chargeAttack1Tech} في {baseExpansion:base_abilityCrafter}
 QuestData_CraftAbility_RunbaA_Name	سماد محتشم
-QuestData_CraftAbility_RunbaA_Task0_Name	ابنِ آلة تسميد
+QuestData_CraftAbility_RunbaA_Task0_Name	ابن آلة تسميد
 QuestData_CraftAbility_RunbaB_Name	الانضمام إلى كتيبة العظام
 QuestData_CraftAbility_RunbaB_Task0_Name	اصنع R.O.C.C.O.
 
 # ── غرف المسلّة: الزراعة ──
 QuestData_MQ_Monolith_Agri_0-5_Name	مساعد الزراعة
-QuestData_MQ_Monolith_Agri_0-5_Task0_Name	تحدّث مع مساعد الزراعة
+QuestData_MQ_Monolith_Agri_0-5_Task0_Name	تحدث مع مساعد الزراعة
 QuestData_MQ_Monolith_Agri_0_Name	احتياجات زراعية
 QuestData_MQ_Monolith_Agri_0_Task0_Name	افتح غرفة {tech:AgriRoomDoor}
 QuestData_MQ_Monolith_Agri_1_Name	مهرجان البذور — الجزء 1
-QuestData_MQ_Monolith_Agri_1_Task0_Name	سلّم البذور إلى المخزون الزراعي ({0}/{1})
+QuestData_MQ_Monolith_Agri_1_Task0_Name	سلم البذور إلى المخزون الزراعي ({0}/{1})
 QuestData_MQ_Monolith_Agri_2_Name	مهرجان البذور — الجزء 2
-QuestData_MQ_Monolith_Agri_2_Task0_Name	وفّر مخزون بذور أكبر ({0}/{1})
+QuestData_MQ_Monolith_Agri_2_Task0_Name	وفر مخزون بذور أكبر ({0}/{1})
 QuestData_MQ_Monolith_Agri_3_Name	مهرجان البذور — الجزء 3
-QuestData_MQ_Monolith_Agri_3_Task0_Name	سلّم إمدادًا هائلًا ({0}/{1})
+QuestData_MQ_Monolith_Agri_3_Task0_Name	سلم إمدادا هائلا ({0}/{1})
 
 # ── غرف المسلّة: الأحياء ──
 QuestData_MQ_Monolith_Biogen_0-5_Name	مساعدة في الأحياء
-QuestData_MQ_Monolith_Biogen_0-5_Task0_Name	تحدّث مع مساعد الأحياء
+QuestData_MQ_Monolith_Biogen_0-5_Task0_Name	تحدث مع مساعد الأحياء
 QuestData_MQ_Monolith_Biogen_0_Name	أحياء 101
 QuestData_MQ_Monolith_Biogen_0_Task0_Name	افتح غرفة {tech:BioRoomDoor}
 QuestData_MQ_Monolith_Biogen_1_Name	أحياء 201
-QuestData_MQ_Monolith_Biogen_1_Task0_Name	سلّم عيّنات حيوانية إلى المخزون الحيوي ({0}/{1})
+QuestData_MQ_Monolith_Biogen_1_Task0_Name	سلم عينات حيوانية إلى المخزون الحيوي ({0}/{1})
 QuestData_MQ_Monolith_Biogen_2_Name	أحياء 301
-QuestData_MQ_Monolith_Biogen_2_Task0_Name	وفّر مزيدًا من العيّنات الحيوانية ({0}/{1})
+QuestData_MQ_Monolith_Biogen_2_Task0_Name	وفر مزيدا من العينات الحيوانية ({0}/{1})
 QuestData_MQ_Monolith_Biogen_3_Name	أحياء 401
-QuestData_MQ_Monolith_Biogen_3_Task0_Name	سلّم عيّنات كثيرة ({0}/{1})
+QuestData_MQ_Monolith_Biogen_3_Task0_Name	سلم عينات كثيرة ({0}/{1})
 
 # ── غرف المسلّة: البنية التحتية ──
 QuestData_MQ_Monolith_Infra_0-5_Name	تحتاج مساعدة؟
@@ -168,24 +168,24 @@ QuestData_MQ_Monolith_Infra_0-5_Task0_Name	قابل مساعد البنية ال
 QuestData_MQ_Monolith_Infra_0_Name	بنية تحتية لعالم جديد
 QuestData_MQ_Monolith_Infra_0_Task0_Name	افتح غرفة {tech:InfraRoomDoor}
 QuestData_MQ_Monolith_Infra_1_Name	صخب البنية التحتية
-QuestData_MQ_Monolith_Infra_1_Task0_Name	سلّم مواد بناء إلى مخزون البنية التحتية ({0}/{1})
+QuestData_MQ_Monolith_Infra_1_Task0_Name	سلم مواد بناء إلى مخزون البنية التحتية ({0}/{1})
 QuestData_MQ_Monolith_Infra_2_Name	صخب البنية التحتية 2
-QuestData_MQ_Monolith_Infra_2_Task0_Name	وفّر مزيدًا من مواد البناء ({0}/{1})
+QuestData_MQ_Monolith_Infra_2_Task0_Name	وفر مزيدا من مواد البناء ({0}/{1})
 QuestData_MQ_Monolith_Infra_3_Name	أحلام البنية التحتية
-QuestData_MQ_Monolith_Infra_3_Task0_Name	سلّم مواد كثيرة ({0}/{1})
+QuestData_MQ_Monolith_Infra_3_Task0_Name	سلم مواد كثيرة ({0}/{1})
 
 # ── غرف المسلّة: التقنية ──
 QuestData_MQ_Monolith_Tech_0-5_Name	صديق قديم
-QuestData_MQ_Monolith_Tech_0-5_Task0_Name	تحدّث إلى مساعد التقنية
+QuestData_MQ_Monolith_Tech_0-5_Task0_Name	تحدث إلى مساعد التقنية
 QuestData_MQ_Monolith_Tech_0_Name	التقنية
 QuestData_MQ_Monolith_Tech_0_Task0_Name	افتح غرفة {tech:TechRoomDoor}
 QuestData_MQ_Monolith_Tech_1_Name	أحلام آلية — الجزء 1
-QuestData_MQ_Monolith_Tech_1_Task0_Name	سلّم قطعًا تقنية إلى مخزون التقنية ({0}/{1})
+QuestData_MQ_Monolith_Tech_1_Task0_Name	سلم قطعا تقنية إلى مخزون التقنية ({0}/{1})
 QuestData_MQ_Monolith_Tech_2_Name	أحلام آلية — الجزء 2
-QuestData_MQ_Monolith_Tech_2_Task0_Name	وفّر تقنية أكثر تقدّمًا ({0}/{1})
+QuestData_MQ_Monolith_Tech_2_Task0_Name	وفر تقنية أكثر تقدما ({0}/{1})
 QuestData_MQ_Monolith_Tech_3_Name	أحلام آلية — الجزء 3
-QuestData_MQ_Monolith_Tech_3_Task0_Name	سلّم إمدادًا ضخمًا من التقنية ({0}/{1})
-QuestData_SQ_Monolith_AllCompleted_Name	مكتنِز
+QuestData_MQ_Monolith_Tech_3_Task0_Name	سلم إمدادا ضخما من التقنية ({0}/{1})
+QuestData_SQ_Monolith_AllCompleted_Name	مكتنز
 QuestData_SQ_Monolith_AllCompleted_Task	اشعر بالفخر بنفسك للحظة
 
 # ── البروتوكولات النهائية ──
@@ -197,8 +197,8 @@ QuestData_MQ_FinalTechs_Technology_Name	أكمل بروتوكولات {tech:Tech
 
 # ── نهاية النسخة التجريبية ──
 QuestData_MQ_DemoEnd_1_Name	مختبر الحيوية الوراثية
-QuestData_MQ_DemoEnd_1_Task0_Name	افتح باب مختبر الحيوية الوراثية في المسلّة
-QuestData_MQ_DemoEnd_2_Name	سرّ المسلّة
-QuestData_MQ_DemoEnd_2_Task0_Name	اذهب إلى المسلّة
+QuestData_MQ_DemoEnd_1_Task0_Name	افتح باب مختبر الحيوية الوراثية في المسلة
+QuestData_MQ_DemoEnd_2_Name	سر المسلة
+QuestData_MQ_DemoEnd_2_Task0_Name	اذهب إلى المسلة
 QuestData_MQ_DemoEnd_3_Name	اضغط الزر
-QuestData_MQ_DemoEnd_3_Task0_Name	أنهِ النسخة التجريبية وحدّث أصدقاءك عن Kentum
+QuestData_MQ_DemoEnd_3_Task0_Name	أنه النسخة التجريبية وحدث أصدقاءك عن Kentum

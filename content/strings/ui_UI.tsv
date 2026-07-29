@@ -19,13 +19,13 @@ UI_MainMenu_Load	تحميل
 UI_MainMenu_Quit	خروج
 UI_MainMenu_Credits	فريق العمل
 UI_MainMenu_JoinDiscord	انضم إلى ديسكورد
-UI_MainMenu_Connecting	جارٍ الاتصال...
+UI_MainMenu_Connecting	جار الاتصال...
 UI_MainMenu_NoSaveSlot_Title	لا توجد خانة حفظ متاحة
 UI_MainMenu_NoSaveSlot_Description	الحد الأقصى لخانات الحفظ هو {0}. عليك حذف خانة موجودة لبدء لعبة جديدة.
-UI_MainMenu_BuyNow	اشترِ Kentum!
-UI_MainMenu_BuyNow_Detail	واصل تقدّمك في اللعبة الكاملة!
-UI_MainMenu_ContinueProgressDemo_Title	واصل تقدّمك من النسخة التجريبية!
-UI_MainMenu_ContinueProgressDemo_Description	سيُنقل تقدّمك إلى ملف حفظ جديد.
+UI_MainMenu_BuyNow	اشتر Kentum!
+UI_MainMenu_BuyNow_Detail	واصل تقدمك في اللعبة الكاملة!
+UI_MainMenu_ContinueProgressDemo_Title	واصل تقدمك من النسخة التجريبية!
+UI_MainMenu_ContinueProgressDemo_Description	سينقل تقدمك إلى ملف حفظ جديد.
 UI_MainMenu_DemoVersion	النسخة التجريبية
 UI_MainMenu_Wishlist	أضفها لقائمة أمنياتك على Steam
 UI_MainMenu_Wishlist_PS5	أضفها لقائمة أمنياتك!
@@ -40,8 +40,8 @@ UI_General_Close	إغلاق
 UI_General_Confirm	تأكيد
 UI_General_ControlsTitle	التحكم
 UI_General_Coop	لعب تعاوني
-UI_General_Enabled	مُفعَّل
-UI_General_Disabled	مُعطَّل
+UI_General_Enabled	مفعل
+UI_General_Disabled	معطل
 UI_General_No	لا
 UI_General_GoMainMenu	الخروج إلى القائمة الرئيسية
 UI_General_OpenKB	الموسوعة
@@ -72,7 +72,7 @@ UI_Options_Quality	جودة الرسوميات
 UI_Options_FullScreenMode	وضع ملء الشاشة
 UI_Options_FullScreenMode_ExclusiveFullScreen	ملء الشاشة الحصري
 UI_Options_FullScreenMode_FullScreenWindow	نافذة بلا حدود
-UI_Options_FullScreenMode_MaximizedWindow	نافذة مكبَّرة
+UI_Options_FullScreenMode_MaximizedWindow	نافذة مكبرة
 UI_Options_FullScreenMode_Windowed	وضع النافذة
 UI_Options_Audio_Master	الصوت العام
 UI_Options_Audio_Music	الموسيقى
@@ -81,7 +81,7 @@ UI_Options_Audio_Voices	الأصوات
 UI_Options_Audio_Alerts	التنبيهات
 UI_Options_AutoSave	الحفظ التلقائي
 UI_Options_Autopickup	الالتقاط التلقائي
-UI_Options_AutoUnpin	إلغاء التثبيت تلقائيًا عند التصنيع
+UI_Options_AutoUnpin	إلغاء التثبيت تلقائيا عند التصنيع
 UI_Options_Rumble	الاهتزاز
 UI_Options_Rumble_PS	الاهتزاز
 UI_Options_HDRumble	اهتزاز عالي الدقة
@@ -91,10 +91,10 @@ UI_GraphicsQuality_High	عالية
 
 # ── الإيقاف المؤقت ──
 UI_Pause_GoDesktop	الخروج إلى سطح المكتب
-UI_Pause_ConfirmExit	هل تريد الخروج فعلًا؟\nسيُحفظ تقدّمك حتى هذه النقطة.
-UI_Pause_ConfirmMenu	هل تريد العودة إلى القائمة فعلًا؟
-UI_Pause_ConfirmDesktop	هل تريد إغلاق اللعبة فعلًا؟
-UI_Pause_ProgressSaved	سيُحفظ تقدّمك تلقائيًا.
+UI_Pause_ConfirmExit	هل تريد الخروج فعلا؟\nسيحفظ تقدمك حتى هذه النقطة.
+UI_Pause_ConfirmMenu	هل تريد العودة إلى القائمة فعلا؟
+UI_Pause_ConfirmDesktop	هل تريد إغلاق اللعبة فعلا؟
+UI_Pause_ProgressSaved	سيحفظ تقدمك تلقائيا.
 
 # ── الحفظ ──
 UI_Saves_Title	ملفات الحفظ
@@ -108,7 +108,7 @@ UI_Saves_InvalidSave	إصدار غير صالح ({0}.{1})
 UI_SavePopup_NoSpace_Title	فشل الحفظ
 UI_SavePopup_NoSpace_Description	حاولت اللعبة الحفظ لكن المساحة غير كافية. أفرغ بعض المساحة ثم أعد المحاولة.
 UI_SavePopup_NoSpace_Retry	إعادة المحاولة
-UI_Saving_Disclaimer	جارٍ الحفظ...
+UI_Saving_Disclaimer	جار الحفظ...
 
 # ── المخزون والحقيبة ──
 UI_Inventory_Title	المخزون
@@ -116,12 +116,12 @@ UI_Inventory_Consume	استهلاك
 UI_Inventory_Drop	إسقاط
 UI_Inventory_Place	وضع
 UI_Inventory_QuickUse	تعيين للاستخدام السريع
-UI_Bag_CompletelyFull	الحقيبة ممتلئة تمامًا
+UI_Bag_CompletelyFull	الحقيبة ممتلئة تماما
 UI_Bag_NoSlots	لا توجد خانات فارغة في الحقيبة
 UI_Bag_Leftovers	الفائض
 UI_Minimap_Bag	الحقيبة
 UI_HUD_BagFull_Notice	لا توجد مساحة
-UI_HUD_NewEntryAdded	أُضيف مدخل جديد
+UI_HUD_NewEntryAdded	أضيف مدخل جديد
 
 # ── التصنيع ──
 UI_GenericCrafting_Craft	تصنيع
@@ -134,12 +134,12 @@ UI_Crafting_ClearQueue_Hold	إفراغ الطابور (استمر بالضغط)
 UI_Crafting_CraftNConsume	تصنيع واستهلاك
 UI_Crafting_Pickup	التقاط
 UI_Cooking_Craft	طهي
-UI_Cooking_CraftAndConsume	اطبخ وكُل
+UI_Cooking_CraftAndConsume	اطبخ وكل
 UI_Brewery_Craft	تخمير
-UI_Brewery_CraftAndConsume	خمِّر واشرب
+UI_Brewery_CraftAndConsume	خمر واشرب
 UI_NoMoreRecipesInMachine	ابحث عن وصفات أخرى في العالم!
 UI_UniqueCrafting_ClearButton	إفراغ
-UI_UniqueCrafting_ClearPopupTitle	إزالة العنصر المعيَّن
+UI_UniqueCrafting_ClearPopupTitle	إزالة العنصر المعين
 UI_UniqueCrafting_MakeCompostButton	صنع سماد
 UI_UniqueCrafting_ReadyToCraft	جاهز للتصنيع
 UI_InfoPanel_Automatable	قابل للأتمتة
@@ -151,7 +151,7 @@ UI_AutomatedCrafting_Manual	يدوي
 UI_AutomatedCrafting_Input	الإدخال
 UI_AutomatedCrafting_Output	الإخراج
 UI_AutomatedCrafting_Owned	متوفر في القاعدة
-UI_AutomatedCrafting_Stored	مُخزَّن
+UI_AutomatedCrafting_Stored	مخزن
 UI_AutomatedCrafting_Queue_Title	الطابور
 UI_AutomatedCrafting_SelectRecipeTitle	اختر وصفة
 UI_AutomatedCrafting_PickUpButton	التقاط
@@ -159,7 +159,7 @@ UI_AutomatedCraftingPanel_AutomatedRecipe	الوصفة الآلية
 UI_AutomatedCraftingPanel_AutomatedRecipeClearButton	إلغاء الوصفة الآلية
 UI_AutomatedCraftingPanel_AutomatedRecipeSelectButton	تعيين وصفة آلية
 UI_AutomatedCraftingPanel_AutomatedRecipeUnselected	لم يتم اختيار وصفة آلية
-UI_AutomatedCraftingPanel_State_Crafting	جارٍ التصنيع...
+UI_AutomatedCraftingPanel_State_Crafting	جار التصنيع...
 UI_AutomatedCraftingPanel_State_NeedsInput	بحاجة إلى مواد
 UI_AutomatedCraftingPanel_State_Waiting	في الانتظار
 
@@ -169,7 +169,7 @@ UI_BaseExpansion_SettingsButton	الإعدادات
 UI_BaseExpansion_Subcategory_Crafting	التصنيع
 UI_BaseExpansion_Subcategory_Storage	التخزين
 UI_BaseExpansion_BuildButton	بناء
-UI_BaseExpansion_BuildContinueButton	ابنِ وتابع
+UI_BaseExpansion_BuildContinueButton	ابن وتابع
 UI_BaseExpansion_ScrapButton	تفكيك
 UI_BaseExpansion_MoveButton	نقل
 UI_BaseExpansion_RotateButton	تدوير
@@ -185,26 +185,26 @@ UI_BaseExpansion_Requirement_AlreadyConstructed	- محاولة استبدال ا
 UI_BaseExpansion_Requirement_Background	- يتطلب خلفية
 UI_BaseExpansion_Requirement_BiggerStorageSlot	- يجب أن يكون التخزين البديل بالحجم نفسه أو أكبر
 UI_BaseExpansion_Requirement_Blocked	- منطقة محجوبة
-UI_BaseExpansion_Requirement_Ceiling	- يتطلب سقفًا
-UI_BaseExpansion_Requirement_DrillableVein	- يتطلب عرقًا قابلًا للحفر
+UI_BaseExpansion_Requirement_Ceiling	- يتطلب سقفا
+UI_BaseExpansion_Requirement_DrillableVein	- يتطلب عرقا قابلا للحفر
 UI_BaseExpansion_Requirement_Floor	- يتطلب أرضية
 UI_BaseExpansion_Requirement_FloorOrTable	- يتطلب أرضية أو طاولة
-UI_BaseExpansion_Requirement_FloorOrWall	- يتطلب أرضية أو جدارًا أسفله
+UI_BaseExpansion_Requirement_FloorOrWall	- يتطلب أرضية أو جدارا أسفله
 UI_BaseExpansion_Requirement_InsideBase	- داخل القاعدة
-UI_BaseExpansion_Requirement_NothingToReplace	- لا يوجد ما يُستبدل
+UI_BaseExpansion_Requirement_NothingToReplace	- لا يوجد ما يستبدل
 UI_BaseExpansion_Requirement_OutsideBase	- خارج القاعدة
 UI_BaseExpansion_Requirement_OutsideReach	- خارج نطاق الوصول
 UI_BaseExpansion_Requirement_SideWall	- يتطلب بلاطة صلبة مجاورة
 UI_BaseExpansion_Requirement_Space	- المكان مشغول بالفعل
 UI_BaseExpansion_Requirement_Table	- يتطلب طاولة
 UI_BaseExpansion_Requirement_TwoVeins	- لا يمكن للمثقاب أن يمتد على عرقين منفصلين
-UI_BaseExpansion_ScrapReason_CurrentCrafting	- الآلة تعمل حاليًا
+UI_BaseExpansion_ScrapReason_CurrentCrafting	- الآلة تعمل حاليا
 UI_BaseExpansion_ScrapReason_Dependency	- لا يمكن إزالة شيء تعتمد عليه أشياء أخرى
 UI_BaseExpansion_ScrapReason_HasItems	- يحتوي على عناصر بداخله
 UI_BaseExpansion_Settings_AutomationRecipe	الوصفة الآلية
-UI_BaseExpansion_Settings_ItemFilter	مرشّح العناصر
-UI_BaseExpansion_Settings_ItemFilter_Forward	مرشّح العناصر — للأمام
-UI_BaseExpansion_Settings_ItemFilter_Side	مرشّح العناصر — جانبي
+UI_BaseExpansion_Settings_ItemFilter	مرشح العناصر
+UI_BaseExpansion_Settings_ItemFilter_Forward	مرشح العناصر — للأمام
+UI_BaseExpansion_Settings_ItemFilter_Side	مرشح العناصر — جانبي
 UI_BaseExpansion_Automation_Floor	الطابق
 UI_BaseExpansion_Automation_From	من:
 UI_BaseExpansion_Automation_To	إلى:
@@ -247,14 +247,14 @@ UI_Map_ZoomOutButton	تصغير
 UI_Map_ActiveEvents_Title	الأحداث النشطة
 
 # ── التحميل ──
-UI_Loading_Loading	جارٍ التحميل...
-UI_Loading_Tip	لا تنسَ أنه يمكنك تثبيت الوصفات على شريط الحالة!
-UI_Loading_Tip_2	عند دخولك منطقة جديدة، تذكّر أن تمسح كل شيء بالماسح!
-UI_Loading_Tip_3	الفصول مهمة، فالنباتات والحيوانات تتغير بتغيّرها.
+UI_Loading_Loading	جار التحميل...
+UI_Loading_Tip	لا تنس أنه يمكنك تثبيت الوصفات على شريط الحالة!
+UI_Loading_Tip_2	عند دخولك منطقة جديدة، تذكر أن تمسح كل شيء بالماسح!
+UI_Loading_Tip_3	الفصول مهمة، فالنباتات والحيوانات تتغير بتغيرها.
 UI_Loading_Tip_4	استخدم الخريطة لمعرفة المناطق التي تظهر فيها النباتات والحيوانات.
 UI_Loading_Tip_5	الأطباق والجرعات المختلفة تمنحك مزايا مهمة.
 UI_Loading_Tip_6	O.R.B. رفيقك الدائم.
-UI_Loading_Tip_7	جرّب المخالب والأحزمة الناقلة لأتمتة إنتاج العناصر.
+UI_Loading_Tip_7	جرب المخالب والأحزمة الناقلة لأتمتة إنتاج العناصر.
 UI_Loading_Tip_8	احذر من الأحداث المناخية.
 UI_Loading_Tip_9	راجع الموسوعة لتكتشف أين تجد العناصر التي تحتاجها.
 
@@ -282,7 +282,7 @@ UI_Keybind_AbilityMenu_SwitchAbility3	تعيين المهارة 3
 UI_Keybind_AbilityMenu_SwitchAbility4	تعيين المهارة 4
 UI_Keybind_Ability_Scanner	الماسح
 UI_Keybind_Ability_Light	المشعل الكهربائي
-UI_Keybind_Ability_DroneMode	وضع الطائرة المسيّرة
+UI_Keybind_Ability_DroneMode	وضع الطائرة المسيرة
 UI_Keybind_Ability_CaptureBall	فخ الأقراص
 UI_Keybind_Ability_Run	R.O.C.C.O.
 UI_Keybind_Ability_Shrink	Kent³
@@ -302,15 +302,15 @@ UI_Abilities_Category_ORB	O.R.B
 
 # ── التفاعل ──
 UI_Interaction_CheckStatus	فحص الحالة
-UI_Interaction_Crafting	جارٍ التصنيع...
-UI_Interaction_Drilling	جارٍ الحفر...
+UI_Interaction_Crafting	جار التصنيع...
+UI_Interaction_Drilling	جار الحفر...
 UI_Interaction_Gather	جمع
 UI_Interaction_Pickup	التقاط {0}
 UI_Interaction_PickupDrop	التقاط
 UI_Interaction_PickBag	استرجاع العناصر
-UI_Interaction_Speak	تحدّث
+UI_Interaction_Speak	تحدث
 UI_Interaction_Water	سقاية
-UI_Interaction_FullyHealed	شُفيت تمامًا
+UI_Interaction_FullyHealed	شفيت تماما
 UI_Interaction_UsedByPlayer	مشغول
 UI_Interaction_EndGame	انطلق بالحضارة
 UI_Interaction_EndDemo	إنهاء النسخة التجريبية
@@ -319,16 +319,16 @@ UI_Detonator_Interact	تفعيل
 UI_Booth_StartPrompt	اضغط <input=UI/Submit> للبدء
 
 # ── الموت والتجدد ──
-UI_DeadPanel_Title	لقد مُت
-UI_DeadPanel_KilledBy	قُتلت على يد
+UI_DeadPanel_Title	لقد مت
+UI_DeadPanel_KilledBy	قتلت على يد
 UI_DeadPanel_RegenerateButton	إعادة التوليد
 UI_DeathScreen_CloneNumber	النسخة رقم {0}
 UI_DeathType_Physical	ضرر جسدي
 UI_DeathType_Electric	ضرر كهربائي
 UI_DeathType_Explosive	ضرر انفجاري
-UI_DeathType_Poison	ضرر سُمّي
+UI_DeathType_Poison	ضرر سمي
 UI_DeathType_Hunger	مجاعة
-UI_Death_Tip	قد تفقد عناصر في كل مرة تموت فيها، فكن حذرًا!
+UI_Death_Tip	قد تفقد عناصر في كل مرة تموت فيها، فكن حذرا!
 UI_Regeneration_Title	وحدة الشفاء الساكن
 UI_Regeneration_Tip	تستعيد وحدة الشفاء الساكن صحتك بالكامل.
 UI_Regeneration_DaysSurvived	أيام بلا حوادث:
@@ -346,10 +346,10 @@ UI_Farm_Title	المزرعة
 UI_Farm_AddItem	إضافة
 UI_Farm_ConfirmButton	تأكيد
 UI_Farm_ConfirmationText	هل تريد زراعة هذه البذرة؟
-UI_Farm_ClearConfirmationText	هل تريد الإزالة فعلًا؟ ستفقد العنصر
+UI_Farm_ClearConfirmationText	هل تريد الإزالة فعلا؟ ستفقد العنصر
 UI_Farm_ItemAssigned_Name	البذرة المختارة
 UI_Farm_UprootConfirmation	اقتلاع؟
-UI_Farm_UprootDescription	هل تريد اقتلاع النبتة فعلًا؟ لا يمكن التراجع عن هذا
+UI_Farm_UprootDescription	هل تريد اقتلاع النبتة فعلا؟ لا يمكن التراجع عن هذا
 UI_FarmItem_Title	البذور
 UI_FarmStatus_KeepButton	إبقاء
 UI_FarmStatus_UprootButton	اقتلاع
@@ -360,30 +360,30 @@ UI_Zoo_Title	المخلوقات
 UI_Zoo_AddItem	إضافة
 UI_Zoo_ConfirmButton	تأكيد
 UI_Zoo_ConfirmationText	هل تريد وضع هذا المخلوق؟
-UI_Zoo_ClearConfirmationText	هل تريد إطلاقه فعلًا؟ ستفقد العيّنة.
-UI_Zoo_ItemAssigned_Name	المخلوق المعيَّن
+UI_Zoo_ClearConfirmationText	هل تريد إطلاقه فعلا؟ ستفقد العينة.
+UI_Zoo_ItemAssigned_Name	المخلوق المعين
 UI_Zoo_Uproot_Title	إطلاق المخلوق؟
-UI_Zoo_Uproot_Description	هل تريد إطلاق هذا المخلوق فعلًا؟ لا يمكن التراجع عن هذا.
+UI_Zoo_Uproot_Description	هل تريد إطلاق هذا المخلوق فعلا؟ لا يمكن التراجع عن هذا.
 UI_ZooStatus_Release	إطلاق
 
 # ── التسميد ──
 UI_Composter_AddItem	إضافة
 UI_Composter_ItemsAssigned	العناصر داخل الآلة
 UI_Composter_ItemsGrid	المواد العضوية
-UI_Composter_ClearConfirmation	هل تريد الإزالة فعلًا؟ ستفقد العنصر
+UI_Composter_ClearConfirmation	هل تريد الإزالة فعلا؟ ستفقد العنصر
 
 # ── المثقاب ──
 UI_DrillStatusPanel_Disassembly	استرجاع
 UI_DrillStatusPanel_Popup_Title	استرجاع المثقاب؟
-UI_DrillStatusPanel_Popup_Description	هل تريد استرجاع المثقاب فعلًا؟
+UI_DrillStatusPanel_Popup_Description	هل تريد استرجاع المثقاب فعلا؟
 
 # ── التنقل السريع ──
-UI_FastTravel_Title	وثّاب الكريستال
+UI_FastTravel_Title	وثاب الكريستال
 UI_FastTravel_ActivateAction	تفعيل
-UI_UseFastTravel	استخدام وثّاب الكريستال
+UI_UseFastTravel	استخدام وثاب الكريستال
 UI_PortableTeleport_ReturnToBase	العودة إلى القاعدة
-UI_PortableTeleport_BaseFastTravelLock	وثّاب القاعدة مقفل
-UI_Notification_FastTravelPoint_Unlocked	فُتح وثّاب الكريستال
+UI_PortableTeleport_BaseFastTravelLock	وثاب القاعدة مقفل
+UI_Notification_FastTravelPoint_Unlocked	فتح وثاب الكريستال
 
 # ── الموسوعة ──
 UI_KB_Items	العناصر
@@ -396,12 +396,12 @@ UI_KB_Quests	المهام
 UI_KB_Quests_MainQuests	رئيسية
 UI_KB_Quests_SecondaryQuests	ثانوية
 UI_KB_Quests_Completed	مكتملة
-UI_KB_Drops	المخلَّفات
-UI_KB_DroppedBy	يُسقطه
+UI_KB_Drops	المخلفات
+UI_KB_DroppedBy	يسقطه
 UI_KB_PendingCrafting	قيد التصنيع
 UI_KB_Recipes_RecipeTitle	المواد
 UI_KB_Recipes_Other	أخرى
-UI_KB_CraftableIn	<b>- يُصنع في <allcaps>{0}</allcaps> -</b>
+UI_KB_CraftableIn	<b>- يصنع في <allcaps>{0}</allcaps> -</b>
 UI_KB_Character_Diurnal	نهاري
 UI_KB_Character_Nocturnal	ليلي
 UI_CharacterData_Unknown	مجهول
@@ -411,7 +411,7 @@ UI_SelectedInfo_NoInfo	لم يتم تحديد شيء
 UI_Technologies_Staff_Title	العصا
 UI_Technologies_BaseUpgrade_Title	تحسينات القاعدة
 UI_Technologies_Enhancements_Title	التعزيزات
-UI_Technologies_Monolith_Title	المسلّة
+UI_Technologies_Monolith_Title	المسلة
 UI_Technologies_Unlocked	- مفتوح -
 UI_TechnologyPanel_LockedTech	لم تفتح هذه التقنية بعد
 UI_TechnologyPanel_Requires	يتطلب:
@@ -419,30 +419,30 @@ UI_TechnologyPanel_Unlocks	يفتح:
 UI_TechnologyPanel_RecipeUnlocked	يفتح وصفة {0} في {1}
 UI_TechnologyPanel_RecipeUnlocked_Singular	يفتح وصفة في {0}:
 UI_TechnologyPanel_RecipeUnlocked_Multiple	يفتح وصفات في {0}:
-UI_TechnologyPanel_LaneUnlocked_Singular	يفتح مسارًا في {0}:
+UI_TechnologyPanel_LaneUnlocked_Singular	يفتح مسارا في {0}:
 UI_TechnologyPanel_LaneUnlocked_Multiple	يفتح مسارات في {0}:
-UI_TechnologyPanel_ResearchUnlocked_Singular	يفتح بحثًا في {0}:
-UI_TechnologyPanel_ResearchUnlocked_Multiple	يفتح أبحاثًا في {0}:
-UI_EquipmentPanel_LockedTech	لم تفتح هذه المعدّة بعد
+UI_TechnologyPanel_ResearchUnlocked_Singular	يفتح بحثا في {0}:
+UI_TechnologyPanel_ResearchUnlocked_Multiple	يفتح أبحاثا في {0}:
+UI_EquipmentPanel_LockedTech	لم تفتح هذه المعدة بعد
 
 # ── الإشعارات ──
-UI_Notification_RecipeUnlocked	فُتحت وصفة جديدة!
-UI_Notification_TechUnlocked	فُتحت تقنية جديدة!
-UI_Notification_EquipmentUnlocked	فُتحت معدّة جديدة!
-UI_Notification_CharacterDataUnlocked	فُتح مدخل جديد!
-UI_Notification_CantPin	بلغت الحد الأقصى للوصفات المثبَّتة
+UI_Notification_RecipeUnlocked	فتحت وصفة جديدة!
+UI_Notification_TechUnlocked	فتحت تقنية جديدة!
+UI_Notification_EquipmentUnlocked	فتحت معدة جديدة!
+UI_Notification_CharacterDataUnlocked	فتح مدخل جديد!
+UI_Notification_CantPin	بلغت الحد الأقصى للوصفات المثبتة
 UI_Notification_MaxQueue	بلغت الحد الأقصى للطابور
-UI_Recipe_Unlocked_Recipe	فُتحت وصفة جديدة!
-UI_Recipe_Unlocked_Blueprint	فُتح مخطط جديد!
-UI_Recipe_Unlocked_Diagram	فُتح مخطط قاعدة جديد!
-UI_Recipe_Unlocked_Code	فُتح كود وراثي جديد!
+UI_Recipe_Unlocked_Recipe	فتحت وصفة جديدة!
+UI_Recipe_Unlocked_Blueprint	فتح مخطط جديد!
+UI_Recipe_Unlocked_Diagram	فتح مخطط قاعدة جديد!
+UI_Recipe_Unlocked_Code	فتح كود وراثي جديد!
 UI_Recipe_Unlocked_Tech	بحث جديد متاح
 UI_ItemNotification_ItemPicked	{0} ({1})
-UI_ItemNotification_ItemLost	فُقد: {0} ({1})
+UI_ItemNotification_ItemLost	فقد: {0} ({1})
 UI_ItemNotification_ItemExpired	فسد: {0} ({1})
 
 # ── المقدمة ──
-UI_Intro_BeginCryoSleep	بدء السبات المُبرَّد
+UI_Intro_BeginCryoSleep	بدء السبات المبرد
 UI_Intro_ExitShip	التقط الحقيبة واخرج
 UI_Intro_PushButton	اضغط الزر
 UI_Intro_Tamper	العبث
@@ -456,13 +456,13 @@ UI_IntroWakeUp_Button	إلى العمل
 UI_Action_Disconnect	إنهاء اللعب التعاوني
 UI_Action_Rebind	إعادة تعيين اللاعبين
 UI_Action_ReconnectJoycons	إعادة الاتصال
-UI_CoopPanel_Joining	جارٍ انضمام لاعب جديد...
+UI_CoopPanel_Joining	جار انضمام لاعب جديد...
 UI_CoopPanel_PressAnyKey	اضغط أي مفتاح أو زر...
 UI_CoopPanel_PressAnyKey_PS5	اضغط أي زر...
 UI_CoopPanel_PressAnyKey_Switch	اضغط أي زر...
 UI_CoopPanel_PressAnyKey_Xbox	اضغط أي زر...
-UI_CoopPanel_UnjoinPopup_Title	هل تريد مغادرة اللعبة فعلًا؟
-UI_CoopPanel_UnjoinPopup_Description	سيُحفظ تقدّمك تلقائيًا.
+UI_CoopPanel_UnjoinPopup_Title	هل تريد مغادرة اللعبة فعلا؟
+UI_CoopPanel_UnjoinPopup_Description	سيحفظ تقدمك تلقائيا.
 UI_CinematicBlockedPanel_Title	في انتظار اللاعب الآخر...
 
 # ── إعدادات العالم ──
@@ -471,24 +471,24 @@ UI_WorldSettings_GameMode	نمط اللعب
 UI_WorldSettings_GameMode_Campaign	القصة
 UI_WorldSettings_GameMode_Campaign_Description	انغمس في حكاية Kentum الجامحة: حوار طريف وفوضى بديعة. نمط القصة هو الأمتع!
 UI_WorldSettings_GameMode_Sandbox	حر
-UI_WorldSettings_GameMode_Sandbox_Description	تخطَّ الحبكة والنكات وانطلق إلى الفوضى مباشرة! العالم نفسه بلا قيود القصة.
+UI_WorldSettings_GameMode_Sandbox_Description	تخط الحبكة والنكات وانطلق إلى الفوضى مباشرة! العالم نفسه بلا قيود القصة.
 UI_WorldSettings_GameMode_Creative	إبداعي
-UI_WorldSettings_GameMode_Creative_Description	عناصر لا نهائية وبلا قواعد. ابنِ ما يخطر ببالك مهما كان جنونيًا.
+UI_WorldSettings_GameMode_Creative_Description	عناصر لا نهائية وبلا قواعد. ابن ما يخطر ببالك مهما كان جنونيا.
 UI_WorldSettings_Difficulty	الصعوبة
 UI_WorldSettings_Difficulty_Easy	سهل
-UI_WorldSettings_Difficulty_Easy_Description	استرخِ واستمتع بالرحلة. اللعبة ألطف من أن تحمل ضغينة.
+UI_WorldSettings_Difficulty_Easy_Description	استرخ واستمتع بالرحلة. اللعبة ألطف من أن تحمل ضغينة.
 UI_WorldSettings_Difficulty_Medium	عادي
-UI_WorldSettings_Difficulty_Medium_Description	التوازن المثالي، تمامًا كما أرادها المطوّرون.
+UI_WorldSettings_Difficulty_Medium_Description	التوازن المثالي، تماما كما أرادها المطورون.
 UI_WorldSettings_Difficulty_Hard	صعب
-UI_WorldSettings_Difficulty_Hard_Description	لعشّاق التحدي فقط: أعداء شرسون وانتصارات أحلى. هيّا بنا!
+UI_WorldSettings_Difficulty_Hard_Description	لعشاق التحدي فقط: أعداء شرسون وانتصارات أحلى. هيا بنا!
 UI_WorldSettings_Difficulty_Custom	مخصص
 UI_WorldSettings_Difficulty_Custom_Description	اضبط متعتك أو معاناتك بنفسك. فوضاك، واختيارك.
 UI_WorldSettings_AdvanceSettings	إعدادات متقدمة
 UI_WorldSettings_Category_General	عام
 UI_WorldSettings_Category_Crafting	التصنيع
 UI_WorldSettings_Category_Spawn	الظهور
-UI_WorldSettings_AchivementsDisabled	لن تُمنح الإنجازات في هذا النمط.
-UI_WorldSettings_AchivementsDisabled_PS	لن تُمنح الكؤوس في هذا النمط.
+UI_WorldSettings_AchivementsDisabled	لن تمنح الإنجازات في هذا النمط.
+UI_WorldSettings_AchivementsDisabled_PS	لن تمنح الكؤوس في هذا النمط.
 UI_WorldSettings_DayLength	طول اليوم
 UI_WorldSettings_DayLength_Normal	14 دقيقة
 UI_WorldSettings_DayLength_High	18 دقيقة
@@ -499,61 +499,61 @@ UI_WorldSettings_TimeMultiplier	سرعة الزمن
 UI_WorldSettings_CraftSpeedMultiplier	سرعة التصنيع
 UI_WorldSettings_CraftSpeedMultiplier_Tooltip	يحدد سرعة التصنيع لجميع الآلات.
 UI_WorldSettings_RecipeCost	كلفة الوصفات
-UI_WorldSettings_RecipeCost_Tooltip	يعدّل كلفة المواد اللازمة للوصفات.
+UI_WorldSettings_RecipeCost_Tooltip	يعدل كلفة المواد اللازمة للوصفات.
 UI_WorldSettings_ProductionOutputMultiplier	مضاعف الإنتاج
 UI_WorldSettings_InventoryStack	الكومة لكل عنصر
 UI_WorldSettings_InventoryStack_Tooltip	يحدد عدد النسخ التي تتكدس من العنصر نفسه في المخزون.
 UI_WorldSettings_ItemExpiration	معدل فساد العناصر
-UI_WorldSettings_ItemExpiration_Tooltip	يعدّل سرعة انتهاء صلاحية العناصر مع الوقت.
+UI_WorldSettings_ItemExpiration_Tooltip	يعدل سرعة انتهاء صلاحية العناصر مع الوقت.
 UI_WorldSettings_DeathPenalty	عقوبة الموت
 UI_WorldSettings_DeathPenalty_Tooltip	يحدد احتمال فقدان العناصر عند الموت.
 UI_WorldSettings_ItemLossRateOnDeath	معدل فقدان العناصر عند الموت
 UI_WorldSettings_LootChance	فرصة الغنائم
-UI_WorldSettings_LootChance_Tooltip	يعدّل فرصة الحصول على العناصر عند حصاد النباتات أو الحيوانات.
+UI_WorldSettings_LootChance_Tooltip	يعدل فرصة الحصول على العناصر عند حصاد النباتات أو الحيوانات.
 UI_WorldSettings_LootMultiplier	مضاعف الغنائم
 UI_WorldSettings_LootMultiplier_Tooltip	يزيد العناصر المكتسبة عند حصاد النباتات والحيوانات وعند تحطيم الموارد.
 UI_WorldSettings_MaterialYield	مردود المواد
-UI_WorldSettings_MaterialYield_Tooltip	يغيّر كمية المواد المكتسبة من حصاد الموارد.
+UI_WorldSettings_MaterialYield_Tooltip	يغير كمية المواد المكتسبة من حصاد الموارد.
 UI_WorldSettings_FaunaDamageMultiplier	ضرر الحيوانات
-UI_WorldSettings_FaunaDamageMultiplier_Tooltip	يعدّل الضرر الذي تُحدثه الحيوانات.
+UI_WorldSettings_FaunaDamageMultiplier_Tooltip	يعدل الضرر الذي تحدثه الحيوانات.
 UI_WorldSettings_FaunaHPMultiplier	صحة الحيوانات
-UI_WorldSettings_FaunaHPMultiplier_Tooltip	يعدّل صحة جميع الحيوانات.
+UI_WorldSettings_FaunaHPMultiplier_Tooltip	يعدل صحة جميع الحيوانات.
 UI_WorldSettings_FaunaPassiveMode	حيوانات مسالمة
 UI_WorldSettings_FaunaPassiveMode_Tooltip	يجعل الحيوانات غير عدائية.
 UI_WorldSettings_FaunaSpawnMultiplier	ظهور الحيوانات
-UI_WorldSettings_FaunaSpawnMultiplier_Tooltip	يعدّل أعداد الحيوانات.
+UI_WorldSettings_FaunaSpawnMultiplier_Tooltip	يعدل أعداد الحيوانات.
 UI_WorldSettings_FaunaSpawnRate	معدل ظهور الحيوانات
-UI_WorldSettings_FaunaSpawnRate_Tooltip	يعدّل مدى تكرار ظهور الحيوانات مع الوقت.
+UI_WorldSettings_FaunaSpawnRate_Tooltip	يعدل مدى تكرار ظهور الحيوانات مع الوقت.
 UI_WorldSettings_FloraSpawnMultiplier	ظهور النباتات
-UI_WorldSettings_FloraSpawnMultiplier_Tooltip	يعدّل أعداد النباتات.
+UI_WorldSettings_FloraSpawnMultiplier_Tooltip	يعدل أعداد النباتات.
 UI_WorldSettings_FloraSpawnRate	معدل ظهور النباتات
-UI_WorldSettings_FloraSpawnRate_Tooltip	يعدّل مدى تكرار ظهور النباتات مع الوقت.
+UI_WorldSettings_FloraSpawnRate_Tooltip	يعدل مدى تكرار ظهور النباتات مع الوقت.
 UI_WorldSettings_FloraSpawnSpeed	سرعة ظهور النباتات
 UI_WorldSettings_ResourceSpawnMultiplier	ظهور الموارد
-UI_WorldSettings_ResourceSpawnMultiplier_Tooltip	يعدّل أعداد الموارد.
+UI_WorldSettings_ResourceSpawnMultiplier_Tooltip	يعدل أعداد الموارد.
 UI_WorldSettings_ResourceSpawnRate	معدل ظهور الموارد
-UI_WorldSettings_ResourceSpawnRate_Tooltip	يعدّل مدى تكرار تجدد عُقد الموارد.
+UI_WorldSettings_ResourceSpawnRate_Tooltip	يعدل مدى تكرار تجدد عقد الموارد.
 UI_WorldSettings_ResourceSpawnSpeed	سرعة ظهور الموارد
 UI_WorldSettings_WeatherEventsMultiplier	الأحداث الجوية
-UI_WorldSettings_WeatherEventsMultiplier_Tooltip	يعدّل مدى تكرار وقوع الأحداث الجوية.
+UI_WorldSettings_WeatherEventsMultiplier_Tooltip	يعدل مدى تكرار وقوع الأحداث الجوية.
 UI_WorldSettings_ScrapsRefundsMultiplier	استرداد التفكيك
-UI_WorldSettings_ScrapsRefundsMultiplier_Tooltip	يحدد ما إذا كانت المواد تُسترد عند التفكيك في توسعة القاعدة.
+UI_WorldSettings_ScrapsRefundsMultiplier_Tooltip	يحدد ما إذا كانت المواد تسترد عند التفكيك في توسعة القاعدة.
 UI_WorldSettings_BaseScrappingRefundRate	معدل استرداد تفكيك القاعدة
 UI_WorldSettings_Reset	إعادة تعيين
 UI_WorldSettings_ResetAll	إعادة تعيين الكل
 UI_WorldSettings_ResetAll_Hold	إعادة تعيين الكل (استمر بالضغط)
 UI_WorldSettings_Option_None	بلا
-UI_WorldSettings_Option_VeryLow	منخفض جدًا
+UI_WorldSettings_Option_VeryLow	منخفض جدا
 UI_WorldSettings_Option_Low	منخفض
 UI_WorldSettings_Option_Normal	عادي
 UI_WorldSettings_Option_High	مرتفع
-UI_WorldSettings_Option_VeryHigh	مرتفع جدًا
+UI_WorldSettings_Option_VeryHigh	مرتفع جدا
 UI_WorldSettings_Option_Extreme	أقصى
 UI_WorldSettings_Option_ExtremelySlow	بطيء للغاية
-UI_WorldSettings_Option_VerySlow	بطيء جدًا
+UI_WorldSettings_Option_VerySlow	بطيء جدا
 UI_WorldSettings_Option_Slow	بطيء
 UI_WorldSettings_Option_Fast	سريع
-UI_WorldSettings_Option_VeryFast	سريع جدًا
+UI_WorldSettings_Option_VeryFast	سريع جدا
 UI_WorldSettings_Option_Fastest	الأسرع
 
 # ── الفصول ──
@@ -571,12 +571,12 @@ UI_ReportForm_Severity_Major	كبيرة
 UI_ReportForm_SendReport	إرسال
 UI_ReportForm_EnterText	أدخل النص
 UI_ReportForm_ClosePopup_Title	إغلاق البلاغ؟
-UI_ReportForm_SuccessPopup_Title	شكرًا على ملاحظتك!
-UI_ReportForm_SuccessPopup_Description	شكرًا على بلاغك! سيراجع فريقنا المشكلة في أقرب وقت. ويمكنك أيضًا مشاركة تفاصيل إضافية (كالصور أو خطوات إعادة الإنتاج) على ديسكورد.
+UI_ReportForm_SuccessPopup_Title	شكرا على ملاحظتك!
+UI_ReportForm_SuccessPopup_Description	شكرا على بلاغك! سيراجع فريقنا المشكلة في أقرب وقت. ويمكنك أيضا مشاركة تفاصيل إضافية (كالصور أو خطوات إعادة الإنتاج) على ديسكورد.
 UI_ReportForm_ErrorPopup_Title	حدث خطأ ما
-UI_ReportForm_ErrorPopup_Description	نواجه صعوبة في معالجة بلاغك، وقد يعود السبب إلى محرف غير صالح. يُرجى إزالة محارف مثل علامات الجدولة أو فواصل الأسطر. شكرًا لك!
+UI_ReportForm_ErrorPopup_Description	نواجه صعوبة في معالجة بلاغك، وقد يعود السبب إلى محرف غير صالح. يرجى إزالة محارف مثل علامات الجدولة أو فواصل الأسطر. شكرا لك!
 
 # ── نهاية النسخة التجريبية ──
-UI_DemoEnd_Title	شكرًا للعبك!
+UI_DemoEnd_Title	شكرا للعبك!
 UI_DemoEnd_RestartButton	إلى القائمة الرئيسية
-UI_DemoEnd_Description	شكرًا للعبك النسخة التجريبية من <size=110%><b>KENTUM</b></size>!\n\nاكتشف ما حلّ بالأرض، وكيف أن رجلًا واحدًا بعصا قد يعيد إطلاق البشرية.\n\nتظن أنك رأيت كل شيء؟ لم تخدش السطح بعد.\n\nافتح أنظمة أتمتة جامحة، واصطد مخلوقات ما كان ينبغي لها أن توجد، وحوّل قاعدتك الصغيرة البائسة إلى أمل البشرية الأخير.\n\n<align="center"><size=120%><b>ملف حفظك ينتقل معك، فلا أعذار.</b></size></align>\n\nاشترِ اللعبة الكاملة الآن وساعد كِنت في إحياء الحضارة.
+UI_DemoEnd_Description	شكرا للعبك النسخة التجريبية من <size=110%><b>KENTUM</b></size>!\n\nاكتشف ما حل بالأرض، وكيف أن رجلا واحدا بعصا قد يعيد إطلاق البشرية.\n\nتظن أنك رأيت كل شيء؟ لم تخدش السطح بعد.\n\nافتح أنظمة أتمتة جامحة، واصطد مخلوقات ما كان ينبغي لها أن توجد، وحول قاعدتك الصغيرة البائسة إلى أمل البشرية الأخير.\n\n<align="center"><size=120%><b>ملف حفظك ينتقل معك، فلا أعذار.</b></size></align>\n\nاشتر اللعبة الكاملة الآن وساعد كينت في إحياء الحضارة.

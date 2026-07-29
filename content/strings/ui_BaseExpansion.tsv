@@ -14,58 +14,58 @@ BaseExpansion_Locomotion_Family_Name	التنقل داخل القاعدة
 
 # ── المحطات الأساسية ──
 BaseExpansion_Workbench_Name	طاولة العمل
-BaseExpansion_Workbench_Description	محطة متعددة الاستخدامات تُصنع فيها الآلات المحمولة وطيف واسع من عناصر النجاة.
+BaseExpansion_Workbench_Description	محطة متعددة الاستخدامات تصنع فيها الآلات المحمولة وطيف واسع من عناصر النجاة.
 BaseExpansion_BaseExpansionModule_MOCK_Name	توسعة القاعدة
 BaseExpansion_BaseExpansionModule_MOCK_Description	آلة لبناء الآلات والمنشآت لقاعدتك.
 BaseExpansion_AbilityCrafter_MOCK_Name	محطة وحدة الفضاء
 BaseExpansion_AbilityCrafter_MOCK_Description	محطة وحدة الفضاء هي آلتك المفضلة لترقية عتادك وتقوية قاعدتك وصقل مهاراتك. إنها أشبه بمحطة تعزيز تجعلك أروع مما أنت عليه!
-BaseExpansion_EnhancementMachine_MOCK_Name	المعزِّز الوراثي
+BaseExpansion_EnhancementMachine_MOCK_Name	المعزز الوراثي
 BaseExpansion_EnhancementMachine_MOCK_Description	آلة لترقية قدرات عصاك أو فتحها.
 BaseExpansion_ResearchBrain_Name	دماغ البحث
-BaseExpansion_ResearchBrain_Description	دماغ حيوي اصطناعي هائل معلَّق في خزان احتواء، يعمل واجهةً أساسية لفتح تقنيات القاعدة وتطويرها.
-BaseExpansion_GemCrafter_MOCK_Name	صانع جواهر وثّاب الكريستال
-BaseExpansion_GemCrafter_MOCK_Description	آلة لصنع البلورات التي تشغّل وثّابات الكريستال.
+BaseExpansion_ResearchBrain_Description	دماغ حيوي اصطناعي هائل معلق في خزان احتواء، يعمل واجهة أساسية لفتح تقنيات القاعدة وتطويرها.
+BaseExpansion_GemCrafter_MOCK_Name	صانع جواهر وثاب الكريستال
+BaseExpansion_GemCrafter_MOCK_Description	آلة لصنع البلورات التي تشغل وثابات الكريستال.
 BaseExpansion_Monolith_BiotechLab_MOCK_Name	التقنيات الحيوية
 
 # ── آلات المعالجة ──
 BaseExpansion_Foundry_Name	المسبك
 BaseExpansion_Foundry_Description	آلة تستخدم <color=#008aff><b>الفحم</b></color> و<color=#008aff><b>المعادن</b></color> و<color=#008aff><b>البلاستيك</b></color> لصنع <color=#008aff><b>السبائك</b></color>.
 BaseExpansion_CharcoalKiln_Name	الفرن
-BaseExpansion_CharcoalKiln_Description	بحرارة هائلة، يحوّل هذا الفرن المواد العضوية كالخشب والعظام إلى كتل صالحة من <color=#008aff><b>الفحم</b></color>. عيد ميلاد مجيد، أيها الشقي.
+BaseExpansion_CharcoalKiln_Description	بحرارة هائلة، يحول هذا الفرن المواد العضوية كالخشب والعظام إلى كتل صالحة من <color=#008aff><b>الفحم</b></color>. عيد ميلاد مجيد، أيها الشقي.
 BaseExpansion_VitrumForge_Name	فرن الزجاج
 BaseExpansion_VitrumForge_Description	فرن عالي الطاقة مصمم لصنع <color=#008aff><b>صفائح الزجاج</b></color>.
 BaseExpansion_Furnace_Name	صانعة الصفائح
 BaseExpansion_Furnace_Description	مكبس هيدروليكي مصمم لتشكيل <color=#008aff><b>صفائح المعدن</b></color>.
 BaseExpansion_Press_Name	المكبس
-BaseExpansion_Press_Description	يضغط المواد السائبة إلى مكوّنات إنشائية كثيفة على هيئة صفائح.
+BaseExpansion_Press_Description	يضغط المواد السائبة إلى مكونات إنشائية كثيفة على هيئة صفائح.
 BaseExpansion_Blender_Name	الخلاط
-BaseExpansion_Blender_Description	يطحن المواد الخام إلى مساحيق وحبيبات لمعالجتها لاحقًا.
+BaseExpansion_Blender_Description	يطحن المواد الخام إلى مساحيق وحبيبات لمعالجتها لاحقا.
 BaseExpansion_Grinder_Name	المطحنة
 BaseExpansion_Grinder_Description	آلة تطحن المواد.
-BaseExpansion_Alchemy_Name	المركِّز
-BaseExpansion_Alchemy_Description	محطة عمل تركّز المواد <color=#008aff><b>البسيطة لكن الصالحة</b></color> إلى عناصر مكرَّرة.
+BaseExpansion_Alchemy_Name	المركز
+BaseExpansion_Alchemy_Description	محطة عمل تركز المواد <color=#008aff><b>البسيطة لكن الصالحة</b></color> إلى عناصر مكررة.
 BaseExpansion_Crystallizer_Name	المبلور
-BaseExpansion_Crystallizer_Description	يضغط المواد ويُنقّيها إلى بلورات ومواد صلبة نادرة.
-BaseExpansion_Fabricator_Name	المُصنِّع
-BaseExpansion_Fabricator_Description	يجمّع الأجزاء المعقّدة والمواد النانوية إلى منتجات متقدّمة.
+BaseExpansion_Crystallizer_Description	يضغط المواد وينقيها إلى بلورات ومواد صلبة نادرة.
+BaseExpansion_Fabricator_Name	المصنع
+BaseExpansion_Fabricator_Description	يجمع الأجزاء المعقدة والمواد النانوية إلى منتجات متقدمة.
 BaseExpansion_Threader_Name	آلة الخيوط
 BaseExpansion_Threader_Description	آلة تصنع الخيوط والألياف.
 BaseExpansion_Loom_Name	النول
 BaseExpansion_Loom_Description	نول ميكانيكي ينسج <color=#008aff><b>الأقمشة</b></color> و<color=#008aff><b>الجلود</b></color> باستخدام <color=#008aff><b>الألياف النباتية</b></color>.
 BaseExpansion_Wardrobe_Name	خزانة الملابس
 BaseExpansion_Wardrobe_Description	جهاز مصمم لصنع <color=#008aff><b>قطع الملابس</b></color>. ستكون أكثر رجل أناقة على وجه الأرض. بل الوحيد، في الواقع.
-BaseExpansion_CircuitAssembler_Name	مجمِّع الدارات
-BaseExpansion_CircuitAssembler_Description	يجمع الأجزاء المكرَّرة لإنتاج مكوّنات إلكترونية أساسية.
+BaseExpansion_CircuitAssembler_Name	مجمع الدارات
+BaseExpansion_CircuitAssembler_Description	يجمع الأجزاء المكررة لإنتاج مكونات إلكترونية أساسية.
 BaseExpansion_MotherBrain_Name	الدماغ الأم
-BaseExpansion_MotherBrain_Description	يخلّق نوى الذكاء الاصطناعي والمصفوفات العصبية لأنظمة الأتمتة.
+BaseExpansion_MotherBrain_Description	يخلق نوى الذكاء الاصطناعي والمصفوفات العصبية لأنظمة الأتمتة.
 BaseExpansion_CoreMaker_Name	صانع النوى
 BaseExpansion_CoreMaker_Description	يصنع نوى الطاقة الأساسية للآلات والتقنيات المتوسطة.
-BaseExpansion_CoreMakerAdvanced_Name	صانع النوى المتقدّم
-BaseExpansion_CoreMakerAdvanced_Description	يرقّي نوى الطاقة إلى مصادر طاقة عالية السعة.
-BaseExpansion_Destroyer_Name	المفكِّك 10000
-BaseExpansion_Destroyer_Description	يفتّت المادة على المستوى دون الذري. وأصابعك تُعدّ مادة.
-BaseExpansion_Detonator_Name	مُفعِّل بروتوكول الإبادة
-BaseExpansion_Detonator_Description	ستُفعّل هذه الآلة بروتوكولات الإبادة.
+BaseExpansion_CoreMakerAdvanced_Name	صانع النوى المتقدم
+BaseExpansion_CoreMakerAdvanced_Description	يرقي نوى الطاقة إلى مصادر طاقة عالية السعة.
+BaseExpansion_Destroyer_Name	المفكك 10000
+BaseExpansion_Destroyer_Description	يفتت المادة على المستوى دون الذري. وأصابعك تعد مادة.
+BaseExpansion_Detonator_Name	مفعل بروتوكول الإبادة
+BaseExpansion_Detonator_Description	ستفعل هذه الآلة بروتوكولات الإبادة.
 BaseExpansion_ProjectileCrafter_Name	محطة ذخيرة البلازما
 BaseExpansion_ProjectileCrafter_Description	آلة تتيح لك صنع <color=#008aff><b>ذخيرة البلازما</b></color>. اصنع <color=#008aff><b>ذخيرة البلازما</b></color> لتفتح <color=#00ffffff><b>قدرة جديدة</b></color>!
 BaseExpansion_CaptureQube_Name	صانع الفخاخ
@@ -73,27 +73,27 @@ BaseExpansion_CaptureQube_Description	آلة تنتج <color=#008aff><b>أقرا
 
 # ── الطهي والتخزين ──
 BaseExpansion_CookingStove_Name	موقد الطهي
-BaseExpansion_CookingStove_Description	محطة طهي موثوقة مثالية لإعداد <color=#008aff><b>أطباق</b></color> ساخنة شهية كما كانت تفعل أمك. أمك أنت، على ما أظن. أمي أنا كانت رجلًا في معطف مختبر.
-BaseExpansion_CookingZone_Name	قِدر الطهي
-BaseExpansion_CookingZone_Description	طريقة محفوفة بالمخاطر <color=#008aff><b>لطهي</b></color> المكوّنات النيئة فورًا إلى <color=#008aff><b>أطباق</b></color> مغذّية.
+BaseExpansion_CookingStove_Description	محطة طهي موثوقة مثالية لإعداد <color=#008aff><b>أطباق</b></color> ساخنة شهية كما كانت تفعل أمك. أمك أنت، على ما أظن. أمي أنا كانت رجلا في معطف مختبر.
+BaseExpansion_CookingZone_Name	قدر الطهي
+BaseExpansion_CookingZone_Description	طريقة محفوفة بالمخاطر <color=#008aff><b>لطهي</b></color> المكونات النيئة فورا إلى <color=#008aff><b>أطباق</b></color> مغذية.
 BaseExpansion_PortableBonfire_Name	الموقد
 BaseExpansion_PortableBonfire_Description	موقد مرتجل للطهي أثناء التنقل. سينطفئ في النهاية.
 BaseExpansion_Brewery_Name	المخمرة
-BaseExpansion_Brewery_Description	محطة تخمير مثالية لتحضير <color=#008aff><b>الإكسيرات والجرعات</b></color>. تذكّر ارتداء القفازات ونظارات الحماية.
+BaseExpansion_Brewery_Description	محطة تخمير مثالية لتحضير <color=#008aff><b>الإكسيرات والجرعات</b></color>. تذكر ارتداء القفازات ونظارات الحماية.
 BaseExpansion_FoodReplicator_Name	طابعة الطعام
-BaseExpansion_FoodReplicator_Description	آلة تفكك المكوّنات على المستوى الجزيئي، ولا تكتفي بصنع <color=#008aff><b>أطباق</b></color> معقّدة بل تشحنها بشيفرة وراثية قادرة على منح <color=#008aff><b>تعزيزات</b></color>.
+BaseExpansion_FoodReplicator_Description	آلة تفكك المكونات على المستوى الجزيئي، ولا تكتفي بصنع <color=#008aff><b>أطباق</b></color> معقدة بل تشحنها بشيفرة وراثية قادرة على منح <color=#008aff><b>تعزيزات</b></color>.
 BaseExpansion_CognitiveFluidMachine_Name	آلة السوائل المعرفية
 BaseExpansion_CognitiveFluidMachine_Description	آلة لصنع أنواع مختلفة من السوائل المعرفية.
 BaseExpansion_Coffee_Name	آلة القهوة
-BaseExpansion_Coffee_Description	آلة قهوة تُحضّر قهوة منشّطة. اختر خلطتك المفضلة واستمتع بدفعة طاقة. تحذير: قد تسبب الإنتاجية!
+BaseExpansion_Coffee_Description	آلة قهوة تحضر قهوة منشطة. اختر خلطتك المفضلة واستمتع بدفعة طاقة. تحذير: قد تسبب الإنتاجية!
 BaseExpansion_ColdStorage_Name	الثلاجة الصغيرة
-BaseExpansion_ColdStorage_Description	بتشويه الزمكان المحلي وإخضاع الديناميكا الحرارية بالقوة، تُبطئ وحدة التخزين هذه التحلل الجزيئي بكفاءة تجعل العناصر تستغرق ضعف الوقت قبل <color=#008aff><b>الفساد</b></color>.
+BaseExpansion_ColdStorage_Description	بتشويه الزمكان المحلي وإخضاع الديناميكا الحرارية بالقوة، تبطئ وحدة التخزين هذه التحلل الجزيئي بكفاءة تجعل العناصر تستغرق ضعف الوقت قبل <color=#008aff><b>الفساد</b></color>.
 BaseExpansion_StasisStorage_Name	ثلاجة السبات
-BaseExpansion_StasisStorage_Description	باستخدام ذكاء اصطناعي متقدّم ممزوج بمصادم هدرونات محمول، تبلغ هذه الحاوية حرارة أدنى من ثقتك بنفسك لتمنع العناصر من <color=#008aff><b>الفساد</b></color>. آسف، كانت تلك مزحة. أقصد بشأن الذكاء الاصطناعي والمصادم، فهي مجرد ثلاجة.
+BaseExpansion_StasisStorage_Description	باستخدام ذكاء اصطناعي متقدم ممزوج بمصادم هدرونات محمول، تبلغ هذه الحاوية حرارة أدنى من ثقتك بنفسك لتمنع العناصر من <color=#008aff><b>الفساد</b></color>. آسف، كانت تلك مزحة. أقصد بشأن الذكاء الاصطناعي والمصادم، فهي مجرد ثلاجة.
 BaseExpansion_Storage_Name	التخزين
-BaseExpansion_Storage_Description	مكان تخزين لقاعدتك. تُكتشف العناصر المخزَّنة تلقائيًا عند التصنيع داخل القاعدة، وتتأثر <color=#008aff><b>بالفساد</b></color>.
+BaseExpansion_Storage_Description	مكان تخزين لقاعدتك. تكتشف العناصر المخزنة تلقائيا عند التصنيع داخل القاعدة، وتتأثر <color=#008aff><b>بالفساد</b></color>.
 BaseExpansion_WoodStorage_Name	تخزين خشبي
-BaseExpansion_WoodStorage_Description	صندوق تخزين خشبي صغير لقاعدتك. تُكتشف العناصر المخزَّنة تلقائيًا عند التصنيع داخل القاعدة، وتتأثر <color=#008aff><b>بالفساد</b></color>.
+BaseExpansion_WoodStorage_Description	صندوق تخزين خشبي صغير لقاعدتك. تكتشف العناصر المخزنة تلقائيا عند التصنيع داخل القاعدة، وتتأثر <color=#008aff><b>بالفساد</b></color>.
 BaseExpansion_SafeStorage_Name	الخزنة
 BaseExpansion_SafeStorage_Description	تخزين آمن للعناصر التي لا تريد استخدامها في التصنيع أو الأتمتة.
 
@@ -103,29 +103,29 @@ BaseExpansion_FarmBasic_Description	قطعة زراعية أساسية لزرع 
 BaseExpansion_Farm_Name	الحوض المائي
 BaseExpansion_Farm_Description	حوض لزرع <color=#008aff><b>بذورك</b></color>. أضف الماء واحصد الثمار في وقت قصير.
 BaseExpansion_FarmBioGen_Name	قطعة زراعية حيوية وراثية
-BaseExpansion_FarmBioGen_Description	قطعة زراعية متقدّمة لزرع <color=#008aff><b>البذور</b></color> الحيوية الوراثية.
+BaseExpansion_FarmBioGen_Description	قطعة زراعية متقدمة لزرع <color=#008aff><b>البذور</b></color> الحيوية الوراثية.
 BaseExpansion_FarmMineral_Name	قطعة زراعية معدنية
-BaseExpansion_FarmMineral_Description	قطعة زراعية متقدّمة لزرع <color=#008aff><b>البذور</b></color> المعدنية.
+BaseExpansion_FarmMineral_Description	قطعة زراعية متقدمة لزرع <color=#008aff><b>البذور</b></color> المعدنية.
 BaseExpansion_SeedMakerBasic_Name	صانع البذور الأساسي
-BaseExpansion_SeedMakerBasic_Description	يحلل المواد النباتية ويكثّفها إلى <color=#008aff><b>بذور</b></color> يمكنك زرعها في <color=#008aff><b>الأحواض</b></color>.
+BaseExpansion_SeedMakerBasic_Description	يحلل المواد النباتية ويكثفها إلى <color=#008aff><b>بذور</b></color> يمكنك زرعها في <color=#008aff><b>الأحواض</b></color>.
 BaseExpansion_SeedMaker_Name	صانع البذور
-BaseExpansion_SeedMaker_Description	يحلل المواد النباتية ويكثّفها إلى <color=#008aff><b>بذور</b></color> يمكنك زرعها في <color=#008aff><b>الأحواض</b></color>.
-BaseExpansion_SeedSynthesizer_Name	مُخلِّق البذور
-BaseExpansion_SeedSynthesizer_Description	آلة تمزج <color=#008aff><b>البذور</b></color> بالمواد غير العضوية لخلق <color=#008aff><b>أنواع نباتية جديدة</b></color>. هذا جهاز مستقبلي من الطراز الأول حقًا.
+BaseExpansion_SeedMaker_Description	يحلل المواد النباتية ويكثفها إلى <color=#008aff><b>بذور</b></color> يمكنك زرعها في <color=#008aff><b>الأحواض</b></color>.
+BaseExpansion_SeedSynthesizer_Name	مخلق البذور
+BaseExpansion_SeedSynthesizer_Description	آلة تمزج <color=#008aff><b>البذور</b></color> بالمواد غير العضوية لخلق <color=#008aff><b>أنواع نباتية جديدة</b></color>. هذا جهاز مستقبلي من الطراز الأول حقا.
 BaseExpansion_Composter_Name	آلة التسميد
-BaseExpansion_Composter_Description	جهاز يتيح لك تحويل المادة العضوية إلى <color=#008aff><b>سماد</b></color>. يمكن استخدامه وقودًا.
+BaseExpansion_Composter_Description	جهاز يتيح لك تحويل المادة العضوية إلى <color=#008aff><b>سماد</b></color>. يمكن استخدامه وقودا.
 BaseExpansion_Zoo_Name	الحوض الحيوي
-BaseExpansion_Zoo_Description	موئل صغير لرعاية <color=#008aff><b>الحيوانات الحيّة</b></color> بغرض الحصاد منها.
+BaseExpansion_Zoo_Description	موئل صغير لرعاية <color=#008aff><b>الحيوانات الحية</b></color> بغرض الحصاد منها.
 BaseExpansion_Zoo_M_Name	حوض حيوي متوسط
-BaseExpansion_Zoo_M_Description	موئل متوسط لرعاية <color=#008aff><b>الحيوانات الحيّة</b></color> بغرض الحصاد منها.
+BaseExpansion_Zoo_M_Description	موئل متوسط لرعاية <color=#008aff><b>الحيوانات الحية</b></color> بغرض الحصاد منها.
 BaseExpansion_Zoo_L_Name	حوض حيوي كبير
-BaseExpansion_Zoo_L_Description	موئل كبير لرعاية <color=#008aff><b>الحيوانات الحيّة</b></color> بغرض الحصاد منها.
+BaseExpansion_Zoo_L_Description	موئل كبير لرعاية <color=#008aff><b>الحيوانات الحية</b></color> بغرض الحصاد منها.
 
 # ── المعدّات المحمولة ──
 BaseExpansion_PortableDrillMaker_Name	صانع المثاقب المحمولة
 BaseExpansion_PortableDrillMaker_Description	آلة تصنع <color=#008aff><b>مثاقب الاستخراج</b></color> المستخدمة في تعدين عروق المعادن.
 BaseExpansion_PortableMachineMaker_Name	صانع الآلات المحمولة
-BaseExpansion_PortableMachineMaker_Description	آلة تصنع المعدّات المحمولة مثل <color=#008aff><b>مثاقب الاستخراج</b></color> المستخدمة في تعدين عروق المعادن.
+BaseExpansion_PortableMachineMaker_Description	آلة تصنع المعدات المحمولة مثل <color=#008aff><b>مثاقب الاستخراج</b></color> المستخدمة في تعدين عروق المعادن.
 BaseExpansion_PortableDrill_Name	المثقاب المحمول
 BaseExpansion_PortableDrill_Description	آلة محمولة لتعدين عروق المعادن العميقة.
 BaseExpansion_PortableTeleport_Name	الانتقال المحمول
@@ -139,45 +139,45 @@ BaseExpansion_ConveyorBelt_Description	ينقل الحزام الناقل الع
 BaseExpansion_ConveyorBelt_Vertical_1x5_Name	حزام ناقل عمودي
 BaseExpansion_ConveyorBelt_Vertical_1x5_Description	حزام ناقل عمودي يرفع العناصر إلى أعلى.
 BaseExpansion_WorkerClaw_Name	مخلب العامل
-BaseExpansion_WorkerClaw_Description	ذراع آلية تنقل العناصر من جانب إلى آخر بكفاءة، فتتيح مناولة فعّالة للمواد.
-BaseExpansion_WorkerClaw_2_Name	مخلب العامل المتقدّم
-BaseExpansion_WorkerClaw_2_Description	مخلب عامل محسّن ينقل العناصر جانبيًا بسرعة أكبر.
+BaseExpansion_WorkerClaw_Description	ذراع آلية تنقل العناصر من جانب إلى آخر بكفاءة، فتتيح مناولة فعالة للمواد.
+BaseExpansion_WorkerClaw_2_Name	مخلب العامل المتقدم
+BaseExpansion_WorkerClaw_2_Description	مخلب عامل محسن ينقل العناصر جانبيا بسرعة أكبر.
 BaseExpansion_WorkerClaw_Gatherer_Name	مخلب الجامع
 BaseExpansion_WorkerClaw_Gatherer_Description	يلتقط هذا المخلب العناصر من أي جانب ويسقطها على الأرض لتسهيل جمعها.
-BaseExpansion_WorkerDrone_Name	مسيّرة العامل
-BaseExpansion_WorkerDrone_Description	تنقل مسيّرة العامل العناصر بكفاءة من جانب إلى آخر، بمساحتَي إدخال وإخراج متساويتين.
-BaseExpansion_WorkerDrone_Gatherer_1_Name	مسيّرة الجامع: «أساسية»
-BaseExpansion_WorkerDrone_Gatherer_1_Description	تتميز مسيّرات الجامع بمساحة إدخال واسعة لجمع العناصر ونقلها بكفاءة إلى مساحة إخراج أصغر.
-BaseExpansion_WorkerDrone_Gatherer_2_Name	مسيّرة الجامع: «الرفع الجانبي»
-BaseExpansion_WorkerDrone_Gatherer_2_Description	مسيّرة جامع تعمل بتخطيط أفقي، تجمع العناصر من مساحة إدخال طويلة واسعة على أحد الجانبين وتنقلها بكفاءة إلى مساحة إخراج مضغوطة.
-BaseExpansion_WorkerDrone_Gatherer_3_Name	مسيّرة الجامع: «الرفع T»
-BaseExpansion_WorkerDrone_Gatherer_3_Description	مسيّرة جامع تجمع العناصر من مساحة إدخال أفقية واسعة وتسقطها بكفاءة في مساحة إخراج مضغوطة أسفلها، فتحسّن مناولة المواد بتكوين على شكل حرف T.
-BaseExpansion_WorkerDrone_Gatherer_4_Name	مسيّرة الجامع 4
-BaseExpansion_WorkerDrone_Gatherer_4_Description	وصف مسيّرة العامل
-BaseExpansion_WorkerDrone_Gatherer_5_Name	مسيّرة الجامع 5
-BaseExpansion_WorkerDrone_Gatherer_5_Description	وصف مسيّرة العامل
-BaseExpansion_WorkerDrone_Gatherer_6_Name	مسيّرة الجامع 6
-BaseExpansion_WorkerDrone_Gatherer_6_Description	وصف مسيّرة العامل
-BaseExpansion_WorkerDrone_Transporter_1_Name	مسيّرة النقل: «أساسية»
-BaseExpansion_WorkerDrone_Transporter_1_Description	تتميز مسيّرات النقل بمساحة إدخال مضغوطة لجمع العناصر ونقلها بكفاءة إلى مساحة إخراج أكبر.
-BaseExpansion_WorkerDrone_Transporter_2_Name	مسيّرة النقل: «الرفع الجانبي»
-BaseExpansion_WorkerDrone_Transporter_2_Description	مسيّرة نقل تعمل بتخطيط أفقي، تجمع العناصر من مساحة إدخال مضغوطة وتنقلها بكفاءة إلى مساحة إخراج طويلة واسعة على أحد الجانبين.
-BaseExpansion_WorkerDrone_Transporter_3_Name	مسيّرة النقل: «الرفع T»
-BaseExpansion_WorkerDrone_Transporter_3_Description	مسيّرة نقل تجمع العناصر من مساحة إدخال مضغوطة وتسقطها بكفاءة في مساحة إخراج أفقية واسعة أسفلها، فتحسّن مناولة المواد بتكوين على شكل حرف T.
-BaseExpansion_WorkerDrone_Transporter_4_Name	مسيّرة النقل 4
-BaseExpansion_WorkerDrone_Transporter_4_Description	وصف مسيّرة العامل
-BaseExpansion_WorkerDrone_Transporter_5_Name	مسيّرة النقل 5
-BaseExpansion_WorkerDrone_Transporter_5_Description	وصف مسيّرة العامل
-BaseExpansion_WorkerDrone_Transporter_6_Name	مسيّرة النقل 6
-BaseExpansion_WorkerDrone_Transporter_6_Description	وصف مسيّرة العامل
-BaseExpansion_WorkerFunnel_Name	القُمع
-BaseExpansion_WorkerFunnel_Description	جهاز يستقبل العناصر ويصبّها إلى الأسفل. وعند وضعه فوق آلة أو مخزن، يصبّ العناصر داخلها مباشرة.
-BaseExpansion_WorkerRedirector_Name	الموجِّه
+BaseExpansion_WorkerDrone_Name	مسيرة العامل
+BaseExpansion_WorkerDrone_Description	تنقل مسيرة العامل العناصر بكفاءة من جانب إلى آخر، بمساحتي إدخال وإخراج متساويتين.
+BaseExpansion_WorkerDrone_Gatherer_1_Name	مسيرة الجامع: «أساسية»
+BaseExpansion_WorkerDrone_Gatherer_1_Description	تتميز مسيرات الجامع بمساحة إدخال واسعة لجمع العناصر ونقلها بكفاءة إلى مساحة إخراج أصغر.
+BaseExpansion_WorkerDrone_Gatherer_2_Name	مسيرة الجامع: «الرفع الجانبي»
+BaseExpansion_WorkerDrone_Gatherer_2_Description	مسيرة جامع تعمل بتخطيط أفقي، تجمع العناصر من مساحة إدخال طويلة واسعة على أحد الجانبين وتنقلها بكفاءة إلى مساحة إخراج مضغوطة.
+BaseExpansion_WorkerDrone_Gatherer_3_Name	مسيرة الجامع: «الرفع T»
+BaseExpansion_WorkerDrone_Gatherer_3_Description	مسيرة جامع تجمع العناصر من مساحة إدخال أفقية واسعة وتسقطها بكفاءة في مساحة إخراج مضغوطة أسفلها، فتحسن مناولة المواد بتكوين على شكل حرف T.
+BaseExpansion_WorkerDrone_Gatherer_4_Name	مسيرة الجامع 4
+BaseExpansion_WorkerDrone_Gatherer_4_Description	وصف مسيرة العامل
+BaseExpansion_WorkerDrone_Gatherer_5_Name	مسيرة الجامع 5
+BaseExpansion_WorkerDrone_Gatherer_5_Description	وصف مسيرة العامل
+BaseExpansion_WorkerDrone_Gatherer_6_Name	مسيرة الجامع 6
+BaseExpansion_WorkerDrone_Gatherer_6_Description	وصف مسيرة العامل
+BaseExpansion_WorkerDrone_Transporter_1_Name	مسيرة النقل: «أساسية»
+BaseExpansion_WorkerDrone_Transporter_1_Description	تتميز مسيرات النقل بمساحة إدخال مضغوطة لجمع العناصر ونقلها بكفاءة إلى مساحة إخراج أكبر.
+BaseExpansion_WorkerDrone_Transporter_2_Name	مسيرة النقل: «الرفع الجانبي»
+BaseExpansion_WorkerDrone_Transporter_2_Description	مسيرة نقل تعمل بتخطيط أفقي، تجمع العناصر من مساحة إدخال مضغوطة وتنقلها بكفاءة إلى مساحة إخراج طويلة واسعة على أحد الجانبين.
+BaseExpansion_WorkerDrone_Transporter_3_Name	مسيرة النقل: «الرفع T»
+BaseExpansion_WorkerDrone_Transporter_3_Description	مسيرة نقل تجمع العناصر من مساحة إدخال مضغوطة وتسقطها بكفاءة في مساحة إخراج أفقية واسعة أسفلها، فتحسن مناولة المواد بتكوين على شكل حرف T.
+BaseExpansion_WorkerDrone_Transporter_4_Name	مسيرة النقل 4
+BaseExpansion_WorkerDrone_Transporter_4_Description	وصف مسيرة العامل
+BaseExpansion_WorkerDrone_Transporter_5_Name	مسيرة النقل 5
+BaseExpansion_WorkerDrone_Transporter_5_Description	وصف مسيرة العامل
+BaseExpansion_WorkerDrone_Transporter_6_Name	مسيرة النقل 6
+BaseExpansion_WorkerDrone_Transporter_6_Description	وصف مسيرة العامل
+BaseExpansion_WorkerFunnel_Name	القمع
+BaseExpansion_WorkerFunnel_Description	جهاز يستقبل العناصر ويصبها إلى الأسفل. وعند وضعه فوق آلة أو مخزن، يصب العناصر داخلها مباشرة.
+BaseExpansion_WorkerRedirector_Name	الموجه
 BaseExpansion_WorkerRedirector_Description	آلة تستقبل العناصر من جانب وتسقطها على الجانب الآخر.
-BaseExpansion_WorkerSplitter_Name	المقسِّم
-BaseExpansion_WorkerSplitter_Description	آلة تستقبل العناصر من جانب وتُخرجها في اتجاهين.
-BaseExpansion_WorkerWater_Name	المرشّة
-BaseExpansion_WorkerWater_Description	تسقي تلقائيًا كل قطعة زراعية داخل نطاق ريّها.
+BaseExpansion_WorkerSplitter_Name	المقسم
+BaseExpansion_WorkerSplitter_Description	آلة تستقبل العناصر من جانب وتخرجها في اتجاهين.
+BaseExpansion_WorkerWater_Name	المرشة
+BaseExpansion_WorkerWater_Description	تسقي تلقائيا كل قطعة زراعية داخل نطاق ريها.
 
 # ── التنقل والمنصات ──
 BaseExpansion_DiagonalPlatform_Name	المنحدر
@@ -186,12 +186,12 @@ BaseExpansion_DiagonalPlatform_Small_Name	منحدر صغير
 BaseExpansion_DiagonalPlatform_Small_Description	منصة مائلة صغيرة ينزلق عليها اللاعبون والعناصر أو يسقطون منها.\nمفيدة لتوجيه الحركة.
 BaseExpansion_DiagonalPlatform_Bouncy_Name	منصة ارتداد
 BaseExpansion_DiagonalPlatform_Bouncy_Description	منصة مائلة ترتد عليها العناصر.
-BaseExpansion_Bouncer_Name	لوح النطّ
+BaseExpansion_Bouncer_Name	لوح النط
 BaseExpansion_Bouncer_Description	منصة تقذفك إلى أعلى.
 BaseExpansion_Fan_Name	منصة المروحة
 BaseExpansion_Fan_Description	منصة تدفعك إلى أعلى إن استخدمت الشراع.
 BaseExpansion_HookPoint_Name	نقطة التعليق
-BaseExpansion_HookPoint_Description	كرة تثبيت طافية تُستخدم للتنقل بين المنصات بواسطة الخطّاف.
+BaseExpansion_HookPoint_Description	كرة تثبيت طافية تستخدم للتنقل بين المنصات بواسطة الخطاف.
 BaseExpansion_OneSidedPlatform_5x1_Name	حقل قوة
 BaseExpansion_OneSidedPlatform_5x1_Description	منصة حقل قوة يمكنك المرور عبرها.
 BaseExpansion_MetalOneSidedPlatform_Name	عارضة فولاذية
@@ -207,7 +207,7 @@ BaseExpansion_WoodOneSidedPlatform_3x1_Description	منصة <color=#ff0000><b>3x
 BaseExpansion_WoodOneSidedPlatform_5x1_Name	عارضة خشبية 5x1
 BaseExpansion_WoodOneSidedPlatform_5x1_Description	منصة <color=#ff0000><b>5x1</b></color> يمكنك المرور عبرها.
 BaseExpansion_Room_7x4_Name	وحدة قاعدة إضافية
-BaseExpansion_Room_7x4_Description	نسخة من وحدة الفضاء الوفيّة. إن كانت تنجو من السقوط من المدار فبإمكانها على الأقل أن تحميك من المطر.
+BaseExpansion_Room_7x4_Description	نسخة من وحدة الفضاء الوفية. إن كانت تنجو من السقوط من المدار فبإمكانها على الأقل أن تحميك من المطر.
 
 # ── المنشآت: الحجر ──
 BaseExpansion_Stone_Family_Name	منشآت حجرية
@@ -363,23 +363,23 @@ BaseExpansion_Space_Background_4x1_Name	خلفية وحدة الفضاء
 BaseExpansion_Space_Background_4x1_Description	خلفية من وحدة الفضاء لقاعدتك.
 
 # ── المنشآت: المسلّة ──
-BaseExpansion_Monolith_Family_Name	منشآت المسلّة
-BaseExpansion_Monolith_Platform_Name	منصة المسلّة
-BaseExpansion_Monolith_Platform_Description	منصة على طراز المسلّة.
-BaseExpansion_Monolith_Wall_Name	جدار المسلّة
-BaseExpansion_Monolith_Wall_Description	جدار من مادة المسلّة نفسها.
-BaseExpansion_Monolith_Door_Name	باب المسلّة
-BaseExpansion_Monolith_Door_Description	مدخل شبيه بمداخل المسلّة.
-BaseExpansion_Monolith_Background_Name	خلفية المسلّة
-BaseExpansion_Monolith_Background_Description	خلفية من مادة المسلّة.
-BaseExpansion_Monolith2_Platform_Name	منصة المسلّة الكلاسيكية
-BaseExpansion_Monolith2_Platform_Description	منصة كلاسيكية مستوحاة من المسلّة.
-BaseExpansion_Monolith2_Wall_Name	جدار المسلّة الكلاسيكي
-BaseExpansion_Monolith2_Wall_Description	جدار كلاسيكي شبيه بجدران المسلّة، قابل للتسلق.
-BaseExpansion_Monolith2_Door_Name	باب المسلّة الكلاسيكي
-BaseExpansion_Monolith2_Door_Description	مدخل كلاسيكي على طراز المسلّة.
-BaseExpansion_Monolith2_Background_Name	خلفية المسلّة الكلاسيكية
-BaseExpansion_Monolith2_Background_Description	خلفية كلاسيكية للمسلّة.
+BaseExpansion_Monolith_Family_Name	منشآت المسلة
+BaseExpansion_Monolith_Platform_Name	منصة المسلة
+BaseExpansion_Monolith_Platform_Description	منصة على طراز المسلة.
+BaseExpansion_Monolith_Wall_Name	جدار المسلة
+BaseExpansion_Monolith_Wall_Description	جدار من مادة المسلة نفسها.
+BaseExpansion_Monolith_Door_Name	باب المسلة
+BaseExpansion_Monolith_Door_Description	مدخل شبيه بمداخل المسلة.
+BaseExpansion_Monolith_Background_Name	خلفية المسلة
+BaseExpansion_Monolith_Background_Description	خلفية من مادة المسلة.
+BaseExpansion_Monolith2_Platform_Name	منصة المسلة الكلاسيكية
+BaseExpansion_Monolith2_Platform_Description	منصة كلاسيكية مستوحاة من المسلة.
+BaseExpansion_Monolith2_Wall_Name	جدار المسلة الكلاسيكي
+BaseExpansion_Monolith2_Wall_Description	جدار كلاسيكي شبيه بجدران المسلة، قابل للتسلق.
+BaseExpansion_Monolith2_Door_Name	باب المسلة الكلاسيكي
+BaseExpansion_Monolith2_Door_Description	مدخل كلاسيكي على طراز المسلة.
+BaseExpansion_Monolith2_Background_Name	خلفية المسلة الكلاسيكية
+BaseExpansion_Monolith2_Background_Description	خلفية كلاسيكية للمسلة.
 
 # ── الزينة ──
 BaseExpansion_Lamp_Name	مصباح سقف
@@ -403,7 +403,7 @@ BaseExpansion_SoftChair_Description	كرسي مريح.
 BaseExpansion_Couch_00_Name	أريكة
 BaseExpansion_Couch_00_Description	قطعة أثاث مثالية للعب التعاوني. للأسف أنت الشخص الوحيد الباقي على قيد الحياة. كما أنني لا أحب ألعاب الفيديو.
 BaseExpansion_ClayVase_1_Name	مزهرية أثرية
-BaseExpansion_ClayVase_1_Description	ليست أثرية حقًا، فقد صنعتها للتو، لكن الكلمة تبدو أجمل.
+BaseExpansion_ClayVase_1_Description	ليست أثرية حقا، فقد صنعتها للتو، لكن الكلمة تبدو أجمل.
 BaseExpansion_ClayVase_2_Name	مزهرية زينة
 BaseExpansion_ClayVase_2_Description	لا يوجد نقود بداخلها فلا تكسرها من فضلك.
 BaseExpansion_GlamorousMirror_Name	مرآة فاخرة
@@ -413,42 +413,42 @@ BaseExpansion_SnowGlobe_Description	كرة ثلجية للزينة.
 BaseExpansion_Gong_Name	الجرس الصيني
 BaseExpansion_Gong_Description	جرس صيني.
 BaseExpansion_Gramophone_Name	الحاكي
-BaseExpansion_Gramophone_Description	كلمة «عتيق» لا تفي هذه القطعة التاريخية حقها. أنزل الإبرة وشغّل بعض الكلاسيكيات.
+BaseExpansion_Gramophone_Description	كلمة «عتيق» لا تفي هذه القطعة التاريخية حقها. أنزل الإبرة وشغل بعض الكلاسيكيات.
 BaseExpansion_BarNeonSign_Name	لافتة نيون
-BaseExpansion_BarNeonSign_Description	لافتة مضيئة تذكّرك بي، أفضل روبوت مساعد لديك. هل ظننتها حقًا زينة رخيصة لغرفة رجال؟
+BaseExpansion_BarNeonSign_Description	لافتة مضيئة تذكرك بي، أفضل روبوت مساعد لديك. هل ظننتها حقا زينة رخيصة لغرفة رجال؟
 BaseExpansion_BasketballHoop_Name	سلة كرة
-BaseExpansion_BasketballHoop_Description	يقولون إن البيض لا يقفزون، لكن جرّب على أي حال.
+BaseExpansion_BasketballHoop_Description	يقولون إن البيض لا يقفزون، لكن جرب على أي حال.
 BaseExpansion_Dices_Name	نرد مخملي
-BaseExpansion_Dices_Description	عنصر لا يخلو منه مرآة أي متباهٍ.
+BaseExpansion_Dices_Description	عنصر لا يخلو منه مرآة أي متباه.
 BaseExpansion_Flamingo_Name	فلامنغو بلاستيكي
 BaseExpansion_Flamingo_Description	اقتلوا الجميع الآن! باركوا القتل العمد! ادعوا إلى أكل لحوم البشر! كلوا القذارة! القذارة سياستي! القذارة حياتي!
 BaseExpansion_DuraniumStatue_Name	فن تجريدي
-BaseExpansion_DuraniumStatue_Description	تمثال متكلَّف مصنوع من الدورانيوم. قاعدتك الآن أكثر زيفًا بنسبة 9.7%.
+BaseExpansion_DuraniumStatue_Description	تمثال متكلف مصنوع من الدورانيوم. قاعدتك الآن أكثر زيفا بنسبة 9.7%.
 BaseExpansion_LimestoneStatue_Name	تمثال رجل بروميثيوس
 BaseExpansion_LimestoneStatue_Description	هذا هو جسد الروبوت المثالي. قد لا يعجبك، لكن هكذا يبدو الأداء الأمثل.
 BaseExpansion_RobotHand_Name	يد الروبوت K-800
-BaseExpansion_RobotHand_Description	إشارة أخرى مستهلَكة إلى الثقافة الشعبية. لكنها تبدو رائعة على أي حال.
-BaseExpansion_FlyingDrone_Name	مسيّرة طائرة
-BaseExpansion_FlyingDrone_Description	روبوت طائر للزينة، لأن الروبوتات الطائرة لا تكفي أبدًا.
+BaseExpansion_RobotHand_Description	إشارة أخرى مستهلكة إلى الثقافة الشعبية. لكنها تبدو رائعة على أي حال.
+BaseExpansion_FlyingDrone_Name	مسيرة طائرة
+BaseExpansion_FlyingDrone_Description	روبوت طائر للزينة، لأن الروبوتات الطائرة لا تكفي أبدا.
 BaseExpansion_WallComputerAssistant_Name	O.R.B. 9000
-BaseExpansion_WallComputerAssistant_Description	طراز عتيق من سلسلة O.R.B. أُوقف إنتاجه بعد بلاغات عن سلوك مختل نفسيًا.
+BaseExpansion_WallComputerAssistant_Description	طراز عتيق من سلسلة O.R.B. أوقف إنتاجه بعد بلاغات عن سلوك مختل نفسيا.
 BaseExpansion_MiniSpaceship_Pod_Name	مجسم سفينة السباق
-BaseExpansion_MiniSpaceship_Pod_Description	والآن، هذا مرشّح جاد لإنذار قانوني.
-BaseExpansion_MiniSpaceship_Wing_Name	مجسم السفينة المجنّحة
-BaseExpansion_MiniSpaceship_Wing_Description	مجسم لسفينة فضاء يستخدمها غالبًا حثالة متمردون.
+BaseExpansion_MiniSpaceship_Pod_Description	والآن، هذا مرشح جاد لإنذار قانوني.
+BaseExpansion_MiniSpaceship_Wing_Name	مجسم السفينة المجنحة
+BaseExpansion_MiniSpaceship_Wing_Description	مجسم لسفينة فضاء يستخدمها غالبا حثالة متمردون.
 BaseExpansion_Poster_1_Name	ملصق Per Aspera
 BaseExpansion_Poster_1_Description	ملصق جداري من Per Aspera الأصلية
 BaseExpansion_PetRock_1_Name	صخرة أليفة
 BaseExpansion_PetRock_1_Description	إليك قائمة بأسماء محتملة لأليفك الجديد: جيما ستون، باروك أوباما، دواين «ذا جون» روكسون، روكي ويليامز، ستونلي توتشي.
 BaseExpansion_PetRock_Family_Name	عائلة الصخور الأليفة
-BaseExpansion_PetRock_Family_Description	العائلات التي تتصخّر معًا، تبقى معًا.
-BaseExpansion_WhaleBone_Name	عظمة حوت مصغّرة
-BaseExpansion_WhaleBone_Description	عظمة حوت مصغّرة للزينة.
+BaseExpansion_PetRock_Family_Description	العائلات التي تتصخر معا، تبقى معا.
+BaseExpansion_WhaleBone_Name	عظمة حوت مصغرة
+BaseExpansion_WhaleBone_Description	عظمة حوت مصغرة للزينة.
 BaseExpansion_WeirdJar_Name	جرة غريبة
-BaseExpansion_WeirdJar_Description	ما الذي في تلك الجرة أصلًا؟ مستشعراتي لا تلتقط أي بيانات مفيدة.
-BaseExpansion_Weathervane_Name	دوّارة الرياح
-BaseExpansion_Weathervane_Description	دوّارة رياح على هيئة ديك.
+BaseExpansion_WeirdJar_Description	ما الذي في تلك الجرة أصلا؟ مستشعراتي لا تلتقط أي بيانات مفيدة.
+BaseExpansion_Weathervane_Name	دوارة الرياح
+BaseExpansion_Weathervane_Description	دوارة رياح على هيئة ديك.
 BaseExpansion_SmokeStack_Name	مدخنة
-BaseExpansion_SmokeStack_Description	لم أكن أعلم أنك مولع إلى هذا الحد بالستيمبانك يا كِنت.
+BaseExpansion_SmokeStack_Description	لم أكن أعلم أنك مولع إلى هذا الحد بالستيمبانك يا كينت.
 BaseExpansion_Sunshade_Name	مظلة شمس
 BaseExpansion_Sunshade_Description	جهاز لطيف يحمي بشرتك الشاحبة البائسة من الشمس.

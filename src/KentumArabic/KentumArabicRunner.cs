@@ -239,6 +239,10 @@ namespace KentumArabic
                 ArabicFont.RefreshAllText();
             }
 
+            // Ctrl+Alt+N — cycle the bundled Arabic fonts, live.
+            if (Hotkeys.Pressed(KeyCode.N))
+                Plugin.CycleFont();
+
             // Ctrl+Alt+T — the shaping test battery.
             if (Hotkeys.Pressed(KeyCode.T))
             {

@@ -46,6 +46,24 @@ namespace ShaperTest
 
         private static int Main(string[] args)
         {
+            // These two run before anything else touches the shaper. Placed after the regression
+            // cases they would read those cases' cached results, which were produced under a
+            // different mode - the first version of this tool did exactly that and reported a
+            // menu string as unreversed.
+            //
+            // "--glyphs <dir> <out>" writes every codepoint the shaped translation actually needs.
+            // A font only has to cover that set, not the whole Presentation Forms-B block: most of
+            // the block is Persian and Urdu letters Arabic never produces, so screening candidates
+            // against the block rejects good fonts while screening against this file does not.
+            if (args.Length == 3 && args[0] == "--glyphs")
+                return DumpGlyphs(args[1], args[2]);
+
+            // "--shape <in> <out>" shapes each line in visual order, for font previews: preview
+            // tools lay out left to right and do no OpenType shaping, the same two properties
+            // TextMeshPro has, so what they draw is what the game will draw.
+            if (args.Length == 3 && args[0] == "--shape")
+                return ShapeLines(args[1], args[2]);
+
             bool failed = false;
 
             ArabicShaper.Mode = ShapingMode.RtlLayout;
@@ -146,6 +164,46 @@ namespace ShaperTest
 
             Console.WriteLine(failed ? "RESULT: FAILURES ABOVE" : "RESULT: all cases OK.");
             return failed ? 1 : 0;
+        }
+
+        private static int ShapeLines(string inPath, string outPath)
+        {
+            ArabicShaper.Mode = ShapingMode.VisualOrder;
+            ArabicShaper.PreserveNumbers = true;
+
+            var shaped = new List<string>();
+            foreach (var line in File.ReadAllLines(inPath))
+                shaped.Add(line.Length == 0 ? line : ArabicShaper.Shape(line));
+
+            File.WriteAllLines(outPath, shaped, new System.Text.UTF8Encoding(false));
+            Console.WriteLine($"{shaped.Count} line(s) shaped -> {outPath}");
+            return 0;
+        }
+
+        private static int DumpGlyphs(string stringsDir, string outPath)
+        {
+            ArabicShaper.Mode = ShapingMode.RtlLayout;
+            ArabicShaper.PreserveNumbers = true;
+
+            var needed = new SortedSet<int>();
+            foreach (var file in Directory.GetFiles(stringsDir, "*.tsv", SearchOption.AllDirectories))
+                foreach (var raw in File.ReadAllLines(file))
+                {
+                    if (raw.Length == 0 || raw[0] == '#') continue;
+                    var cols = raw.Split('\t');
+                    if (cols.Length < 2 || string.IsNullOrWhiteSpace(cols[1])) continue;
+                    if (cols[0] == "key" || cols[0] == "field" || cols[0] == "id") continue;
+
+                    foreach (var ch in ArabicShaper.Shape(cols[1]))
+                        needed.Add(ch);
+                }
+
+            using (var w = new StreamWriter(outPath, false, new System.Text.UTF8Encoding(false)))
+                foreach (var cp in needed)
+                    w.WriteLine($"U+{cp:X4}");
+
+            Console.WriteLine($"{needed.Count} distinct codepoints required by the shaped translation -> {outPath}");
+            return 0;
         }
 
         private static bool CheckCorpus(string stringsDir)

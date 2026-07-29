@@ -232,12 +232,46 @@ namespace KentumArabic
         {
             if (_prewarmed || Translations == null || !ArabicFont.IsLoaded) return;
             _prewarmed = true;
+            ArabicFont.Prewarm(AllShapedText());
+        }
 
-            var shaped = new List<string>(Translations.TotalEntries);
+        /// <summary>
+        /// Every string the player can see, shaped. A newly built font asset starts with an empty
+        /// dynamic atlas, so this is what a font swap has to re-warm.
+        /// </summary>
+        public static List<string> AllShapedText()
+        {
+            var shaped = new List<string>(Translations?.TotalEntries ?? 0);
+            if (Translations == null) return shaped;
+
             foreach (var s in Translations.Ui.Values) shaped.Add(ArabicShaper.Shape(s));
             foreach (var s in Translations.Dialogue.Values) shaped.Add(ArabicShaper.Shape(s));
             foreach (var s in Translations.Actors.Values) shaped.Add(ArabicShaper.Shape(s));
-            ArabicFont.Prewarm(shaped);
+            return shaped;
+        }
+
+        /// <summary>
+        /// Cycles to the next bundled font and puts it on screen. Bound to Ctrl+Alt+N so the
+        /// typeface can be judged on the real menus and dialogue rather than from a sample sheet.
+        /// The choice is not persisted — set FontFile in the config file to keep one.
+        /// </summary>
+        public static void CycleFont()
+        {
+            var fonts = ArabicFont.BundledFonts;
+            var current = ArabicFont.LoadedFrom ?? string.Empty;
+
+            int index = 0;
+            for (int i = 0; i < fonts.Length; i++)
+                if (current.EndsWith(Path.GetFileName(fonts[i]), StringComparison.OrdinalIgnoreCase))
+                {
+                    index = i + 1;
+                    break;
+                }
+
+            var next = fonts[index % fonts.Length];
+            if (ArabicFont.SwitchTo(PluginDir, next, AllShapedText()))
+                Log.Info($"Font: {Path.GetFileNameWithoutExtension(next)}. " +
+                         "Ctrl+Alt+N for the next one; set FontFile in the config to keep it.");
         }
 
         /// <summary>Called after the language change has propagated.</summary>

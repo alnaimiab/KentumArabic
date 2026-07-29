@@ -6,9 +6,9 @@ CharacterEnhancement_Dash_Distance_Description	يزيد مسافة الاندف�
 CharacterEnhancement_Glide_Speed_Name	سرعة الشراع
 CharacterEnhancement_Glide_Speed_Description	يزيد السرعة القصوى للشراع.
 CharacterEnhancement_Glide_SuperJump_Name	قفزة الدوامة
-CharacterEnhancement_Glide_SuperJump_Description	يمكّن الشراع من توليد دوامة هوائية على الأرض تدفعك إلى أعلى
+CharacterEnhancement_Glide_SuperJump_Description	يمكن الشراع من توليد دوامة هوائية على الأرض تدفعك إلى أعلى
 CharacterEnhancement_Hook_GrabFauna_Name	إمساك الحيوانات
-CharacterEnhancement_Hook_GrabFauna_Description	يمكّن الخطّاف من التشبث بالحيوانات
+CharacterEnhancement_Hook_GrabFauna_Description	يمكن الخطاف من التشبث بالحيوانات
 CharacterEnhancement_Light_BatteryDuration_Name	مدة البطارية +
 CharacterEnhancement_Light_BatteryDuration_Description	يزيد مدة البطارية
 CharacterEnhancement_Light_BatteryDuration_2_Name	مدة البطارية ++
@@ -16,28 +16,28 @@ CharacterEnhancement_Light_BatteryDuration_2_Description	يزيد مدة الب�
 CharacterEnhancement_Light_Range_Name	مدى الإضاءة +
 CharacterEnhancement_Light_Range_Description	يزيد مدى المشعل الكهربائي
 CharacterEnhancement_Light_SolarRecharge_Name	الشحن الشمسي
-CharacterEnhancement_Light_SolarRecharge_Description	يمكّن المشعل الكهربائي من إعادة الشحن تلقائيًا في ضوء النهار
+CharacterEnhancement_Light_SolarRecharge_Description	يمكن المشعل الكهربائي من إعادة الشحن تلقائيا في ضوء النهار
 CharacterEnhancement_Runba_Hover_Name	التسلق التلقائي
-CharacterEnhancement_Runba_Hover_Description	يمكّن R.O.C.C.O. من تسلق الدرجات الصغيرة تلقائيًا
+CharacterEnhancement_Runba_Hover_Description	يمكن R.O.C.C.O. من تسلق الدرجات الصغيرة تلقائيا
 CharacterEnhancement_Runba_SolarRecharge_Name	الشحن الشمسي
-CharacterEnhancement_Runba_SolarRecharge_Description	يمكّن R.O.C.C.O. من إعادة الشحن تلقائيًا في ضوء النهار
+CharacterEnhancement_Runba_SolarRecharge_Description	يمكن R.O.C.C.O. من إعادة الشحن تلقائيا في ضوء النهار
 CharacterEnhancement_Scanner_Range_Name	مدى الماسح +
 CharacterEnhancement_Scanner_Range_Description	يزيد مدى الماسح
-CharacterEnhancement_Shield_Parry_Name	الصدّ المثالي
-CharacterEnhancement_Shield_Parry_Description	صدّ هجوم بتوقيت مثالي لن يستهلك أي شحنة
+CharacterEnhancement_Shield_Parry_Name	الصد المثالي
+CharacterEnhancement_Shield_Parry_Description	صد هجوم بتوقيت مثالي لن يستهلك أي شحنة
 CharacterEnhancement_Shield_RechargeTime_Name	شحن أسرع
-CharacterEnhancement_Shield_RechargeTime_Description	يقلّص زمن إعادة شحن الدرع الهولوغرافي بعد انكساره
+CharacterEnhancement_Shield_RechargeTime_Description	يقلص زمن إعادة شحن الدرع الهولوغرافي بعد انكساره
 CharacterEnhancement_Shrink_GroundStomp_Name	دوسة الانكماش
-CharacterEnhancement_Shrink_GroundStomp_Description	يكثّف كتلته لتوجيه دوسة قوية
+CharacterEnhancement_Shrink_GroundStomp_Description	يكثف كتلته لتوجيه دوسة قوية
 CharacterEnhancement_Shrink_Melee_Name	شرارة صغيرة
-CharacterEnhancement_Shrink_Melee_Description	يطلق تفريغًا كهربائيًا صغيرًا يسبب ضررًا
+CharacterEnhancement_Shrink_Melee_Description	يطلق تفريغا كهربائيا صغيرا يسبب ضررا
 CharacterEnhancement_SuperMelee_ChargeTime_Name	شحن سريع
-CharacterEnhancement_SuperMelee_ChargeTime_Description	يقلّص زمن شحن السحق الحركي
+CharacterEnhancement_SuperMelee_ChargeTime_Description	يقلص زمن شحن السحق الحركي
 CharacterEnhancement_Vacuum_GatherDeadFauna_Name	امتصاص الجمع
-CharacterEnhancement_Vacuum_GatherDeadFauna_Description	يمكّن الشافط من جمع جثث الحيوانات تلقائيًا
+CharacterEnhancement_Vacuum_GatherDeadFauna_Description	يمكن الشافط من جمع جثث الحيوانات تلقائيا
 CharacterEnhancement_Vacuum_Windup_Name	تسريع الدوران
-CharacterEnhancement_Vacuum_Windup_Description	يقلّص الزمن اللازم لبلوغ أقصى قوة شفط
-CharacterEnhancement_ExpandedInventory4_Name	مخزون موسّع 4
+CharacterEnhancement_Vacuum_Windup_Description	يقلص الزمن اللازم لبلوغ أقصى قوة شفط
+CharacterEnhancement_ExpandedInventory4_Name	مخزون موسع 4
 CharacterEnhancement_ExpandedInventory4_Description	يضيف 3 خانات للمخزون.
 CharacterEnhancement_MaxHp4_Name	أقصى صحة 4
 CharacterEnhancement_MaxHp4_Description	يزيد أقصى صحة بمقدار 20 نقطة.

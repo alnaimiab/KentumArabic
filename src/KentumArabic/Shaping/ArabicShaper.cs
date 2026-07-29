@@ -42,10 +42,26 @@ namespace KentumArabic.Shaping
     /// </summary>
     public static class ArabicShaper
     {
-        public static ShapingMode Mode = ShapingMode.RtlLayout;
+        /// <remarks>
+        /// Setting this drops the cache. Both settings change what <see cref="Shape"/> returns for
+        /// the same input, so entries made under the old one are wrong under the new one — and the
+        /// mode is switched at runtime by the Ctrl+Alt+M comparison hotkey. Callers used to clear
+        /// the cache themselves, which worked only for as long as every one of them remembered.
+        /// </remarks>
+        public static ShapingMode Mode
+        {
+            get => _mode;
+            set { if (_mode != value) { _mode = value; ClearCache(); } }
+        }
+        private static ShapingMode _mode = ShapingMode.RtlLayout;
 
         /// <summary>Keep Western digits as-is rather than converting to Arabic-Indic.</summary>
-        public static bool PreserveNumbers = true;
+        public static bool PreserveNumbers
+        {
+            get => _preserveNumbers;
+            set { if (_preserveNumbers != value) { _preserveNumbers = value; ClearCache(); } }
+        }
+        private static bool _preserveNumbers = true;
 
         /// <summary>
         /// Protect rich text tags from being reordered. Kentum's UI is dense with

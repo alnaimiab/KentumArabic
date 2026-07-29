@@ -3,32 +3,32 @@ key	ar
 
 Techs_FinalTechs_Agriculture_LaneName	بروتوكولات الزراعة
 Techs_FinalTechs_Agriculture_Tech_0_Name	محرك صلابة البذور
-Techs_FinalTechs_Agriculture_Tech_0_Description	خزانة بذور متكيّفة قادرة على الازدهار في أي مناخ أو تربة.
+Techs_FinalTechs_Agriculture_Tech_0_Description	خزانة بذور متكيفة قادرة على الازدهار في أي مناخ أو تربة.
 Techs_FinalTechs_Agriculture_Tech_1_Name	آليات التلقيح
-Techs_FinalTechs_Agriculture_Tech_1_Description	ملقّحات آلية تضمن تكاثر جميع الأنواع النباتية.
+Techs_FinalTechs_Agriculture_Tech_1_Description	ملقحات آلية تضمن تكاثر جميع الأنواع النباتية.
 Techs_FinalTechs_Agriculture_Tech_2_Name	مفاعل التربة الاصطناعية
-Techs_FinalTechs_Agriculture_Tech_2_Description	تُرَب اصطناعية تولّد المغذيات وتدعم نمو النبات دون أرض طبيعية.
+Techs_FinalTechs_Agriculture_Tech_2_Description	ترب اصطناعية تولد المغذيات وتدعم نمو النبات دون أرض طبيعية.
 
 Techs_FinalTechs_Biology_LaneName	بروتوكولات الأحياء
-Techs_FinalTechs_Biology_Tech_0_Name	برنامج الأوعية المتكيّفة
-Techs_FinalTechs_Biology_Tech_0_Description	أجساد مستنسخة مصممة لتحمّل بيئات وتحديات متنوعة.
+Techs_FinalTechs_Biology_Tech_0_Name	برنامج الأوعية المتكيفة
+Techs_FinalTechs_Biology_Tech_0_Description	أجساد مستنسخة مصممة لتحمل بيئات وتحديات متنوعة.
 Techs_FinalTechs_Biology_Tech_1_Name	حقل التجديد الخلوي
-Techs_FinalTechs_Biology_Tech_1_Description	أنظمة تُبقي الأنسجة الحيوية في حالة مثلى إلى ما لا نهاية.
+Techs_FinalTechs_Biology_Tech_1_Description	أنظمة تبقي الأنسجة الحيوية في حالة مثلى إلى ما لا نهاية.
 Techs_FinalTechs_Biology_Tech_2_Name	مصفوفة إعادة الإسكان
 Techs_FinalTechs_Biology_Tech_2_Description	أطر عمل لإعادة إدخال البشر والحيوانات بأمان إلى الموائل المستعادة.
 
 Techs_FinalTechs_Infrastructure_LaneName	بروتوكولات البنية التحتية
 Techs_FinalTechs_Infrastructure_Tech_0_Name	الشبكة ذاتية الاكتفاء
-Techs_FinalTechs_Infrastructure_Tech_0_Description	شبكة طاقة وموارد مستقلة مصممة للعمل ذاتيًا، عصيّة على الأعطال والاضطرابات الخارجية.
+Techs_FinalTechs_Infrastructure_Tech_0_Description	شبكة طاقة وموارد مستقلة مصممة للعمل ذاتيا، عصية على الأعطال والاضطرابات الخارجية.
 Techs_FinalTechs_Infrastructure_Tech_1_Name	نواقل الموارد
-Techs_FinalTechs_Infrastructure_Tech_1_Description	شبكات توزّع الماء والمعادن وسائر الضروريات بكفاءة على كل مستوطنة.
-Techs_FinalTechs_Infrastructure_Tech_2_Name	مراسي المسلّة
-Techs_FinalTechs_Infrastructure_Tech_2_Description	عُقد بنية تحتية أساسية تزامن كل الأنظمة وتحفظ تماسك الحضارة المولودة من جديد.
+Techs_FinalTechs_Infrastructure_Tech_1_Description	شبكات توزع الماء والمعادن وسائر الضروريات بكفاءة على كل مستوطنة.
+Techs_FinalTechs_Infrastructure_Tech_2_Name	مراسي المسلة
+Techs_FinalTechs_Infrastructure_Tech_2_Description	عقد بنية تحتية أساسية تزامن كل الأنظمة وتحفظ تماسك الحضارة المولودة من جديد.
 
 Techs_FinalTechs_Technology_LaneName	بروتوكولات التقنية
 Techs_FinalTechs_Technology_Tech_0_Name	محرك التفرد النووي
-Techs_FinalTechs_Technology_Tech_0_Description	مصدر طاقة مستقر لا محدود يشغّل كل أنظمة الحضارة المولودة من جديد.
+Techs_FinalTechs_Technology_Tech_0_Description	مصدر طاقة مستقر لا محدود يشغل كل أنظمة الحضارة المولودة من جديد.
 Techs_FinalTechs_Technology_Tech_1_Name	مركز البروتوكولات
-Techs_FinalTechs_Technology_Tech_1_Description	النظام الرئيسي الذي ينسّق كل منشأة ووحدة وعملية في أنحاء العالم.
+Techs_FinalTechs_Technology_Tech_1_Description	النظام الرئيسي الذي ينسق كل منشأة ووحدة وعملية في أنحاء العالم.
 Techs_FinalTechs_Technology_Tech_2_Name	منظومة المعايرة الزمنية
-Techs_FinalTechs_Technology_Tech_2_Description	تحافظ على تزامن كل العمليات، فتضمن تنسيقًا دقيقًا بين المنشآت.
+Techs_FinalTechs_Technology_Tech_2_Description	تحافظ على تزامن كل العمليات، فتضمن تنسيقا دقيقا بين المنشآت.

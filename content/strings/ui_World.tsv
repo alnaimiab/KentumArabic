@@ -1,26 +1,26 @@
 # تعريب Kentum — عناصر العالم
 key	ar
 
-World_BouncePlatform_Name	هلام نطّاط
-World_BouncePlatform_Description	تجمّع هلامي بقوام مثالي يجعله صالحًا لتستخدمه كنطّاطة.
+World_BouncePlatform_Name	هلام نطاط
+World_BouncePlatform_Description	تجمع هلامي بقوام مثالي يجعله صالحا لتستخدمه كنطاطة.
 World_Box_Name	صندوق
 World_Box_Description	يحتوي على عناصر بداخله. تستطيع فتحه بيديك على الأرجح، لكن تحطيمه أمتع.
 World_BrokenBaseMachine_Name	إصلاح وحدة الفضاء
-World_BrokenBaseMachine_Description	سيكون البقاء في هذه البيئة صعبًا جدًا وقاعدتك محطّمة. إصلاحها ينبغي أن يكون أولويتك القصوى.
-World_BrokenFastTravelStation_Name	وثّاب كريستال معطّل
-World_BrokenFastTravelStation_Description	وثّاب كريستال معطّل ينتظر إعادة التفعيل، آليته خامدة بلا مصدر طاقة. يحتاج إلى <color=#008aff><b>جوهرة وثّاب الكريستال</b></color> ليعمل من جديد.
+World_BrokenBaseMachine_Description	سيكون البقاء في هذه البيئة صعبا جدا وقاعدتك محطمة. إصلاحها ينبغي أن يكون أولويتك القصوى.
+World_BrokenFastTravelStation_Name	وثاب كريستال معطل
+World_BrokenFastTravelStation_Description	وثاب كريستال معطل ينتظر إعادة التفعيل، آليته خامدة بلا مصدر طاقة. يحتاج إلى <color=#008aff><b>جوهرة وثاب الكريستال</b></color> ليعمل من جديد.
 World_DeadBody_Name	جثة نسخة
-World_DeadBody_Description	تمسح جثتك أنت؟ هذا كئيب جدًا يا كِنت.
+World_DeadBody_Description	تمسح جثتك أنت؟ هذا كئيب جدا يا كينت.
 World_HookPoint_Name	نقطة التعليق
-World_HookPoint_Description	نقطة طاقة مركّزة متناثرة تجذب الصخور. استخدمها للتأرجح بواسطة الخطّاف.
+World_HookPoint_Description	نقطة طاقة مركزة متناثرة تجذب الصخور. استخدمها للتأرجح بواسطة الخطاف.
 World_KineticSmash_Door_Name	صخرة متشققة
-World_KineticSmash_Door_Description	تكوين صخري مليء بالشقوق بفعل تسرّب الماء وتعرية الرياح. يمكنك استخدام <color=#008aff><b>السحق الحركي</b></color> لتفتيته.
+World_KineticSmash_Door_Description	تكوين صخري مليء بالشقوق بفعل تسرب الماء وتعرية الرياح. يمكنك استخدام <color=#008aff><b>السحق الحركي</b></color> لتفتيته.
 World_PhaseDashNode_Name	عقدة الاندفاع الطوري
 World_PhaseDashNode_Description	عقدة انتقال طوري تنقلك في طرفة عين. تحتاج إلى تقنية الطور لاستخدامها.
 World_Plantform_Name	نبتة المنصة
-World_Plantform_Description	نبتة يمكن استخدامها منصة، جرّبها!
+World_Plantform_Description	نبتة يمكن استخدامها منصة، جربها!
 World_ScannedSecretDoor_Name	مدخل المحطة الاحتياطية
-World_ScannedSecretDoor_Description	الوصول إلى المحطة الاحتياطية للمسلّة
+World_ScannedSecretDoor_Description	الوصول إلى المحطة الاحتياطية للمسلة
 World_Spikes_Name	أشواك
 World_Spikes_Description	تكوين صخري شائك، المسه إن أردت الإحساس بصخر يخترق جلدك.
 World_YellowDoor_Name	باب الطاقة
@@ -28,35 +28,35 @@ World_YellowDoor_Description	باب ثقيل منيع. تحطيمه مستحيل
 
 # ── قطع أثرية ──
 World_LoreObject_FlyingWhale_Name	بقايا حوت طائر
-World_LoreObject_FlyingWhale_Description	شظية من حوت هائل. تشير العلامات على العظم إلى أنه سقط من ارتفاع شاهق، ما يعني أن الحوت كان يطير أو أن أحدهم أسقط حوتًا ضخمًا من السماء.
+World_LoreObject_FlyingWhale_Description	شظية من حوت هائل. تشير العلامات على العظم إلى أنه سقط من ارتفاع شاهق، ما يعني أن الحوت كان يطير أو أن أحدهم أسقط حوتا ضخما من السماء.
 World_LoreObject_OctopusArmor_Name	درع الأخطبوط
-World_LoreObject_OctopusArmor_Description	درع قتالي مصنوع ليناسب أخطبوطًا. الانبعاجات والعلامات على المعدن تدل على أنه استُخدم في قتال. وبعض الضرر يطابق أسنان دلافين، فلعلّ حربًا نشبت يومًا بين النوعين.
+World_LoreObject_OctopusArmor_Description	درع قتالي مصنوع ليناسب أخطبوطا. الانبعاجات والعلامات على المعدن تدل على أنه استخدم في قتال. وبعض الضرر يطابق أسنان دلافين، فلعل حربا نشبت يوما بين النوعين.
 World_LoreObject_PerAspera_Name	Per Aspera 7: انتقام كالديرون
-World_LoreObject_PerAspera_Description	نسخة مغلّفة من الجزء السابع من سلسلة Per Aspera. كانت أول لعبة في السلسلة تصدر على خرطوشة هولوغرافية. وانقسم المجتمع حولها انقسامًا حادًا بسبب التحول من بناء القواعد الاستراتيجي إلى محاكاة المواعدة.
+World_LoreObject_PerAspera_Description	نسخة مغلفة من الجزء السابع من سلسلة Per Aspera. كانت أول لعبة في السلسلة تصدر على خرطوشة هولوغرافية. وانقسم المجتمع حولها انقساما حادا بسبب التحول من بناء القواعد الاستراتيجي إلى محاكاة المواعدة.
 World_LoreObject_SnowGlobe_Name	كرة ثلج القطب الشمالي
-World_LoreObject_SnowGlobe_Description	يبدو أن الثلج المحبوس داخل هذه الكرة من القطب الشمالي. وفي الكرة آلية تجميد دائم مدمجة، ما يعني أن الثلج لن يذوب أبدًا.
+World_LoreObject_SnowGlobe_Description	يبدو أن الثلج المحبوس داخل هذه الكرة من القطب الشمالي. وفي الكرة آلية تجميد دائم مدمجة، ما يعني أن الثلج لن يذوب أبدا.
 
 # ── المسلّات القديمة ──
-World_Monolith_Dash_Name	مسلّة الاندفاع القديمة
-World_Monolith_Dash_Description	تنتصب مسلّة الاندفاع شامخة، سطحها مزدان برموز معقّدة تكاد تنبض بالطاقة الحركية، شبيهة بالنقوش القديمة. ورغم الدهور التي مرّت، تقف هذه المسلّة صامدة لم يمسّها الزمن، وكأن قوى خفية عتيقة تحرسها. والتوغل في أعماقها يكشف المخطط الغامض لـ<i><b>قدرة الاندفاع</b></i>، مهارة عميقة كشفتها عجائب تقنية الذكاء الاصطناعي المتقدّمة.
-World_Monolith_PhaseDash_Name	مسلّة الاندفاع الطوري القديمة
-World_Monolith_PhaseDash_Description	مسلّة الاندفاع الطوري، بنية شامخة تنبض بأقواس من الطاقة الكهربائية، تقف منارةً للتحوّل الخاطف وسط مشاهد الأرض المتبدلة. ورغم القرون التي مرّت، تقف هذه المسلّة عصيّة، سطحها منقوش برموز تشبه ضربات البرق، وكأنها مشحونة بقوة قديمة. واستكشاف أعماقها يكشف المخطط المراوغ لـ<i><b>قدرة الاندفاع الطوري</b></i>، تطوّر في الحركة كشفته عجائب تقنية الذكاء الاصطناعي المتقدّمة.
-World_Monolith_Parry_Name	مسلّة الدرع الهولوغرافي القديمة
-World_Monolith_Parry_Description	تنتصب المسلّة شامخة، سطحها مزدان برموز معقّدة تكاد تنبض بالطاقة الحركية، شبيهة بالنقوش القديمة. ورغم الدهور التي مرّت، تقف هذه المسلّة صامدة لم يمسّها الزمن، وكأن قوى خفية عتيقة تحرسها. والتوغل في أعماقها يكشف المخطط الغامض للقدرة، مهارة عميقة كشفتها عجائب تقنية الذكاء الاصطناعي المتقدّمة.
-World_Monolith_Glide_Name	مسلّة الشراع القديمة
+World_Monolith_Dash_Name	مسلة الاندفاع القديمة
+World_Monolith_Dash_Description	تنتصب مسلة الاندفاع شامخة، سطحها مزدان برموز معقدة تكاد تنبض بالطاقة الحركية، شبيهة بالنقوش القديمة. ورغم الدهور التي مرت، تقف هذه المسلة صامدة لم يمسها الزمن، وكأن قوى خفية عتيقة تحرسها. والتوغل في أعماقها يكشف المخطط الغامض لـ<i><b>قدرة الاندفاع</b></i>، مهارة عميقة كشفتها عجائب تقنية الذكاء الاصطناعي المتقدمة.
+World_Monolith_PhaseDash_Name	مسلة الاندفاع الطوري القديمة
+World_Monolith_PhaseDash_Description	مسلة الاندفاع الطوري، بنية شامخة تنبض بأقواس من الطاقة الكهربائية، تقف منارة للتحول الخاطف وسط مشاهد الأرض المتبدلة. ورغم القرون التي مرت، تقف هذه المسلة عصية، سطحها منقوش برموز تشبه ضربات البرق، وكأنها مشحونة بقوة قديمة. واستكشاف أعماقها يكشف المخطط المراوغ لـ<i><b>قدرة الاندفاع الطوري</b></i>، تطور في الحركة كشفته عجائب تقنية الذكاء الاصطناعي المتقدمة.
+World_Monolith_Parry_Name	مسلة الدرع الهولوغرافي القديمة
+World_Monolith_Parry_Description	تنتصب المسلة شامخة، سطحها مزدان برموز معقدة تكاد تنبض بالطاقة الحركية، شبيهة بالنقوش القديمة. ورغم الدهور التي مرت، تقف هذه المسلة صامدة لم يمسها الزمن، وكأن قوى خفية عتيقة تحرسها. والتوغل في أعماقها يكشف المخطط الغامض للقدرة، مهارة عميقة كشفتها عجائب تقنية الذكاء الاصطناعي المتقدمة.
+World_Monolith_Glide_Name	مسلة الشراع القديمة
 World_Monolith_Glide_Description	تقنية قديمة تتيح الانزلاق عبر السماء.
-World_Monolith_Hook_Name	مسلّة الخطّاف القديمة
-World_Monolith_Hook_Description	حجر قديم يفتح أسرار جهاز شبيه بالخطّاف.
-World_Monolith_Shrink_Name	مسلّة الانكماش القديمة
-World_Monolith_Shrink_Description	حجر قديم يفتح أسرار جهاز التحول إلى مكعّب.
-World_Monolith_Runba_Name	مسلّة R.O.C.C.O. القديمة
-World_Monolith_Runba_Description	تفتح <color=#008aff><b>مسلّة R.O.C.C.O. القديمة</b></color> وسيلة تنقل عتيقة.
-World_Monolith_ColdStorage_Name	مسلّة السبات المُبرَّد القديمة
-World_Monolith_ColdStorage_Description	مسلّة السبات المُبرَّد، بنية شامخة محفورة بأنماط معقّدة تذكّر بالهيروغليفية القديمة، تخبئ في نواتها المتجمدة أسرار الحفظ الأبدي. ورغم الدهور التي مرّت، تبقى هذه المسلّة عصيّة على عبث الزمن، تسندها قوى تفوق إدراك الفانين. والتوغل في أعماقها يكشف مخطط <i><b>ثلاجة السبات المُبرَّد</b></i>، جهاز ثوري كشفته تقنية الذكاء الاصطناعي المتقدّمة.
-World_Monolith_SeedMakerAndPots_Name	مسلّة صانع البذور
-World_Monolith_SeedMakerAndPots_Description	مسلّة صانع البذور، بنية شامخة محفورة بأنماط معقّدة تذكّر بالهيروغليفية القديمة، تخبئ أسرار الزراعة والاستنبات. والتوغل في أعماقها يكشف مخطط <i><b>صانع البذور</b></i> و<i><b>القطع الزراعية</b></i>، أجهزة ثورية كشفتها تقنية الذكاء الاصطناعي المتقدّمة.
-World_Monolith_ScannerSpeed_Name	مسلّة سرعة الماسح القديمة
-World_Monolith_ScannerSpeed_Description	تحمل هذه المسلّة القديمة القدرة على تعزيز سرعة الماسح، مستثمرةً تقنية منسية لتسريع تحليل البيئة. إنها أثر من الماضي واكتشاف مفصلي لأي مستكشف يسعى إلى أفضلية.
+World_Monolith_Hook_Name	مسلة الخطاف القديمة
+World_Monolith_Hook_Description	حجر قديم يفتح أسرار جهاز شبيه بالخطاف.
+World_Monolith_Shrink_Name	مسلة الانكماش القديمة
+World_Monolith_Shrink_Description	حجر قديم يفتح أسرار جهاز التحول إلى مكعب.
+World_Monolith_Runba_Name	مسلة R.O.C.C.O. القديمة
+World_Monolith_Runba_Description	تفتح <color=#008aff><b>مسلة R.O.C.C.O. القديمة</b></color> وسيلة تنقل عتيقة.
+World_Monolith_ColdStorage_Name	مسلة السبات المبرد القديمة
+World_Monolith_ColdStorage_Description	مسلة السبات المبرد، بنية شامخة محفورة بأنماط معقدة تذكر بالهيروغليفية القديمة، تخبئ في نواتها المتجمدة أسرار الحفظ الأبدي. ورغم الدهور التي مرت، تبقى هذه المسلة عصية على عبث الزمن، تسندها قوى تفوق إدراك الفانين. والتوغل في أعماقها يكشف مخطط <i><b>ثلاجة السبات المبرد</b></i>، جهاز ثوري كشفته تقنية الذكاء الاصطناعي المتقدمة.
+World_Monolith_SeedMakerAndPots_Name	مسلة صانع البذور
+World_Monolith_SeedMakerAndPots_Description	مسلة صانع البذور، بنية شامخة محفورة بأنماط معقدة تذكر بالهيروغليفية القديمة، تخبئ أسرار الزراعة والاستنبات. والتوغل في أعماقها يكشف مخطط <i><b>صانع البذور</b></i> و<i><b>القطع الزراعية</b></i>، أجهزة ثورية كشفتها تقنية الذكاء الاصطناعي المتقدمة.
+World_Monolith_ScannerSpeed_Name	مسلة سرعة الماسح القديمة
+World_Monolith_ScannerSpeed_Description	تحمل هذه المسلة القديمة القدرة على تعزيز سرعة الماسح، مستثمرة تقنية منسية لتسريع تحليل البيئة. إنها أثر من الماضي واكتشاف مفصلي لأي مستكشف يسعى إلى أفضلية.
 
 # ── زينة المسلّة ──
 World_Monolith_BasketballHoop_Name	سلة كرة
@@ -65,14 +65,14 @@ World_Monolith_Couch_Name	أريكة
 World_Monolith_Couch_Description	مكان مريح للاسترخاء. ليس أنك ستستخدمه، بالنظر إلى حجم عملك.
 World_Monolith_Fan_Name	مروحة
 World_Monolith_Fan_Description	مروحة للشراع.
-World_Monolith_FlyingDrone_Name	مسيّرة طائرة
-World_Monolith_FlyingDrone_Description	مسيّرة طائرة للزينة، لا تدع O.R.B. يراها.
+World_Monolith_FlyingDrone_Name	مسيرة طائرة
+World_Monolith_FlyingDrone_Description	مسيرة طائرة للزينة، لا تدع O.R.B. يراها.
 World_Monolith_Gramophone_Name	الحاكي
 World_Monolith_Gramophone_Description	موسيقى من الطراز القديم القديم القديم القديم القديم القديم لأذنيك.
 World_Monolith_Softchair_Name	كرسي وثير
 World_Monolith_Softchair_Description	كرسي وثير ومريح.
-World_Monolith_Weathervane_Name	دوّارة الرياح
-World_Monolith_Weathervane_Description	دوّارة رياح على هيئة ديك.
+World_Monolith_Weathervane_Name	دوارة الرياح
+World_Monolith_Weathervane_Description	دوارة رياح على هيئة ديك.
 World_Monolith_WoodenTable_Name	طاولة خشبية
 World_Monolith_WoodenTable_Description	إنها مجرد طاولة.
 World_Monolith_MiniSpaceshipPod_Name	مجسم سفينة فضاء صغيرة

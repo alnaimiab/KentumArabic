@@ -82,6 +82,35 @@ Three shaping modes exist behind a config switch:
 reasoning about the source. The multi-line paragraph is what decides it, and it matters because
 item and technology descriptions — 1,521 of ~2,451 keys — are inherently multi-line.
 
+### Why the translation carries no diacritics
+
+The same missing layer that forces shaping also rules out tashkeel. TextMeshPro has no GPOS
+mark-to-base positioning, so it draws a combining mark as a zero-advance glyph at the pen
+position — wherever the base letter's advance happened to leave it, not anchored to that letter's
+shape. On narrow non-joining letters, reh above all, the offset is visible and shifts from word to
+word, which reads on screen as letters that will not sit still.
+
+No font fixes this; placement is the renderer's job. So the 1,902 marks that were in the first
+draft were removed, and the two words that genuinely needed one are spelled out instead —
+كينت rather than كِنت, which is the conventional transliteration anyway and costs nothing at
+render time. `tools/strip_tashkeel.py --check` keeps new contributions consistent.
+
+### Choosing a typeface
+
+The shaper emits presentation forms, so a font is only usable here if it carries the ones this
+translation produces. That excludes most of the modern Arabic faces people reach for first:
+
+| Font | Missing forms | Result on screen |
+|---|---|---|
+| Cairo, Tajawal, Almarai, Alexandria, El Messiri, Changa, Markazi Text | 36 — every **isolated** form | every isolated letter is an empty box |
+| Readex Pro, Rubik, Reem Kufi, Scheherazade New, Mada, Harmattan | 125 | almost nothing renders |
+| Vazirmatn, Noto Kufi Arabic, Noto Sans Arabic, Noto Naskh Arabic, IBM Plex Sans Arabic | 0 | usable |
+
+The five that pass all ship, and `Ctrl+Alt+N` cycles them in game. Vazirmatn is the default; set
+`FontFile` in `com.kentum.arabic.cfg` to pin another. Screen a new candidate with
+`ShaperTest --glyphs` followed by `check_font_coverage.py` — the block-coverage number alone is
+misleading, since most of Presentation Forms-B is Persian and Urdu letters Arabic never produces.
+
 ### Building
 
 ```powershell
@@ -107,6 +136,7 @@ The build resolves the game's assemblies through the `KENTUM_DIR` environment va
 | `Ctrl+Alt+L` | Toggle Kentum's localization debug mode — with Arabic selected this is a live coverage report (red = untranslated) |
 | `Ctrl+Alt+T` | Show the shaping test battery |
 | `Ctrl+Alt+M` | Cycle shaping mode |
+| `Ctrl+Alt+N` | Cycle the bundled Arabic fonts, live — judge a typeface on the real menus, not a sample sheet |
 | `Ctrl+Alt+F` | Audit font coverage across the whole translation |
 | `Ctrl+Alt+D` | Write missing-key and bypass diagnostics |
 | `Ctrl+Alt+S` | Log a status summary |
@@ -114,14 +144,20 @@ The build resolves the game's assemblies through the `KENTUM_DIR` environment va
 ### Tooling
 
 ```bash
-# Will this font render shaped Arabic? (the Presentation Forms-B trap)
+# Which codepoints does the shaped translation actually need?
+dotnet run --project tools/ShaperTest -c Release -- --glyphs content/strings needed.txt
+
+# Will this font render them? (the Presentation Forms trap)
 python tools/check_font_coverage.py "content/fonts/*.ttf" --text "content/strings/*.tsv"
 
 # Check placeholders, tags and duplicate keys before committing
 python tools/validate_tsv.py content/strings
 
-# Shaping regression suite — runs without launching the game
-dotnet run --project tools/ShaperTest -c Release
+# Diacritics TextMeshPro cannot position — reports, does not change
+python tools/strip_tashkeel.py content/strings --check
+
+# Shaping regression suite over every shipped string — no game needed
+dotnet run --project tools/ShaperTest -c Release -- content/strings
 ```
 
 ### Repository layout
@@ -129,7 +165,7 @@ dotnet run --project tools/ShaperTest -c Release
 ```
 src/KentumArabic/     plugin source (RTLTMPro 3.4.3 vendored under Shaping/)
 content/strings/      the translation — plain logical Arabic, TSV
-content/fonts/        Noto Naskh Arabic (SIL OFL)
+content/fonts/        five Arabic typefaces, all SIL OFL (Ctrl+Alt+N cycles them)
 content/manifest.json content version + supported game builds
 tools/                Python utilities and the shaping test harness
 scripts/              setup and deploy

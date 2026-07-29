@@ -6,46 +6,46 @@
 key	ar
 
 Ability_Player_Movement_Name	الحركة الأفقية
-Ability_Player_Movement_Description	تحرّك باستخدام <input=Player/Move>. هل يلزمني حقًا أن أشرح هذا؟
+Ability_Player_Movement_Description	تحرك باستخدام <input=Player/Move>. هل يلزمني حقا أن أشرح هذا؟
 Ability_Player_Jump_Name	دفع العصا
 Ability_Player_Jump_Description	اضغط <input=Player/Jump> للصعود. وكلما أطلت الضغط ارتفعت القفزة أكثر!
-Ability_Player_LedgeGrab_Name	التعلّق بالحافة
-Ability_Player_LedgeGrab_Description	حرّك <input=Player/Move> نحو حافة لتتشبث بها جيدًا يا قرد العنكبوت.\n\nويمكنك ترك التعلّق بالقفز أو بدفع <input=Player/Move> للأسفل.
+Ability_Player_LedgeGrab_Name	التعلق بالحافة
+Ability_Player_LedgeGrab_Description	حرك <input=Player/Move> نحو حافة لتتشبث بها جيدا يا قرد العنكبوت.\n\nويمكنك ترك التعلق بالقفز أو بدفع <input=Player/Move> للأسفل.
 Ability_Player_Melee_Name	القتال الأساسي
-Ability_Player_Melee_Description	اضغط <input=Player/Ability_Melee> لتنفيذ هجوم قريب أساسي. جرّب استخدام المهارة في اتجاهات مختلفة، على الأرض وفي الهواء، لترى حركاتها المميزة.
+Ability_Player_Melee_Description	اضغط <input=Player/Ability_Melee> لتنفيذ هجوم قريب أساسي. جرب استخدام المهارة في اتجاهات مختلفة، على الأرض وفي الهواء، لترى حركاتها المميزة.
 Ability_Player_SuperMelee_Name	السحق الحركي
 Ability_Player_SuperMelee_Description	استمر بالضغط على <input=Player/Ability_Melee> ثم أفلته لتنفيذ ضربة سحق حركي قادرة على <b>تحطيم الأجسام الصلبة</b>.
 Ability_Player_Dash_Name	الاندفاع
-Ability_Player_Dash_Description	اضغط <input=Player/Ability_Dash> لتمنح جسدك رشاقة بسرعة البرق، فتتحرك أفقيًا بسرعة لا تُضاهى.
+Ability_Player_Dash_Description	اضغط <input=Player/Ability_Dash> لتمنح جسدك رشاقة بسرعة البرق، فتتحرك أفقيا بسرعة لا تضاهى.
 Ability_Player_PhaseDash_Name	الاندفاع الطوري
-Ability_Player_PhaseDash_Description	اضغط <input=Player/Ability_Dash> لتعبر المكان والزمان طوريًا للحظة، فتتحرك أفقيًا بسرعة متجاهلًا كل مصادر الضرر.\n\nهذه الترقية الفريدة تزيل الحواجز المادية، فتتيح التنقل داخل كابلات الطاقة بحركة سريعة رشيقة.
+Ability_Player_PhaseDash_Description	اضغط <input=Player/Ability_Dash> لتعبر المكان والزمان طوريا للحظة، فتتحرك أفقيا بسرعة متجاهلا كل مصادر الضرر.\n\nهذه الترقية الفريدة تزيل الحواجز المادية، فتتيح التنقل داخل كابلات الطاقة بحركة سريعة رشيقة.
 Ability_Player_Glide_Name	الشراع
 Ability_Player_Glide_Description	اضغط <input=Player/Jump> وأنت في الهواء لتفعيل الشراع.
 Ability_Player_SuperJump_Name	قفزة الدوامة
 Ability_Player_SuperJump_Description	استمر بالضغط على <input=Player/Jump> أثناء الانحناء لشحن دوامة هوائية قوية وإطلاقها لتدفعك إلى أعلى
-Ability_Player_Hook_Name	الخطّاف
-Ability_Player_Hook_Description	اضغط <input=Player/Ability_1> لإطلاق الخطّاف. ويمكنك توجيهه باستخدام <input=Player/Move>. ويمكنك استخدام الخطّاف لالتقاط العناصر والنباتات والحيوانات.
+Ability_Player_Hook_Name	الخطاف
+Ability_Player_Hook_Description	اضغط <input=Player/Ability_1> لإطلاق الخطاف. ويمكنك توجيهه باستخدام <input=Player/Move>. ويمكنك استخدام الخطاف لالتقاط العناصر والنباتات والحيوانات.
 Ability_Player_Parry_Name	الدرع الهولوغرافي
-Ability_Player_Parry_Description	اضغط <input=Player/Ability_Parry> لصدّ هجمات الأعداء. وإن لم تضبط التوقيت انكسر الدرع وأعاد الشحن بمرور الوقت. ويمكنك صنع تعزيزات لحمل شحنات هولوغرافية متعددة.
+Ability_Player_Parry_Description	اضغط <input=Player/Ability_Parry> لصد هجمات الأعداء. وإن لم تضبط التوقيت انكسر الدرع وأعاد الشحن بمرور الوقت. ويمكنك صنع تعزيزات لحمل شحنات هولوغرافية متعددة.
 Ability_Player_Shrink_Name	Kent³
-Ability_Player_Shrink_Description	استخدم <input=Player/Ability_Shrink> للانضغاط إلى هيئة مكعّب، فتمر عبر الفجوات الضيقة.
+Ability_Player_Shrink_Description	استخدم <input=Player/Ability_Shrink> للانضغاط إلى هيئة مكعب، فتمر عبر الفجوات الضيقة.
 Ability_Player_Shrink_Stomp_Name	الدوس الحركي
-Ability_Player_Shrink_Stomp_Description	استخدام <input=Player/Ability_Shrink> في الهواء يطلق قوة حركية هابطة جبّارة قادرة على تحطيم الأجسام.
+Ability_Player_Shrink_Stomp_Description	استخدام <input=Player/Ability_Shrink> في الهواء يطلق قوة حركية هابطة جبارة قادرة على تحطيم الأجسام.
 Ability_Player_Shrink_Attack_Name	تفريغ صغير
 Ability_Player_Shrink_Attack_Description	اضغط الزر لإطلاق تفريغ كهربائي صغير على الأعداء القريبين. ليس بالكثير، لكنه صادق.
 Ability_Player_Runba_Name	R.O.C.C.O.
-Ability_Player_Runba_Description	اضغط <input=Player/Ability_Run> لتنطلق بأقصى سرعة!\n\nهذا الجسم الآلي ذو التحكم بالسرعة للطرق الوعرة أعجوبة في البراعة والاستدامة. ينزلق بلا جهد فوق الأرض مدفوعًا <color=#008aff><b>بالسماد</b></color>، إن توفر في المخزون ما يشحن خزان الوقود.
+Ability_Player_Runba_Description	اضغط <input=Player/Ability_Run> لتنطلق بأقصى سرعة!\n\nهذا الجسم الآلي ذو التحكم بالسرعة للطرق الوعرة أعجوبة في البراعة والاستدامة. ينزلق بلا جهد فوق الأرض مدفوعا <color=#008aff><b>بالسماد</b></color>، إن توفر في المخزون ما يشحن خزان الوقود.
 Ability_Player_Scanner_Name	الماسح
-Ability_Player_Scanner_Description	استمر بالضغط على <input=Player/Ability_DroneMode> لتفعيل وضع المسيّرة.\n\n<b>-</b> وأثناء وضع المسيّرة، استمر بالضغط على <input=Player/Ability_Melee> لمسح النباتات والحيوانات ونقاط الاهتمام القريبة، فتكشف <color=#00ffffff><b>وصفات</b></color> جديدة ومعلومات قيّمة عن العالم.
+Ability_Player_Scanner_Description	استمر بالضغط على <input=Player/Ability_DroneMode> لتفعيل وضع المسيرة.\n\n<b>-</b> وأثناء وضع المسيرة، استمر بالضغط على <input=Player/Ability_Melee> لمسح النباتات والحيوانات ونقاط الاهتمام القريبة، فتكشف <color=#00ffffff><b>وصفات</b></color> جديدة ومعلومات قيمة عن العالم.
 Ability_Player_CaptureBall_Name	فخ الأقراص
-Ability_Player_CaptureBall_Description	استمر بالضغط على <input=Player/Ability_DroneMode> لتفعيل وضع المسيّرة.\n\n<b>-</b> وأثناء وضع المسيّرة، استمر بالضغط على <input=Player/Ability_1> ثم أفلته لرمي الفخاخ. ثم اضغط <input=Player/Ability_1> مرة أخرى لتفعيل الفخ وأسر بعض المخلوقات داخل وحدة احتواء.
+Ability_Player_CaptureBall_Description	استمر بالضغط على <input=Player/Ability_DroneMode> لتفعيل وضع المسيرة.\n\n<b>-</b> وأثناء وضع المسيرة، استمر بالضغط على <input=Player/Ability_1> ثم أفلته لرمي الفخاخ. ثم اضغط <input=Player/Ability_1> مرة أخرى لتفعيل الفخ وأسر بعض المخلوقات داخل وحدة احتواء.
 Ability_Player_Light_Name	المشعل الكهربائي
-Ability_Player_Light_Description	مصباح محمول تشغّله وتطفئه بـ<input=Player/Ability_Light>. يعمل <color=#008aff><b>بالبطاريات العضوية</b></color>.
+Ability_Player_Light_Description	مصباح محمول تشغله وتطفئه بـ<input=Player/Ability_Light>. يعمل <color=#008aff><b>بالبطاريات العضوية</b></color>.
 Ability_Player_Projectile_Name	مدفع البلازما
 Ability_Player_Projectile_Description	قوة الشمس في راحة يدك. الضغط على <input=Player/Ability_1> يطلق قذيفة بلازما من العصا، إن توفرت <color=#008aff><b>ذخيرة بلازما</b></color> في المخزون.
 Ability_Player_Vacuum_Name	كنس الجاذبية
-Ability_Player_Vacuum_Description	اضغط <input=Player/Ability_1> لتفعيل الشافط. يمتص العناصر وجثث الحيوانات مع إتاحة التحرك جانبيًا.
-Ability_Player_PrimordialCube_Name	تخليق المكعّب
+Ability_Player_Vacuum_Description	اضغط <input=Player/Ability_1> لتفعيل الشافط. يمتص العناصر وجثث الحيوانات مع إتاحة التحرك جانبيا.
+Ability_Player_PrimordialCube_Name	تخليق المكعب
 Ability_Player_PrimordialCube_Description	اضغط <input=Player/Interact> لتخليق المادة العضوية إلى مواد صالحة للاستخدام.
 Ability_Player_Charango_Name	التشارانغو
-Ability_Player_Charango_Description	عديم النفع تمامًا في القتال، لكنه مثالي لتحويل كل لحظة إلى حفل خاص.\nاضغط <input=Player/Ability_Charango_1> أو <input=Player/Ability_Charango_2> أو <input=Player/Ability_Charango_3> أو <input=Player/Ability_Charango_4> أو <input=Player/Ability_Charango_5> لعزف نغمات مفردة.\nوبـ<input=Player/Ability_Charango_Up> ترفع نصف درجة (مؤثر، لكن بلا فائدة).\nوبـ<input=Player/Ability_Charango_Down> تخفض نصف درجة (أكثر تأثيرًا، وبالقدر نفسه من انعدام الفائدة).
+Ability_Player_Charango_Description	عديم النفع تماما في القتال، لكنه مثالي لتحويل كل لحظة إلى حفل خاص.\nاضغط <input=Player/Ability_Charango_1> أو <input=Player/Ability_Charango_2> أو <input=Player/Ability_Charango_3> أو <input=Player/Ability_Charango_4> أو <input=Player/Ability_Charango_5> لعزف نغمات مفردة.\nوبـ<input=Player/Ability_Charango_Up> ترفع نصف درجة (مؤثر، لكن بلا فائدة).\nوبـ<input=Player/Ability_Charango_Down> تخفض نصف درجة (أكثر تأثيرا، وبالقدر نفسه من انعدام الفائدة).

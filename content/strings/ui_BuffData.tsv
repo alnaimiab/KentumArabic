@@ -18,14 +18,14 @@ BuffData_Shield2_Description	يمنح 40 نقطة صحة مؤقتة.
 BuffData_Shield3_Name	درع مؤقت ++
 BuffData_Shield3_Description	يمنح 80 نقطة صحة مؤقتة.
 BuffData_SmallPotionRegeneration_Name	تجدد صغير
-BuffData_SmallPotionRegeneration_Description	يجدد 20 نقطة صحة تدريجيًا.
+BuffData_SmallPotionRegeneration_Description	يجدد 20 نقطة صحة تدريجيا.
 BuffData_PotionRegeneration_Name	تجدد
-BuffData_PotionRegeneration_Description	يجدد 40 نقطة صحة تدريجيًا.
+BuffData_PotionRegeneration_Description	يجدد 40 نقطة صحة تدريجيا.
 BuffData_SuperPotionRegeneration_Name	تجدد فائق
-BuffData_SuperPotionRegeneration_Description	يجدد 80 نقطة صحة تدريجيًا.
-BuffData_Equipment_Hood_Regeneration_Name	تجدد المعدّات
-BuffData_Equipment_Hood_Regeneration_Description	يمنح تجددًا صحيًا بسيطًا.
-BuffData_ExtraLoot_Name	غنائم المعدّات
+BuffData_SuperPotionRegeneration_Description	يجدد 80 نقطة صحة تدريجيا.
+BuffData_Equipment_Hood_Regeneration_Name	تجدد المعدات
+BuffData_Equipment_Hood_Regeneration_Description	يمنح تجددا صحيا بسيطا.
+BuffData_ExtraLoot_Name	غنائم المعدات
 BuffData_ExtraLoot_Description	احصل على غنائم أكثر عند جمع الأشياء.
 BuffData_ExtraLoot1_Name	غنائم متزايدة
 BuffData_ExtraLoot1_Description	احصل على غنائم أكثر عند قتل الحيوانات.

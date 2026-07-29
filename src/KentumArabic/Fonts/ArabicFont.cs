@@ -20,8 +20,26 @@ namespace KentumArabic.Fonts
     /// </summary>
     public static class ArabicFont
     {
-        public const string DefaultFontFile = "fonts/IBMPlexSansArabic-Regular.ttf";
+        public const string DefaultFontFile = "fonts/Vazirmatn-Regular.ttf";
         public const string DefaultBundleName = "arabicfont";
+
+        /// <summary>
+        /// The fonts shipped with the plugin, in the order Ctrl+Alt+N cycles them.
+        ///
+        /// Every one of these was checked against the exact set of presentation forms this
+        /// translation produces (tools/ShaperTest --glyphs). That filter is strict: Cairo,
+        /// Tajawal, Almarai and the other popular modern faces are missing all 36 isolated forms
+        /// and would render every isolated letter as an empty box, which is invisible until you
+        /// see it in game.
+        /// </summary>
+        public static readonly string[] BundledFonts =
+        {
+            "fonts/Vazirmatn-Regular.ttf",
+            "fonts/NotoKufiArabic-Regular.ttf",
+            "fonts/NotoSansArabic-Regular.ttf",
+            "fonts/IBMPlexSansArabic-Regular.ttf",
+            "fonts/NotoNaskhArabic-Regular.ttf",
+        };
 
         private static AssetBundle _bundle;
         private static TMP_FontAsset _font;
@@ -233,6 +251,69 @@ namespace KentumArabic.Fonts
                 }
                 if (added > 0) Log.Verbose($"Added Arabic fallback to {added} font asset(s).");
             });
+        }
+
+        /// <summary>
+        /// Takes the current Arabic font back out of every fallback list it was added to.
+        ///
+        /// Needed before swapping fonts: TMP resolves a character against the first fallback that
+        /// has it, so a font left behind in the list keeps winning and the swap appears to do
+        /// nothing.
+        /// </summary>
+        private static void UnregisterFallback()
+        {
+            if (_font == null) return;
+
+            Log.Try("Removing the previous Arabic fallback", () =>
+            {
+                TMP_Settings.fallbackFontAssets?.Remove(_font);
+                foreach (var f in Resources.FindObjectsOfTypeAll<TMP_FontAsset>())
+                    if (f != null && f != _font)
+                        f.fallbackFontAssetTable?.Remove(_font);
+            });
+        }
+
+        /// <summary>
+        /// Swaps the Arabic font at runtime and puts the new one on screen immediately.
+        ///
+        /// Choosing a typeface from a description is guesswork; choosing it from the actual game,
+        /// on the actual menus and dialogue, is not. This is the same reason the shaping modes are
+        /// switchable from a hotkey.
+        ///
+        /// Returns false and keeps the current font if the new one cannot be built.
+        /// </summary>
+        public static bool SwitchTo(string pluginDir, string fontFile, IEnumerable<string> prewarm = null)
+        {
+            var path = Path.Combine(pluginDir, fontFile);
+            if (!File.Exists(path))
+            {
+                Log.Warn($"Cannot switch font: '{path}' does not exist.");
+                return false;
+            }
+
+            var previous = _font;
+            var previousFrom = LoadedFrom;
+
+            UnregisterFallback();
+            _font = null;
+
+            if (!LoadFromTtf(path))
+            {
+                // Put the old one back rather than leaving the game with no Arabic font at all.
+                _font = previous;
+                LoadedFrom = previousFrom;
+                RegisterFallback();
+                RefreshAllText();
+                Log.Warn($"Font switch to '{fontFile}' failed; kept {previousFrom}.");
+                return false;
+            }
+
+            RegisterFallback();
+            if (prewarm != null) Prewarm(prewarm);
+            RefreshAllText();
+
+            Log.Info($"Arabic font switched to {Path.GetFileName(path)}.");
+            return true;
         }
 
         /// <summary>
