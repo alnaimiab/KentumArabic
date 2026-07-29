@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using KentumArabic.Shaping;
 
 namespace ShaperTest
@@ -136,8 +137,93 @@ namespace ShaperTest
             }
             Console.WriteLine(failed ? "" : "   OK\n");
 
+            // Hand-picked cases only cover the failure modes already known. The placeholder bug
+            // that broke the Load screen shipped because no case happened to contain "{0}".
+            // Running the real shipped corpus removes that gap: every string the player can
+            // actually see is checked, so a new markup form in new content fails here first.
+            foreach (var dir in args)
+                failed |= !CheckCorpus(dir);
+
             Console.WriteLine(failed ? "RESULT: FAILURES ABOVE" : "RESULT: all cases OK.");
             return failed ? 1 : 0;
+        }
+
+        private static bool CheckCorpus(string stringsDir)
+        {
+            if (!Directory.Exists(stringsDir))
+            {
+                Console.WriteLine($"── corpus: {stringsDir} not found, skipped");
+                return true;
+            }
+
+            int rows = 0, bad = 0;
+            Console.WriteLine($"── corpus: {stringsDir}");
+
+            foreach (var file in Directory.GetFiles(stringsDir, "*.tsv", SearchOption.AllDirectories))
+            {
+                foreach (var raw in File.ReadAllLines(file))
+                {
+                    if (raw.Length == 0 || raw[0] == '#') continue;
+                    var cols = raw.Split('\t');
+                    if (cols.Length < 2) continue;
+                    if (cols[0] == "key" || cols[0] == "field" || cols[0] == "id") continue;
+
+                    var key = cols[0];
+                    var text = cols[1];
+                    if (string.IsNullOrWhiteSpace(text)) continue;
+
+                    rows++;
+                    var shaped = ArabicShaper.Shape(text);
+                    var name = Path.GetFileName(file);
+
+                    foreach (var tag in ExtractTags(text))
+                        if (!shaped.Contains(tag))
+                            bad += Fail(name, key, $"rich text tag lost: {tag}");
+
+                    foreach (var ph in ExtractPlaceholders(text))
+                        if (!shaped.Contains(ph))
+                            bad += Fail(name, key, $"format placeholder lost or reversed: {ph}");
+
+                    if (!BracesBalanced(shaped))
+                        bad += Fail(name, key, "unbalanced braces — string.Format would throw");
+
+                    // Pixel Crushers consumes [emN] in FormattedText.Parse before TMP sees it,
+                    // so the shaper should never meet one. If a path ever delivers it raw, the
+                    // reversal would turn "[em2]" into "]2me[" and render as literal garbage.
+                    foreach (var em in ExtractEmphasis(text))
+                        if (!shaped.Contains(em))
+                            bad += Fail(name, key, $"emphasis code reversed: {em} — check the Parse path");
+
+                    // The shaper recognises already-shaped text by the presentation forms it
+                    // emitted. A string of Latin plus Arabic punctuation only — "O.R.B.؟" — never
+                    // produces one, so there is nothing to recognise and shaping it twice flips it
+                    // back. That is undetectable by design, not a defect: TMP always hands the
+                    // preprocessor the original m_text, never its own previous output.
+                    if (HasPresentationForms(shaped) && ArabicShaper.Shape(shaped) != shaped)
+                    {
+                        bad += Fail(name, key, "not idempotent — double shaping changes it");
+                        Console.WriteLine($"        in   : {text}");
+                        Console.WriteLine($"        once : {shaped}");
+                        Console.WriteLine($"        twice: {ArabicShaper.Shape(shaped)}");
+                    }
+                }
+            }
+
+            Console.WriteLine(bad == 0 ? $"   OK ({rows} strings)\n" : $"   {bad} failure(s) over {rows} strings\n");
+            return bad == 0;
+        }
+
+        private static int Fail(string file, string key, string message)
+        {
+            Console.WriteLine($"   FAIL {file} [{key}]: {message}");
+            return 1;
+        }
+
+        private static IEnumerable<string> ExtractEmphasis(string s)
+        {
+            foreach (System.Text.RegularExpressions.Match m in
+                     System.Text.RegularExpressions.Regex.Matches(s, @"\[/?em[0-9]\]"))
+                yield return m.Value;
         }
 
         private static bool HasPresentationForms(string s)

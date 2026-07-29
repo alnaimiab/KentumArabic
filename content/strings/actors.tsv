@@ -1,0 +1,10 @@
+# تعريب Kentum — أسماء الشخصيات (Display Name)
+# اسم البطل يُنقل حرفيًا مع ضبط الكاف بالكسرة لتُقرأ «كِنت» لا «كَنت».
+# O.R.B. اختصار لاتيني (Obedient Robotic Buddy) وتُبنى عليه نكات نصية في الحوار — يبقى كما هو.
+key	ar
+Kent	كِنت
+O.R.B.	O.R.B.
+Infrastructure Assistant	مساعد البنية التحتية
+Biology Assistant	مساعد الأحياء
+Agriculture Assistant	مساعد الزراعة
+Technology Assistant	مساعد التقنية

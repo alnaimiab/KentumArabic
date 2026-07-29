@@ -102,6 +102,16 @@ namespace KentumArabic.Shaping
             return false;
         }
 
+        /// <summary>Single-codepoint form of <see cref="ContainsArabic"/>.</summary>
+        private static bool IsArabic(int c)
+        {
+            return (c >= 0x0600 && c <= 0x06FF) ||
+                   (c >= 0x0750 && c <= 0x077F) ||
+                   (c >= 0x08A0 && c <= 0x08FF) ||
+                   (c >= 0xFB50 && c <= 0xFDFF) ||
+                   (c >= 0xFE70 && c <= 0xFEFF);
+        }
+
         /// <summary>
         /// True if the string already holds presentation forms, meaning it has been shaped once
         /// already. Guards against double-shaping when a component's text is read back and re-set.
@@ -219,17 +229,24 @@ namespace KentumArabic.Shaping
                 bool isTag;
                 if (c == '>') { opener = '>'; closer = '<'; isTag = true; }
                 else if (c == '}') { opener = '}'; closer = '{'; isTag = false; }
+                // Pixel Crushers markup: [em2], [/em2], [lua(...)], [var=...]. FormattedText.Parse
+                // normally consumes these before TMP ever sees the string, so this is defence in
+                // depth for any consumer that skips Parse — reversed, "[em2]" becomes "]2me[",
+                // stops matching the parser's regex and renders as literal garbage.
+                else if (c == ']') { opener = ']'; closer = '['; isTag = false; }
                 else continue;
 
                 if (isTag && !FixTextTags) continue;
 
                 int end = -1;
+                bool hasArabic = false;
                 int limit = Math.Min(text.Length, i + MaxRunLength);
                 for (int j = i + 1; j < limit; j++)
                 {
                     int d = text.Get(j);
                     // Hitting the same closing delimiter again means this was not a run.
                     if (d == opener) break;
+                    if (IsArabic(d)) hasArabic = true;
                     if (d == closer)
                     {
                         // Tags never open with a space; reversed, that space sits just inside.
@@ -240,6 +257,10 @@ namespace KentumArabic.Shaping
                 }
 
                 if (end < 0) continue;
+
+                // Markup is always ASCII. Arabic inside the delimiters means this is prose the
+                // translator bracketed — «[ملاحظة]» — which must stay reversed with the line.
+                if (!isTag && hasArabic) continue;
 
                 text.Reverse(i, end - i + 1);
                 i = end;

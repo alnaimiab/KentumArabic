@@ -55,7 +55,7 @@ UI_General_Unlock	فتح
 UI_General_Year	السنة
 UI_General_LockedInDemo	<align="center"><uppercase>غير متاح في النسخة التجريبية</uppercase></align>
 UI_Player	اللاعب {0}
-UI_PressAnyButton	<اضغط أي زر>
+UI_PressAnyButton	«اضغط أي زر»
 UI_DeviceDisconnected	انقطع اتصال الجهاز
 
 # ── الإعدادات ──

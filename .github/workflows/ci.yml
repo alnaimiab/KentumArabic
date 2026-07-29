@@ -52,8 +52,12 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Run shaping regression suite
-        run: dotnet run --project tools/ShaperTest -c Release
+      # Passing content/strings runs every shipped string through the real shaper, not just the
+      # hand-picked cases. The placeholder bug that broke the Load screen shipped precisely
+      # because no hand-picked case happened to contain "{0}" — this closes that gap for good,
+      # and makes new content with unfamiliar markup fail here instead of in the player's game.
+      - name: Run shaping regression suite over the full corpus
+        run: dotnet run --project tools/ShaperTest -c Release -- content/strings
 
   # The plugin itself only builds against a real Kentum install (its assemblies are referenced,
   # never redistributed), so this job checks what it can without one.
