@@ -72,6 +72,26 @@ def plugin_files(zf):
 # the client; shipping it would change how players' games talk to Steam.
 
 
+def installers(zf, prefix=""):
+    """
+    The install/uninstall scripts, at the root of the archive.
+
+    They are worth shipping even though unzipping into the game folder also works, because
+    they do two things a player cannot: install BepInEx with its checksum verified, and record
+    whether BepInEx was already there. Without that record an uninstaller has to guess, and
+    guessing wrong deletes somebody's other mods.
+
+    The .bat wrappers matter as much as the .ps1 files: PowerShell scripts do not run on
+    double-click, they open in Notepad. Their names are ASCII deliberately - cmd.exe resolves a
+    batch file's own path through the system ANSI codepage, so an Arabic filename can fail to
+    launch on a Western-locale Windows.
+    """
+    for name in ("install.ps1", "uninstall.ps1", "install.bat", "uninstall.bat"):
+        src = os.path.join(REPO, "scripts", name)
+        if os.path.exists(src):
+            add_file(zf, src, prefix + name)
+
+
 def docs(zf, prefix=""):
     for name, arc in [("README.md", "README.md"),
                       ("LICENSE", "LICENSE.txt"),
@@ -101,6 +121,7 @@ def build_full(out_dir, version, bepinex_zip):
                         continue
                     zf.writestr(info.filename, src.read(info.filename))
         plugin_files(zf)
+        installers(zf)
         docs(zf)
     return path
 
@@ -126,6 +147,9 @@ def build_plugin_only(out_dir, version):
     path = os.path.join(out_dir, f"KentumArabic-PluginOnly-v{version}.zip")
     with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
         plugin_files(zf)
+        # Ships here too: the installer skips BepInEx when it is already present, which is
+        # exactly this audience, and the uninstaller is worth having either way.
+        installers(zf)
         docs(zf)
     return path
 
