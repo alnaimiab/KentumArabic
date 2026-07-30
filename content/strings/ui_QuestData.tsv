@@ -69,13 +69,13 @@ QuestData_MQ_Production_2_Task0_Name	شيد {baseExpansion:base_charcoalKiln}
 QuestData_MQ_Production_3_Name	بارون الفحم
 QuestData_MQ_Production_3_Task0_Name	اصنع {itemDef:Coal} ({0}/{1})
 QuestData_MQ_Production_3_5_Name	إمبراطورية الفحم
-QuestData_MQ_Production_3_5_Task0_Name	ابحث في {tech:tech_Foundry} في الدماغ
+QuestData_MQ_Production_3_5_Task0_Name	ابحث في {tech:tech_Foundry} داخل الدماغ
 QuestData_MQ_Production_4_Name	عصر المعادن
 QuestData_MQ_Production_4_Task0_Name	شيد {baseExpansion:base_foundry}
 QuestData_MQ_Production_5_Name	سيد السبائك
 QuestData_MQ_Production_5_Task0_Name	اصنع ({0}/{1}) {itemDef:DuraniumIngot}
 
-# ── السوائل المعرفية ──
+# ── السوائل الإدراكية ──
 QuestData_MQ_CognitiveFluid_B_1_Name	مزيد من عصير الدماغ
 QuestData_MQ_CognitiveFluid_B_1_Task0_Name	حدد موقع {ItemDef:Barley} في الشرق وامسحه
 QuestData_MQ_CognitiveFluid_B_2_Name	إلى المحمصة
@@ -90,7 +90,7 @@ QuestData_MQ_CognitiveFluid_C_2_Name	أرز؟
 QuestData_MQ_CognitiveFluid_C_2_Task0_Name	اجمع ({0}/{1}) {ItemDef:RiceBulb}
 QuestData_MQ_CognitiveFluid_C_3_Name	سائل قوي
 QuestData_MQ_CognitiveFluid_C_3_Task0_Name	اصنع {itemDef:CognitiveFluid_C} ({0}/{1})
-QuestData_SQ_ResearchCognitiveFluid_Task0_Name	ابحث في {tech:Tech_Base_ScienceStuff_GrinderCognitive} في الدماغ
+QuestData_SQ_ResearchCognitiveFluid_Task0_Name	ابحث في {tech:Tech_Base_ScienceStuff_GrinderCognitive} داخل الدماغ
 
 # ── نواة الطاقة ──
 QuestData_MQ_FixEnergyCore_Gather_Name	ما من قطع غيار
@@ -134,7 +134,7 @@ QuestData_SQ_Shrink_Task0_Name	اصنع مهارة {tech:shrinkTech} في الق
 QuestData_CraftAbility_ChargeAttack_Name	لا شيء يقف في طريقي
 QuestData_CraftAbility_ChargeAttack_Task0_Name	اصنع {tech:chargeAttack1Tech} في {baseExpansion:base_abilityCrafter}
 QuestData_CraftAbility_RunbaA_Name	مخصب ومهذب
-QuestData_CraftAbility_RunbaA_Task0_Name	شيد آلة تسميد
+QuestData_CraftAbility_RunbaA_Task0_Name	شيد آلة التسميد
 QuestData_CraftAbility_RunbaB_Name	كتيبة العظام
 QuestData_CraftAbility_RunbaB_Task0_Name	اصنع R.O.C.C.O.
 
@@ -144,7 +144,7 @@ QuestData_MQ_Monolith_Agri_0-5_Task0_Name	تحدث مع مساعد الزراع�
 QuestData_MQ_Monolith_Agri_0_Name	مطالب الحقل
 QuestData_MQ_Monolith_Agri_0_Task0_Name	افتح غرفة {tech:AgriRoomDoor}
 QuestData_MQ_Monolith_Agri_1_Name	مهرجان البذور — الجزء 1
-QuestData_MQ_Monolith_Agri_1_Task0_Name	أودع البذور إلى المخزون الزراعي ({0}/{1})
+QuestData_MQ_Monolith_Agri_1_Task0_Name	أودع البذور في المخزون الزراعي ({0}/{1})
 QuestData_MQ_Monolith_Agri_2_Name	مهرجان البذور — الجزء 2
 QuestData_MQ_Monolith_Agri_2_Task0_Name	قدم مخزون بذور أكبر ({0}/{1})
 QuestData_MQ_Monolith_Agri_3_Name	مهرجان البذور — الجزء 3
@@ -156,7 +156,7 @@ QuestData_MQ_Monolith_Biogen_0-5_Task0_Name	تحدث مع مساعد الأحي�
 QuestData_MQ_Monolith_Biogen_0_Name	أحياء 101
 QuestData_MQ_Monolith_Biogen_0_Task0_Name	افتح غرفة {tech:BioRoomDoor}
 QuestData_MQ_Monolith_Biogen_1_Name	أحياء 201
-QuestData_MQ_Monolith_Biogen_1_Task0_Name	أودع عينات حيوانية إلى المخزون الحيوي ({0}/{1})
+QuestData_MQ_Monolith_Biogen_1_Task0_Name	أودع عينات حيوانية في المخزون الحيوي ({0}/{1})
 QuestData_MQ_Monolith_Biogen_2_Name	أحياء 301
 QuestData_MQ_Monolith_Biogen_2_Task0_Name	قدم مزيدا من العينات الحيوانية ({0}/{1})
 QuestData_MQ_Monolith_Biogen_3_Name	أحياء 401
@@ -168,7 +168,7 @@ QuestData_MQ_Monolith_Infra_0-5_Task0_Name	قابل مساعد البنية ال
 QuestData_MQ_Monolith_Infra_0_Name	بنية تحتية لعالم جديد
 QuestData_MQ_Monolith_Infra_0_Task0_Name	افتح غرفة {tech:InfraRoomDoor}
 QuestData_MQ_Monolith_Infra_1_Name	هرج البنية التحتية
-QuestData_MQ_Monolith_Infra_1_Task0_Name	أودع مواد بناء إلى مخزون البنية التحتية ({0}/{1})
+QuestData_MQ_Monolith_Infra_1_Task0_Name	أودع مواد بناء في مخزون البنية التحتية ({0}/{1})
 QuestData_MQ_Monolith_Infra_2_Name	مرج البنية التحتية 2: النسخة الكهربائية
 QuestData_MQ_Monolith_Infra_2_Task0_Name	قدم مزيدا من مواد البناء ({0}/{1})
 QuestData_MQ_Monolith_Infra_3_Name	أحلام من إسمنت
@@ -180,7 +180,7 @@ QuestData_MQ_Monolith_Tech_0-5_Task0_Name	تحدث إلى مساعد التقن�
 QuestData_MQ_Monolith_Tech_0_Name	التقنية
 QuestData_MQ_Monolith_Tech_0_Task0_Name	افتح غرفة {tech:TechRoomDoor}
 QuestData_MQ_Monolith_Tech_1_Name	أحلام آلية — الجزء 1
-QuestData_MQ_Monolith_Tech_1_Task0_Name	أودع قطعا تقنية إلى مخزون التقنية ({0}/{1})
+QuestData_MQ_Monolith_Tech_1_Task0_Name	أودع قطعا تقنية في مخزون التقنية ({0}/{1})
 QuestData_MQ_Monolith_Tech_2_Name	أحلام آلية — الجزء 2
 QuestData_MQ_Monolith_Tech_2_Task0_Name	قدم تقنية أكثر تقدما ({0}/{1})
 QuestData_MQ_Monolith_Tech_3_Name	أحلام آلية — الجزء 3

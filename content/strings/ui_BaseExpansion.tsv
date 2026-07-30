@@ -23,7 +23,7 @@ BaseExpansion_EnhancementMachine_MOCK_Name	المعزز الوراثي
 BaseExpansion_EnhancementMachine_MOCK_Description	آلة لترقية قدرات عصاك أو فتحها.
 BaseExpansion_ResearchBrain_Name	دماغ البحث
 BaseExpansion_ResearchBrain_Description	دماغ حيوي اصطناعي هائل معلق في خزان احتواء، يعمل واجهة أساسية لفتح تقنيات القاعدة وتطويرها.
-BaseExpansion_GemCrafter_MOCK_Name	صانع جواهر وثاب الكريستال
+BaseExpansion_GemCrafter_MOCK_Name	صانع جواهر الوثاب الكريستالي
 BaseExpansion_GemCrafter_MOCK_Description	آلة لصنع البلورات التي تشغل وثابات الكريستال.
 BaseExpansion_Monolith_BiotechLab_MOCK_Name	التقنيات الحيوية
 
@@ -42,7 +42,7 @@ BaseExpansion_Blender_Name	الخلاط
 BaseExpansion_Blender_Description	يطحن المواد الخام إلى مساحيق وحبيبات لمعالجتها لاحقا.
 BaseExpansion_Grinder_Name	المطحنة
 BaseExpansion_Grinder_Description	آلة تطحن المواد.
-BaseExpansion_Alchemy_Name	المركز
+BaseExpansion_Alchemy_Name	المكثف
 BaseExpansion_Alchemy_Description	محطة عمل تركز المواد <color=#008aff><b>البسيطة لكن الصالحة</b></color> إلى عناصر مكررة.
 BaseExpansion_Crystallizer_Name	المبلور
 BaseExpansion_Crystallizer_Description	يضغط المواد وينقيها إلى بلورات ومواد صلبة نادرة.
@@ -50,7 +50,7 @@ BaseExpansion_Fabricator_Name	المصنع
 BaseExpansion_Fabricator_Description	يجمع الأجزاء المعقدة والمواد النانوية إلى منتجات متقدمة.
 BaseExpansion_Threader_Name	آلة الخيوط
 BaseExpansion_Threader_Description	آلة تصنع الخيوط والألياف.
-BaseExpansion_Loom_Name	النول
+BaseExpansion_Loom_Name	النويل
 BaseExpansion_Loom_Description	نول ميكانيكي ينسج <color=#008aff><b>الأقمشة</b></color> و<color=#008aff><b>الجلود</b></color> باستخدام <color=#008aff><b>الألياف النباتية</b></color>.
 BaseExpansion_Wardrobe_Name	خزانة الملابس
 BaseExpansion_Wardrobe_Description	جهاز مصمم لصنع <color=#008aff><b>قطع الملابس</b></color>. ستكون أكثر رجل أناقة على وجه الأرض. بل الوحيد، في الواقع.
@@ -68,7 +68,7 @@ BaseExpansion_Detonator_Name	مفعل بروتوكول الإبادة
 BaseExpansion_Detonator_Description	ستفعل هذه الآلة بروتوكولات الإبادة.
 BaseExpansion_ProjectileCrafter_Name	محطة ذخيرة البلازما
 BaseExpansion_ProjectileCrafter_Description	آلة تتيح لك صنع <color=#008aff><b>ذخيرة البلازما</b></color>. اصنع <color=#008aff><b>ذخيرة البلازما</b></color> لتفتح <color=#00ffffff><b>قدرة جديدة</b></color>!
-BaseExpansion_CaptureQube_Name	صانع الفخاخ
+BaseExpansion_CaptureQube_Name	الفخاخ العجيب
 BaseExpansion_CaptureQube_Description	آلة تنتج <color=#008aff><b>أقراص الأسر</b></color> التي تستخدمها لجمع الحيوانات بطريقة رحيمة. أما ما تفعله بالحيوان بعدها فتلك مشكلتك.
 
 # ── الطهي والتخزين ──
@@ -82,8 +82,8 @@ BaseExpansion_Brewery_Name	المخمرة
 BaseExpansion_Brewery_Description	محطة تخمير مثالية لتحضير <color=#008aff><b>الإكسيرات والجرعات</b></color>. تذكر ارتداء القفازات ونظارات الحماية.
 BaseExpansion_FoodReplicator_Name	طابعة الطعام
 BaseExpansion_FoodReplicator_Description	آلة تفكك المكونات على المستوى الجزيئي، ولا تكتفي بصنع <color=#008aff><b>أطباق</b></color> معقدة بل تشحنها بشيفرة وراثية قادرة على منح <color=#008aff><b>تعزيزات</b></color>.
-BaseExpansion_CognitiveFluidMachine_Name	آلة السوائل المعرفية
-BaseExpansion_CognitiveFluidMachine_Description	آلة لصنع أنواع مختلفة من السوائل المعرفية.
+BaseExpansion_CognitiveFluidMachine_Name	آلة السوائل الإدراكية
+BaseExpansion_CognitiveFluidMachine_Description	آلة لصنع أنواع مختلفة من السوائل الإدراكية.
 BaseExpansion_Coffee_Name	آلة القهوة
 BaseExpansion_Coffee_Description	آلة قهوة تحضر قهوة منشطة. اختر خلطتك المفضلة واستمتع بدفعة طاقة. تحذير: قد تسبب الإنتاجية!
 BaseExpansion_ColdStorage_Name	الثلاجة الصغيرة
@@ -100,7 +100,7 @@ BaseExpansion_SafeStorage_Description	تخزين آمن للعناصر التي 
 # ── الزراعة ──
 BaseExpansion_FarmBasic_Name	قطعة زراعية
 BaseExpansion_FarmBasic_Description	قطعة زراعية أساسية لزرع <color=#008aff><b>البذور</b></color>.
-BaseExpansion_Farm_Name	الحوض المائي
+BaseExpansion_Farm_Name	حوض الاستنبات المائي
 BaseExpansion_Farm_Description	حوض لزرع <color=#008aff><b>بذورك</b></color>. أضف الماء واحصد الثمار في وقت قصير.
 BaseExpansion_FarmBioGen_Name	قطعة زراعية حيوية وراثية
 BaseExpansion_FarmBioGen_Description	قطعة زراعية متقدمة لزرع <color=#008aff><b>البذور</b></color> الحيوية الوراثية.
@@ -186,7 +186,7 @@ BaseExpansion_DiagonalPlatform_Small_Name	منحدر صغير
 BaseExpansion_DiagonalPlatform_Small_Description	منصة مائلة صغيرة ينزلق عليها اللاعبون والعناصر أو يسقطون منها.\nمفيدة لتوجيه الحركة.
 BaseExpansion_DiagonalPlatform_Bouncy_Name	منصة ارتداد
 BaseExpansion_DiagonalPlatform_Bouncy_Description	منصة مائلة ترتد عليها العناصر.
-BaseExpansion_Bouncer_Name	لوح النط
+BaseExpansion_Bouncer_Name	لوح الارتداد
 BaseExpansion_Bouncer_Description	منصة تقذفك إلى أعلى.
 BaseExpansion_Fan_Name	منصة المروحة
 BaseExpansion_Fan_Description	منصة تدفعك إلى أعلى إن استخدمت الشراع.
@@ -410,13 +410,13 @@ BaseExpansion_GlamorousMirror_Name	مرآة فاخرة
 BaseExpansion_GlamorousMirror_Description	مرآة فاخرة.
 BaseExpansion_SnowGlobe_Name	كرة ثلجية
 BaseExpansion_SnowGlobe_Description	كرة ثلجية للزينة.
-BaseExpansion_Gong_Name	الجرس الصيني
+BaseExpansion_Gong_Name	الغونغ
 BaseExpansion_Gong_Description	جرس صيني.
 BaseExpansion_Gramophone_Name	الحاكي
 BaseExpansion_Gramophone_Description	كلمة «عتيق» لا تفي هذه القطعة التاريخية حقها. أنزل الإبرة وشغل بعض الكلاسيكيات.
 BaseExpansion_BarNeonSign_Name	لافتة نيون
 BaseExpansion_BarNeonSign_Description	لافتة مضيئة تذكرك بي، أفضل روبوت مساعد لديك. هل ظننتها حقا زينة رخيصة لغرفة رجال؟
-BaseExpansion_BasketballHoop_Name	سلة كرة
+BaseExpansion_BasketballHoop_Name	حلقة السلة
 BaseExpansion_BasketballHoop_Description	يقولون إن البيض لا يقفزون، لكن جرب على أي حال.
 BaseExpansion_Dices_Name	نرد مخملي
 BaseExpansion_Dices_Description	عنصر لا يخلو منه مرآة أي متباه.

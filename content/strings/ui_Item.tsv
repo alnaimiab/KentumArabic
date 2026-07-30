@@ -304,9 +304,9 @@ Item_Seed_PlasticSapling_Description	بذرة هجينة تنبت كتلة بل�
 Item_Seed_Deco_Bonsai_Name	بذرة بونساي
 Item_Seed_Deco_Bonsai_Description	بذرة بونساي للزينة فقط.
 
-# ── السوائل المعرفية والجرعات ──
+# ── السوائل الإدراكية والجرعات ──
 Item_CognitiveFluid_A_Name	سائل إدراكي من النوع A
-Item_CognitiveFluid_A_Description	سائل يحول التخمر إلى مصفوفة حيوية من الفطريات المعرفية القادرة على تحفيز عمليات التفكير.
+Item_CognitiveFluid_A_Description	سائل يحول التخمر إلى مصفوفة حيوية من الفطريات الإدراكية القادرة على تحفيز عمليات التفكير.
 Item_CognitiveFluid_B_Name	سائل إدراكي من النوع B
 Item_CognitiveFluid_B_Description	للوهلة الأولى يبدو هذا السائل الإدراكي مطابقا للنوع A، لأنهما يحضران بالعناصر نفسها، لكن الحقيقة أبعد ما تكون عن ذلك. فهذا يحمل حرف B في اسمه. ولونه مختلف.
 Item_CognitiveFluid_C_Name	سائل إدراكي من النوع C

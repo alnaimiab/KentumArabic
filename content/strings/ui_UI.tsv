@@ -158,7 +158,7 @@ UI_AutomatedCrafting_PickUpButton	التقاط
 UI_AutomatedCraftingPanel_AutomatedRecipe	الوصفة الآلية
 UI_AutomatedCraftingPanel_AutomatedRecipeClearButton	إلغاء الوصفة الآلية
 UI_AutomatedCraftingPanel_AutomatedRecipeSelectButton	تعيين وصفة آلية
-UI_AutomatedCraftingPanel_AutomatedRecipeUnselected	لم يتم اختيار وصفة آلية
+UI_AutomatedCraftingPanel_AutomatedRecipeUnselected	لا توجد وصفة آلية مختارة
 UI_AutomatedCraftingPanel_State_Crafting	جار التصنيع...
 UI_AutomatedCraftingPanel_State_NeedsInput	بحاجة إلى مواد
 UI_AutomatedCraftingPanel_State_Waiting	في الانتظار
@@ -405,7 +405,7 @@ UI_KB_CraftableIn	<b>- يصنع في <allcaps>{0}</allcaps> -</b>
 UI_KB_Character_Diurnal	نهاري
 UI_KB_Character_Nocturnal	ليلي
 UI_CharacterData_Unknown	مجهول
-UI_SelectedInfo_NoInfo	لم يتم تحديد شيء
+UI_SelectedInfo_NoInfo	لا شيء محدد
 
 # ── التقنيات ──
 UI_Technologies_Staff_Title	العصا
@@ -432,7 +432,7 @@ UI_Notification_EquipmentUnlocked	فتحت معدة جديدة!
 UI_Notification_CharacterDataUnlocked	فتح مدخل جديد!
 UI_Notification_CantPin	بلغت الحد الأقصى للوصفات المثبتة
 UI_Notification_MaxQueue	بلغت الحد الأقصى للطابور
-UI_Recipe_Unlocked_Recipe	فتحت وصفة جديدة!
+UI_Recipe_Unlocked_Recipe	وصفة جديدة متاحة!
 UI_Recipe_Unlocked_Blueprint	فتح مخطط جديد!
 UI_Recipe_Unlocked_Diagram	فتح مخطط قاعدة جديد!
 UI_Recipe_Unlocked_Code	فتح كود وراثي جديد!
