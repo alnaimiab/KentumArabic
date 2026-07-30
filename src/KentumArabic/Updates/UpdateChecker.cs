@@ -20,7 +20,7 @@ namespace KentumArabic.Updates
     public static class UpdateChecker
     {
         private const string ManifestUrl =
-            "https://raw.githubusercontent.com/KENTUM_ARABIC_REPO/main/content/manifest.json";
+            "https://raw.githubusercontent.com/alnaimiab/KentumArabic/master/content/manifest.json";
 
         private const int TimeoutSeconds = 8;
 
@@ -43,9 +43,11 @@ namespace KentumArabic.Updates
             // Nothing here is important enough to risk a startup hitch.
             yield return new WaitForSecondsRealtime(5f);
 
-            if (ManifestUrl.Contains("KENTUM_ARABIC_REPO"))
+            // A fork that has not set its own repository yet still builds and runs; it just does
+            // not check for updates it could never find.
+            if (ManifestUrl.Contains("REPOSITORY_NOT_SET"))
             {
-                Log.Verbose("Update check skipped: no release repository configured yet.");
+                Log.Verbose("Update check skipped: no release repository configured.");
                 yield break;
             }
 

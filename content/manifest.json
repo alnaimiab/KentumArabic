@@ -6,6 +6,6 @@
   ],
   "gameVersion": "1.0",
   "unityVersion": "2022.3.62f3",
-  "downloadUrl": "https://github.com/KENTUM_ARABIC_REPO/releases/latest",
+  "downloadUrl": "https://github.com/alnaimiab/KentumArabic/releases/latest",
   "changelogAr": "ترجمة كاملة: 3,308 نصًا منها 732 سطر حوار. خمسة خطوط عربية يبدَّل بينها داخل اللعبة بـCtrl+Alt+N، والافتراضي Vazirmatn. أُزيل التشكيل لأن TextMeshPro لا يضبط مواضع الحركات. راجعنا أسماء المهام لاستعادة النكات والمراجع. أضفنا سكربتَي تثبيت وإزالة."
 }
