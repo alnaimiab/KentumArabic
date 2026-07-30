@@ -23,6 +23,10 @@ jobs:
       - name: Validate TSV translation files
         run: python tools/validate_tsv.py content/strings
 
+      # One term rendered two ways is the clearest sign nobody was minding the text.
+      - name: Enforce the glossary
+        run: python tools/check_terms.py content/strings
+
       # TextMeshPro has no mark-to-base positioning, so a diacritic is drawn at the pen position
       # instead of on its letter. It looks like the text will not sit still, and no font fixes it.
       - name: Reject diacritics TextMeshPro cannot position

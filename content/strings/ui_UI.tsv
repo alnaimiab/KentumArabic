@@ -169,7 +169,7 @@ UI_BaseExpansion_SettingsButton	الإعدادات
 UI_BaseExpansion_Subcategory_Crafting	التصنيع
 UI_BaseExpansion_Subcategory_Storage	التخزين
 UI_BaseExpansion_BuildButton	بناء
-UI_BaseExpansion_BuildContinueButton	ابن وتابع
+UI_BaseExpansion_BuildContinueButton	شيد وتابع
 UI_BaseExpansion_ScrapButton	تفكيك
 UI_BaseExpansion_MoveButton	نقل
 UI_BaseExpansion_RotateButton	تدوير
@@ -473,7 +473,7 @@ UI_WorldSettings_GameMode_Campaign_Description	انغمس في حكاية Kentum
 UI_WorldSettings_GameMode_Sandbox	حر
 UI_WorldSettings_GameMode_Sandbox_Description	تخط الحبكة والنكات وانطلق إلى الفوضى مباشرة! العالم نفسه بلا قيود القصة.
 UI_WorldSettings_GameMode_Creative	إبداعي
-UI_WorldSettings_GameMode_Creative_Description	عناصر لا نهائية وبلا قواعد. ابن ما يخطر ببالك مهما كان جنونيا.
+UI_WorldSettings_GameMode_Creative_Description	عناصر لا نهائية وبلا قواعد. شيد ما يخطر ببالك مهما كان جنونيا.
 UI_WorldSettings_Difficulty	الصعوبة
 UI_WorldSettings_Difficulty_Easy	سهل
 UI_WorldSettings_Difficulty_Easy_Description	استرخ واستمتع بالرحلة. اللعبة ألطف من أن تحمل ضغينة.

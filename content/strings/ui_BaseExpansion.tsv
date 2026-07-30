@@ -141,7 +141,7 @@ BaseExpansion_ConveyorBelt_Vertical_1x5_Description	حزام ناقل عمودي
 BaseExpansion_WorkerClaw_Name	مخلب العامل
 BaseExpansion_WorkerClaw_Description	ذراع آلية تنقل العناصر من جانب إلى آخر بكفاءة، فتتيح مناولة فعالة للمواد.
 BaseExpansion_WorkerClaw_2_Name	مخلب العامل المتقدم
-BaseExpansion_WorkerClaw_2_Description	مخلب عامل محسن ينقل العناصر جانبيا بسرعة أكبر.
+BaseExpansion_WorkerClaw_2_Description	مخلب العامل محسن ينقل العناصر جانبيا بسرعة أكبر.
 BaseExpansion_WorkerClaw_Gatherer_Name	مخلب الجامع
 BaseExpansion_WorkerClaw_Gatherer_Description	يلتقط هذا المخلب العناصر من أي جانب ويسقطها على الأرض لتسهيل جمعها.
 BaseExpansion_WorkerDrone_Name	مسيرة العامل

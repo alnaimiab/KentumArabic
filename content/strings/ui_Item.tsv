@@ -305,13 +305,13 @@ Item_Seed_Deco_Bonsai_Name	بذرة بونساي
 Item_Seed_Deco_Bonsai_Description	بذرة بونساي للزينة فقط.
 
 # ── السوائل المعرفية والجرعات ──
-Item_CognitiveFluid_A_Name	سائل معرفي من النوع A
+Item_CognitiveFluid_A_Name	سائل إدراكي من النوع A
 Item_CognitiveFluid_A_Description	سائل يحول التخمر إلى مصفوفة حيوية من الفطريات المعرفية القادرة على تحفيز عمليات التفكير.
-Item_CognitiveFluid_B_Name	سائل معرفي من النوع B
-Item_CognitiveFluid_B_Description	للوهلة الأولى يبدو هذا السائل المعرفي مطابقا للنوع A، لأنهما يحضران بالعناصر نفسها، لكن الحقيقة أبعد ما تكون عن ذلك. فهذا يحمل حرف B في اسمه. ولونه مختلف.
-Item_CognitiveFluid_C_Name	سائل معرفي من النوع C
+Item_CognitiveFluid_B_Name	سائل إدراكي من النوع B
+Item_CognitiveFluid_B_Description	للوهلة الأولى يبدو هذا السائل الإدراكي مطابقا للنوع A، لأنهما يحضران بالعناصر نفسها، لكن الحقيقة أبعد ما تكون عن ذلك. فهذا يحمل حرف B في اسمه. ولونه مختلف.
+Item_CognitiveFluid_C_Name	سائل إدراكي من النوع C
 Item_CognitiveFluid_C_Description	سائل يتلألأ بتوازن مصقول، هادئ في طبعه لكنه قوي في إيقاظ تيارات البصيرة.
-Item_CognitiveFluid_D_Name	سائل معرفي من النوع D
+Item_CognitiveFluid_D_Name	سائل إدراكي من النوع D
 Item_CognitiveFluid_D_Description	سائل يشع حيوية عميقة، غني ومركب، يثير فكرا عميقا في أعماقه القرمزية.
 Item_LucidFluid_Name	سائل صاف
 Item_LucidFluid_Description	سائل شفاف مصنوع من الأرز
@@ -406,9 +406,9 @@ Item_DecayedFiber_Name	ألياف فاسدة
 Item_DecayedTwig_Name	غصين فاسد
 Item_DecomposedGel_Name	هلام فاسد
 Item_DecomposedToxicNectar_Name	صمغ فاسد
-Item_DecayedCognitiveFluid_Name	سائل معرفي متحلل
+Item_DecayedCognitiveFluid_Name	سائل إدراكي متحلل
 Item_DecayedCognitiveFluid_Description	فقد هذا السائل كل خصائصه الفكرية.
-Item_PutridCoffee_Name	سائل معرفي فاسد
+Item_PutridCoffee_Name	سائل إدراكي فاسد
 Item_RottenElectrifiedCell_Name	غدة مولدة للكهرباء فاسدة
 Item_DischargedOrganicBattery_Name	مصباح حيوي مفرغ
 Item_DischargedOrganicBattery_Description	بطارية عضوية فقدت شحنتها بالكامل.
