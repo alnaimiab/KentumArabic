@@ -49,6 +49,7 @@ namespace KentumArabic
         public static ConfigEntry<bool> CfgSelfTestOverlay;
         public static ConfigEntry<bool> CfgCheckForUpdates;
         public static ConfigEntry<string> CfgFontFile;
+        public static ConfigEntry<int> CfgFontMigration;
         public static ConfigEntry<string> CfgFontBundle;
         public static ConfigEntry<string> CfgFontAssetName;
 
@@ -118,9 +119,17 @@ namespace KentumArabic
 
             CfgFontFile = Config.Bind("Font", "FontFile", ArabicFont.DefaultFontFile,
                 "TrueType/OpenType font used for Arabic, relative to this plugin's folder.\n" +
+                "Press Ctrl+Alt+N in game to try the bundled fonts, then name your pick here.\n" +
                 "The font asset is built at runtime with a dynamic atlas, so any font works as\n" +
-                "long as it contains the Arabic Presentation Forms-B block (U+FE70-FEFF).\n" +
-                "Run tools/check_font_coverage.py against a font before switching to it.");
+                "long as it covers the presentation forms this translation produces. Screen a\n" +
+                "candidate with 'ShaperTest --glyphs' then tools/check_font_coverage.py; judging\n" +
+                "by Presentation Forms-B block coverage alone rejects good fonts.");
+
+            CfgFontMigration = Config.Bind("Font", "AppliedDefaultChanges", 0,
+                "Internal. Tracks which changes of the built-in default font have been applied\n" +
+                "to this config file. Do not edit.");
+
+            MigrateFontDefault();
 
             CfgFontBundle = Config.Bind("Font", "BundleFileName", "",
                 "Optional: a pre-built AssetBundle holding a hand-tuned TMP font asset, used\n" +
@@ -227,6 +236,51 @@ namespace KentumArabic
         /// Runs once, on the switch into Arabic.
         /// </summary>
         private static bool _prewarmed;
+
+        /// <summary>
+        /// Moves an existing install onto a new default font, without overriding a real choice.
+        ///
+        /// BepInEx writes every default into the config file on first run, and from then on the
+        /// stored value wins. So changing the default in code reaches new installs only — everyone
+        /// who already played keeps the old font and sees nothing change, which looks like the
+        /// update did not work.
+        ///
+        /// The distinction that matters is whether the stored value was ever chosen. If it still
+        /// equals the default it replaced, nobody chose it and it is safe to move forward. If it
+        /// is anything else the player picked it, and it is left alone.
+        /// </summary>
+        private static readonly string[] SupersededFontDefaults =
+        {
+            "fonts/NotoNaskhArabic-Regular.ttf",     // migration 1
+            "fonts/IBMPlexSansArabic-Regular.ttf",   // migration 2
+        };
+
+        private static void MigrateFontDefault()
+        {
+            Log.Try("Migrating the font default", () =>
+            {
+                int applied = CfgFontMigration.Value;
+                if (applied >= SupersededFontDefaults.Length) return;
+
+                var current = (CfgFontFile.Value ?? string.Empty).Trim();
+                bool wasNeverChosen = false;
+                for (int i = applied; i < SupersededFontDefaults.Length; i++)
+                    if (string.Equals(current, SupersededFontDefaults[i], StringComparison.OrdinalIgnoreCase))
+                        wasNeverChosen = true;
+
+                CfgFontMigration.Value = SupersededFontDefaults.Length;
+
+                if (!wasNeverChosen)
+                {
+                    Log.Verbose($"Keeping the configured font '{current}'; it is not a superseded default.");
+                    return;
+                }
+
+                CfgFontFile.Value = ArabicFont.DefaultFontFile;
+                Log.Info($"Font default updated: '{current}' -> '{ArabicFont.DefaultFontFile}'. " +
+                         "Set FontFile in the config, or press Ctrl+Alt+N in game, to choose another.");
+            });
+        }
 
         private static void PrewarmGlyphs()
         {
