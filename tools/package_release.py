@@ -86,7 +86,8 @@ def installers(zf, prefix=""):
     batch file's own path through the system ANSI codepage, so an Arabic filename can fail to
     launch on a Western-locale Windows.
     """
-    for name in ("install.ps1", "uninstall.ps1", "install.bat", "uninstall.bat"):
+    for name in ("install.ps1", "uninstall.ps1", "diagnose.ps1",
+                 "install.bat", "uninstall.bat", "diagnose.bat"):
         src = os.path.join(REPO, "scripts", name)
         if os.path.exists(src):
             add_file(zf, src, prefix + name)

@@ -275,6 +275,64 @@ elseif ($Font -ne 'Vazirmatn') {
     Ok "font set to $Font"
 }
 
+# --- mark of the web ---------------------------------------------------------------------------
+# A zip downloaded in a browser is tagged with the Internet zone, and Explorer and Expand-Archive
+# both propagate that tag to every extracted file. Windows can then refuse to load the tagged
+# native DLL into the game process, which looks exactly like "the mod does nothing" - the game
+# starts normally and no log is ever written. Clearing it costs nothing and removes the whole
+# class of problem. Never seen when installing from a local build, which is why it only bites
+# people who downloaded the release.
+Step "Clearing the Internet zone tag..."
+$unblocked = 0
+foreach ($p in @(
+    (Join-Path $GameDir 'winhttp.dll'),
+    (Join-Path $GameDir 'doorstop_config.ini'),
+    (Join-Path $GameDir '.doorstop_version'))) {
+    if (Test-Path $p) {
+        try { Unblock-File -Path $p -ErrorAction Stop; $unblocked++ } catch {}
+    }
+}
+foreach ($dir in @((Join-Path $GameDir 'BepInEx'))) {
+    if (Test-Path $dir) {
+        foreach ($f in Get-ChildItem $dir -Recurse -File -ErrorAction SilentlyContinue) {
+            try { Unblock-File -Path $f.FullName -ErrorAction Stop; $unblocked++ } catch {}
+        }
+    }
+}
+Ok "$unblocked file(s) cleared"
+
+# --- verify ------------------------------------------------------------------------------------
+# Copying files is not the same as having a working install, and the difference only shows up
+# later as "the game runs but there is no Arabic". Check now, while the person is still here.
+Step "Verifying..."
+$problems = @()
+$mustExist = @(
+    @{ Path = (Join-Path $GameDir 'winhttp.dll'); What = 'BepInEx loader (winhttp.dll)' },
+    @{ Path = (Join-Path $GameDir 'doorstop_config.ini'); What = 'doorstop_config.ini' },
+    @{ Path = (Join-Path $GameDir 'BepInEx\core\BepInEx.dll'); What = 'BepInEx core' },
+    @{ Path = (Join-Path $dest 'KentumArabic.dll'); What = 'the translation plugin' },
+    @{ Path = (Join-Path $dest 'manifest.json'); What = 'manifest.json' }
+)
+foreach ($item in $mustExist) {
+    if (-not (Test-Path $item.Path)) { $problems += "missing: $($item.What)" }
+    elseif ((Get-Item $item.Path).Length -eq 0) { $problems += "empty (antivirus may have removed it): $($item.What)" }
+}
+$tsv = @(Get-ChildItem (Join-Path $dest 'strings') -Filter *.tsv -ErrorAction SilentlyContinue)
+if ($tsv.Count -lt 15) { $problems += "only $($tsv.Count) translation file(s) copied" }
+$ttf = @(Get-ChildItem (Join-Path $dest 'fonts') -Filter *.ttf -ErrorAction SilentlyContinue)
+if ($ttf.Count -lt 1) { $problems += "no font files copied" }
+
+if ($problems.Count -gt 0) {
+    Say ""
+    Warn "The install is incomplete:"
+    foreach ($p in $problems) { Warn "  - $p" }
+    Warn ""
+    Warn "Antivirus removing winhttp.dll is the usual cause. Allow the game folder in your"
+    Warn "antivirus and run this again. If that is not it, run diagnose.bat and share its output."
+    exit 1
+}
+Ok "all expected files present"
+
 # --- record ------------------------------------------------------------------------------------
 # uninstall.ps1 depends on this to know what it may remove.
 $record = [ordered]@{

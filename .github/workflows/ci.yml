@@ -2,7 +2,10 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    # The repository's default branch is master, not main. Naming the wrong one here does not
+    # fail loudly - the workflow simply never runs, and the checks look green because nothing
+    # ever reported.
+    branches: [master]
   pull_request:
 
 jobs:
@@ -43,6 +46,9 @@ jobs:
       # it exactly the kind of thing a machine has to check.
       - name: Player-facing scripts must be ASCII
         run: python tools/check_scripts_ascii.py scripts
+
+      - name: Plugin version must match the manifest
+        run: python tools/check_version_sync.py
 
       - name: Ensure no game content is committed
         run: |

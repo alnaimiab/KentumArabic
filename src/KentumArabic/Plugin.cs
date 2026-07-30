@@ -31,7 +31,12 @@ namespace KentumArabic
     {
         public const string PluginGuid = "com.kentum.arabic";
         public const string PluginName = "Kentum Arabic";
-        public const string PluginVersion = "0.1.0";
+        /// <remarks>
+        /// Must match pluginVersion in content/manifest.json. This string is what BepInEx prints
+        /// to the log, and the log is what a bug report quotes - a stale value here sends people
+        /// looking at the wrong build. check_version_sync.py keeps the two honest.
+        /// </remarks>
+        public const string PluginVersion = "0.2.2";
 
         public static Plugin Instance { get; private set; }
         public static TranslationStore Translations { get; private set; }
