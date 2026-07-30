@@ -1,23 +1,28 @@
 <#
 .SYNOPSIS
-    إزالة تعريب Kentum. Removes the Kentum Arabic translation.
+    Removes the Kentum Arabic translation.
 
 .DESCRIPTION
-    يزيل ملفات التعريب، ويزيل BepInEx فقط إن كان سكربت التثبيت هو من ثبّته ولم يبق أي تعديل آخر.
+    Removes the translation, and removes BepInEx only when this installer put it there and no
+    other mod still needs it.
 
     The rule that matters: this removes what this mod put there, and nothing else. BepInEx is a
     shared loader - other mods live in the same folder - so deleting it wholesale would take
     someone else's mods with it. It is only removed when install-record.json says we installed it
     AND no other plugin remains. Anything ambiguous is left in place and reported.
 
+    Output is plain ASCII for the same reason as install.ps1: a Windows console is not guaranteed
+    to be able to render Arabic, and an uninstaller that prints boxes while deleting files is
+    alarming rather than helpful.
+
 .PARAMETER GameDir
-    مجلد اللعبة. يُكتشف تلقائيًا إن لم يُذكر.
+    Kentum install folder. Auto-detected if not given.
 
 .PARAMETER KeepBepInEx
-    أبقِ BepInEx حتى لو كنا من ثبّتناه.
+    Keep BepInEx even if this installer put it there.
 
 .PARAMETER WhatIf
-    اعرض ما سيُحذف دون حذف شيء.
+    Show what would be removed without removing anything.
 
 .EXAMPLE
     .\uninstall.ps1 -WhatIf
@@ -30,7 +35,6 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-try { [Console]::OutputEncoding = [Text.Encoding]::UTF8 } catch {}
 
 $PluginFolder = 'KentumArabic'
 $RecordName = 'install-record.json'
@@ -73,26 +77,29 @@ function Test-Writable([string]$dir) {
     catch { return $false }
 }
 
+# Uses the *script's* $PSCmdlet, which is why -WhatIf works without this helper declaring
+# SupportsShouldProcess itself. Adding the attribute here would open a second, separate
+# ShouldProcess context and break that, so the analyser warning about it is expected.
 function Remove-Thing([string]$path, [string]$label) {
     if (-not (Test-Path $path)) { return $false }
     if ($PSCmdlet.ShouldProcess($path, 'Remove')) {
         Remove-Item $path -Recurse -Force
-        Ok "حُذف: $label"
+        Ok "removed: $label"
     }
     else {
-        Ok "سيُحذف: $label"
+        Ok "would remove: $label"
     }
     return $true
 }
 
 Say ""
-Say "  تعريب Kentum — الإزالة" 'Green'
-Say "  =====================" 'Green'
+Say "  Kentum Arabic - Uninstall" 'Green'
+Say "  =========================" 'Green'
 
-Step "البحث عن اللعبة..."
+Step "Looking for the game..."
 if (-not $GameDir) { $GameDir = Find-KentumDir }
 if (-not $GameDir) {
-    Warn "لم أجد Kentum. مرّر المسار بـ -GameDir."
+    Warn "Could not find Kentum. Pass the folder with -GameDir."
     exit 1
 }
 Ok $GameDir
@@ -102,13 +109,13 @@ $configFile = Join-Path $GameDir 'BepInEx\config\com.kentum.arabic.cfg'
 
 if (-not (Test-Path $pluginDir) -and -not (Test-Path $configFile)) {
     Say ""
-    Ok "التعريب غير مثبت في هذا المجلد. لا شيء لإزالته."
+    Ok "The translation is not installed here. Nothing to remove."
     exit 0
 }
 
 if (-not $WhatIfPreference -and -not (Test-Writable $GameDir)) {
-    if ($NoElevate) { Warn "لا صلاحية للكتابة في مجلد اللعبة."; exit 1 }
-    Step "مجلد اللعبة يحتاج صلاحية مسؤول — سيُطلب منك التأكيد."
+    if ($NoElevate) { Warn "No write access to the game folder."; exit 1 }
+    Step "The game folder needs administrator rights - you will be asked to confirm."
     $a = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "`"$($MyInvocation.MyCommand.Path)`"",
            '-NoElevate', '-GameDir', "`"$GameDir`"")
     if ($KeepBepInEx) { $a += '-KeepBepInEx' }
@@ -124,12 +131,12 @@ if (Test-Path $recordPath) {
 }
 
 # --- our own files -------------------------------------------------------------------------------
-Step "إزالة ملفات التعريب..."
+Step "Removing the translation..."
 Remove-Thing $pluginDir "BepInEx\plugins\$PluginFolder\" | Out-Null
 Remove-Thing $configFile "BepInEx\config\com.kentum.arabic.cfg" | Out-Null
 
 # --- the shared loader ---------------------------------------------------------------------------
-Step "فحص BepInEx..."
+Step "Checking BepInEx..."
 
 $pluginsDir = Join-Path $GameDir 'BepInEx\plugins'
 $othersRemain = $false
@@ -141,7 +148,7 @@ if (Test-Path $pluginsDir) {
     })
     if ($leftovers.Count -gt 0) {
         $othersRemain = $true
-        Warn "توجد تعديلات أخرى في BepInEx\plugins — لن يُحذف BepInEx:"
+        Warn "Other mods are present in BepInEx\plugins - BepInEx will be kept:"
         foreach ($l in $leftovers) { Warn "    $($l.Name)" }
     }
 }
@@ -150,19 +157,19 @@ $weInstalledIt = $false
 if ($record) { $weInstalledIt = [bool]$record.bepinexInstalledByUs }
 
 if ($KeepBepInEx) {
-    Ok "أُبقي على BepInEx بناءً على طلبك (-KeepBepInEx)."
+    Ok "BepInEx kept, as requested (-KeepBepInEx)."
 }
 elseif ($othersRemain) {
-    Ok "أُبقي على BepInEx لأن تعديلات أخرى تعتمد عليه."
+    Ok "BepInEx kept because other mods depend on it."
 }
 elseif (-not $record) {
     # No record means a manual unzip, or an install by an older version. We cannot tell whether
     # BepInEx predates us, and guessing wrong deletes something the player wanted.
-    Warn "لا يوجد سجل تثبيت، فلا أعرف إن كنا من ثبّت BepInEx — تُرك كما هو."
-    Warn "لإزالته يدويًا احذف من مجلد اللعبة: BepInEx\ و winhttp.dll و doorstop_config.ini"
+    Warn "No install record found, so it is unknown whether this mod installed BepInEx - it was left in place."
+    Warn "To remove it by hand, delete from the game folder: BepInEx\, winhttp.dll, doorstop_config.ini"
 }
 elseif (-not $weInstalledIt) {
-    Ok "كان BepInEx موجودًا قبل التعريب — تُرك كما هو."
+    Ok "BepInEx was already there before this mod - left in place."
 }
 else {
     Remove-Thing (Join-Path $GameDir 'BepInEx') 'BepInEx\' | Out-Null
@@ -174,12 +181,12 @@ else {
 # --- done ----------------------------------------------------------------------------------------
 Say ""
 if ($WhatIfPreference) {
-    Say "  عرض فقط — لم يُحذف شيء. أعد التشغيل بلا -WhatIf للتنفيذ." 'Yellow'
+    Say "  Preview only - nothing was removed. Run again without -WhatIf to apply." 'Yellow'
 }
 else {
-    Say "  تمت الإزالة." 'Green'
+    Say "  Uninstalled." 'Green'
     Say ""
-    Ok "ملفات حفظ اللعبة لم تُمس؛ التعريب لا يكتب فيها إطلاقًا."
-    Ok "إن أردت التأكد من سلامة ملفات اللعبة: Steam > خصائص اللعبة > Verify integrity of game files"
+    Ok "Save games are untouched; this mod never writes to them."
+    Ok "To double-check the game files: Steam > game properties > Verify integrity of game files"
 }
 Say ""

@@ -1,11 +1,15 @@
 <#
 .SYNOPSIS
-    تثبيت تعريب Kentum. Installs the Kentum Arabic translation.
+    Installs the Kentum Arabic translation.
 
 .DESCRIPTION
-    يعثر على مجلد اللعبة، ويثبّت BepInEx إن لم يكن موجودًا، وينسخ ملفات التعريب.
-
     Finds the game, installs BepInEx if it is missing, and copies the translation in.
+
+    All output is plain ASCII on purpose. The audience is Arabic-speaking, but a Windows console
+    is not guaranteed to render Arabic: the code page may not cover it, and the legacy console
+    host may be using a raster font that has no Arabic glyphs at all. Anyone running install.ps1
+    directly also skips the .bat wrapper's chcp. An installer that prints boxes is worse than one
+    that prints English, so the scripts speak English and the documentation speaks Arabic.
 
     It records what it created in install-record.json next to the plugin. uninstall.ps1 reads
     that record, which is what lets it remove this mod without touching anything the player
@@ -13,13 +17,14 @@
     other mods along with ours.
 
 .PARAMETER GameDir
-    مجلد اللعبة. يُكتشف تلقائيًا من مكتبة Steam إن لم يُذكر.
+    Kentum install folder. Auto-detected from the Steam library if not given.
 
 .PARAMETER Font
-    الخط المبدئي. يمكن تغييره لاحقًا بـ Ctrl+Alt+N داخل اللعبة.
+    Arabic font to start with. Changeable in game with Ctrl+Alt+N.
 
 .EXAMPLE
     .\install.ps1
+    .\install.ps1 -Font NotoKufiArabic
 #>
 [CmdletBinding()]
 param(
@@ -30,9 +35,6 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-
-# Arabic comes out as question marks in a legacy console otherwise.
-try { [Console]::OutputEncoding = [Text.Encoding]::UTF8 } catch {}
 
 $BepInExVersion = '5.4.23.2'
 $BepInExUrl = "https://github.com/BepInEx/BepInEx/releases/download/v$BepInExVersion/BepInEx_win_x64_$BepInExVersion.zip"
@@ -134,21 +136,21 @@ function Invoke-Elevated {
 }
 
 Say ""
-Say "  تعريب Kentum — التثبيت" 'Green'
-Say "  ======================" 'Green'
+Say "  Kentum Arabic - Install" 'Green'
+Say "  =======================" 'Green'
 
 # --- locate the game ---------------------------------------------------------------------------
-Step "البحث عن اللعبة..."
+Step "Looking for the game..."
 if (-not $GameDir) { $GameDir = Find-KentumDir }
 if (-not $GameDir) {
     Say ""
-    Warn "لم أجد Kentum تلقائيًا."
-    Warn "شغّل السكربت مع مسار المجلد الذي يحوي Kentum.exe، مثلًا:"
+    Warn "Could not find Kentum automatically."
+    Warn "Run the script with the folder that contains Kentum.exe, for example:"
     Warn "  .\install.ps1 -GameDir ""D:\SteamLibrary\steamapps\common\Kentum"""
     exit 1
 }
 if (-not (Test-Path (Join-Path $GameDir 'Kentum.exe'))) {
-    Warn "لا يوجد Kentum.exe في: $GameDir"
+    Warn "Kentum.exe is not in: $GameDir"
     exit 1
 }
 Ok $GameDir
@@ -156,53 +158,53 @@ Ok $GameDir
 # --- payload -----------------------------------------------------------------------------------
 $payload = Get-PayloadRoot
 if (-not $payload) {
-    Warn "لم أجد ملفات التعريب بجوار هذا السكربت."
-    Warn "تأكد أنك فككت ضغط الحزمة كاملة قبل التشغيل."
+    Warn "Could not find the translation files next to this script."
+    Warn "Make sure the whole package was extracted before running it."
     exit 1
 }
 if (-not (Test-Path $payload.Dll)) {
-    Warn "ملف الإضافة غير موجود: $($payload.Dll)"
-    if ($payload.Kind -eq 'repo') { Warn "ابنِ المشروع أولًا: dotnet build src\KentumArabic -c Release" }
+    Warn "Plugin assembly missing: $($payload.Dll)"
+    if ($payload.Kind -eq 'repo') { Warn "Build it first: dotnet build src\KentumArabic -c Release" }
     exit 1
 }
 
 # --- permissions -------------------------------------------------------------------------------
 if (-not (Test-Writable $GameDir)) {
     if ($NoElevate) {
-        Warn "لا صلاحية للكتابة في مجلد اللعبة، وتشغيل السكربت كمسؤول فشل أو رُفض."
+        Warn "No write access to the game folder, and running as administrator was declined."
         exit 1
     }
-    Step "مجلد اللعبة يحتاج صلاحية مسؤول — سيُطلب منك التأكيد."
+    Step "The game folder needs administrator rights - you will be asked to confirm."
     Invoke-Elevated
     exit $LASTEXITCODE
 }
 
 # --- BepInEx -----------------------------------------------------------------------------------
 $bepinexWasInstalledByUs = $false
-Step "التحقق من BepInEx..."
+Step "Checking BepInEx..."
 if (Test-Path (Join-Path $GameDir 'BepInEx\core\BepInEx.dll')) {
-    Ok "مثبت مسبقًا — لن يُلمس."
+    Ok "already installed - left untouched"
 }
 elseif (Test-Path (Join-Path $PSScriptRoot 'BepInEx\core\BepInEx.dll')) {
     # The Full package already carries the loader, so downloading it again would be a pointless
     # round trip that also makes the installer fail on a machine with no internet.
-    Ok "مرفق مع الحزمة — سيُنسخ بلا تنزيل"
+    Ok "bundled with this package - copying, no download needed"
     foreach ($item in @('BepInEx', 'winhttp.dll', 'doorstop_config.ini', '.doorstop_version')) {
         $src = Join-Path $PSScriptRoot $item
         if (Test-Path $src) { Copy-Item $src $GameDir -Recurse -Force }
     }
     $bepinexWasInstalledByUs = $true
-    Ok "نُسخ إلى مجلد اللعبة"
+    Ok "copied into the game folder"
 }
 else {
-    Ok "غير موجود، سيُنزَّل الإصدار $BepInExVersion"
+    Ok "not present - downloading version $BepInExVersion"
     $tmp = Join-Path ([IO.Path]::GetTempPath()) "BepInEx_$BepInExVersion.zip"
     try {
         $ProgressPreference = 'SilentlyContinue'
         Invoke-WebRequest -Uri $BepInExUrl -OutFile $tmp -UseBasicParsing
     }
     catch {
-        Warn "فشل التنزيل. تحقق من الاتصال بالإنترنت."
+        Warn "Download failed. Check your internet connection."
         Warn $_.Exception.Message
         exit 1
     }
@@ -210,21 +212,21 @@ else {
     $hash = (Get-FileHash $tmp -Algorithm SHA256).Hash
     if ($hash -ne $BepInExSha256) {
         Remove-Item $tmp -Force
-        Warn "الملف المُنزَّل لا يطابق البصمة المتوقعة — أُلغي التثبيت."
-        Warn "  المتوقع: $BepInExSha256"
-        Warn "  الفعلي : $hash"
+        Warn "The downloaded file does not match the expected checksum - install aborted."
+        Warn "  expected: $BepInExSha256"
+        Warn "  actual  : $hash"
         exit 1
     }
-    Ok "البصمة مطابقة"
+    Ok "checksum verified"
 
     Expand-Archive -Path $tmp -DestinationPath $GameDir -Force
     Remove-Item $tmp -Force
     $bepinexWasInstalledByUs = $true
-    Ok "ثُبّت في مجلد اللعبة"
+    Ok "installed into the game folder"
 }
 
 # --- plugin ------------------------------------------------------------------------------------
-Step "نسخ ملفات التعريب..."
+Step "Copying the translation..."
 $dest = Join-Path $GameDir "BepInEx\plugins\$PluginFolder"
 New-Item -ItemType Directory -Path $dest -Force | Out-Null
 
@@ -241,7 +243,7 @@ foreach ($sub in @('strings', 'fonts')) {
     $filter = if ($sub -eq 'strings') { '*.tsv' } else { '*.ttf' }
     $files = @(Get-ChildItem $src -File | Where-Object { $_.Name -like $filter -or $_.Extension -eq '.txt' })
     foreach ($f in $files) { Copy-Item $f.FullName (Join-Path $target $f.Name) -Force }
-    Ok "$sub\  ($($files.Count) ملف)"
+    Ok "$sub\  ($($files.Count) files)"
 }
 
 if (Test-Path $payload.Manifest) {
@@ -250,8 +252,6 @@ if (Test-Path $payload.Manifest) {
 }
 
 # --- font choice -------------------------------------------------------------------------------
-# Written straight into the config so the requested font is live on first launch rather than
-# after a restart.
 $cfgDir = Join-Path $GameDir 'BepInEx\config'
 $cfg = Join-Path $cfgDir 'com.kentum.arabic.cfg'
 $fontFile = "fonts/$Font-Regular.ttf"
@@ -261,7 +261,7 @@ if (Test-Path $cfg) {
     if ($text -match '(?m)^\s*FontFile\s*=') {
         $text = [regex]::Replace($text, '(?m)^\s*FontFile\s*=.*$', "FontFile = $fontFile")
         Set-Content $cfg $text -Encoding utf8 -NoNewline
-        Ok "الخط في الإعدادات: $Font"
+        Ok "font set to $Font"
     }
 }
 elseif ($Font -ne 'Vazirmatn') {
@@ -272,7 +272,7 @@ elseif ($Font -ne 'Vazirmatn') {
     # leaves the config entirely to BepInEx.
     New-Item -ItemType Directory -Path $cfgDir -Force | Out-Null
     Set-Content $cfg "[Font]`r`nFontFile = $fontFile`r`n" -Encoding utf8
-    Ok "الخط في الإعدادات: $Font"
+    Ok "font set to $Font"
 }
 
 # --- record ------------------------------------------------------------------------------------
@@ -289,17 +289,18 @@ $record | ConvertTo-Json | Set-Content (Join-Path $dest $RecordName) -Encoding u
 
 # --- done --------------------------------------------------------------------------------------
 Say ""
-Say "  تم التثبيت بنجاح." 'Green'
+Say "  Installed successfully." 'Green'
 Say ""
-Say "  شغّل اللعبة من Steam، ثم:  Options > Language > العربية" 'Green'
+Say "  Start the game from Steam, then:  Options > Language > Arabic" 'Green'
+Say "  (it is the last entry in the language list)" 'Green'
 Say ""
-Ok "Ctrl+Alt+N  لتجريب الخطوط المرفقة أثناء اللعب"
-Ok "Ctrl+Alt+R  لإعادة تحميل الترجمة دون إغلاق اللعبة"
+Ok "Ctrl+Alt+N   cycle the bundled Arabic fonts while playing"
+Ok "Ctrl+Alt+R   reload the translation without restarting the game"
 Say ""
 if ($bepinexWasInstalledByUs) {
-    Ok "ثُبّت BepInEx كجزء من هذه العملية، وسيُزال مع uninstall.ps1."
+    Ok "BepInEx was installed as part of this, and uninstall.ps1 will remove it."
 }
 else {
-    Ok "كان BepInEx موجودًا مسبقًا، ولن يزيله uninstall.ps1."
+    Ok "BepInEx was already present, so uninstall.ps1 will leave it alone."
 }
 Say ""
