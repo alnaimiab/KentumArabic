@@ -183,6 +183,17 @@ Step "التحقق من BepInEx..."
 if (Test-Path (Join-Path $GameDir 'BepInEx\core\BepInEx.dll')) {
     Ok "مثبت مسبقًا — لن يُلمس."
 }
+elseif (Test-Path (Join-Path $PSScriptRoot 'BepInEx\core\BepInEx.dll')) {
+    # The Full package already carries the loader, so downloading it again would be a pointless
+    # round trip that also makes the installer fail on a machine with no internet.
+    Ok "مرفق مع الحزمة — سيُنسخ بلا تنزيل"
+    foreach ($item in @('BepInEx', 'winhttp.dll', 'doorstop_config.ini', '.doorstop_version')) {
+        $src = Join-Path $PSScriptRoot $item
+        if (Test-Path $src) { Copy-Item $src $GameDir -Recurse -Force }
+    }
+    $bepinexWasInstalledByUs = $true
+    Ok "نُسخ إلى مجلد اللعبة"
+}
 else {
     Ok "غير موجود، سيُنزَّل الإصدار $BepInExVersion"
     $tmp = Join-Path ([IO.Path]::GetTempPath()) "BepInEx_$BepInExVersion.zip"
@@ -244,6 +255,7 @@ if (Test-Path $payload.Manifest) {
 $cfgDir = Join-Path $GameDir 'BepInEx\config'
 $cfg = Join-Path $cfgDir 'com.kentum.arabic.cfg'
 $fontFile = "fonts/$Font-Regular.ttf"
+
 if (Test-Path $cfg) {
     $text = Get-Content $cfg -Raw
     if ($text -match '(?m)^\s*FontFile\s*=') {
@@ -251,6 +263,16 @@ if (Test-Path $cfg) {
         Set-Content $cfg $text -Encoding utf8 -NoNewline
         Ok "الخط في الإعدادات: $Font"
     }
+}
+elseif ($Font -ne 'Vazirmatn') {
+    # On a first install the config does not exist yet - BepInEx writes it when the game first
+    # runs - so there is nothing to edit and -Font would silently do nothing. Seeding a minimal
+    # file works because BepInEx merges its defaults into whatever it finds rather than replacing
+    # it. Only written when the choice differs from the built-in default, so a plain install
+    # leaves the config entirely to BepInEx.
+    New-Item -ItemType Directory -Path $cfgDir -Force | Out-Null
+    Set-Content $cfg "[Font]`r`nFontFile = $fontFile`r`n" -Encoding utf8
+    Ok "الخط في الإعدادات: $Font"
 }
 
 # --- record ------------------------------------------------------------------------------------
