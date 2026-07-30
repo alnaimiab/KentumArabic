@@ -8,14 +8,18 @@
 
 ## التثبيت
 
-1. نزّل `KentumArabic-Full-vX.Y.Z.zip` من [صفحة الإصدارات](../../releases/latest).
-2. فك الضغط داخل مجلد اللعبة (المجلد الذي يحتوي `Kentum.exe`).
+1. نزّل `KentumArabic-Full-vX.Y.Z.zip` من [صفحة الإصدارات](../../releases/latest) وفك ضغطه في أي مكان.
+2. انقر نقرًا مزدوجًا على **`install.bat`**.
 3. شغّل اللعبة ← **Options** ← **Language** ← **العربية**.
 
-لمعرفة مجلد اللعبة: في Steam، اضغط بزر الفأرة الأيمن على اللعبة ← Manage ← Browse local files.
+يعثر السكربت على مجلد اللعبة بنفسه — حتى لو كانت على قرص آخر — ويثبّت BepInEx بعد التحقق من بصمته، ويطلب صلاحية المسؤول مرة واحدة إن لزم. وإن فضّلت اليدوي، فك ضغط الحزمة داخل مجلد اللعبة مباشرة؛ النتيجة واحدة عدا شيئًا واحدًا يشرحه القسم التالي.
 
 ### إلغاء التثبيت
-احذف `winhttp.dll` و`doorstop_config.ini` و`.doorstop_version` ومجلد `BepInEx`.
+انقر نقرًا مزدوجًا على **`uninstall.bat`**.
+
+يزيل ما ثبّته التعريب فقط. و**لا يحذف BepInEx** إن كان موجودًا قبله أو كانت تعديلات أخرى تعتمد عليه — لأنه مُحمِّل مشترك، وحذفه دون تمييز يأخذ معه تعديلات غيرنا. ولهذا يكتب المثبّت `install-record.json` يسجّل فيه ما فعله؛ ومن ثبّت يدويًا بفك الضغط لن يجد السكربت سجلًا، فيمتنع عن التخمين ويخبرك بما تحذفه بنفسك.
+
+جرّب `uninstall.bat -WhatIf` لترى ما سيُحذف قبل حذفه.
 
 ### تحديث الترجمة فقط
 نزّل `KentumArabic-Content-*.zip` واستبدل به مجلد `BepInEx/plugins/KentumArabic/strings`. لا حاجة لإعادة التثبيت ولا لإعادة تنزيل الخط.
@@ -25,16 +29,20 @@
 
 ## الحالة
 
+**الترجمة مكتملة: 3,308 نصًا، منها 732 سطر حوار.**
+
 | | |
 |---|---|
 | اللغة تظهر في الإعدادات | ✅ |
-| تشكيل الحروف العربية ووصلها | ✅ |
-| الاتجاه من اليمين لليسار والمحاذاة | ✅ |
+| تشكيل الحروف ووصلها، والاتجاه، والمحاذاة | ✅ |
 | التفاف الأسطر بترتيب صحيح | ✅ |
 | الأرقام والنصوص اللاتينية داخل الجملة | ✅ |
-| وسوم التنسيق `<color>` و`<size>` | ✅ |
-| نصوص الواجهة والعناصر والتقنيات | 🚧 قيد الترجمة |
-| الحوارات | 🚧 قيد الترجمة |
+| وسوم التنسيق `<color>` و`<size>` والعناصر النائبة `{0}` | ✅ |
+| نصوص الواجهة والعناصر والتقنيات والمهام | ✅ |
+| الحوارات وأسماء الشخصيات | ✅ |
+| خمسة خطوط عربية، يبدَّل بينها داخل اللعبة | ✅ |
+
+النصوص التي قد يضيفها الاستوديو في تحديث لاحق ستظهر بالإنجليزية إلى أن تُترجم — لا ينكسر شيء، لأن اللعبة ترتد تلقائيًا إلى الإنجليزية عند غياب المفتاح.
 
 </div>
 
@@ -58,10 +66,16 @@ to patch. So the mod:
 2. **Supplies glyphs** by building a `TMP_FontAsset` at runtime from a bundled `.ttf` with a
    dynamic atlas, and registering it as a TMP *fallback*. Latin and digits keep coming from the
    game's own Montserrat, so the UI keeps its visual identity and mixed strings just work.
-3. **Shapes the text** in a Harmony prefix on `TMP_Text.set_text`, the last boundary before TMP.
+3. **Shapes the text** through `ITextPreprocessor`, TMP's own supported hook. TMP calls
+   `PreprocessText` from `ParseInputText` on the *final composed* string, which is the property
+   that matters: a save slot reading "Day {0}" is shaped after the number is substituted, not
+   before. Harmony patches on `set_text` were tried first and are a dead end here — they were
+   reported as applied and never once executed, and even had they fired they would have seen
+   the template rather than the composed result.
 
 Translation data stays as **plain logical-order Arabic** in TSV files. Shaping is a render-time
-detail, which keeps the data reviewable, diffable and usable in CAT tools.
+detail, which keeps the data reviewable, diffable and usable in CAT tools — and means improving
+the shaper re-shapes everything for free.
 
 ### Why the text is shaped at all
 
@@ -80,7 +94,8 @@ Three shaping modes exist behind a config switch:
 
 `RtlLayout` was chosen by rendering all three side by side in game (`Ctrl+Alt+T`) rather than by
 reasoning about the source. The multi-line paragraph is what decides it, and it matters because
-item and technology descriptions — 1,521 of ~2,451 keys — are inherently multi-line.
+493 of the 3,308 strings run past 60 characters — item and technology descriptions above all — so
+wrap order is not an edge case.
 
 ### Why the translation carries no diacritics
 
@@ -110,6 +125,30 @@ The five that pass all ship, and `Ctrl+Alt+N` cycles them in game. Vazirmatn is 
 `FontFile` in `com.kentum.arabic.cfg` to pin another. Screen a new candidate with
 `ShaperTest --glyphs` followed by `check_font_coverage.py` — the block-coverage number alone is
 misleading, since most of Presentation Forms-B is Persian and Urdu letters Arabic never produces.
+
+### Quality gates
+
+Four checks run on every push, because the failures they catch are invisible until a player hits
+them and each one shipped at least once before the check existed.
+
+| Check | Catches | Why it was added |
+|---|---|---|
+| `validate_tsv.py` | broken `{0}`, unbalanced tags, duplicate keys | a reversed `{0}` made `string.Format` throw 15 times while building the save panel, so the Load screen died |
+| `ShaperTest -- content/strings` | anything that survives shaping wrongly, over **every shipped string** | the hand-picked cases checked rich text but no case happened to contain a placeholder |
+| `check_terms.py` | one term rendered two ways | Cognitive Fluid was سائل معرفي on the item and سائل إدراكي in the dialogue about that item |
+| `strip_tashkeel.py --check` | diacritics TMP cannot position | they read on screen as letters that will not sit still |
+
+The last two are enforcement of `docs/glossary.md` rather than replacements for it: the glossary
+holds the reasoning, `content/terms.tsv` holds the machine-checkable part, and they are meant to
+be edited together.
+
+Two constraints in there are worth stating plainly because they are unusual and both are
+consequences of the same missing renderer feature:
+
+- **No diacritics anywhere.** Not a style preference — see above.
+- **Certain imperatives are banned.** Undiacritised, ابنِ (build) is ابن (son), سلّم (deliver)
+  is سلم (peace), أنهِ (finish) is أنَّه. Use شيد، أودع، أكمل. And when swapping a verb, re-read
+  what follows it: أودع governs في, not the إلى that belonged to the verb it replaced.
 
 ### Building
 
@@ -166,9 +205,10 @@ dotnet run --project tools/ShaperTest -c Release -- content/strings
 src/KentumArabic/     plugin source (RTLTMPro 3.4.3 vendored under Shaping/)
 content/strings/      the translation — plain logical Arabic, TSV
 content/fonts/        five Arabic typefaces, all SIL OFL (Ctrl+Alt+N cycles them)
+content/terms.tsv     terms the glossary fixes, enforced by check_terms.py in CI
 content/manifest.json content version + supported game builds
 tools/                Python utilities and the shaping test harness
-scripts/              setup and deploy
+scripts/              install.ps1 / uninstall.ps1 for players, setup-dev + deploy for developers
 docs/                 install guide (Arabic) and glossary
 unity/FontBuilder/    optional: bake a static font atlas instead of the runtime one
 ```

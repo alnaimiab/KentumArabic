@@ -1,11 +1,11 @@
 {
-  "pluginVersion": "0.1.0",
-  "contentVersion": "2026.07.27",
+  "pluginVersion": "0.2.0",
+  "contentVersion": "2026.07.30",
   "supportedBuildGuids": [
     "7d677ef1f3d84b2e993b218f597a92aa"
   ],
   "gameVersion": "1.0",
   "unityVersion": "2022.3.62f3",
   "downloadUrl": "https://github.com/KENTUM_ARABIC_REPO/releases/latest",
-  "changelogAr": "النسخة الأولى — إضافة العربية كلغة قابلة للاختيار."
+  "changelogAr": "ترجمة كاملة: 3,308 نصًا منها 732 سطر حوار. خمسة خطوط عربية يبدَّل بينها داخل اللعبة بـCtrl+Alt+N، والافتراضي Vazirmatn. أُزيل التشكيل لأن TextMeshPro لا يضبط مواضع الحركات. راجعنا أسماء المهام لاستعادة النكات والمراجع. أضفنا سكربتَي تثبيت وإزالة."
 }
