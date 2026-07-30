@@ -44,9 +44,10 @@ namespace KentumArabic.Shaping
     {
         /// <remarks>
         /// Setting this drops the cache. Both settings change what <see cref="Shape"/> returns for
-        /// the same input, so entries made under the old one are wrong under the new one — and the
-        /// mode is switched at runtime by the Ctrl+Alt+M comparison hotkey. Callers used to clear
-        /// the cache themselves, which worked only for as long as every one of them remembered.
+        /// the same input, and the cache is keyed on the input alone, so entries made under the
+        /// previous value would be served under the new one. The setter owns that rather than the
+        /// caller: the mode is switched at runtime from the Ctrl+Alt+M hotkey, and a single missed
+        /// <see cref="ClearCache"/> puts stale text on screen.
         /// </remarks>
         public static ShapingMode Mode
         {

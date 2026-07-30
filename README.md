@@ -128,15 +128,15 @@ misleading, since most of Presentation Forms-B is Persian and Urdu letters Arabi
 
 ### Quality gates
 
-Four checks run on every push, because the failures they catch are invisible until a player hits
-them and each one shipped at least once before the check existed.
+Four checks run on every push. What they have in common is that the damage is invisible in the
+file and only appears on screen, often far from the string that caused it.
 
-| Check | Catches | Why it was added |
+| Check | Catches | What it costs to miss |
 |---|---|---|
-| `validate_tsv.py` | broken `{0}`, unbalanced tags, duplicate keys | a reversed `{0}` made `string.Format` throw 15 times while building the save panel, so the Load screen died |
-| `ShaperTest -- content/strings` | anything that survives shaping wrongly, over **every shipped string** | the hand-picked cases checked rich text but no case happened to contain a placeholder |
-| `check_terms.py` | one term rendered two ways | Cognitive Fluid was سائل معرفي on the item and سائل إدراكي in the dialogue about that item |
-| `strip_tashkeel.py --check` | diacritics TMP cannot position | they read on screen as letters that will not sit still |
+| `validate_tsv.py` | broken `{0}`, unbalanced tags, duplicate keys | Kentum formats save-slot labels while building the panel, so one reversed `{0}` throws and takes the whole Load screen with it |
+| `ShaperTest -- content/strings` | anything shaping mangles, over **every shipped string** | hand-picked cases only cover known failure modes; new content with unfamiliar markup goes unchecked |
+| `check_terms.py` | one term rendered two ways | a player who meets both renderings of the same thing can tell nobody was minding the text |
+| `strip_tashkeel.py --check` | diacritics TMP cannot position | they land off their letter and shift word to word, reading as text that will not sit still |
 
 The last two are enforcement of `docs/glossary.md` rather than replacements for it: the glossary
 holds the reasoning, `content/terms.tsv` holds the machine-checkable part, and they are meant to

@@ -46,10 +46,9 @@ namespace ShaperTest
 
         private static int Main(string[] args)
         {
-            // These two run before anything else touches the shaper. Placed after the regression
-            // cases they would read those cases' cached results, which were produced under a
-            // different mode - the first version of this tool did exactly that and reported a
-            // menu string as unreversed.
+            // These two run before anything else touches the shaper. Both select a shaping mode of
+            // their own, and the shaper caches by input string alone, so a cached entry left by the
+            // regression cases below would be handed back here under the wrong mode.
             //
             // "--glyphs <dir> <out>" writes every codepoint the shaped translation actually needs.
             // A font only has to cover that set, not the whole Presentation Forms-B block: most of
@@ -103,8 +102,7 @@ namespace ShaperTest
 
                 // Format placeholders must survive byte-for-byte. A reversed "{0}" makes
                 // string.Format throw, and Kentum formats save-slot labels while building the
-                // panel — so the whole Load screen dies. This suite checked rich text tags but
-                // not placeholders, which is exactly why that shipped.
+                // panel — so the whole Load screen dies with it.
                 foreach (var ph in ExtractPlaceholders(text))
                 {
                     if (!shaped.Contains(ph))
@@ -155,10 +153,10 @@ namespace ShaperTest
             }
             Console.WriteLine(failed ? "" : "   OK\n");
 
-            // Hand-picked cases only cover the failure modes already known. The placeholder bug
-            // that broke the Load screen shipped because no case happened to contain "{0}".
-            // Running the real shipped corpus removes that gap: every string the player can
-            // actually see is checked, so a new markup form in new content fails here first.
+            // Hand-picked cases can only cover failure modes already known, which leaves new
+            // markup in new content unchecked. Passing a strings directory closes that: every
+            // string a player can see goes through the real shaper, so unfamiliar markup fails
+            // here rather than in the game.
             foreach (var dir in args)
                 failed |= !CheckCorpus(dir);
 
