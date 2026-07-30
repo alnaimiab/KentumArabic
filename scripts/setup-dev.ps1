@@ -95,4 +95,4 @@ else { Write-Host "python     : missing (only needed for tools/)" -ForegroundCol
 Write-Host ""
 Write-Host "Setup complete. Next:" -ForegroundColor Green
 Write-Host "  .\scripts\deploy.ps1        build and install the plugin" -ForegroundColor Green
-Write-Host "  then launch Kentum and choose العربية in Options > Language" -ForegroundColor Green
+Write-Host "  then launch Kentum and choose Arabic in Options > Language" -ForegroundColor Green

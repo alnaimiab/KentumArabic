@@ -105,5 +105,5 @@ if (Test-Path $bundle) {
 
 Write-Host ""
 Write-Host "Deployed to $pluginDir" -ForegroundColor Green
-Write-Host "Launch Kentum, then Options > Language > العربية." -ForegroundColor Green
+Write-Host "Launch Kentum, then Options > Language > Arabic." -ForegroundColor Green
 Write-Host "Log: $(Join-Path $bepinex 'LogOutput.log')" -ForegroundColor DarkGray

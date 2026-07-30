@@ -37,6 +37,13 @@ jobs:
           python tools/check_font_coverage.py "content/fonts/*.ttf" \
             --text "content/strings/*.tsv"
 
+      # Windows PowerShell 5.1 decodes .ps1 with the system ANSI code page unless the file has a
+      # UTF-8 BOM, so a non-ASCII byte becomes mojibake that can break parsing outright. It works
+      # on a developer machine with the UTF-8 code page beta enabled and nowhere else, which makes
+      # it exactly the kind of thing a machine has to check.
+      - name: Player-facing scripts must be ASCII
+        run: python tools/check_scripts_ascii.py scripts
+
       - name: Ensure no game content is committed
         run: |
           # _dump/ holds Tlön Industries' original English and Spanish text. It must never
