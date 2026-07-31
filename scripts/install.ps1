@@ -45,40 +45,94 @@ $BepInExSha256 = 'F752CE4E838F4C305B9DA1404B6745F2CFF23B8BFD494F79F0C84D0A01F59B
 $PluginFolder = 'KentumArabic'
 $RecordName = 'install-record.json'
 
-function Say([string]$text, [string]$colour = 'Gray') { Write-Host $text -ForegroundColor $colour }
-function Step([string]$text) { Write-Host ""; Write-Host $text -ForegroundColor Cyan }
-function Ok([string]$text) { Write-Host "  $text" -ForegroundColor DarkGray }
-function Warn([string]$text) { Write-Host "  $text" -ForegroundColor Yellow }
+# --- logging -----------------------------------------------------------------------------------
+# Everything printed is also written to a file next to the script. When an install works on one
+# machine and not another, the only way to close the gap without sitting at the second machine is
+# to have it record what it saw - which folder it chose and why it chose that one above the
+# others, what was already present, what it copied, what it verified.
+$script:LogLines = New-Object System.Collections.ArrayList
+$script:LogPath = Join-Path $PSScriptRoot 'install-log.txt'
+
+function Note([string]$text) {
+    # File-only: detail worth having in a report but noise on screen.
+    [void]$script:LogLines.Add($text)
+}
+function Say([string]$text, [string]$colour = 'Gray') {
+    Write-Host $text -ForegroundColor $colour; Note $text
+}
+function Step([string]$text) {
+    Write-Host ""; Write-Host $text -ForegroundColor Cyan; Note ""; Note "== $text"
+}
+function Ok([string]$text) { Write-Host "  $text" -ForegroundColor DarkGray; Note "   $text" }
+function Warn([string]$text) { Write-Host "  $text" -ForegroundColor Yellow; Note "   !! $text" }
+
+function Save-Log {
+    try {
+        $header = @(
+            "Kentum Arabic install log",
+            "when          : $((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')) local",
+            "script        : $PSCommandPath",
+            "windows       : $([Environment]::OSVersion.Version)",
+            "powershell    : $($PSVersionTable.PSVersion)",
+            "ANSI codepage : $([Text.Encoding]::Default.CodePage)",
+            "elevated      : $((New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))",
+            "parameters    : GameDir='$GameDir' Font='$Font'",
+            ""
+        )
+        Set-Content -Path $script:LogPath -Value ($header + $script:LogLines) -Encoding utf8
+        Write-Host "  log written to: $script:LogPath" -ForegroundColor DarkGray
+    }
+    catch {
+        Write-Host "  (could not write the log: $($_.Exception.Message))" -ForegroundColor DarkGray
+    }
+}
 
 function Find-KentumDir {
-    $candidates = @()
-    if ($env:KENTUM_DIR) { $candidates += $env:KENTUM_DIR }
+    # Every candidate is recorded with where it came from, so a wrong choice - or no choice at
+    # all - can be understood from the log alone rather than guessed at.
+    $candidates = New-Object System.Collections.ArrayList
+    function Add-Candidate([string]$path, [string]$source) {
+        if ($path) { [void]$candidates.Add([pscustomobject]@{ Path = $path; Source = $source }) }
+    }
+
+    if ($env:KENTUM_DIR) { Add-Candidate $env:KENTUM_DIR 'KENTUM_DIR environment variable' }
 
     # Steam's own registry key first; the default path is only a guess.
     try {
         $steam = (Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath
-        if ($steam) { $candidates += (Join-Path $steam 'steamapps\common\Kentum') }
+        if ($steam) {
+            Note "   Steam registry SteamPath = $steam"
+            Add-Candidate (Join-Path $steam 'steamapps\common\Kentum') 'Steam registry key'
+        }
     }
-    catch {}
+    catch { Note "   Steam registry key not readable: $($_.Exception.Message)" }
 
     $steamRoots = @('C:\Program Files (x86)\Steam', 'C:\Program Files\Steam')
-    foreach ($root in $steamRoots) { $candidates += (Join-Path $root 'steamapps\common\Kentum') }
+    foreach ($root in $steamRoots) {
+        Add-Candidate (Join-Path $root 'steamapps\common\Kentum') 'default Steam location'
+    }
 
     # Games are often on a second drive, which Steam records here.
     foreach ($root in $steamRoots) {
         $vdf = Join-Path $root 'steamapps\libraryfolders.vdf'
         if (Test-Path $vdf) {
+            Note "   reading Steam libraries from $vdf"
             foreach ($m in [regex]::Matches((Get-Content $vdf -Raw), '"path"\s+"([^"]+)"')) {
                 $lib = $m.Groups[1].Value -replace '\\\\', '\'
-                $candidates += (Join-Path $lib 'steamapps\common\Kentum')
+                Add-Candidate (Join-Path $lib 'steamapps\common\Kentum') "Steam library at $lib"
             }
         }
+        else { Note "   no libraryfolders.vdf at $vdf" }
     }
 
+    Note "   $($candidates.Count) candidate location(s) considered:"
+    $found = $null
     foreach ($c in $candidates) {
-        if ($c -and (Test-Path (Join-Path $c 'Kentum.exe'))) { return (Resolve-Path $c).Path }
+        $hasExe = Test-Path (Join-Path $c.Path 'Kentum.exe')
+        Note "     [$(if ($hasExe) { 'Kentum.exe found' } else { 'no Kentum.exe   ' })] $($c.Path)   ($($c.Source))"
+        if ($hasExe -and -not $found) { $found = (Resolve-Path $c.Path).Path }
     }
-    return $null
+    return $found
 }
 
 function Test-Writable([string]$dir) {
@@ -147,24 +201,38 @@ if (-not $GameDir) {
     Warn "Could not find Kentum automatically."
     Warn "Run the script with the folder that contains Kentum.exe, for example:"
     Warn "  .\install.ps1 -GameDir ""D:\SteamLibrary\steamapps\common\Kentum"""
+    Save-Log
     exit 1
 }
 if (-not (Test-Path (Join-Path $GameDir 'Kentum.exe'))) {
     Warn "Kentum.exe is not in: $GameDir"
+    Save-Log
     exit 1
 }
 Ok $GameDir
+Note "   game folder contents before install:"
+foreach ($e in Get-ChildItem $GameDir -Force -ErrorAction SilentlyContinue) {
+    Note "     $(if ($e.PSIsContainer) { '[dir] ' } else { '      ' })$($e.Name)"
+}
 
 # --- payload -----------------------------------------------------------------------------------
 $payload = Get-PayloadRoot
+if ($payload) {
+    Note "   payload kind : $($payload.Kind)"
+    Note "   plugin dll   : $($payload.Dll)"
+    Note "   strings from : $($payload.Strings)"
+    Note "   fonts from   : $($payload.Fonts)"
+}
 if (-not $payload) {
     Warn "Could not find the translation files next to this script."
     Warn "Make sure the whole package was extracted before running it."
+    Save-Log
     exit 1
 }
 if (-not (Test-Path $payload.Dll)) {
     Warn "Plugin assembly missing: $($payload.Dll)"
     if ($payload.Kind -eq 'repo') { Warn "Build it first: dotnet build src\KentumArabic -c Release" }
+    Save-Log
     exit 1
 }
 
@@ -172,6 +240,7 @@ if (-not (Test-Path $payload.Dll)) {
 if (-not (Test-Writable $GameDir)) {
     if ($NoElevate) {
         Warn "No write access to the game folder, and running as administrator was declined."
+        Save-Log
         exit 1
     }
     Step "The game folder needs administrator rights - you will be asked to confirm."
@@ -206,6 +275,7 @@ else {
     catch {
         Warn "Download failed. Check your internet connection."
         Warn $_.Exception.Message
+        Save-Log
         exit 1
     }
 
@@ -215,6 +285,7 @@ else {
         Warn "The downloaded file does not match the expected checksum - install aborted."
         Warn "  expected: $BepInExSha256"
         Warn "  actual  : $hash"
+        Save-Log
         exit 1
     }
     Ok "checksum verified"
@@ -242,7 +313,11 @@ foreach ($sub in @('strings', 'fonts')) {
     # other local development leftovers out of a player's install.
     $filter = if ($sub -eq 'strings') { '*.tsv' } else { '*.ttf' }
     $files = @(Get-ChildItem $src -File | Where-Object { $_.Name -like $filter -or $_.Extension -eq '.txt' })
-    foreach ($f in $files) { Copy-Item $f.FullName (Join-Path $target $f.Name) -Force }
+    foreach ($f in $files) {
+        $to = Join-Path $target $f.Name
+        Copy-Item $f.FullName $to -Force
+        Note "     $($f.Name)  ($((Get-Item $to).Length) bytes)"
+    }
     Ok "$sub\  ($($files.Count) files)"
 }
 
@@ -329,6 +404,7 @@ if ($problems.Count -gt 0) {
     Warn ""
     Warn "Antivirus removing winhttp.dll is the usual cause. Allow the game folder in your"
     Warn "antivirus and run this again. If that is not it, run diagnose.bat and share its output."
+    Save-Log
     exit 1
 }
 Ok "all expected files present"
@@ -346,6 +422,14 @@ $record = [ordered]@{
 $record | ConvertTo-Json | Set-Content (Join-Path $dest $RecordName) -Encoding utf8
 
 # --- done --------------------------------------------------------------------------------------
+Note ""
+Note "== final state"
+foreach ($f in @('winhttp.dll', 'doorstop_config.ini', 'BepInEx\core\BepInEx.dll',
+                 "BepInEx\plugins\$PluginFolder\KentumArabic.dll")) {
+    $p = Join-Path $GameDir $f
+    Note "   $(if (Test-Path $p) { '{0,10} bytes' -f (Get-Item $p).Length } else { '    MISSING' })  $f"
+}
+
 Say ""
 Say "  Installed successfully." 'Green'
 Say ""
@@ -361,4 +445,8 @@ if ($bepinexWasInstalledByUs) {
 else {
     Ok "BepInEx was already present, so uninstall.ps1 will leave it alone."
 }
+Say ""
+Say "  If the game shows no Arabic, run diagnose.bat and send its output" 'Green'
+Say "  together with the log file named below." 'Green'
+Save-Log
 Say ""

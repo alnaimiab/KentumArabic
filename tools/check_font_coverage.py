@@ -77,13 +77,25 @@ def check_font(path, extra_text=None, role="fallback"):
         pass
 
     ok = True
+    # Block percentages answer "how complete is this font", which is not the question. The
+    # question is whether it covers what this translation actually produces, and --text answers
+    # that exactly. Vazirmatn covers every character the corpus uses while sitting at 55% of the
+    # Arabic block, because the rest of that block is Quranic marks, Persian and Urdu letters and
+    # honorifics that Arabic game text never emits. Judging it by the percentage rejects a font
+    # that demonstrably works.
+    corpus_decides = bool(extra_text)
+
     for label, first, last, required, note in RANGES:
         present, assigned = coverage(cmap, first, last)
         pct = (100.0 * len(present) / len(assigned)) if assigned else 0.0
 
         latin_optional = role == "fallback" and first < 0x0600
         if label == "Presentation Forms-B":
+            # Kept as a hard gate even with a corpus: a font without these cannot shape at all,
+            # and a corpus that happens to avoid the gaps would hide that.
             good = len(present) >= FORMS_B_MINIMUM
+        elif corpus_decides:
+            good = True
         elif required and not latin_optional:
             good = pct >= 90.0
         else:
@@ -91,6 +103,8 @@ def check_font(path, extra_text=None, role="fallback"):
 
         if latin_optional and pct < 90.0:
             mark = "n/a "  # supplied by the primary font
+        elif corpus_decides and required and label != "Presentation Forms-B" and pct < 90.0:
+            mark = "info"  # informational: the corpus check below is what decides
         else:
             mark = "OK  " if good else "FAIL"
         if not good:

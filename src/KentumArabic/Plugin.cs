@@ -36,7 +36,7 @@ namespace KentumArabic
         /// to the log, and the log is what a bug report quotes - a stale value here sends people
         /// looking at the wrong build. check_version_sync.py keeps the two honest.
         /// </remarks>
-        public const string PluginVersion = "0.2.2";
+        public const string PluginVersion = "0.2.3";
 
         public static Plugin Instance { get; private set; }
         public static TranslationStore Translations { get; private set; }
@@ -70,6 +70,7 @@ namespace KentumArabic
             BindConfig();
 
             Log.Info($"{PluginName} v{PluginVersion} starting. Plugin directory: {PluginDir}");
+            LogEnvironment();
 
             // Load order matters: translations first (so injection has data to write), then the
             // font (so glyphs exist before anything renders), then patches.
@@ -106,7 +107,66 @@ namespace KentumArabic
             if (CfgCheckForUpdates.Value)
                 Updates.UpdateChecker.CheckAsync(host);
 
-            Log.Info("Startup complete. Select العربية in Options > Language.");
+            // A single line that says whether this install can possibly work, so a report does
+            // not depend on the reader interpreting the twenty lines above it.
+            var ready = Translations != null && Translations.TotalEntries > 0 && ArabicFont.IsLoaded;
+            if (ready)
+            {
+                Log.Info($"STARTUP OK: {Translations.TotalEntries} string(s) loaded, font " +
+                         $"'{ArabicFont.Font.name}' ready. Select Arabic in Options > Language.");
+            }
+            else
+            {
+                Log.Error("STARTUP INCOMPLETE - Arabic will not work:" +
+                          (Translations == null || Translations.TotalEntries == 0
+                              ? "\n  no translation strings were loaded (is strings/ next to the DLL?)" : "") +
+                          (!ArabicFont.IsLoaded
+                              ? "\n  the Arabic font was not built (is fonts/ next to the DLL?)" : ""));
+            }
+        }
+
+        /// <summary>
+        /// Writes, at startup, everything needed to explain a failure on a machine nobody can sit
+        /// at. "It works here and not there" is only answerable if the there recorded what it saw.
+        ///
+        /// Each line answers a question that has otherwise required a round trip: where is the
+        /// game, is this the build the translation was tested against, did the content files
+        /// arrive, which font will be used, and which settings are in force.
+        /// </summary>
+        private static void LogEnvironment()
+        {
+            Log.Try("Logging environment", () =>
+            {
+                Log.Info($"Game path      : {Application.dataPath}");
+                Log.Info($"Unity          : {Application.unityVersion}   platform: {Application.platform}");
+                Log.Info($"System language: {Application.systemLanguage}");
+
+                var build = Dump.StringDumper.ReadBuildGuid();
+                Log.Info($"Game build-guid: {(string.IsNullOrEmpty(build) ? "unreadable" : build)}");
+
+                var stringsDir = Path.Combine(PluginDir, "strings");
+                var fontsDir = Path.Combine(PluginDir, "fonts");
+                Log.Info($"strings/       : {DescribeDir(stringsDir, "*.tsv")}");
+                Log.Info($"fonts/         : {DescribeDir(fontsDir, "*.ttf")}");
+
+                var wanted = Path.Combine(PluginDir, CfgFontFile.Value ?? "");
+                Log.Info($"Font requested : {CfgFontFile.Value} -> " +
+                         (File.Exists(wanted)
+                             ? $"present ({new FileInfo(wanted).Length} bytes)"
+                             : "MISSING - Arabic would render as empty boxes"));
+
+                Log.Info($"Settings       : Mode={CfgShapingMode.Value}, PreserveNumbers={CfgPreserveNumbers.Value}, " +
+                         $"Verbose={CfgVerboseLogging.Value}, Diagnostics={CfgDiagnostics.Value}");
+            });
+        }
+
+        private static string DescribeDir(string dir, string pattern)
+        {
+            if (!Directory.Exists(dir)) return $"MISSING ({dir})";
+            var files = Directory.GetFiles(dir, pattern);
+            long bytes = 0;
+            foreach (var f in files) bytes += new FileInfo(f).Length;
+            return $"{files.Length} file(s), {bytes / 1024} KB   ({dir})";
         }
 
         private void BindConfig()

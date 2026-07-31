@@ -29,3 +29,6 @@ venv/
 # Local dev config
 .env
 local.props
+
+# Written by scripts/install.ps1 next to itself; it is a per-machine report.
+scripts/install-log.txt

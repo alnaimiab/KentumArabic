@@ -136,12 +136,40 @@ else {
     $reg = Select-String -Path $log -Pattern 'Arabic registered as language id' | Select-Object -First 1
     if ($reg) { Good $reg.Line.Trim() } else { Bad "Arabic was never registered - it will not appear in the language list" }
 
+    # The plugin prints one line saying whether the install can work at all.
+    $verdict = Select-String -Path $log -Pattern 'STARTUP OK|STARTUP INCOMPLETE' | Select-Object -Last 1
+    if ($verdict) {
+        if ($verdict.Line -match 'STARTUP OK') { Good $verdict.Line.Trim() } else { Bad $verdict.Line.Trim() }
+    }
+
+    # Where the game actually is, according to the game itself - the one authority on it.
+    foreach ($k in @('Game path', 'Game build-guid', 'strings/', 'fonts/', 'Font requested')) {
+        $m = Select-String -Path $log -Pattern ([regex]::Escape($k)) | Select-Object -First 1
+        if ($m) { Line $m.Line.Trim() }
+    }
+
     $errors = @(Select-String -Path $log -Pattern '\[Error|\[Fatal|Exception' | Select-Object -Last 15)
     if ($errors.Count -gt 0) {
         Line ""
         Line "Last errors in the log:"
         foreach ($e in $errors) { Write-Host "     $($e.Line.Trim())" -ForegroundColor Yellow }
     }
+}
+
+Head "Installer log"
+$ilog = Join-Path $PSScriptRoot 'install-log.txt'
+if (Test-Path $ilog) {
+    Good "install-log.txt found next to this script - include it in your report"
+    Line "   $ilog"
+    Line ""
+    Line "   Which folder the installer chose, and why:"
+    foreach ($l in Select-String -Path $ilog -Pattern 'Kentum.exe found|no Kentum.exe|candidate location') {
+        Line "     $($l.Line.Trim())"
+    }
+}
+else {
+    Line "No install-log.txt next to this script."
+    Line "It is written by install.ps1; if you installed by unzipping by hand there will not be one."
 }
 
 Head "What to do"
