@@ -137,6 +137,8 @@ file and only appears on screen, often far from the string that caused it.
 | `ShaperTest -- content/strings` | anything shaping mangles, over **every shipped string** | hand-picked cases only cover known failure modes; new content with unfamiliar markup goes unchecked |
 | `check_terms.py` | one term rendered two ways | a player who meets both renderings of the same thing can tell nobody was minding the text |
 | `strip_tashkeel.py --check` | diacritics TMP cannot position | they land off their letter and shift word to word, reading as text that will not sit still |
+| `check_scripts_ascii.py` | non-ASCII in the .ps1/.bat scripts | PowerShell 5.1 decodes them with the system code page, so they fail to parse anywhere the code page is not UTF-8 |
+| `check_version_sync.py` | version drift between code, manifest and tags | the log names a build that is not the one running, or the branch advertises a release nobody can download |
 
 The last two are enforcement of `docs/glossary.md` rather than replacements for it: the glossary
 holds the reasoning, `content/terms.tsv` holds the machine-checkable part, and they are meant to
@@ -194,6 +196,9 @@ python tools/validate_tsv.py content/strings
 
 # Diacritics TextMeshPro cannot position — reports, does not change
 python tools/strip_tashkeel.py content/strings --check
+
+# Version in the code, the manifest and the tags must agree
+python tools/check_version_sync.py --check-tag
 
 # Shaping regression suite over every shipped string — no game needed
 dotnet run --project tools/ShaperTest -c Release -- content/strings

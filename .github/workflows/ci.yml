@@ -2,6 +2,7 @@ name: CI
 
 on:
   push:
+    tags: ['v*']
     # The repository's default branch is master, not main. Naming the wrong one here does not
     # fail loudly - the workflow simply never runs, and the checks look green because nothing
     # ever reported.
@@ -47,8 +48,16 @@ jobs:
       - name: Player-facing scripts must be ASCII
         run: python tools/check_scripts_ascii.py scripts
 
+      # --check-tag on tag builds only. On a branch the version may legitimately be ahead of
+      # the newest tag while a release is being prepared; on a tag it must not be.
       - name: Plugin version must match the manifest
         run: python tools/check_version_sync.py
+
+      - name: On a tag, the version must have a matching tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          git fetch --tags --force
+          python tools/check_version_sync.py --check-tag
 
       - name: Ensure no game content is committed
         run: |
