@@ -36,7 +36,7 @@ namespace KentumArabic
         /// to the log, and the log is what a bug report quotes - a stale value here sends people
         /// looking at the wrong build. check_version_sync.py keeps the two honest.
         /// </remarks>
-        public const string PluginVersion = "0.2.3";
+        public const string PluginVersion = "0.2.4";
 
         public static Plugin Instance { get; private set; }
         public static TranslationStore Translations { get; private set; }
@@ -234,10 +234,11 @@ namespace KentumArabic
         /// Idempotent injection entry point, called from several hooks. Whichever fires first
         /// performs the work; the rest cost a single bool check.
         /// </summary>
-        public static void TryEnsureInjected()
+        /// <returns>true only on the call that performed the injection.</returns>
+        public static bool TryEnsureInjected()
         {
-            if (ArabicLanguage.IsInjected) return;
-            if (Translations == null) return;
+            if (ArabicLanguage.IsInjected) return false;
+            if (Translations == null) return false;
 
             if (ArabicLanguage.EnsureInjected(Translations))
             {
@@ -252,7 +253,11 @@ namespace KentumArabic
                     BeginLanguageChange(ArabicLanguage.LanguageName);
                 if (ArabicActive)
                     ForceRelocalize();
+
+                return true;
             }
+
+            return false;
         }
 
         /// <summary>Re-syncs the active flag with whatever language is currently selected.</summary>

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Reflection;
 using HarmonyLib;
 using Tlon.Localization;
 using KentumArabic.Util;
@@ -25,6 +27,55 @@ namespace KentumArabic.Injection
         [HarmonyPatch(typeof(Localization), nameof(Localization.GetAllLanguagesNames))]
         public static class GetAllLanguagesNames_Patch
         {
+            public static void Prefix()
+            {
+                Plugin.TryEnsureInjected();
+            }
+
+            /// <summary>
+            /// Repairs a language list that was cached before Arabic existed.
+            ///
+            /// The prefix cannot always inject: until UILocalizationManager has a textTable there
+            /// is nothing to inject into, so it returns quietly and the original method then
+            /// caches the ten stock languages in its own static field. Every later call returns
+            /// that cached list, and OptionsPanel.InitializeOptions materialises it into a fixed
+            /// string[] for the dropdown — so Arabic is absent from that dropdown permanently,
+            /// even though the language itself registers seconds later. That is the state where
+            /// the menus are in Arabic while the dropdown reads ENGLISH: the saved index 10 is
+            /// out of range for a ten-item array, so it falls back to item 0.
+            ///
+            /// The method returns its cache by reference rather than a copy, so appending here
+            /// fixes the cache itself and not just this one caller.
+            /// </summary>
+            public static void Postfix(List<string> __result)
+            {
+                if (__result == null || !ArabicLanguage.IsInjected) return;
+                if (__result.Contains(ArabicLanguage.LanguageName)) return;
+
+                __result.Add(ArabicLanguage.LanguageName);
+                Log.Info($"Language list had been cached before Arabic was registered; " +
+                         $"appended it at index {__result.Count - 1}.");
+            }
+        }
+
+        /// <summary>
+        /// The options panel builds its language dropdown once, into a fixed array, and never
+        /// consults the language list again. Injecting before that array is built is the
+        /// difference between Arabic appearing in the dropdown and never appearing at all.
+        /// </summary>
+        [HarmonyPatch]
+        public static class OptionsPanel_InitializeOptions_Patch
+        {
+            public static MethodBase TargetMethod()
+            {
+                // Private and resolved by name: it is the whole reason this patch exists, so a
+                // rename in a game update should disable this patch rather than crash the mod.
+                var type = AccessTools.TypeByName("OptionsPanel");
+                return type == null ? null : AccessTools.Method(type, "InitializeOptions");
+            }
+
+            public static bool Prepare() => TargetMethod() != null;
+
             public static void Prefix()
             {
                 Plugin.TryEnsureInjected();

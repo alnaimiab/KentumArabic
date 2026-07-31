@@ -24,8 +24,53 @@ namespace KentumArabic
 
         private void Start()
         {
+            StartCoroutine(InjectAsSoonAsPossible());
+
             if (Plugin.CfgSelfTest != null && Plugin.CfgSelfTest.Value)
                 StartCoroutine(SelfTest());
+        }
+
+        /// <summary>
+        /// Registers Arabic the instant the text table exists, rather than waiting to be asked.
+        ///
+        /// Injection used to happen lazily, on the first call to GetAllLanguagesNames. That call
+        /// can arrive before UILocalizationManager has a table, in which case nothing can be
+        /// injected and the game caches a language list without Arabic in it — and the options
+        /// panel turns that list into a fixed array it never rebuilds. Whether the dropdown ends
+        /// up containing Arabic then depends on component start order, which is exactly the
+        /// "sometimes it is there, sometimes it is not" the lazy approach produced.
+        ///
+        /// Polling every frame is the right cost here: it stops the moment it succeeds, and the
+        /// window it is racing is a handful of frames at startup.
+        /// </summary>
+        private IEnumerator InjectAsSoonAsPossible()
+        {
+            const float giveUpAfterSeconds = 120f;
+            var deadline = Time.realtimeSinceStartup + giveUpAfterSeconds;
+            int frames = 0;
+
+            while (Time.realtimeSinceStartup < deadline)
+            {
+                if (ArabicLanguage.IsInjected)
+                {
+                    Log.Verbose($"Arabic was already registered after {frames} frame(s).");
+                    yield break;
+                }
+
+                if (Plugin.TryEnsureInjected())
+                {
+                    Log.Info($"Arabic registered eagerly, {frames} frame(s) after startup — " +
+                             "before anything could cache a language list without it.");
+                    yield break;
+                }
+
+                frames++;
+                yield return null;
+            }
+
+            Log.Warn($"The text table never appeared within {giveUpAfterSeconds:0}s, so Arabic " +
+                     "could not be registered eagerly. It will still be registered on the first " +
+                     "language lookup, but a dropdown built before that may not list it.");
         }
 
         /// <summary>
