@@ -217,6 +217,9 @@ python tools/strip_tashkeel.py content/strings --check
 # Version in the code, the manifest and the tags must agree
 python tools/check_version_sync.py --check-tag
 
+# Release notes for the download page — generated, not written by hand
+python tools/release_notes.py
+
 # Shaping regression suite over every shipped string — no game needed
 dotnet run --project tools/ShaperTest -c Release -- content/strings
 ```

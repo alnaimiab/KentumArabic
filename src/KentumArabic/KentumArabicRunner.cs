@@ -116,12 +116,45 @@ namespace KentumArabic
 
             ReportLiveText();
 
+            yield return LanguageRoundTrip();
+
             Log.Info("Self-test complete.");
 
             // The dialogue database only exists once a game is loaded, so keep watching for it
             // and re-dump when it turns up. That way the workbook can be completed by simply
             // loading a save, without having to remember a hotkey at the right moment.
             yield return WatchForDialogueDatabase();
+        }
+
+        /// <summary>
+        /// Switches away from Arabic and back, then reports what the text on screen actually is.
+        ///
+        /// This is the one case a restart hides. Starting the game with Arabic already saved takes
+        /// a different path from choosing it in the options menu, and for a while only the first
+        /// of those produced joined letters — the second left every letter isolated because the
+        /// shaping flag was never raised. Reproducing it needs a real mid-session switch, which is
+        /// exactly what this does, and the report says outright how many components are unshaped.
+        /// </summary>
+        private IEnumerator LanguageRoundTrip()
+        {
+            var original = Tlon.Localization.Localization.CurrentLanguage;
+
+            Log.Info("Self-test: switching language mid-session, the way the options menu does.");
+
+            Tlon.Localization.Localization.ChangeLanguage("Default");
+            yield return new WaitForSecondsRealtime(2f);
+
+            Tlon.Localization.Localization.ChangeLanguage(Injection.ArabicLanguage.LanguageName);
+            yield return new WaitForSecondsRealtime(3f);
+
+            Log.Info("Self-test: state after a mid-session switch into Arabic —");
+            ReportLiveText();
+
+            if (!string.Equals(original, Tlon.Localization.Localization.CurrentLanguage, System.StringComparison.Ordinal))
+            {
+                Tlon.Localization.Localization.ChangeLanguage(original);
+                yield return new WaitForSecondsRealtime(1f);
+            }
         }
 
         private IEnumerator WatchForDialogueDatabase()
@@ -154,17 +187,23 @@ namespace KentumArabic
         }
 
         /// <summary>
-        /// Reports what Arabic-bearing text components actually hold right now.
+        /// Reports what is actually being drawn, not what is stored.
         ///
-        /// Distinguishes the two ways Arabic can look wrong on screen: text that never reached
-        /// the shaping hook (still base letters, renders disconnected) versus text that was
-        /// shaped but is being drawn without right-to-left layout.
+        /// The distinction matters and this report used to get it wrong. Shaping happens in TMP's
+        /// preprocessing hook, which leaves the component's own <c>text</c> as plain logical
+        /// Arabic on purpose — so testing that string for presentation forms reported every
+        /// component as unshaped even while the screen was perfectly correct. A metric that reads
+        /// alarming when nothing is wrong is worse than no metric: it sends the next investigation
+        /// after the wrong thing.
+        ///
+        /// <c>textInfo.characterInfo</c> holds the characters TMP resolved after preprocessing,
+        /// which is the ground truth for what reaches the glyph atlas.
         /// </summary>
         private void ReportLiveText()
         {
             Log.Try("Reporting live text state", () =>
             {
-                int arabic = 0, shapedOk = 0, unshaped = 0, rtlSet = 0;
+                int arabic = 0, drawn = 0, shapedOk = 0, unshaped = 0, rtlSet = 0, hooked = 0;
                 var samples = new List<string>();
 
                 foreach (var t in Resources.FindObjectsOfTypeAll<TMPro.TMP_Text>())
@@ -174,18 +213,23 @@ namespace KentumArabic
                     if (string.IsNullOrEmpty(s) || !ArabicShaper.ContainsArabic(s)) continue;
 
                     arabic++;
-                    bool isShaped = ArabicShaper.IsAlreadyShaped(s);
-                    if (isShaped) shapedOk++; else unshaped++;
                     if (t.isRightToLeftText) rtlSet++;
+                    if (t.textPreprocessor is ArabicTextPreprocessor) hooked++;
 
-                    if (samples.Count < 6)
-                        samples.Add($"    {(isShaped ? "shaped  " : "UNSHAPED")} rtl={t.isRightToLeftText,-5} " +
+                    var state = RenderedState(t);
+                    if (state == Rendered.NotDrawn) { }
+                    else if (state == Rendered.Shaped) { drawn++; shapedOk++; }
+                    else { drawn++; unshaped++; }
+
+                    if (samples.Count < 6 && state != Rendered.NotDrawn)
+                        samples.Add($"    {(state == Rendered.Shaped ? "shaped  " : "UNSHAPED")} rtl={t.isRightToLeftText,-5} " +
                                     $"align={t.alignment,-14} \"{s}\"  [{t.name}]");
                 }
 
                 Log.Info(
-                    $"Live text state: {arabic} component(s) contain Arabic — " +
-                    $"{shapedOk} shaped, {unshaped} UNSHAPED, {rtlSet} with RTL layout.\n" +
+                    $"Live text state: {arabic} component(s) contain Arabic, {drawn} of them drawn — " +
+                    $"{shapedOk} shaped on screen, {unshaped} UNSHAPED, " +
+                    $"{rtlSet} with RTL layout, {hooked} with the shaping hook attached.\n" +
                     $"  ArabicActive={Plugin.ArabicActive} language={Tlon.Localization.Localization.CurrentLanguage} " +
                     $"mode={ArabicShaper.Mode}\n" +
                     $"  Localize postfix: {LocalizationPatches.Localize_Patch.Calls} call(s), " +
@@ -194,8 +238,37 @@ namespace KentumArabic
                     $"directed={LocalizedTextPatches.DirectedCount}\n" +
                     $"  preprocessor: {Shaping.ArabicTextPreprocessor.Processed} call(s), {Shaping.ArabicTextPreprocessor.Shaped} shaped\n" +
                     $"  sanity: Shape(\"مرحبا\") -> \"{ArabicShaper.Shape("مرحبا")}\"\n" +
-                    (samples.Count > 0 ? string.Join("\n", samples.ToArray()) : "    (no samples)"));
+                    (samples.Count > 0 ? string.Join("\n", samples.ToArray()) : "    (nothing drawn)"));
             });
+        }
+
+        private enum Rendered { NotDrawn, Shaped, Unshaped }
+
+        /// <summary>
+        /// Looks at the characters TMP resolved for this component. A component that has never
+        /// been laid out — most of the UI at any given moment — has no verdict to give, and
+        /// counting it either way would be a guess.
+        /// </summary>
+        private static Rendered RenderedState(TMPro.TMP_Text t)
+        {
+            var info = t.textInfo;
+            if (info == null || info.characterCount == 0 || info.characterInfo == null)
+                return Rendered.NotDrawn;
+
+            bool sawArabic = false;
+            // characterCount is a logical count and can exceed the allocated array.
+            int count = Mathf.Min(info.characterCount, info.characterInfo.Length);
+
+            for (int i = 0; i < count; i++)
+            {
+                char c = info.characterInfo[i].character;
+                // Presentation Forms-B: what the shaper emits and what the atlas renders.
+                if (c >= (char)0xFE70 && c <= (char)0xFEFE) return Rendered.Shaped;
+                // A base Arabic letter reaching layout means the shaper never saw this string.
+                if (c >= (char)0x0621 && c <= (char)0x064A) sawArabic = true;
+            }
+
+            return sawArabic ? Rendered.Unshaped : Rendered.NotDrawn;
         }
 
         private void OnEnable()
@@ -218,8 +291,52 @@ namespace KentumArabic
             LanguageDropdown.Rescan();
         }
 
+        private string _observedLanguage;
+
+        /// <summary>
+        /// Notices a language change by looking, rather than by being told.
+        ///
+        /// Being told was the original design: a Harmony prefix on Localization.ChangeLanguage set
+        /// the active flag before the game re-localized anything. On this build that patch is
+        /// reported as applied and never executes — so picking العربية from the options menu
+        /// switched the text to Arabic with shaping still switched off, and every letter rendered
+        /// in its isolated form. Restarting the game hid it, because startup takes a different
+        /// path that calls the same code directly.
+        ///
+        /// Localization.CurrentLanguage is a static field read, so checking it every frame costs
+        /// a string comparison and removes the dependency on a hook that does not fire.
+        /// </summary>
+        private void ObserveLanguage()
+        {
+            string language;
+            try { language = Tlon.Localization.Localization.CurrentLanguage; }
+            catch { return; }
+
+            if (string.Equals(language, _observedLanguage, System.StringComparison.Ordinal)) return;
+
+            var previous = _observedLanguage;
+            _observedLanguage = language;
+
+            if (previous == null) return;   // first look: startup state, already handled
+
+            Log.Info($"Language changed to '{language}' (was '{previous}').");
+            Plugin.BeginLanguageChange(language);
+
+            // The options row tracks the language by index and can be left pointing at the old
+            // one. Ask for it now rather than let the slow watch get to it seconds later.
+            LanguageDropdown.ScheduleReconcile(null, "language changed");
+
+            // The switch has already happened by the time we see it, so the text on screen was
+            // composed while the flag was still wrong. Re-run it rather than wait for whatever
+            // redraws next.
+            Plugin.ForceRelocalize();
+        }
+
         private void Update()
         {
+            // Before anything that reads Plugin.ArabicActive this frame.
+            ObserveLanguage();
+
             // Injection normally happens through the Harmony hooks. This is a slow safety net for
             // the case where the game somehow reaches gameplay without ever calling them.
             if (!ArabicLanguage.IsInjected && Time.unscaledTime >= _nextEnsureCheck)

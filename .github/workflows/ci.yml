@@ -59,6 +59,12 @@ jobs:
           git fetch --tags --force
           python tools/check_version_sync.py --check-tag
 
+      # The release page is the only documentation most players read. It is generated from a
+      # template so it stays about installing and playing rather than drifting into a list of
+      # internal faults, and the one line that varies has to actually be there.
+      - name: Release notes must render
+        run: python tools/release_notes.py --check
+
       - name: Ensure no game content is committed
         run: |
           # _dump/ holds Tlön Industries' original English and Spanish text. It must never
