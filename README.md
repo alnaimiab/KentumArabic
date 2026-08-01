@@ -61,12 +61,28 @@ simply enumerates `UILocalizationManager.instance.textTable.languages`. There is
 to patch. So the mod:
 
 1. **Registers the language** by adding `"Arabic"` to the live `TextTable` and writing the
-   translation into it. Every downstream consumer — `LocalizedStaticText`, the options dropdown,
-   `LocalizedStaticImage` — then works with no further patching.
-2. **Supplies glyphs** by building a `TMP_FontAsset` at runtime from a bundled `.ttf` with a
+   translation into it. Every downstream consumer — `LocalizedStaticText`, `LocalizedStaticImage`,
+   the quest log — then works with no further patching.
+2. **Reconciles the options dropdown**, which is the one consumer that does *not* work for free.
+   `OptionsPanel` builds the language row once, from a snapshot taken before this mod can
+   register anything, into a fixed array it never rebuilds:
+
+   ```csharp
+   int num = GameHub.GetPlayerPrefsInt("KENTUM_PREFS_LANGUAGE", defaultValue);
+   if (num < 0 || num >= optionNames.Length) num = defaultValue;   // silent reset
+   ```
+
+   So Arabic is absent from the list, and a saved index of 10 is out of range and quietly
+   discarded — which is how the game ends up fully in Arabic while the language row reads
+   ENGLISH. A watcher compares the dropdown against the live language list a few times a second
+   until they agree, rebuilding the option list and correcting the shown value **by language
+   name, never by index**: an index only means something relative to a list whose length is the
+   thing in dispute. This deliberately does not depend on a Harmony hook — patches on all three
+   relevant `OptionsPanel` methods report as applied and never execute.
+3. **Supplies glyphs** by building a `TMP_FontAsset` at runtime from a bundled `.ttf` with a
    dynamic atlas, and registering it as a TMP *fallback*. Latin and digits keep coming from the
    game's own Montserrat, so the UI keeps its visual identity and mixed strings just work.
-3. **Shapes the text** through `ITextPreprocessor`, TMP's own supported hook. TMP calls
+4. **Shapes the text** through `ITextPreprocessor`, TMP's own supported hook. TMP calls
    `PreprocessText` from `ParseInputText` on the *final composed* string, which is the property
    that matters: a save slot reading "Day {0}" is shaped after the number is substituted, not
    before. Harmony patches on `set_text` were tried first and are a dead end here — they were
@@ -138,7 +154,7 @@ file and only appears on screen, often far from the string that caused it.
 | `check_terms.py` | one term rendered two ways | a player who meets both renderings of the same thing can tell nobody was minding the text |
 | `strip_tashkeel.py --check` | diacritics TMP cannot position | they land off their letter and shift word to word, reading as text that will not sit still |
 | `check_scripts_ascii.py` | non-ASCII in the .ps1/.bat scripts | PowerShell 5.1 decodes them with the system code page, so they fail to parse anywhere the code page is not UTF-8 |
-| `check_version_sync.py` | version drift between code, manifest and tags | the log names a build that is not the one running, or the branch advertises a release nobody can download |
+| `check_version_sync.py` | version drift between code, manifest, csproj and tags | the log names a build that is not the one running, or the branch advertises a release nobody can download |
 
 The last two are enforcement of `docs/glossary.md` rather than replacements for it: the glossary
 holds the reasoning, `content/terms.tsv` holds the machine-checkable part, and they are meant to
@@ -180,6 +196,7 @@ The build resolves the game's assemblies through the `KENTUM_DIR` environment va
 | `Ctrl+Alt+N` | Cycle the bundled Arabic fonts, live — judge a typeface on the real menus, not a sample sheet |
 | `Ctrl+Alt+F` | Audit font coverage across the whole translation |
 | `Ctrl+Alt+D` | Write missing-key and bypass diagnostics |
+| `Ctrl+Alt+G` | Audit and repair the Options > Language dropdown, and log its full state |
 | `Ctrl+Alt+S` | Log a status summary |
 
 ### Tooling

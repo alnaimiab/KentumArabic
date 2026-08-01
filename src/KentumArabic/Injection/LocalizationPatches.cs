@@ -58,29 +58,9 @@ namespace KentumArabic.Injection
             }
         }
 
-        /// <summary>
-        /// The options panel builds its language dropdown once, into a fixed array, and never
-        /// consults the language list again. Injecting before that array is built is the
-        /// difference between Arabic appearing in the dropdown and never appearing at all.
-        /// </summary>
-        [HarmonyPatch]
-        public static class OptionsPanel_InitializeOptions_Patch
-        {
-            public static MethodBase TargetMethod()
-            {
-                // Private and resolved by name: it is the whole reason this patch exists, so a
-                // rename in a game update should disable this patch rather than crash the mod.
-                var type = AccessTools.TypeByName("OptionsPanel");
-                return type == null ? null : AccessTools.Method(type, "InitializeOptions");
-            }
-
-            public static bool Prepare() => TargetMethod() != null;
-
-            public static void Prefix()
-            {
-                Plugin.TryEnsureInjected();
-            }
-        }
+        // The options panel is handled in OptionsPanelPatches: injecting before it builds its
+        // dropdown is necessary but, as the field proved, not sufficient — the list also has to be
+        // reconciled afterwards.
 
         /// <summary>
         /// Belt and braces: Localize runs constantly and early, so this guarantees injection has

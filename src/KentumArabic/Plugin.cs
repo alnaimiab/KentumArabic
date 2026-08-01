@@ -36,7 +36,7 @@ namespace KentumArabic
         /// to the log, and the log is what a bug report quotes - a stale value here sends people
         /// looking at the wrong build. check_version_sync.py keeps the two honest.
         /// </remarks>
-        public const string PluginVersion = "0.2.4";
+        public const string PluginVersion = "0.2.5";
 
         public static Plugin Instance { get; private set; }
         public static TranslationStore Translations { get; private set; }

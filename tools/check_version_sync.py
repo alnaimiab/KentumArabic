@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Keep the plugin version consistent across the code, the manifest and the published releases.
 
-Three places have to agree, and each drifts differently:
+Four places have to agree, and each drifts differently:
 
   Plugin.cs      what BepInEx prints to the log, and the log is what a bug report quotes. Stale
                  here and the investigation starts from the wrong build.
   manifest.json  what the update check compares and what names the release.
+  the .csproj    what Windows shows in the DLL's file properties. The quietest of the four - it
+                 sat at 0.1.0 through five releases before anyone looked.
   the git tags   what a person can actually download.
 
-The third is the one that bites quietly. Bumping the version on the branch while holding the tag
+The last is the one that bites hardest. Bumping the version on the branch while holding the tag
 back leaves the repository advertising a version nobody can download - the update check reads the
 manifest from the branch, so it points at a release that ships something older. The rule that
 avoids it: the version is bumped as part of publishing, never before.
@@ -35,6 +37,17 @@ def tag_exists(version):
         return None  # git unavailable; not this tool's problem to report
 
 
+def grab(csproj, tag):
+    match = re.search(rf"<{tag}>([^<]+)</{tag}>", csproj)
+    return match.group(1) if match else f"(no <{tag}>)"
+
+
+def strip_revision(value):
+    """AssemblyVersion carries a fourth component the other three do not."""
+    parts = value.split(".")
+    return ".".join(parts[:3]) if len(parts) == 4 and parts[3] == "0" else value
+
+
 def main():
     check_tag = "--check-tag" in sys.argv
     manifest_path = os.path.join(REPO, "content", "manifest.json")
@@ -52,12 +65,25 @@ def main():
 
     code_version = match.group(1)
 
-    if code_version != manifest_version:
-        print(f"version mismatch:")
-        print(f"  src/KentumArabic/Plugin.cs : {code_version}")
-        print(f"  content/manifest.json      : {manifest_version}")
-        print("\nThese must match. The first is what the log reports, the second is what the")
-        print("release is called and what the update check compares.")
+    csproj_path = os.path.join(REPO, "src", "KentumArabic", "KentumArabic.csproj")
+    with open(csproj_path, encoding="utf-8") as handle:
+        csproj = handle.read()
+
+    found = {
+        "src/KentumArabic/Plugin.cs      ": code_version,
+        "content/manifest.json           ": manifest_version,
+        "KentumArabic.csproj <Version>   ": grab(csproj, "Version"),
+        "KentumArabic.csproj <Assembly..>": strip_revision(grab(csproj, "AssemblyVersion")),
+        "KentumArabic.csproj <FileVer..> ": strip_revision(grab(csproj, "FileVersion")),
+    }
+
+    if len(set(found.values())) != 1:
+        print("version mismatch:")
+        for where, value in found.items():
+            print(f"  {where} : {value}")
+        print("\nThese must all match. The first is what the log reports, the second is what the")
+        print("release is called and what the update check compares, and the rest are what the")
+        print("built DLL claims to be.")
         return 1
 
     if check_tag:
@@ -72,7 +98,7 @@ def main():
             print(f"Plugin version {code_version} matches the code, the manifest and tag v{code_version}.")
             return 0
 
-    print(f"Plugin version {code_version} matches in both places.")
+    print(f"Plugin version {code_version} is consistent across the code, the manifest and the csproj.")
     return 0
 
 

@@ -5,9 +5,9 @@
     <AssemblyName>KentumArabic</AssemblyName>
     <RootNamespace>KentumArabic</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <Version>0.1.0</Version>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
+    <Version>0.2.5</Version>
+    <AssemblyVersion>0.2.5.0</AssemblyVersion>
+    <FileVersion>0.2.5.0</FileVersion>
     <Product>Kentum Arabic Translation</Product>
     <Company>KentumArabic contributors</Company>
 

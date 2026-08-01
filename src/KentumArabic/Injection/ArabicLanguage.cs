@@ -187,6 +187,14 @@ namespace KentumArabic.Injection
         /// dropdown resolves its labels in whatever language is currently active, so an English
         /// player browsing the language list must still see a readable entry.
         /// </summary>
+        /// <summary>Re-adds the dropdown label against the live table, for the repair path.</summary>
+        public static void EnsureLabel()
+        {
+            var uilm = UILocalizationManager.instance;
+            if (uilm == null || uilm.textTable == null) return;
+            EnsureLabelField(uilm.textTable);
+        }
+
         private static void EnsureLabelField(TextTable tt)
         {
             var field = tt.GetField(LanguageLabelKey);

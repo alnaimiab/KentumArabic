@@ -215,6 +215,7 @@ namespace KentumArabic
             // cheap to re-apply and idempotent.
             ArabicFont.RegisterFallback();
             Plugin.TryEnsureInjected();
+            LanguageDropdown.Rescan();
         }
 
         private void Update()
@@ -245,6 +246,10 @@ namespace KentumArabic
                 _nextDirectionSweep = Time.unscaledTime + 0.5f;
                 LocalizedTextPatches.DirectAllOnScreen();
             }
+
+            // Deferred by a frame from the options panel hooks, so it lands after the dropdown's
+            // own Start has run and cannot be overwritten by it.
+            LanguageDropdown.Tick();
 
             HandleHotkeys();
         }
@@ -316,6 +321,10 @@ namespace KentumArabic
                 foreach (var s in all) shaped.Add(ArabicShaper.Shape(s));
                 ArabicFont.AuditCoverage(shaped);
             }
+
+            // Ctrl+Alt+G — audit and repair the Options > Language dropdown on demand.
+            if (Hotkeys.Pressed(KeyCode.G))
+                LanguageDropdown.AuditNow();
 
             // Ctrl+Alt+S — status summary.
             if (Hotkeys.Pressed(KeyCode.S))
@@ -402,6 +411,7 @@ namespace KentumArabic
             KeyCode.T => UnityEngine.InputSystem.Key.T,
             KeyCode.D => UnityEngine.InputSystem.Key.D,
             KeyCode.F => UnityEngine.InputSystem.Key.F,
+            KeyCode.G => UnityEngine.InputSystem.Key.G,
             KeyCode.S => UnityEngine.InputSystem.Key.S,
             KeyCode.F12 => UnityEngine.InputSystem.Key.F12,
             _ => UnityEngine.InputSystem.Key.None,

@@ -42,6 +42,16 @@ namespace KentumArabic.Util
         }
 
         /// <summary>
+        /// Records that a hook fired, without repeating it on every subsequent call. Whether a
+        /// patch ever runs is the first thing a report needs to answer, and it cannot be answered
+        /// by a log that only speaks up when something goes wrong.
+        /// </summary>
+        public static void InfoOnce(string key, string msg)
+        {
+            if (_onceKeys.Add(key)) _log?.LogInfo(msg);
+        }
+
+        /// <summary>
         /// Runs an action, reporting any failure without propagating it. Used to isolate each
         /// patch and each load step so one broken piece degrades instead of cascading.
         /// </summary>
